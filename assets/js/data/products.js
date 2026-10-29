@@ -1,2588 +1,6073 @@
 /**
- * Products Master Database
- * Fully data-driven, expandable apparel catalog.
+ * Products Master Database - DXN & Kallow Health, Wellness & Beauty Catalog
+ * Fully data-driven catalog with bilingual support (Arabic & French),
+ * pricing, attributes, high-resolution photography, and taxonomy.
  */
 
 window.DEFAULT_STORE_PRODUCTS = [
-    {
-        "id": "heritage-regular-tshirt-heather-grey",
-        "group": "heritage-regular",
-        "name": "T-Shirt Regular Heritage",
-        "slug": "heritage-regular-tshirt-heather",
-        "category": "t-shirts",
-        "collections": [
-            "essential-collection",
-            "new-arrivals"
-        ],
-        "price": 249,
-        "compareAtPrice": 299,
-        "isNew": true,
-        "isSale": false,
-        "isFeatured": true,
-        "isBundle": false,
-        "rating": 5,
-        "reviewCount": 24,
-        "shortDescription": "T-shirt essentiel à la coupe regular intemporelle, confectionné dans un jersey doux et respirant de 180 GSM.",
-        "description": "L’équilibre parfait entre confort quotidien et durabilité. Conçu dans un mélange riche en coton (85%) au grammage polyvalent de 180 GSM, ce t-shirt offre un tombé fluide et naturel. Sa coupe regular classique, complétée par un col côtelé soigneusement surpiqué, en fait la base idéale pour toutes les silhouettes urbaines.",
-        "details": [
-            "Coupe regular classique",
-            "Grammage équilibré 180 GSM",
-            "Matière douce 85% coton respirant",
-            "Texture gris chiné premium",
-            "Col rond côtelé avec bande de propreté",
-            "Coutures renforcées double aiguille"
-        ],
-        "materials": "85% Coton, 15% Viscose / Polyester — Jersey 180 GSM",
-        "fit": "Coupe regular classique. Prenez votre taille habituelle pour un porté standard, ou une taille au-dessus pour un look plus décontracté.",
-        "careInstructions": "Lavage en machine à 30°C sur l'envers. Repassage doux sur l'envers. Ne pas sécher en machine.",
-        "colors": [
-            {
-                "name": "Empty Grey",
-                "code": "Gris",
-                "hex": "#A8A9AD",
-                "image": "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/grey-front.png",
-                "productId": "heritage-regular-tshirt-heather-grey",
-                "linkUrl": "product.html?id=heritage-regular-tshirt-heather-grey&color=Gris"
-            },
-            {
-                "name": "Brun Taupe",
-                "code": "taupe",
-                "hex": "#7B6252",
-                "image": "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Brown _ Taupe.png",
-                "productId": "heritage-regular-tshirt-heather-grey",
-                "linkUrl": "product.html?id=heritage-regular-tshirt-heather-grey&color=taupe"
-            },
-            {
-                "name": "Crème",
-                "code": "cream",
-                "hex": "#EFEAD8",
-                "image": "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Cream.png",
-                "productId": "heritage-regular-tshirt-heather-grey",
-                "linkUrl": "product.html?id=heritage-regular-tshirt-heather-grey&color=cream"
-            },
-            {
-                "name": "Rose Poudré",
-                "code": "dusty-rose",
-                "hex": "#D6A5A3",
-                "image": "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Dusty Rose _ Pink.png",
-                "productId": "heritage-regular-tshirt-heather-grey",
-                "linkUrl": "product.html?id=heritage-regular-tshirt-heather-grey&color=dusty-rose"
-            },
-            {
-                "name": "Bleu Ciel",
-                "code": "light-blue",
-                "hex": "#9EBCD4",
-                "image": "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Light Blue.png",
-                "productId": "heritage-regular-tshirt-heather-grey",
-                "linkUrl": "product.html?id=heritage-regular-tshirt-heather-grey&color=light-blue"
-            },
-            {
-                "name": "Gris Moyen",
-                "code": "medium-grey",
-                "hex": "#8A8D90",
-                "image": "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Medium Grey.png",
-                "productId": "heritage-regular-tshirt-heather-grey",
-                "linkUrl": "product.html?id=heritage-regular-tshirt-heather-grey&color=medium-grey"
-            },
-            {
-                "name": "Bleu Intense",
-                "code": "strong-blue",
-                "hex": "#1E4870",
-                "image": "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Strong Blue.png",
-                "productId": "heritage-regular-tshirt-heather-grey",
-                "linkUrl": "product.html?id=heritage-regular-tshirt-heather-grey&color=strong-blue"
-            },
-            {
-                "name": "Bleu Canard",
-                "code": "teal",
-                "hex": "#276063",
-                "image": "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Teal _ Blue-Green.png",
-                "productId": "heritage-regular-tshirt-heather-grey",
-                "linkUrl": "product.html?id=heritage-regular-tshirt-heather-grey&color=teal"
-            }
-        ],
-        "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL"
-        ],
-        "images": {
-            "Gris": [
-                "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/grey-front.png",
-                "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/grey-back.png",
-                "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/gemini_generated_image_7j6r747j6r747j6r.jpeg",
-                "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/gemini_generated_image_cdk9qucdk9qucdk9.jpeg",
-                "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/gemini_generated_image_hafru3hafru3hafr.jpeg",
-                "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/gemini_generated_image_sxz3fjsxz3fjsxz3.jpeg",
-                "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/gemini_generated_image_y1l7uyy1l7uyy1l7.jpeg"
-            ],
-            "taupe": [
-                "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Brown _ Taupe.png",
-                "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Brown _ Taupe b.png"
-            ],
-            "cream": [
-                "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Cream.png",
-                "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Cream b.png"
-            ],
-            "dusty-rose": [
-                "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Dusty Rose _ Pink.png",
-                "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Dusty Rose _ Pink b.png"
-            ],
-            "light-blue": [
-                "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Light Blue.png",
-                "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Light Blue b.png"
-            ],
-            "medium-grey": [
-                "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Medium Grey.png",
-                "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Medium Grey b.png"
-            ],
-            "strong-blue": [
-                "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Strong Blue.png",
-                "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Strong Blue b.png"
-            ],
-            "teal": [
-                "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Teal _ Blue-Green.png",
-                "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Teal _ Blue-Green b.png"
-            ]
-        },
-        "variants": [
-            {
-                "id": "heri-Gri-s",
-                "color": "Gris",
-                "size": "S",
-                "sku": "T-S-GRI-S",
-                "stock": 10,
-                "price": 249
-            },
-            {
-                "id": "heri-Gri-m",
-                "color": "Gris",
-                "size": "M",
-                "sku": "T-S-GRI-M",
-                "stock": 10,
-                "price": 249
-            },
-            {
-                "id": "heri-Gri-l",
-                "color": "Gris",
-                "size": "L",
-                "sku": "T-S-GRI-L",
-                "stock": 10,
-                "price": 249
-            },
-            {
-                "id": "heri-Gri-xl",
-                "color": "Gris",
-                "size": "XL",
-                "sku": "T-S-GRI-XL",
-                "stock": 10,
-                "price": 249
-            },
-            {
-                "id": "heri-tau-s",
-                "color": "taupe",
-                "size": "S",
-                "sku": "T-S-TAU-S",
-                "stock": 10,
-                "price": 249
-            },
-            {
-                "id": "heri-tau-m",
-                "color": "taupe",
-                "size": "M",
-                "sku": "T-S-TAU-M",
-                "stock": 12,
-                "price": 249
-            },
-            {
-                "id": "heri-tau-l",
-                "color": "taupe",
-                "size": "L",
-                "sku": "T-S-TAU-L",
-                "stock": 10,
-                "price": 249
-            },
-            {
-                "id": "heri-tau-xl",
-                "color": "taupe",
-                "size": "XL",
-                "sku": "T-S-TAU-XL",
-                "stock": 8,
-                "price": 249
-            },
-            {
-                "id": "heri-cre-s",
-                "color": "cream",
-                "size": "S",
-                "sku": "T-S-CRE-S",
-                "stock": 10,
-                "price": 249
-            },
-            {
-                "id": "heri-cre-m",
-                "color": "cream",
-                "size": "M",
-                "sku": "T-S-CRE-M",
-                "stock": 15,
-                "price": 249
-            },
-            {
-                "id": "heri-cre-l",
-                "color": "cream",
-                "size": "L",
-                "sku": "T-S-CRE-L",
-                "stock": 12,
-                "price": 249
-            },
-            {
-                "id": "heri-cre-xl",
-                "color": "cream",
-                "size": "XL",
-                "sku": "T-S-CRE-XL",
-                "stock": 8,
-                "price": 249
-            },
-            {
-                "id": "heri-dus-s",
-                "color": "dusty-rose",
-                "size": "S",
-                "sku": "T-S-DUS-S",
-                "stock": 8,
-                "price": 249
-            },
-            {
-                "id": "heri-dus-m",
-                "color": "dusty-rose",
-                "size": "M",
-                "sku": "T-S-DUS-M",
-                "stock": 12,
-                "price": 249
-            },
-            {
-                "id": "heri-dus-l",
-                "color": "dusty-rose",
-                "size": "L",
-                "sku": "T-S-DUS-L",
-                "stock": 10,
-                "price": 249
-            },
-            {
-                "id": "heri-dus-xl",
-                "color": "dusty-rose",
-                "size": "XL",
-                "sku": "T-S-DUS-XL",
-                "stock": 6,
-                "price": 249
-            },
-            {
-                "id": "heri-lig-s",
-                "color": "light-blue",
-                "size": "S",
-                "sku": "T-S-LIG-S",
-                "stock": 10,
-                "price": 249
-            },
-            {
-                "id": "heri-lig-m",
-                "color": "light-blue",
-                "size": "M",
-                "sku": "T-S-LIG-M",
-                "stock": 14,
-                "price": 249
-            },
-            {
-                "id": "heri-lig-l",
-                "color": "light-blue",
-                "size": "L",
-                "sku": "T-S-LIG-L",
-                "stock": 10,
-                "price": 249
-            },
-            {
-                "id": "heri-lig-xl",
-                "color": "light-blue",
-                "size": "XL",
-                "sku": "T-S-LIG-XL",
-                "stock": 8,
-                "price": 249
-            },
-            {
-                "id": "heri-med-s",
-                "color": "medium-grey",
-                "size": "S",
-                "sku": "T-S-MED-S",
-                "stock": 10,
-                "price": 249
-            },
-            {
-                "id": "heri-med-m",
-                "color": "medium-grey",
-                "size": "M",
-                "sku": "T-S-MED-M",
-                "stock": 12,
-                "price": 249
-            },
-            {
-                "id": "heri-med-l",
-                "color": "medium-grey",
-                "size": "L",
-                "sku": "T-S-MED-L",
-                "stock": 10,
-                "price": 249
-            },
-            {
-                "id": "heri-med-xl",
-                "color": "medium-grey",
-                "size": "XL",
-                "sku": "T-S-MED-XL",
-                "stock": 8,
-                "price": 249
-            },
-            {
-                "id": "heri-str-s",
-                "color": "strong-blue",
-                "size": "S",
-                "sku": "T-S-STR-S",
-                "stock": 10,
-                "price": 249
-            },
-            {
-                "id": "heri-str-m",
-                "color": "strong-blue",
-                "size": "M",
-                "sku": "T-S-STR-M",
-                "stock": 12,
-                "price": 249
-            },
-            {
-                "id": "heri-str-l",
-                "color": "strong-blue",
-                "size": "L",
-                "sku": "T-S-STR-L",
-                "stock": 10,
-                "price": 249
-            },
-            {
-                "id": "heri-str-xl",
-                "color": "strong-blue",
-                "size": "XL",
-                "sku": "T-S-STR-XL",
-                "stock": 6,
-                "price": 249
-            },
-            {
-                "id": "heri-tea-s",
-                "color": "teal",
-                "size": "S",
-                "sku": "T-S-TEA-S",
-                "stock": 10,
-                "price": 249
-            },
-            {
-                "id": "heri-tea-m",
-                "color": "teal",
-                "size": "M",
-                "sku": "T-S-TEA-M",
-                "stock": 12,
-                "price": 249
-            },
-            {
-                "id": "heri-tea-l",
-                "color": "teal",
-                "size": "L",
-                "sku": "T-S-TEA-L",
-                "stock": 10,
-                "price": 249
-            },
-            {
-                "id": "heri-tea-xl",
-                "color": "teal",
-                "size": "XL",
-                "sku": "T-S-TEA-XL",
-                "stock": 8,
-                "price": 249
-            }
-        ],
-        "tags": [
-            "regular fit",
-            "heritage",
-            "gris chine",
-            "180 gsm",
-            "coton doux",
-            "streetwear",
-            "indispensable"
-        ]
-    },
-    {
-        "id": "pack-trio-tshirts",
-        "name": "Pack 3 T-Shirts Personnalisable",
-        "slug": "pack-trio-tshirts",
-        "category": "t-shirts",
-        "collections": [
-            "packs-bundles",
-            "essential-collection",
-            "new-arrivals"
-        ],
-        "price": 599,
-        "compareAtPrice": 780,
-        "isNew": true,
-        "isSale": true,
-        "isFeatured": true,
-        "isBundle": true,
-        "bundleSlotsCount": 3,
-        "bundleIncludedProductIds": [
-            "graphic-tee-colored",
-            "essential-oversized-tee",
-            "minimal-embroidered-logo-tee"
-        ],
-        "rating": 5,
-        "reviewCount": 48,
-        "shortDescription": "Composez votre pack sur-mesure de 3 t-shirts parmi l'ensemble de nos modèles et coloris signatures.",
-        "description": "Le Pack Trio Atelier vous offre la liberté absolue de composer votre vestiaire idéal à prix préférentiel. Choisissez 3 t-shirts parmi l'ensemble de nos coupes d'exception (Graphic Colored Edition, Oversized Monogramme Big, Minimal Essential) avec sélection libre des coloris et des tailles pour chaque pièce.",
-        "details": [
-            "3 T-Shirts au choix parmi l'ensemble du catalogue",
-            "Sélection libre du modèle, de la couleur et de la taille pour chaque pièce",
-            "Jersey lourd d'exception 240 à 300 GSM en 100% coton peigné",
-            "Économisez 181 MAD par rapport aux achats à l'unité",
-            "Livraison Express Gratuite partout au Maroc",
-            "Livré dans notre coffret collector signature Atelier"
-        ],
-        "materials": "100% Coton peigné haute densité (240 - 300 GSM)",
-        "fit": "Coupes libres au choix (Boxy, Oversize, Décontractée)",
-        "careInstructions": "Lavage en machine à 30°C sur l'envers. Séchage à plat.",
-        "colors": [
-            {
-                "name": "Pack Trio Sur-Mesure",
-                "code": "bundle",
-                "hex": "#111111",
-                "image": "assets/images/products/t-shirts/tshirt-Pack-3.jpg"
-            }
-        ],
-        "sizes": [
-            "Custom (3 Tailles au choix)"
-        ],
-        "images": {
-            "bundle": [
-                "assets/images/products/t-shirts/tshirt-Pack-3.jpg"
-            ]
-        },
-        "variants": [
-            {
-                "id": "pack-trio-3tsh",
-                "color": "bundle",
-                "size": "Custom",
-                "sku": "PACK-TRIO-3TSH",
-                "stock": 50,
-                "price": 599
-            }
-        ],
-        "tags": [
-            "pack",
-            "trio",
-            "bundle",
-            "offre speciale",
-            "3 tshirts",
-            "streetwear",
-            "coton lourd"
-        ]
-    },
-    {
-        "id": "graphic-tee-colored",
-        "name": "T-Shirt Graphic Colored Edition",
-        "slug": "graphic-tee-colored",
-        "category": "t-shirts",
-        "collections": [
-            "essential-collection",
-            "new-arrivals"
-        ],
-        "price": 269,
-        "compareAtPrice": 320,
-        "isNew": true,
-        "isSale": false,
-        "isFeatured": true,
-        "rating": 4.9,
-        "reviewCount": 18,
-        "shortDescription": "Édition graphique avec logo coloré signature, taillée dans un jersey 100% coton lourd 260 GSM.",
-        "description": "Inspiré par l'esthétique streetwear contemporaine. Ce t-shirt arbore un logo coloré signature au relief saisissant, sur un jersey de coton peigné haut de gamme 260 GSM pour un toucher velouté et une excellente tenue dans le temps.",
-        "details": [
-            "Visuel coloré multi-tons haute fidélité",
-            "Jersey épais 260 GSM peigné de qualité supérieure",
-            "Col rond côtelé doublé 3 cm anti-déformation",
-            "Coupe boxy décontractée aux épaules tombantes",
-            "Coutures renforcées double aiguille",
-            "Prélavé aux enzymes pour une douceur et stabilité parfaites"
-        ],
-        "materials": "100% Coton peigné premium 260 GSM",
-        "fit": "Coupe décontractée contemporaine. Prenez votre taille habituelle pour un tombé ample.",
-        "careInstructions": "Lavage en machine à 30°C sur l'envers. Séchage à plat.",
-        "colors": [
-            {
-                "name": "Noir Onyx",
-                "code": "black",
-                "hex": "#121212",
-                "image": "assets/images/products/t-shirts/vintage-washed-charcoal-tee/front-main.png"
-            },
-            {
-                "name": "Bleu Foncé",
-                "code": "dark-blue",
-                "hex": "#192231",
-                "image": "assets/images/products/t-shirts/graphic-tee-colored-blue-dark/front-main.png"
-            },
-            {
-                "name": "Indigo",
-                "code": "indigo",
-                "hex": "#EADACB",
-                "image": "assets/images/products/t-shirts/essential-tee-indigo/front-main.png"
-            },
-            {
-                "name": "Baby Pink",
-                "code": "rose",
-                "hex": "#F6D9DC",
-                "image": "assets/images/products/t-shirts/essential-tee-rose/tshirt-pink-front.png"
-            }
-        ],
-        "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL"
-        ],
-        "images": {
-            "black": [
-                "assets/images/products/t-shirts/vintage-washed-charcoal-tee/front-main.png",
-                "assets/images/products/t-shirts/vintage-washed-charcoal-tee/back-hover.png",
-                "assets/images/products/t-shirts/vintage-washed-charcoal-tee/firefly_gemini-flash_create-a-photorealistic-moroccan-streetwear-t-shirt-mockup-using-the-uploaded-referen-416025.png",
-                "assets/images/products/t-shirts/vintage-washed-charcoal-tee/firefly_gemini-flash_create-a-premium-realistic-flat-lay-product-mockup-using-the-uploaded-reference-image-416025.png",
-                "assets/images/products/t-shirts/vintage-washed-charcoal-tee/firefly_gemini-flash_create-a-premium-realistic-t-shirt-product-mockup-using-the-uploaded-reference-images-416025.png",
-                "assets/images/products/t-shirts/vintage-washed-charcoal-tee/firefly_gemini-flash_create-a-professional-fashion-campaign-image-featuring-the-exact-t-shirt-from-the-upl-416025.png",
-                "assets/images/products/t-shirts/vintage-washed-charcoal-tee/firefly_gemini-flash_create-a-realistic-ecommerce-mockup-of-the-exact-t-shirt-shown-in-the-uploaded-refere-416025.png",
-                "assets/images/products/t-shirts/vintage-washed-charcoal-tee/firefly_gemini-flash_create-a-realistic-lifestyle-t-shirt-mockup-using-the-uploaded-reference-images-as-th-416025.png",
-                "assets/images/products/t-shirts/vintage-washed-charcoal-tee/lookbook.jpg"
-            ],
-            "dark-blue": [
-                "assets/images/products/t-shirts/graphic-tee-colored-blue-dark/front-main.png",
-                "assets/images/products/t-shirts/graphic-tee-colored-blue-dark/back-hover.png",
-                "assets/images/products/t-shirts/graphic-tee-colored-blue-dark/firefly_gemini-flash_create-a-clean-premium-ecommerce-mockup-using-the-uploaded-reference-images-as-the-ex-851006.png",
-                "assets/images/products/t-shirts/graphic-tee-colored-blue-dark/firefly_gemini-flash_create-a-photorealistic-moroccan-streetwear-t-shirt-mockup-using-the-uploaded-referen-851006.png",
-                "assets/images/products/t-shirts/graphic-tee-colored-blue-dark/firefly_gemini-flash_create-a-premium-realistic-flat-lay-product-mockup-using-the-uploaded-reference-image-851006.png",
-                "assets/images/products/t-shirts/graphic-tee-colored-blue-dark/firefly_gemini-flash_create-a-professional-fashion-campaign-image-featuring-the-exact-t-shirt-from-the-upl-851006.png",
-                "assets/images/products/t-shirts/graphic-tee-colored-blue-dark/firefly_gemini-flash_create-a-realistic-ecommerce-mockup-of-the-exact-t-shirt-shown-in-the-uploaded-refere-851006.png",
-                "assets/images/products/t-shirts/graphic-tee-colored-blue-dark/firefly_gemini-flash_create-a-realistic-lifestyle-t-shirt-mockup-using-the-uploaded-reference-images-as-th-416025.png",
-                "assets/images/products/t-shirts/graphic-tee-colored-blue-dark/firefly_gemini-flash_create-a-realistic-lifestyle-t-shirt-mockup-using-the-uploaded-reference-images-as-th-851006.png",
-                "assets/images/products/t-shirts/graphic-tee-colored-blue-dark/lookbook.jpg"
-            ],
-            "indigo": [
-                "assets/images/products/t-shirts/essential-tee-indigo/front-main.png",
-                "assets/images/products/t-shirts/essential-tee-indigo/back-hover.png",
-                "assets/images/products/t-shirts/essential-tee-indigo/firefly_gemini-flash_create-a-clean-premium-ecommerce-mockup-using-the-uploaded-reference-images-as-the-ex-570983.png",
-                "assets/images/products/t-shirts/essential-tee-indigo/firefly_gemini-flash_create-a-photorealistic-moroccan-streetwear-t-shirt-mockup-using-the-uploaded-referen-990509.png",
-                "assets/images/products/t-shirts/essential-tee-indigo/firefly_gemini-flash_create-a-premium-realistic-flat-lay-product-mockup-using-the-uploaded-reference-image-990509.png",
-                "assets/images/products/t-shirts/essential-tee-indigo/firefly_gemini-flash_create-a-professional-fashion-campaign-image-featuring-the-exact-t-shirt-from-the-upl-990509.png",
-                "assets/images/products/t-shirts/essential-tee-indigo/firefly_gemini-flash_create-a-realistic-ecommerce-mockup-of-the-exact-t-shirt-shown-in-the-uploaded-refere-990509.png",
-                "assets/images/products/t-shirts/essential-tee-indigo/firefly_gemini-flash_create-a-realistic-lifestyle-t-shirt-mockup-using-the-uploaded-reference-images-as-th-990509.png",
-                "assets/images/products/t-shirts/essential-tee-indigo/firefly_gemini-flash_create-a-realistic-lifestyle-t-shirt-mockup-using-the-uploaded-reference-images-as-th-995731.png",
-                "assets/images/products/t-shirts/essential-tee-indigo/lookbook.jpg"
-            ],
-            "rose": [
-                "assets/images/products/t-shirts/essential-tee-rose/tshirt-pink-front.png",
-                "assets/images/products/t-shirts/essential-tee-rose/tshirt-pink-back.png",
-                "assets/images/products/t-shirts/essential-tee-rose/gemini_generated_image_1sxhus1sxhus1sxh.jpeg",
-                "assets/images/products/t-shirts/essential-tee-rose/gemini_generated_image_2b0e1e2b0e1e2b0e.jpeg",
-                "assets/images/products/t-shirts/essential-tee-rose/gemini_generated_image_9k688p9k688p9k68.jpeg",
-                "assets/images/products/t-shirts/essential-tee-rose/gemini_generated_image_glke8aglke8aglke.jpeg",
-                "assets/images/products/t-shirts/essential-tee-rose/gemini_generated_image_gp1ws7gp1ws7gp1w.jpeg",
-                "assets/images/products/t-shirts/essential-tee-rose/gemini_generated_image_h5djfth5djfth5dj.jpeg",
-                "assets/images/products/t-shirts/essential-tee-rose/gemini_generated_image_nvw4f4nvw4f4nvw4.jpeg"
-            ],
-            "pink": [
-                "assets/images/products/t-shirts/essential-tee-rose/tshirt-pink-front.png",
-                "assets/images/products/t-shirts/essential-tee-rose/tshirt-pink-back.png",
-                "assets/images/products/t-shirts/essential-tee-rose/gemini_generated_image_1sxhus1sxhus1sxh.jpeg",
-                "assets/images/products/t-shirts/essential-tee-rose/gemini_generated_image_2b0e1e2b0e1e2b0e.jpeg",
-                "assets/images/products/t-shirts/essential-tee-rose/gemini_generated_image_9k688p9k688p9k68.jpeg",
-                "assets/images/products/t-shirts/essential-tee-rose/gemini_generated_image_glke8aglke8aglke.jpeg",
-                "assets/images/products/t-shirts/essential-tee-rose/gemini_generated_image_gp1ws7gp1ws7gp1w.jpeg",
-                "assets/images/products/t-shirts/essential-tee-rose/gemini_generated_image_h5djfth5djfth5dj.jpeg",
-                "assets/images/products/t-shirts/essential-tee-rose/gemini_generated_image_nvw4f4nvw4f4nvw4.jpeg"
-            ]
-        },
-        "variants": [
-            {
-                "id": "grap-bla-s",
-                "color": "black",
-                "size": "S",
-                "sku": "T-S-BLA-S",
-                "stock": 8,
-                "price": 269
-            },
-            {
-                "id": "grap-bla-m",
-                "color": "black",
-                "size": "M",
-                "sku": "T-S-BLA-M",
-                "stock": 12,
-                "price": 269
-            },
-            {
-                "id": "grap-bla-l",
-                "color": "black",
-                "size": "L",
-                "sku": "T-S-BLA-L",
-                "stock": 10,
-                "price": 269
-            },
-            {
-                "id": "grap-bla-xl",
-                "color": "black",
-                "size": "XL",
-                "sku": "T-S-BLA-XL",
-                "stock": 5,
-                "price": 269
-            },
-            {
-                "id": "grap-dar-s",
-                "color": "dark-blue",
-                "size": "S",
-                "sku": "T-S-DAR-S",
-                "stock": 10,
-                "price": 269
-            },
-            {
-                "id": "grap-dar-m",
-                "color": "dark-blue",
-                "size": "M",
-                "sku": "T-S-DAR-M",
-                "stock": 10,
-                "price": 269
-            },
-            {
-                "id": "grap-dar-l",
-                "color": "dark-blue",
-                "size": "L",
-                "sku": "T-S-DAR-L",
-                "stock": 10,
-                "price": 269
-            },
-            {
-                "id": "grap-dar-xl",
-                "color": "dark-blue",
-                "size": "XL",
-                "sku": "T-S-DAR-XL",
-                "stock": 10,
-                "price": 269
-            },
-            {
-                "id": "grap-ind-s",
-                "color": "indigo",
-                "size": "S",
-                "sku": "T-S-IND-S",
-                "stock": 10,
-                "price": 269
-            },
-            {
-                "id": "grap-ind-m",
-                "color": "indigo",
-                "size": "M",
-                "sku": "T-S-IND-M",
-                "stock": 10,
-                "price": 269
-            },
-            {
-                "id": "grap-ind-l",
-                "color": "indigo",
-                "size": "L",
-                "sku": "T-S-IND-L",
-                "stock": 10,
-                "price": 269
-            },
-            {
-                "id": "grap-ind-xl",
-                "color": "indigo",
-                "size": "XL",
-                "sku": "T-S-IND-XL",
-                "stock": 10,
-                "price": 269
-            },
-            {
-                "id": "grap-ros-s",
-                "color": "rose",
-                "size": "S",
-                "sku": "T-S-ROS-S",
-                "stock": 10,
-                "price": 269
-            },
-            {
-                "id": "grap-ros-m",
-                "color": "rose",
-                "size": "M",
-                "sku": "T-S-ROS-M",
-                "stock": 10,
-                "price": 269
-            },
-            {
-                "id": "grap-ros-l",
-                "color": "rose",
-                "size": "L",
-                "sku": "T-S-ROS-L",
-                "stock": 10,
-                "price": 269
-            },
-            {
-                "id": "grap-ros-xl",
-                "color": "rose",
-                "size": "XL",
-                "sku": "T-S-ROS-XL",
-                "stock": 10,
-                "price": 269
-            }
-        ],
-        "tags": [
-            "graphic",
-            "colored logo",
-            "streetwear",
-            "coton lourd",
-            "260 gsm"
-        ]
-    },
-    {
-        "id": "essential-oversized-tee",
-        "name": "T-Shirt Oversized Monogramme Big",
-        "slug": "essential-oversized-tee",
-        "category": "t-shirts",
-        "collections": [
-            "essential-collection",
-            "new-arrivals"
-        ],
-        "price": 249,
-        "compareAtPrice": 299,
-        "isNew": true,
-        "isSale": true,
-        "isFeatured": true,
-        "rating": 5,
-        "reviewCount": 24,
-        "shortDescription": "T-shirt à la coupe oversized contemporaine, taillé dans un jersey 100% coton lourd 240 GSM avec grand visuel signature.",
-        "description": "Le T-Shirt Oversized Big Monogram est la pièce fondamentale de notre collection permanente. Développé après des mois de prototypage, il combine une coupe boxy moderne aux épaules tombantes et un col côtelé renforcé de 3 cm qui ne s'évase pas au fil des lavages. Confectionné au Maroc dans un coton peigné d'exception.",
-        "details": [
-            "Coupe oversized décontractée aux épaules tombantes",
-            "Jersey épais 240 GSM (Grammes par Mètre Carré)",
-            "Col rond côtelé 1x1 doublé et renforcé (3 cm de largeur)",
-            "Coutures renforcées double aiguille sur les ourlets",
-            "Teinture réactive haute tenue pour une longévité maximale des couleurs",
-            "Prélavé aux enzymes pour éviter tout rétrécissement ultérieur"
-        ],
-        "materials": "100% Coton peigné haut de gamme",
-        "fit": "Coupe oversize prononcée. Nous vous recommandons de prendre votre taille habituelle pour un tombé ample, ou une taille inférieure pour un ajustement régulier.",
-        "careInstructions": "Lavage en machine à 30°C sur l'envers avec des coloris similaires. Essorage doux. Repassage à température moyenne sur l'envers. Séchage à l'air libre vivement conseillé.",
-        "colors": [
-            {
-                "name": "Noir Onyx",
-                "code": "black",
-                "hex": "#121212",
-                "image": "assets/images/products/t-shirts/essential-oversized-tee/front-main.png",
-                "productId": "essential-oversized-tee",
-                "linkUrl": "product.html?id=essential-oversized-tee&color=black"
-            },
-            {
-                "name": "Bleu Marine",
-                "code": "navy",
-                "hex": "#1D2E4E",
-                "image": "assets/images/products/t-shirts/essential-oversized-tee/1.png",
-                "productId": "essential-oversized-tee",
-                "linkUrl": "product.html?id=essential-oversized-tee&color=navy"
-            },
-            {
-                "name": "Blanc Craie",
-                "code": "white",
-                "hex": "#F4F4F0",
-                "image": "assets/images/products/t-shirts/oversized-tee-big-white/front-main.png",
-                "productId": "essential-oversized-tee",
-                "linkUrl": "product.html?id=essential-oversized-tee&color=white"
-            }
-        ],
-        "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL"
-        ],
-        "images": {
-            "black": [
-                "assets/images/products/t-shirts/essential-oversized-tee/front-main.png",
-                "assets/images/products/t-shirts/essential-oversized-tee/back-hover.png",
-                "assets/images/products/t-shirts/essential-oversized-tee/firefly_gemini-flash_create-a-clean-premium-ecommerce-mockup-using-the-uploaded-reference-images-as-the-ex-166447.png",
-                "assets/images/products/t-shirts/essential-oversized-tee/firefly_gemini-flash_create-a-photorealistic-moroccan-streetwear-t-shirt-mockup-using-the-uploaded-referen-736820.png",
-                "assets/images/products/t-shirts/essential-oversized-tee/firefly_gemini-flash_create-a-premium-realistic-flat-lay-product-mockup-using-the-uploaded-reference-image-736820.png",
-                "assets/images/products/t-shirts/essential-oversized-tee/firefly_gemini-flash_create-a-premium-realistic-t-shirt-product-mockup-using-the-uploaded-reference-images-736820.png",
-                "assets/images/products/t-shirts/essential-oversized-tee/firefly_gemini-flash_create-a-professional-fashion-campaign-image-featuring-the-exact-t-shirt-from-the-upl-736820.png",
-                "assets/images/products/t-shirts/essential-oversized-tee/firefly_gemini-flash_create-a-realistic-ecommerce-mockup-of-the-exact-t-shirt-shown-in-the-uploaded-refere-736820.png",
-                "assets/images/products/t-shirts/essential-oversized-tee/firefly_gemini-flash_create-a-realistic-lifestyle-t-shirt-mockup-using-the-uploaded-reference-images-as-th-736820.png",
-                "assets/images/products/t-shirts/essential-oversized-tee/lookbook.jpg"
-            ],
-            "navy": [
-                "assets/images/products/t-shirts/essential-oversized-tee/1.png",
-                "assets/images/products/t-shirts/heavyweight-boxy-tee-300/back-hover.png",
-                "assets/images/products/t-shirts/essential-oversized-tee/firefly_create-a-highly-realistic-close-up-fashion-product-photograph-of-the-t-shirt-from-the-55293.png",
-                "assets/images/products/t-shirts/essential-oversized-tee/firefly_create-a-photorealistic-moroccan-streetwear-t-shirt-mockup-using-the-uploaded-referen-55293--1-.png",
-                "assets/images/products/t-shirts/essential-oversized-tee/firefly_create-a-photorealistic-moroccan-streetwear-t-shirt-mockup-using-the-uploaded-referen-55293.png",
-                "assets/images/products/t-shirts/essential-oversized-tee/firefly_create-a-premium-realistic-flat-lay-product-mockup-using-the-uploaded-reference-image-55293.png",
-                "assets/images/products/t-shirts/essential-oversized-tee/firefly_create-a-premium-realistic-t-shirt-product-mockup-using-the-uploaded-reference-images-55293.png",
-                "assets/images/products/t-shirts/essential-oversized-tee/firefly_create-a-professional-fashion-campaign-image-featuring-the-exact-t-shirt-from-the-upl-55293.png",
-                "assets/images/products/t-shirts/essential-oversized-tee/firefly_create-a-realistic-ecommerce-mockup-of-the-exact-t-shirt-shown-in-the-uploaded-refere-55293.png",
-                "assets/images/products/t-shirts/essential-oversized-tee/firefly_create-a-realistic-lifestyle-t-shirt-mockup-using-the-uploaded-reference-images-as-th-55293.png",
-                "assets/images/products/t-shirts/essential-oversized-tee/firefly_gemini-flash_create-a-clean-premium-ecommerce-mockup-using-the-uploaded-reference-images-as-the-ex-55293.png"
-            ],
-            "white": [
-                "assets/images/products/t-shirts/oversized-tee-big-white/front-main.png",
-                "assets/images/products/t-shirts/oversized-tee-big-white/back-hover.png",
-                "assets/images/products/t-shirts/oversized-tee-big-white/firefly_gemini-flash_create-a-clean-premium-ecommerce-mockup-using-the-uploaded-reference-images-as-the-ex-522745.png",
-                "assets/images/products/t-shirts/oversized-tee-big-white/firefly_gemini-flash_create-a-photorealistic-moroccan-streetwear-t-shirt-mockup-using-the-uploaded-referen-570983.png",
-                "assets/images/products/t-shirts/oversized-tee-big-white/firefly_gemini-flash_create-a-premium-realistic-flat-lay-product-mockup-using-the-uploaded-reference-image-570983.png",
-                "assets/images/products/t-shirts/oversized-tee-big-white/firefly_gemini-flash_create-a-premium-realistic-t-shirt-product-mockup-using-the-uploaded-reference-images-570983.png",
-                "assets/images/products/t-shirts/oversized-tee-big-white/firefly_gemini-flash_create-a-professional-fashion-campaign-image-featuring-the-exact-t-shirt-from-the-upl-570983.png",
-                "assets/images/products/t-shirts/oversized-tee-big-white/firefly_gemini-flash_create-a-realistic-ecommerce-mockup-of-the-exact-t-shirt-shown-in-the-uploaded-refere-570983.png",
-                "assets/images/products/t-shirts/oversized-tee-big-white/firefly_gemini-flash_create-a-realistic-lifestyle-t-shirt-mockup-using-the-uploaded-reference-images-as-th-570983.png",
-                "assets/images/products/t-shirts/oversized-tee-big-white/firefly_gemini-flash_create-a-realistic-lifestyle-t-shirt-mockup-using-the-uploaded-reference-images-as-th-736820.png",
-                "assets/images/products/t-shirts/oversized-tee-big-white/lookbook.jpg"
-            ]
-        },
-        "variants": [
-            {
-                "id": "esse-bla-s",
-                "color": "black",
-                "size": "S",
-                "sku": "T-S-BLA-S",
-                "stock": 8,
-                "price": 249
-            },
-            {
-                "id": "esse-bla-m",
-                "color": "black",
-                "size": "M",
-                "sku": "T-S-BLA-M",
-                "stock": 15,
-                "price": 249
-            },
-            {
-                "id": "esse-bla-l",
-                "color": "black",
-                "size": "L",
-                "sku": "T-S-BLA-L",
-                "stock": 12,
-                "price": 249
-            },
-            {
-                "id": "esse-bla-xl",
-                "color": "black",
-                "size": "XL",
-                "sku": "T-S-BLA-XL",
-                "stock": 5,
-                "price": 249
-            },
-            {
-                "id": "esse-nav-s",
-                "color": "navy",
-                "size": "S",
-                "sku": "T-S-NAV-S",
-                "stock": 10,
-                "price": 249
-            },
-            {
-                "id": "esse-nav-m",
-                "color": "navy",
-                "size": "M",
-                "sku": "T-S-NAV-M",
-                "stock": 10,
-                "price": 249
-            },
-            {
-                "id": "esse-nav-l",
-                "color": "navy",
-                "size": "L",
-                "sku": "T-S-NAV-L",
-                "stock": 10,
-                "price": 249
-            },
-            {
-                "id": "esse-nav-xl",
-                "color": "navy",
-                "size": "XL",
-                "sku": "T-S-NAV-XL",
-                "stock": 10,
-                "price": 249
-            },
-            {
-                "id": "esse-whi-s",
-                "color": "white",
-                "size": "S",
-                "sku": "T-S-WHI-S",
-                "stock": 10,
-                "price": 249
-            },
-            {
-                "id": "esse-whi-m",
-                "color": "white",
-                "size": "M",
-                "sku": "T-S-WHI-M",
-                "stock": 10,
-                "price": 249
-            },
-            {
-                "id": "esse-whi-l",
-                "color": "white",
-                "size": "L",
-                "sku": "T-S-WHI-L",
-                "stock": 10,
-                "price": 249
-            },
-            {
-                "id": "esse-whi-xl",
-                "color": "white",
-                "size": "XL",
-                "sku": "T-S-WHI-XL",
-                "stock": 10,
-                "price": 249
-            }
-        ],
-        "tags": [
-            "oversized",
-            "coton lourd",
-            "streetwear",
-            "noir",
-            "240 gsm",
-            "essentiel",
-            "t-shirt",
-            "big monogram"
-        ],
-        "isBundle": false
-    },
-    {
-        "id": "minimal-embroidered-logo-tee",
-        "name": "T-Shirt Minimal Essential",
-        "slug": "minimal-embroidered-logo-tee",
-        "category": "t-shirts",
-        "collections": [
-            "essential-collection",
-            "new-arrivals"
-        ],
-        "price": 259,
-        "compareAtPrice": null,
-        "isNew": true,
-        "isSale": false,
-        "isFeatured": true,
-        "rating": 4.9,
-        "reviewCount": 26,
-        "shortDescription": "Monogramme minimaliste discret sur la poitrine, taillé dans un jersey 100% coton lourd peigné 240-260 GSM.",
-        "description": "La quintessence du basique streetwear épuré. Confectionné dans un coton peigné d'exception au tombé net et structuré, ce t-shirt arbore le monogramme discret de l'Atelier sur la poitrine. Décliné en 4 teintes essentielles et intemporelles.",
-        "details": [
-            "Monogramme minimaliste haute précision à la poitrine",
-            "Jersey épais 240-260 GSM peigné de qualité supérieure",
-            "Col rond côtelé doublé 3 cm indéformable",
-            "Coupe droite semi-oversize polyvalente et confortable",
-            "Coutures renforcées double surpiqûre",
-            "Prélavé pour une douceur optimale et une tenue parfaite"
-        ],
-        "materials": "100% Coton peigné haute densité 240-260 GSM",
-        "fit": "Coupe semi-oversize contemporaine. Prenez votre taille habituelle.",
-        "careInstructions": "Lavage en machine à 30°C sur l'envers. Séchage à plat.",
-        "colors": [
-            {
-                "name": "Noir Onyx",
-                "code": "black",
-                "hex": "#121212",
-                "image": "assets/images/products/t-shirts/minimal-embroidered-logo-tee/front-main.png"
-            },
-            {
-                "name": "Bleu Royal",
-                "code": "blue-m",
-                "hex": "#254E70",
-                "image": "assets/images/products/t-shirts/essential-tee-blue-m/front-main.png"
-            },
-            {
-                "name": "Blanc Craie",
-                "code": "white",
-                "hex": "#F4F4F0",
-                "image": "assets/images/products/t-shirts/atelier-studio-drop-tee/front-main.png"
-            },
-            {
-                "name": "Beige Sable",
-                "code": "beige",
-                "hex": "#D9CEB2",
-                "image": "assets/images/products/t-shirts/relaxed-earth-tone-tee/front-main.png"
-            }
-        ],
-        "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL"
-        ],
-        "images": {
-            "black": [
-                "assets/images/products/t-shirts/minimal-embroidered-logo-tee/front-main.png",
-                "assets/images/products/t-shirts/minimal-embroidered-logo-tee/back-hover.png",
-                "assets/images/products/t-shirts/minimal-embroidered-logo-tee/firefly_gemini-flash_create-a-clean-premium-ecommerce-mockup-using-the-uploaded-reference-images-as-the-ex-306104.png",
-                "assets/images/products/t-shirts/minimal-embroidered-logo-tee/firefly_gemini-flash_create-a-photorealistic-moroccan-streetwear-t-shirt-mockup-using-the-uploaded-referen-844917.png",
-                "assets/images/products/t-shirts/minimal-embroidered-logo-tee/firefly_gemini-flash_create-a-premium-realistic-flat-lay-product-mockup-using-the-uploaded-reference-image-186668.png",
-                "assets/images/products/t-shirts/minimal-embroidered-logo-tee/firefly_gemini-flash_create-a-premium-realistic-t-shirt-product-mockup-using-the-uploaded-reference-images-844917.png",
-                "assets/images/products/t-shirts/minimal-embroidered-logo-tee/firefly_gemini-flash_create-a-professional-fashion-campaign-image-featuring-the-exact-t-shirt-from-the-upl-868874.png",
-                "assets/images/products/t-shirts/minimal-embroidered-logo-tee/firefly_gemini-flash_create-a-realistic-ecommerce-mockup-of-the-exact-t-shirt-shown-in-the-uploaded-refere-186668.png",
-                "assets/images/products/t-shirts/minimal-embroidered-logo-tee/firefly_gemini-flash_create-a-realistic-lifestyle-t-shirt-mockup-using-the-uploaded-reference-images-as-th-868874.png"
-            ],
-            "blue-m": [
-                "assets/images/products/t-shirts/essential-tee-blue-m/front-main.png",
-                "assets/images/products/t-shirts/essential-tee-blue-m/back-hover.png",
-                "assets/images/products/t-shirts/essential-tee-blue-m/create-a-clean-premium-ecommerce-55293-xe3.png",
-                "assets/images/products/t-shirts/essential-tee-blue-m/create-a-highly-realistic-close--55293-ycs.png",
-                "assets/images/products/t-shirts/essential-tee-blue-m/create-a-photorealistic-moroccan-55293-fms.png",
-                "assets/images/products/t-shirts/essential-tee-blue-m/create-a-premium-realistic-flat--55293-n5h.png",
-                "assets/images/products/t-shirts/essential-tee-blue-m/create-a-premium-realistic-t-shi-55293-qr5.png",
-                "assets/images/products/t-shirts/essential-tee-blue-m/create-a-professional-fashion-ca-55293-uii.png",
-                "assets/images/products/t-shirts/essential-tee-blue-m/create-a-realistic-lifestyle-t-s-55293-ivp.png",
-                "assets/images/products/t-shirts/essential-tee-blue-m/create-a-realistic-ecommerce-moc-55293-e4c.png"
-            ],
-            "white": [
-                "assets/images/products/t-shirts/atelier-studio-drop-tee/front-main.png",
-                "assets/images/products/t-shirts/atelier-studio-drop-tee/back-hover.png",
-                "assets/images/products/t-shirts/atelier-studio-drop-tee/firefly_gemini-flash_create-a-clean-premium-ecommerce-mockup-using-the-uploaded-reference-images-as-the-ex-67590.png",
-                "assets/images/products/t-shirts/atelier-studio-drop-tee/firefly_gemini-flash_create-a-clean-premium-ecommerce-mockup-using-the-uploaded-reference-images-as-the-ex-234892.png",
-                "assets/images/products/t-shirts/atelier-studio-drop-tee/firefly_gemini-flash_create-a-premium-realistic-flat-lay-product-mockup-using-the-uploaded-reference-image-67590.png",
-                "assets/images/products/t-shirts/atelier-studio-drop-tee/firefly_gemini-flash_create-a-professional-fashion-campaign-image-featuring-the-exact-t-shirt-from-the-upl-234892.png",
-                "assets/images/products/t-shirts/atelier-studio-drop-tee/firefly_gemini-flash_create-a-realistic-lifestyle-t-shirt-mockup-using-the-uploaded-reference-images-as-th-234892.png",
-                "assets/images/products/t-shirts/atelier-studio-drop-tee/firefly_gemini-flash_create-a-realistic-lifestyle-t-shirt-mockup-using-the-uploaded-reference-images-as-th-688777.png"
-            ],
-            "beige": [
-                "assets/images/products/t-shirts/relaxed-earth-tone-tee/front-main.png",
-                "assets/images/products/t-shirts/relaxed-earth-tone-tee/back-hover.png",
-                "assets/images/products/t-shirts/relaxed-earth-tone-tee/firefly_gemini-flash_-create-a-premium-realistic-flat-lay-product-mockup-using-the-uploaded-reference-imag-851006.png",
-                "assets/images/products/t-shirts/relaxed-earth-tone-tee/firefly_gemini-flash_create-a-clean-premium-ecommerce-mockup-using-the-uploaded-reference-images-as-the-ex-851006.png",
-                "assets/images/products/t-shirts/relaxed-earth-tone-tee/firefly_gemini-flash_create-a-photorealistic-moroccan-streetwear-t-shirt-mockup-using-the-uploaded-referen-851006.png",
-                "assets/images/products/t-shirts/relaxed-earth-tone-tee/firefly_gemini-flash_create-a-premium-realistic-t-shirt-product-mockup-using-the-uploaded-reference-images-851006.png",
-                "assets/images/products/t-shirts/relaxed-earth-tone-tee/firefly_gemini-flash_create-a-professional-fashion-campaign-image-featuring-the-exact-t-shirt-from-the-upl-851006.png",
-                "assets/images/products/t-shirts/relaxed-earth-tone-tee/firefly_gemini-flash_create-a-realistic-ecommerce-mockup-of-the-exact-t-shirt-shown-in-the-uploaded-refere-851006.png",
-                "assets/images/products/t-shirts/relaxed-earth-tone-tee/firefly_gemini-flash_create-a-realistic-lifestyle-t-shirt-mockup-using-the-uploaded-reference-images-as-th-851006.png",
-                "assets/images/products/t-shirts/relaxed-earth-tone-tee/lookbook.jpg"
-            ]
-        },
-        "variants": [
-            {
-                "id": "mini-bla-s",
-                "color": "black",
-                "size": "S",
-                "sku": "T-S-BLA-S",
-                "stock": 7,
-                "price": 249
-            },
-            {
-                "id": "mini-bla-m",
-                "color": "black",
-                "size": "M",
-                "sku": "T-S-BLA-M",
-                "stock": 15,
-                "price": 249
-            },
-            {
-                "id": "mini-bla-l",
-                "color": "black",
-                "size": "L",
-                "sku": "T-S-BLA-L",
-                "stock": 10,
-                "price": 249
-            },
-            {
-                "id": "mini-bla-xl",
-                "color": "black",
-                "size": "XL",
-                "sku": "T-S-BLA-XL",
-                "stock": 5,
-                "price": 249
-            },
-            {
-                "id": "esse-blu-s",
-                "color": "blue-m",
-                "size": "S",
-                "sku": "T-S-BLU-S",
-                "stock": 6,
-                "price": 249
-            },
-            {
-                "id": "esse-blu-m",
-                "color": "blue-m",
-                "size": "M",
-                "sku": "T-S-BLU-M",
-                "stock": 12,
-                "price": 249
-            },
-            {
-                "id": "esse-blu-l",
-                "color": "blue-m",
-                "size": "L",
-                "sku": "T-S-BLU-L",
-                "stock": 7,
-                "price": 249
-            },
-            {
-                "id": "esse-blu-xl",
-                "color": "blue-m",
-                "size": "XL",
-                "sku": "T-S-BLU-XL",
-                "stock": 4,
-                "price": 249
-            },
-            {
-                "id": "atel-whi-s",
-                "color": "white",
-                "size": "S",
-                "sku": "T-S-WHI-S",
-                "stock": 9,
-                "price": 249
-            },
-            {
-                "id": "atel-whi-m",
-                "color": "white",
-                "size": "M",
-                "sku": "T-S-WHI-M",
-                "stock": 16,
-                "price": 249
-            },
-            {
-                "id": "atel-whi-l",
-                "color": "white",
-                "size": "L",
-                "sku": "T-S-WHI-L",
-                "stock": 11,
-                "price": 249
-            },
-            {
-                "id": "atel-whi-xl",
-                "color": "white",
-                "size": "XL",
-                "sku": "T-S-WHI-XL",
-                "stock": 5,
-                "price": 249
-            },
-            {
-                "id": "rela-bei-s",
-                "color": "beige",
-                "size": "S",
-                "sku": "T-S-BEI-S",
-                "stock": 5,
-                "price": 249
-            },
-            {
-                "id": "rela-bei-m",
-                "color": "beige",
-                "size": "M",
-                "sku": "T-S-BEI-M",
-                "stock": 14,
-                "price": 249
-            },
-            {
-                "id": "rela-bei-l",
-                "color": "beige",
-                "size": "L",
-                "sku": "T-S-BEI-L",
-                "stock": 9,
-                "price": 249
-            },
-            {
-                "id": "rela-bei-xl",
-                "color": "beige",
-                "size": "XL",
-                "sku": "T-S-BEI-XL",
-                "stock": 6,
-                "price": 249
-            }
-        ],
-        "tags": [
-            "minimal",
-            "essential",
-            "monogramme",
-            "240 gsm",
-            "260 gsm",
-            "coton lourd"
-        ]
-    },
-    {
-        "id": "rodeo-bear-classic-fit-tee",
-        "name": "T-Shirt Rodeo Bear Classic Fit",
-        "slug": "rodeo-bear-classic-fit-tee",
-        "category": "t-shirts",
-        "group": "rodeo-bear",
-        "collections": [
-            "essential-collection",
-            "new-arrivals"
-        ],
-        "price": 269,
-        "compareAtPrice": 329,
-        "isNew": true,
-        "isSale": false,
-        "isFeatured": true,
-        "isBundle": false,
-        "rating": 5,
-        "reviewCount": 24,
-        "shortDescription": "T-shirt coupe classic fit avec graphisme signature Rodeo Bear sur jersey 100% coton lourd peigné.",
-        "description": "Inspiré de l'héritage streetwear premium. Ce modèle arbore le visuel exclusif Rodeo Bear avec une coupe équilibrée et des finitions soignées pour un confort et une tenue irréprochables au quotidien.",
-        "details": [
-            "Graphisme signature Rodeo Bear haute définition",
-            "Jersey épais 240-260 GSM 100% coton peigné",
-            "Col rond côtelé renforcé 3 cm",
-            "Coupe classic fit contemporaine",
-            "Coutures renforcées double aiguille",
-            "Prélavé aux enzymes pour une tenue indéformable"
-        ],
-        "materials": "100% Coton peigné lourd (240 - 260 GSM)",
-        "fit": "Coupe classique contemporaine. Prenez votre taille habituelle.",
-        "careInstructions": "Lavage en machine à 30°C sur l'envers. Séchage à plat.",
-        "colors": [
-            {
-                "name": "Polo beig",
-                "code": "beig",
-                "hex": "#C8B49B",
-                "image": "assets/images/products/t-shirts/rodeo-bear-classic-fit-tee/polo-front.png",
-                "productId": "rodeo-bear-classic-fit-tee",
-                "linkUrl": "product.html?id=rodeo-bear-classic-fit-tee&color=beig"
-            },
-            {
-                "name": "Light Beige",
-                "code": "light-beige",
-                "hex": "#6B4E3D",
-                "image": "assets/images/products/t-shirts/rodeo-bear-classic-fit-tee/Variantes/Light Beige Front.png",
-                "productId": "rodeo-bear-classic-fit-tee",
-                "linkUrl": "product.html?id=rodeo-bear-classic-fit-tee&color=light-beige"
-            },
-            {
-                "name": "Olive Green",
-                "code": "olive-green",
-                "hex": "#6E7358",
-                "image": "assets/images/products/t-shirts/rodeo-bear-classic-fit-tee/Variantes/Olive Green Front.png",
-                "productId": "rodeo-bear-classic-fit-tee",
-                "linkUrl": "product.html?id=rodeo-bear-classic-fit-tee&color=olive-green"
-            },
-            {
-                "name": "Tan",
-                "code": "tan",
-                "hex": "#E8E2D5",
-                "image": "assets/images/products/t-shirts/rodeo-bear-classic-fit-tee/Variantes/Tan Front.png",
-                "productId": "rodeo-bear-classic-fit-tee",
-                "linkUrl": "product.html?id=rodeo-bear-classic-fit-tee&color=tan"
-            },
-            {
-                "name": "Teal",
-                "code": "teal",
-                "hex": "#2B8E9B",
-                "image": "assets/images/products/t-shirts/rodeo-bear-classic-fit-tee/Variantes/Teal Front.png",
-                "productId": "rodeo-bear-classic-fit-tee",
-                "linkUrl": "product.html?id=rodeo-bear-classic-fit-tee&color=teal"
-            }
-        ],
-        "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL",
-            "XXL"
-        ],
-        "images": {
-            "beig": [
-                "assets/images/products/t-shirts/rodeo-bear-classic-fit-tee/polo-front.png",
-                "assets/images/products/t-shirts/rodeo-bear-classic-fit-tee/polo-bakc.png",
-                "assets/images/products/t-shirts/rodeo-bear-classic-fit-tee/create-a-photorealistic-moroccan-streetwear-t-shirt-mockup-using-the-uploaded-reference-images-as-th.png",
-                "assets/images/products/t-shirts/rodeo-bear-classic-fit-tee/create-a-premium-realistic-flat-lay-product-mockup-using-the-uploaded-reference-images-as-the-exact.png",
-                "assets/images/products/t-shirts/rodeo-bear-classic-fit-tee/create-a-clean-premium-ecommerce-mockup-using-the-uploaded-reference-images-as-the-exact-reference-f.png",
-                "assets/images/products/t-shirts/rodeo-bear-classic-fit-tee/create-a-highly-realistic-close-up-fashion-product-photograph-of-the-t-shirt-from-the-uploaded-refer.png",
-                "assets/images/products/t-shirts/rodeo-bear-classic-fit-tee/create-a-premium-realistic-t-shirt-product-mockup-using-the-uploaded-reference-images-as-the-exact-p.png",
-                "assets/images/products/t-shirts/rodeo-bear-classic-fit-tee/create-a-professional-fashion-campaign-image-featuring-the-exact-t-shirt-from-the-uploaded-reference.png",
-                "assets/images/products/t-shirts/rodeo-bear-classic-fit-tee/create-a-realistic-ecommerce-mockup-of-the-exact-t-shirt-shown-in-the-uploaded-reference-images.-pre.png",
-                "assets/images/products/t-shirts/rodeo-bear-classic-fit-tee/create-a-realistic-lifestyle-t-shirt-mockup-using-the-uploaded-reference-images-as-the-exact-product.png"
-            ],
-            "light-beige": [
-                "assets/images/products/t-shirts/rodeo-bear-classic-fit-tee/Variantes/Light Beige Front.png",
-                "assets/images/products/t-shirts/rodeo-bear-classic-fit-tee/Variantes/Light Beige Back.png"
-            ],
-            "olive-green": [
-                "assets/images/products/t-shirts/rodeo-bear-classic-fit-tee/Variantes/Olive Green Front.png",
-                "assets/images/products/t-shirts/rodeo-bear-classic-fit-tee/Variantes/Olive Green Back.png"
-            ],
-            "tan": [
-                "assets/images/products/t-shirts/rodeo-bear-classic-fit-tee/Variantes/Tan Front.png",
-                "assets/images/products/t-shirts/rodeo-bear-classic-fit-tee/Variantes/Tan Back.png"
-            ],
-            "teal": [
-                "assets/images/products/t-shirts/rodeo-bear-classic-fit-tee/Variantes/Teal Front.png",
-                "assets/images/products/t-shirts/rodeo-bear-classic-fit-tee/Variantes/Teal Back.png"
-            ]
-        },
-        "variants": [
-            {
-                "id": "rode-bei-s",
-                "color": "beig",
-                "size": "S",
-                "sku": "T-S-BEI-S",
-                "stock": 15,
-                "price": 269
-            },
-            {
-                "id": "rode-bei-m",
-                "color": "beig",
-                "size": "M",
-                "sku": "T-S-BEI-M",
-                "stock": 18,
-                "price": 269
-            },
-            {
-                "id": "rode-bei-l",
-                "color": "beig",
-                "size": "L",
-                "sku": "T-S-BEI-L",
-                "stock": 14,
-                "price": 269
-            },
-            {
-                "id": "rode-bei-xl",
-                "color": "beig",
-                "size": "XL",
-                "sku": "T-S-BEI-XL",
-                "stock": 10,
-                "price": 269
-            },
-            {
-                "id": "rode-bei-xxl",
-                "color": "beig",
-                "size": "XXL",
-                "sku": "T-S-BEI-XXL",
-                "stock": 10,
-                "price": 269
-            },
-            {
-                "id": "rode-lbei-s",
-                "color": "light-beige",
-                "size": "S",
-                "sku": "T-S-LBEI-S",
-                "stock": 15,
-                "price": 269
-            },
-            {
-                "id": "rode-lbei-m",
-                "color": "light-beige",
-                "size": "M",
-                "sku": "T-S-LBEI-M",
-                "stock": 18,
-                "price": 269
-            },
-            {
-                "id": "rode-lbei-l",
-                "color": "light-beige",
-                "size": "L",
-                "sku": "T-S-LBEI-L",
-                "stock": 14,
-                "price": 269
-            },
-            {
-                "id": "rode-lbei-xl",
-                "color": "light-beige",
-                "size": "XL",
-                "sku": "T-S-LBEI-XL",
-                "stock": 10,
-                "price": 269
-            },
-            {
-                "id": "rode-lbei-xxl",
-                "color": "light-beige",
-                "size": "XXL",
-                "sku": "T-S-LBEI-XXL",
-                "stock": 10,
-                "price": 269
-            },
-            {
-                "id": "rode-olv-s",
-                "color": "olive-green",
-                "size": "S",
-                "sku": "T-S-OLV-S",
-                "stock": 15,
-                "price": 269
-            },
-            {
-                "id": "rode-olv-m",
-                "color": "olive-green",
-                "size": "M",
-                "sku": "T-S-OLV-M",
-                "stock": 18,
-                "price": 269
-            },
-            {
-                "id": "rode-olv-l",
-                "color": "olive-green",
-                "size": "L",
-                "sku": "T-S-OLV-L",
-                "stock": 14,
-                "price": 269
-            },
-            {
-                "id": "rode-olv-xl",
-                "color": "olive-green",
-                "size": "XL",
-                "sku": "T-S-OLV-XL",
-                "stock": 10,
-                "price": 269
-            },
-            {
-                "id": "rode-olv-xxl",
-                "color": "olive-green",
-                "size": "XXL",
-                "sku": "T-S-OLV-XXL",
-                "stock": 10,
-                "price": 269
-            },
-            {
-                "id": "rode-tan-s",
-                "color": "tan",
-                "size": "S",
-                "sku": "T-S-TAN-S",
-                "stock": 15,
-                "price": 269
-            },
-            {
-                "id": "rode-tan-m",
-                "color": "tan",
-                "size": "M",
-                "sku": "T-S-TAN-M",
-                "stock": 18,
-                "price": 269
-            },
-            {
-                "id": "rode-tan-l",
-                "color": "tan",
-                "size": "L",
-                "sku": "T-S-TAN-L",
-                "stock": 14,
-                "price": 269
-            },
-            {
-                "id": "rode-tan-xl",
-                "color": "tan",
-                "size": "XL",
-                "sku": "T-S-TAN-XL",
-                "stock": 10,
-                "price": 269
-            },
-            {
-                "id": "rode-tan-xxl",
-                "color": "tan",
-                "size": "XXL",
-                "sku": "T-S-TAN-XXL",
-                "stock": 10,
-                "price": 269
-            },
-            {
-                "id": "rode-tel-s",
-                "color": "teal",
-                "size": "S",
-                "sku": "T-S-TEL-S",
-                "stock": 15,
-                "price": 269
-            },
-            {
-                "id": "rode-tel-m",
-                "color": "teal",
-                "size": "M",
-                "sku": "T-S-TEL-M",
-                "stock": 18,
-                "price": 269
-            },
-            {
-                "id": "rode-tel-l",
-                "color": "teal",
-                "size": "L",
-                "sku": "T-S-TEL-L",
-                "stock": 14,
-                "price": 269
-            },
-            {
-                "id": "rode-tel-xl",
-                "color": "teal",
-                "size": "XL",
-                "sku": "T-S-TEL-XL",
-                "stock": 10,
-                "price": 269
-            },
-            {
-                "id": "rode-tel-xxl",
-                "color": "teal",
-                "size": "XXL",
-                "sku": "T-S-TEL-XXL",
-                "stock": 10,
-                "price": 269
-            }
-        ],
-        "tags": [
-            "rodeo bear",
-            "classic fit",
-            "coton lourd",
-            "streetwear",
-            "polo",
-            "beige",
-            "light beige",
-            "olive green",
-            "tan",
-            "teal",
-            "240 gsm"
-        ]
-    },
-    {
-        "id": "relaxed-tank-top-180gsm",
-        "group": "relaxed-essential-tank",
-        "name": "Débardeur Relaxed Fit – Édition Limitée",
-        "slug": "relaxed-tank-top-180gsm",
-        "category": "t-shirts",
-        "collections": [
-            "essential-collection",
-            "new-arrivals"
-        ],
-        "price": 179,
-        "compareAtPrice": 229,
-        "isNew": true,
-        "isSale": false,
-        "isFeatured": true,
-        "isBundle": false,
-        "rating": 5,
-        "reviewCount": 24,
-        "shortDescription": "Débardeur sans manches à coupe droite décontractée, taillé dans un jersey léger et respirant de 180 GSM.",
-        "description": "L'équilibre idéal entre souplesse et tenue. Confectionné dans un mélange doux de coton majoritaire 180 GSM, ce débardeur assure une respirabilité optimale, un tombé fluide et une résistance accrue aux lavages. Série limitée à seulement 150 pièces tous coloris confondus.",
-        "details": [
-            "Coupe droite sans manches relaxed",
-            "Maille jersey fluide et aérée 180 GSM",
-            "Composition 85% coton respirant et résistant",
-            "Col rond côtelé résistant à la déformation",
-            "Émission limitée à 150 exemplaires au total"
-        ],
-        "materials": "85% Coton, 15% Polyester / Viscose – Jersey 180 GSM",
-        "fit": "Coupe droite fluide (Relaxed fit). Prenez votre taille habituelle pour un tombé classique et confortable.",
-        "careInstructions": "Lavage en machine à 30°C sur l'envers. Ne pas sécher en machine. Repassage doux sur l'envers.",
-        "colors": [
-            {
-                "name": "Noir Onyx",
-                "code": "black",
-                "hex": "#121212",
-                "image": "assets/images/products/t-shirts/Tank top/Tank top front black.jpeg",
-                "productId": "relaxed-tank-top-180gsm",
-                "linkUrl": "product.html?id=relaxed-tank-top-180gsm&color=black"
-            },
-            {
-                "name": "Blanc Crème",
-                "code": "white-creme",
-                "hex": "#F2EFE9",
-                "image": "assets/images/products/t-shirts/Tank top/Tank top front white creme.jpeg",
-                "productId": "relaxed-tank-top-180gsm",
-                "linkUrl": "product.html?id=relaxed-tank-top-180gsm&color=white-creme"
-            },
-            {
-                "name": "Gris Chiné",
-                "code": "gris",
-                "hex": "#A8A9AD",
-                "image": "assets/images/products/t-shirts/Tank top/Tank top front Gris.png",
-                "productId": "relaxed-tank-top-180gsm",
-                "linkUrl": "product.html?id=relaxed-tank-top-180gsm&color=gris"
-            },
-            {
-                "name": "Beige Sable",
-                "code": "beig",
-                "hex": "#D6C7B2",
-                "image": "assets/images/products/t-shirts/Tank top/Tank top front beig.jpeg",
-                "productId": "relaxed-tank-top-180gsm",
-                "linkUrl": "product.html?id=relaxed-tank-top-180gsm&color=beig"
-            },
-            {
-                "name": "Vert Militaire",
-                "code": "green-army",
-                "hex": "#555D42",
-                "image": "assets/images/products/t-shirts/Tank top/Tank top front Green army.jpeg",
-                "productId": "relaxed-tank-top-180gsm",
-                "linkUrl": "product.html?id=relaxed-tank-top-180gsm&color=green-army"
-            }
-        ],
-        "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL"
-        ],
-        "images": {
-            "black": [
-                "assets/images/products/t-shirts/Tank top/Tank top front black.jpeg",
-                "assets/images/products/t-shirts/Tank top/Tank top back black.jpeg"
-            ],
-            "white-creme": [
-                "assets/images/products/t-shirts/Tank top/Tank top front white creme.jpeg",
-                "assets/images/products/t-shirts/Tank top/Tank top back white creme.jpeg"
-            ],
-            "gris": [
-                "assets/images/products/t-shirts/Tank top/Tank top front Gris.png",
-                "assets/images/products/t-shirts/Tank top/Tank top back Gris.png"
-            ],
-            "beig": [
-                "assets/images/products/t-shirts/Tank top/Tank top front beig.jpeg",
-                "assets/images/products/t-shirts/Tank top/Tank top back beig.jpeg"
-            ],
-            "green-army": [
-                "assets/images/products/t-shirts/Tank top/Tank top front Green army.jpeg",
-                "assets/images/products/t-shirts/Tank top/Tank top back Green army.jpeg"
-            ]
-        },
-        "variants": [
-            {
-                "id": "rtt-blk-s",
-                "color": "black",
-                "size": "S",
-                "sku": "RTT-BLK-S",
-                "stock": 6,
-                "price": 179
-            },
-            {
-                "id": "rtt-blk-m",
-                "color": "black",
-                "size": "M",
-                "sku": "RTT-BLK-M",
-                "stock": 10,
-                "price": 179
-            },
-            {
-                "id": "rtt-blk-l",
-                "color": "black",
-                "size": "L",
-                "sku": "RTT-BLK-L",
-                "stock": 10,
-                "price": 179
-            },
-            {
-                "id": "rtt-blk-xl",
-                "color": "black",
-                "size": "XL",
-                "sku": "RTT-BLK-XL",
-                "stock": 6,
-                "price": 179
-            },
-            {
-                "id": "rtt-wht-s",
-                "color": "white-creme",
-                "size": "S",
-                "sku": "RTT-WHT-S",
-                "stock": 6,
-                "price": 179
-            },
-            {
-                "id": "rtt-wht-m",
-                "color": "white-creme",
-                "size": "M",
-                "sku": "RTT-WHT-M",
-                "stock": 10,
-                "price": 179
-            },
-            {
-                "id": "rtt-wht-l",
-                "color": "white-creme",
-                "size": "L",
-                "sku": "RTT-WHT-L",
-                "stock": 10,
-                "price": 179
-            },
-            {
-                "id": "rtt-wht-xl",
-                "color": "white-creme",
-                "size": "XL",
-                "sku": "RTT-WHT-XL",
-                "stock": 6,
-                "price": 179
-            },
-            {
-                "id": "rtt-grs-s",
-                "color": "gris",
-                "size": "S",
-                "sku": "RTT-GRS-S",
-                "stock": 6,
-                "price": 179
-            },
-            {
-                "id": "rtt-grs-m",
-                "color": "gris",
-                "size": "M",
-                "sku": "RTT-GRS-M",
-                "stock": 10,
-                "price": 179
-            },
-            {
-                "id": "rtt-grs-l",
-                "color": "gris",
-                "size": "L",
-                "sku": "RTT-GRS-L",
-                "stock": 10,
-                "price": 179
-            },
-            {
-                "id": "rtt-grs-xl",
-                "color": "gris",
-                "size": "XL",
-                "sku": "RTT-GRS-XL",
-                "stock": 6,
-                "price": 179
-            },
-            {
-                "id": "rtt-bei-s",
-                "color": "beig",
-                "size": "S",
-                "sku": "RTT-BEI-S",
-                "stock": 6,
-                "price": 179
-            },
-            {
-                "id": "rtt-bei-m",
-                "color": "beig",
-                "size": "M",
-                "sku": "RTT-BEI-M",
-                "stock": 10,
-                "price": 179
-            },
-            {
-                "id": "rtt-bei-l",
-                "color": "beig",
-                "size": "L",
-                "sku": "RTT-BEI-L",
-                "stock": 10,
-                "price": 179
-            },
-            {
-                "id": "rtt-bei-xl",
-                "color": "beig",
-                "size": "XL",
-                "sku": "RTT-BEI-XL",
-                "stock": 6,
-                "price": 179
-            },
-            {
-                "id": "rtt-grn-s",
-                "color": "green-army",
-                "size": "S",
-                "sku": "RTT-GRN-S",
-                "stock": 6,
-                "price": 179
-            },
-            {
-                "id": "rtt-grn-m",
-                "color": "green-army",
-                "size": "M",
-                "sku": "RTT-GRN-M",
-                "stock": 10,
-                "price": 179
-            },
-            {
-                "id": "rtt-grn-l",
-                "color": "green-army",
-                "size": "L",
-                "sku": "RTT-GRN-L",
-                "stock": 10,
-                "price": 179
-            },
-            {
-                "id": "rtt-grn-xl",
-                "color": "green-army",
-                "size": "XL",
-                "sku": "RTT-GRN-XL",
-                "stock": 6,
-                "price": 179
-            }
-        ],
-        "tags": [
-            "débardeur",
-            "tank top",
-            "sleeveless",
-            "180 gsm",
-            "relaxed fit",
-            "coton doux",
-            "streetwear",
-            "édition limitée"
-        ]
-    },
-    {
-        "id": "oversized-muscle-tee-180gsm",
-        "group": "oversized-muscle-tee",
-        "name": "Muscle Tee Oversized – Édition Limitée",
-        "slug": "oversized-muscle-tee-180gsm",
-        "category": "t-shirts",
-        "collections": [
-            "oversized-series",
-            "new-arrivals",
-            "essential-collection"
-        ],
-        "price": 189,
-        "compareAtPrice": 249,
-        "isNew": true,
-        "isSale": false,
-        "isFeatured": true,
-        "isBundle": false,
-        "rating": 5,
-        "reviewCount": 18,
-        "shortDescription": "Muscle tee sans manches à coupe boxy ample, confectionné dans une maille légère et aérée de 180 GSM.",
-        "description": "Une coupe boxy contemporaine aux épaules tombantes taillée dans un mélange coton 180 GSM particulièrement souple. Conçu pour le mouvement et les journées chaudes, il combine silhouette streetwear affirmée et confort poids plume. Série exclusive plafonnée à 150 unités au total.",
-        "details": [
-            "Coupe boxy oversize à épaules tombantes",
-            "Jersey léger et respirant 180 GSM",
-            "85% Coton doux et souple",
-            "Col ras-du-cou côtelé structuré",
-            "Tirage limité à 150 pièces au total"
-        ],
-        "materials": "85% Coton, 15% Polyester / Viscose – Jersey 180 GSM",
-        "fit": "Coupe boxy oversize avec emmanchures tombantes. Prenez votre taille habituelle pour un rendu ample, ou une taille en-dessous pour un volume plus standard.",
-        "careInstructions": "Lavage en machine à 30°C sur l'envers. Ne pas sécher en machine. Repassage doux sur l'envers.",
-        "colors": [
-            {
-                "name": "Noir Onyx",
-                "code": "black",
-                "hex": "#121212",
-                "image": "assets/images/products/t-shirts/Tank top over/tank top over front black.png",
-                "productId": "oversized-muscle-tee-180gsm",
-                "linkUrl": "product.html?id=oversized-muscle-tee-180gsm&color=black"
-            },
-            {
-                "name": "Blanc Craie",
-                "code": "white",
-                "hex": "#F4F4F0",
-                "image": "assets/images/products/t-shirts/Tank top over/tank top over front white.png",
-                "productId": "oversized-muscle-tee-180gsm",
-                "linkUrl": "product.html?id=oversized-muscle-tee-180gsm&color=white"
-            }
-        ],
-        "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL"
-        ],
-        "images": {
-            "black": [
-                "assets/images/products/t-shirts/Tank top over/tank top over front black.png",
-                "assets/images/products/t-shirts/Tank top over/tank top over back black.png"
-            ],
-            "white": [
-                "assets/images/products/t-shirts/Tank top over/tank top over front white.png",
-                "assets/images/products/t-shirts/Tank top over/tank top over back white.png"
-            ]
-        },
-        "variants": [
-            {
-                "id": "omt-blk-s",
-                "color": "black",
-                "size": "S",
-                "sku": "OMT-BLK-S",
-                "stock": 15,
-                "price": 189
-            },
-            {
-                "id": "omt-blk-m",
-                "color": "black",
-                "size": "M",
-                "sku": "OMT-BLK-M",
-                "stock": 25,
-                "price": 189
-            },
-            {
-                "id": "omt-blk-l",
-                "color": "black",
-                "size": "L",
-                "sku": "OMT-BLK-L",
-                "stock": 25,
-                "price": 189
-            },
-            {
-                "id": "omt-blk-xl",
-                "color": "black",
-                "size": "XL",
-                "sku": "OMT-BLK-XL",
-                "stock": 15,
-                "price": 189
-            },
-            {
-                "id": "omt-wht-s",
-                "color": "white",
-                "size": "S",
-                "sku": "OMT-WHT-S",
-                "stock": 15,
-                "price": 189
-            },
-            {
-                "id": "omt-wht-m",
-                "color": "white",
-                "size": "M",
-                "sku": "OMT-WHT-M",
-                "stock": 25,
-                "price": 189
-            },
-            {
-                "id": "omt-wht-l",
-                "color": "white",
-                "size": "L",
-                "sku": "OMT-WHT-L",
-                "stock": 25,
-                "price": 189
-            },
-            {
-                "id": "omt-wht-xl",
-                "color": "white",
-                "size": "XL",
-                "sku": "OMT-WHT-XL",
-                "stock": 15,
-                "price": 189
-            }
-        ],
-        "tags": [
-            "muscle tee",
-            "tank top oversize",
-            "sleeveless tee",
-            "boxy fit",
-            "180 gsm",
-            "streetwear",
-            "drop shoulder",
-            "limited edition"
-        ]
-    },
-    {
-        "id": "zip-hoodie-boxy-320gsm",
-        "group": "zip-hoodie-heavy-320",
-        "name": "Zip Hoodie Boxy Heavyweight – Édition Ultra-Limitée",
-        "slug": "zip-hoodie-boxy-320gsm",
-        "category": "hoodies",
-        "collections": [
-            "oversized-series",
-            "new-arrivals",
-            "heavyweight-300"
-        ],
-        "price": 399,
-        "compareAtPrice": 499,
-        "isNew": true,
-        "isSale": false,
-        "isFeatured": true,
-        "isBundle": false,
-        "rating": 5,
-        "reviewCount": 14,
-        "shortDescription": "Sweat zippé à capuche coupe boxy, confectionné dans un molleton épais 100% coton de 320 GSM. Pièce rare disponible uniquement en taille XL.",
-        "description": "Une structure lourde et un confort thermique supérieur. Ce zip hoodie est taillé dans un molleton de pur coton dense de 320 GSM, offrant un tombé boxy net, une capuche doublée rigide et des finitions côtelées renforcées. Pensé pour un style streetwear oversize affirmé. Série ultra-exclusive limitée à seulement 10 pièces au total (taille XL unique).",
-        "details": [
-            "Molleton lourd 100% coton dense 320 GSM",
-            "Coupe boxy oversize avec épaules tombantes",
-            "Fermeture zippée métallique intégrale robuste",
-            "Capuche doublée sans cordons pour un look épuré",
-            "Poches kangourou plaquées et bord-côtes renforcés",
-            "Taille unique XL – Série ultra-limitée à 10 unités"
-        ],
-        "materials": "100% Coton lourd premium – Molleton 320 GSM",
-        "fit": "Coupe boxy oversize contemporaine. Disponible exclusivement en taille XL, offrant un volume ample et structuré aux épaules tombantes.",
-        "careInstructions": "Lavage en machine à 30°C sur l'envers, zip fermé. Séchage à l'air libre recommandé (pas de sèche-linge). Repassage sur l'envers.",
-        "colors": [
-            {
-                "name": "Noir Onyx",
-                "code": "black",
-                "hex": "#121212",
-                "image": "assets/images/products/t-shirts/Hoodie zip/Hoodie Over Front black.png",
-                "productId": "zip-hoodie-boxy-320gsm",
-                "linkUrl": "product.html?id=zip-hoodie-boxy-320gsm&color=black"
-            },
-            {
-                "name": "Beige Sable",
-                "code": "beig",
-                "hex": "#D6C7B2",
-                "image": "assets/images/products/t-shirts/Hoodie zip/Hoodie Over Front beig.png",
-                "productId": "zip-hoodie-boxy-320gsm",
-                "linkUrl": "product.html?id=zip-hoodie-boxy-320gsm&color=beig"
-            }
-        ],
-        "sizes": [
-            "XL"
-        ],
-        "images": {
-            "black": [
-                "assets/images/products/t-shirts/Hoodie zip/Hoodie Over Front black.png",
-                "assets/images/products/t-shirts/Hoodie zip/Hoodie Over back black.png"
-            ],
-            "beig": [
-                "assets/images/products/t-shirts/Hoodie zip/Hoodie Over Front beig.png",
-                "assets/images/products/t-shirts/Hoodie zip/Hoodie Over back beig.png"
-            ]
-        },
-        "variants": [
-            {
-                "id": "zh-blk-xl",
-                "color": "black",
-                "size": "XL",
-                "sku": "ZH-BLK-XL",
-                "stock": 5,
-                "price": 399
-            },
-            {
-                "id": "zh-bei-xl",
-                "color": "beig",
-                "size": "XL",
-                "sku": "ZH-BEI-XL",
-                "stock": 5,
-                "price": 399
-            }
-        ],
-        "tags": [
-            "zip hoodie",
-            "veste zippée",
-            "hoodie oversize",
-            "320 gsm",
-            "coton lourd",
-            "streetwear",
-            "boxy fit",
-            "heavyweight",
-            "drop limité",
-            "taille xl"
-        ]
-    },
-    {
-        "id": "crewneck-heavyweight-320gsm",
-        "group": "essential-crewneck-320",
-        "name": "Crewneck Sweatshirt Heavyweight 320 GSM – Édition Limitée",
-        "slug": "crewneck-heavyweight-320gsm",
-        "category": "sweatshirts",
-        "collections": [
-            "essential-collection",
-            "new-arrivals",
-            "heavyweight-300"
-        ],
-        "price": 349,
-        "compareAtPrice": 449,
-        "isNew": true,
-        "isSale": false,
-        "isFeatured": true,
-        "isBundle": false,
-        "rating": 5,
-        "reviewCount": 16,
-        "shortDescription": "Sweat ras-du-cou premium à la coupe boxy structurée, confectionné dans un molleton lourd 100% coton de 320 GSM.",
-        "description": "La pureté de la ligne essentielle streetwear. Taillé dans un molleton 100% pur coton haute densité de 320 GSM, ce sweatshirt col rond combine un tombé lourd, une coupe oversize moderne et une durabilité remarquable. Pensé sans artifices superflus avec des bord-côtes renforcés. Série limitée exclusive à 39 pièces réparties en Beige, Vert Armée et Bleu Roi.",
-        "details": [
-            "Molleton épais 100% coton dense 320 GSM",
-            "Coupe contemporaine boxy à épaules tombantes",
-            "Col rond épuré en bord-côte haute densité",
-            "Poignets et taille élastiqués côtelés résistants",
-            "Tailles disponibles : S, M, L, XL",
-            "Édition limitée à 39 pièces au total (20 Beige, 15 Bleu Roi, 4 Green Army)"
-        ],
-        "materials": "100% Coton peigné lourd – Molleton gratté 320 GSM",
-        "fit": "Coupe boxy relaxed contemporaine aux épaules tombantes. Tailles disponibles de S à XL. Prenez votre taille habituelle pour un tombé moderne ample, ou une taille en-dessous pour une coupe classique.",
-        "careInstructions": "Lavage en machine à 30°C sur l'envers. Séchage à l'air libre (pas de sèche-linge). Repassage sur l'envers à température modérée.",
-        "colors": [
-            {
-                "name": "Beige Sable",
-                "code": "beig",
-                "hex": "#D6C7B2",
-                "image": "assets/images/products/t-shirts/Hoodie zipless/hoodie zipless front.png",
-                "productId": "crewneck-heavyweight-320gsm",
-                "linkUrl": "product.html?id=crewneck-heavyweight-320gsm&color=beig"
-            },
-            {
-                "name": "Bleu Roi",
-                "code": "royal-blue",
-                "hex": "#1D4E89",
-                "image": "assets/images/products/t-shirts/Hoodie zipless/hoodie zipless front Blue roi.png",
-                "productId": "crewneck-heavyweight-320gsm",
-                "linkUrl": "product.html?id=crewneck-heavyweight-320gsm&color=royal-blue"
-            },
-            {
-                "name": "Vert Armée",
-                "code": "green-army",
-                "hex": "#555D42",
-                "image": "assets/images/products/t-shirts/Hoodie zipless/hoodie zipless front green army.png",
-                "productId": "crewneck-heavyweight-320gsm",
-                "linkUrl": "product.html?id=crewneck-heavyweight-320gsm&color=green-army"
-            }
-        ],
-        "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL"
-        ],
-        "images": {
-            "beig": [
-                "assets/images/products/t-shirts/Hoodie zipless/hoodie zipless front.png",
-                "assets/images/products/t-shirts/Hoodie zipless/hoodie zipless back.png"
-            ],
-            "royal-blue": [
-                "assets/images/products/t-shirts/Hoodie zipless/hoodie zipless front Blue roi.png",
-                "assets/images/products/t-shirts/Hoodie zipless/hoodie zipless back Blue roi.png"
-            ],
-            "green-army": [
-                "assets/images/products/t-shirts/Hoodie zipless/hoodie zipless front green army.png",
-                "assets/images/products/t-shirts/Hoodie zipless/hoodie zipless back green army.png"
-            ]
-        },
-        "variants": [
-            {
-                "id": "cn-bei-s",
-                "color": "beig",
-                "size": "S",
-                "sku": "CN-BEI-S",
-                "stock": 4,
-                "price": 349
-            },
-            {
-                "id": "cn-bei-m",
-                "color": "beig",
-                "size": "M",
-                "sku": "CN-BEI-M",
-                "stock": 6,
-                "price": 349
-            },
-            {
-                "id": "cn-bei-l",
-                "color": "beig",
-                "size": "L",
-                "sku": "CN-BEI-L",
-                "stock": 6,
-                "price": 349
-            },
-            {
-                "id": "cn-bei-xl",
-                "color": "beig",
-                "size": "XL",
-                "sku": "CN-BEI-XL",
-                "stock": 4,
-                "price": 349
-            },
-            {
-                "id": "cn-roy-s",
-                "color": "royal-blue",
-                "size": "S",
-                "sku": "CN-ROY-S",
-                "stock": 3,
-                "price": 349
-            },
-            {
-                "id": "cn-roy-m",
-                "color": "royal-blue",
-                "size": "M",
-                "sku": "CN-ROY-M",
-                "stock": 5,
-                "price": 349
-            },
-            {
-                "id": "cn-roy-l",
-                "color": "royal-blue",
-                "size": "L",
-                "sku": "CN-ROY-L",
-                "stock": 5,
-                "price": 349
-            },
-            {
-                "id": "cn-roy-xl",
-                "color": "royal-blue",
-                "size": "XL",
-                "sku": "CN-ROY-XL",
-                "stock": 2,
-                "price": 349
-            },
-            {
-                "id": "cn-grn-s",
-                "color": "green-army",
-                "size": "S",
-                "sku": "CN-GRN-S",
-                "stock": 1,
-                "price": 349
-            },
-            {
-                "id": "cn-grn-m",
-                "color": "green-army",
-                "size": "M",
-                "sku": "CN-GRN-M",
-                "stock": 1,
-                "price": 349
-            },
-            {
-                "id": "cn-grn-l",
-                "color": "green-army",
-                "size": "L",
-                "sku": "CN-GRN-L",
-                "stock": 1,
-                "price": 349
-            },
-            {
-                "id": "cn-grn-xl",
-                "color": "green-army",
-                "size": "XL",
-                "sku": "CN-GRN-XL",
-                "stock": 1,
-                "price": 349
-            }
-        ],
-        "tags": [
-            "sweatshirt",
-            "crewneck",
-            "pull sans capuche",
-            "320 gsm",
-            "coton lourd",
-            "streetwear",
-            "boxy fit",
-            "bleu roi",
-            "green army",
-            "beige",
-            "drop limité"
-        ]
-    },
-    {
-        "id": "tshirt-boxy-inverted-label-navy",
-        "group": "signature-boxy-inverted-label",
-        "name": "T-Shirt Boxy Heavyweight \"Inverted Label\"",
-        "slug": "tshirt-boxy-inverted-label-navy",
-        "category": "t-shirts",
-        "collections": [
-            "essential-collection",
-            "new-arrivals",
-            "oversized-series"
-        ],
-        "price": 249,
-        "compareAtPrice": 299,
-        "isNew": true,
-        "isSale": false,
-        "isFeatured": true,
-        "isBundle": false,
-        "rating": 5,
-        "reviewCount": 22,
-        "shortDescription": "T-shirt coupe boxy contemporaine taillé dans un jersey 100% coton peigné lourd 240 GSM, agrémenté de son étiquette signature inversée au dos.",
-        "description": "Pièce fondamentale du vestiaire streetwear moderne. Doté d'une coupe boxy structurée aux épaules tombantes et d'un col côtelé montant renforcé, ce modèle est réalisé en jersey lourd 240 GSM offrant un tombé franc et durable. Il se distingue par son étiquette orange inversée appliquée au haut du dos.",
-        "details": [
-            "Coupe boxy oversize contemporaine",
-            "Jersey lourd 100% coton peigné 240 GSM",
-            "Col rond montant épais et renforcé (3 cm)",
-            "Finitions soignées en surpiqûres doubles renforcées",
-            "Étiquette tissée orange inversée signature au dos",
-            "Tailles disponibles : du S au XL"
-        ],
-        "materials": "100% Coton peigné haut de gamme 240 GSM",
-        "fit": "Coupe boxy oversize prononcée. Prenez votre taille habituelle pour un porté loose streetwear, ou une taille en dessous pour un fit plus ajusté.",
-        "careInstructions": "Lavage en machine à 30°C sur l'envers. Séchage à l'air libre recommandé. Repassage sur l'envers à température moyenne.",
-        "colors": [
-            {
-                "name": "Bleu Nuit",
-                "code": "navy",
-                "hex": "#1D2E4E",
-                "image": "assets/images/products/t-shirts/lv front empty/lv empty front.png",
-                "productId": "tshirt-boxy-inverted-label-navy",
-                "linkUrl": "product.html?id=tshirt-boxy-inverted-label-navy&color=navy"
-            },
-            {
-                "name": "Gris Anthracite",
-                "code": "grey",
-                "hex": "#3A3D40",
-                "image": "assets/images/products/t-shirts/lv front empty/lv empty front grey.png",
-                "productId": "tshirt-boxy-inverted-label-navy",
-                "linkUrl": "product.html?id=tshirt-boxy-inverted-label-navy&color=grey"
-            },
-            {
-                "name": "Rose Poudré",
-                "code": "pink",
-                "hex": "#D6A5A3",
-                "image": "assets/images/products/t-shirts/lv front empty/lv empty front pink.png",
-                "productId": "tshirt-boxy-inverted-label-navy",
-                "linkUrl": "product.html?id=tshirt-boxy-inverted-label-navy&color=pink"
-            },
-            {
-                "name": "Noir Intense",
-                "code": "black",
-                "hex": "#121212",
-                "image": "assets/images/products/t-shirts/lv front empty/lv empty front black.png",
-                "productId": "tshirt-boxy-inverted-label-navy",
-                "linkUrl": "product.html?id=tshirt-boxy-inverted-label-navy&color=black"
-            }
-        ],
-        "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL"
-        ],
-        "images": {
-            "navy": [
-                "assets/images/products/t-shirts/lv front empty/lv empty front.png",
-                "assets/images/products/t-shirts/lv front empty/lv empty back.png"
-            ],
-            "grey": [
-                "assets/images/products/t-shirts/lv front empty/lv empty front grey.png",
-                "assets/images/products/t-shirts/lv front empty/lv empty back grey.png"
-            ],
-            "pink": [
-                "assets/images/products/t-shirts/lv front empty/lv empty front pink.png",
-                "assets/images/products/t-shirts/lv front empty/lv empty back pink.png"
-            ],
-            "black": [
-                "assets/images/products/t-shirts/lv front empty/lv empty front black.png",
-                "assets/images/products/t-shirts/lv front empty/lv empty back black.png"
-            ]
-        },
-        "variants": [
-            {
-                "id": "il-nav-s",
-                "color": "navy",
-                "size": "S",
-                "sku": "IL-NAV-S",
-                "stock": 11,
-                "price": 249
-            },
-            {
-                "id": "il-nav-m",
-                "color": "navy",
-                "size": "M",
-                "sku": "IL-NAV-M",
-                "stock": 24,
-                "price": 249
-            },
-            {
-                "id": "il-nav-l",
-                "color": "navy",
-                "size": "L",
-                "sku": "IL-NAV-L",
-                "stock": 24,
-                "price": 249
-            },
-            {
-                "id": "il-nav-xl",
-                "color": "navy",
-                "size": "XL",
-                "sku": "IL-NAV-XL",
-                "stock": 11,
-                "price": 249
-            },
-            {
-                "id": "il-gry-s",
-                "color": "grey",
-                "size": "S",
-                "sku": "IL-GRY-S",
-                "stock": 12,
-                "price": 249
-            },
-            {
-                "id": "il-gry-m",
-                "color": "grey",
-                "size": "M",
-                "sku": "IL-GRY-M",
-                "stock": 28,
-                "price": 249
-            },
-            {
-                "id": "il-gry-l",
-                "color": "grey",
-                "size": "L",
-                "sku": "IL-GRY-L",
-                "stock": 28,
-                "price": 249
-            },
-            {
-                "id": "il-gry-xl",
-                "color": "grey",
-                "size": "XL",
-                "sku": "IL-GRY-XL",
-                "stock": 12,
-                "price": 249
-            },
-            {
-                "id": "il-pnk-s",
-                "color": "pink",
-                "size": "S",
-                "sku": "IL-PNK-S",
-                "stock": 7,
-                "price": 249
-            },
-            {
-                "id": "il-pnk-m",
-                "color": "pink",
-                "size": "M",
-                "sku": "IL-PNK-M",
-                "stock": 18,
-                "price": 249
-            },
-            {
-                "id": "il-pnk-l",
-                "color": "pink",
-                "size": "L",
-                "sku": "IL-PNK-L",
-                "stock": 18,
-                "price": 249
-            },
-            {
-                "id": "il-pnk-xl",
-                "color": "pink",
-                "size": "XL",
-                "sku": "IL-PNK-XL",
-                "stock": 7,
-                "price": 249
-            },
-            {
-                "id": "il-blk-s",
-                "color": "black",
-                "size": "S",
-                "sku": "IL-BLK-S",
-                "stock": 15,
-                "price": 249
-            },
-            {
-                "id": "il-blk-m",
-                "color": "black",
-                "size": "M",
-                "sku": "IL-BLK-M",
-                "stock": 35,
-                "price": 249
-            },
-            {
-                "id": "il-blk-l",
-                "color": "black",
-                "size": "L",
-                "sku": "IL-BLK-L",
-                "stock": 35,
-                "price": 249
-            },
-            {
-                "id": "il-blk-xl",
-                "color": "black",
-                "size": "XL",
-                "sku": "IL-BLK-XL",
-                "stock": 15,
-                "price": 249
-            }
-        ],
-        "tags": [
-            "oversized",
-            "boxy fit",
-            "240 gsm",
-            "coton lourd",
-            "streetwear",
-            "t-shirt premium",
-            "inverted label"
-        ]
-    }
-];
-
-window.DEPRECATED_PRODUCT_IDS = new Set([
-  "heavyweight-boxy-tee-300", 
-  "oversized-tee-big-white", 
-  "vintage-washed-charcoal-tee", 
-  "graphic-tee-colored-blue-dark", 
-  "essential-tee-rose",
-  "essential-tee-indigo",
-  "essential-tee-blue-m",
-  "atelier-studio-drop-tee",
-  "relaxed-earth-tone-tee",
-  "classic-relaxed-tank-top"
-]);
-
-// Product alias mapping for legacy bookmarks and query links
-window.PRODUCT_ALIASES = {
-  "vintage-washed-charcoal-tee": { targetId: "graphic-tee-colored", defaultColor: "black" },
-  "graphic-tee-colored-blue-dark": { targetId: "graphic-tee-colored", defaultColor: "dark-blue" },
-  "essential-tee-rose": { targetId: "graphic-tee-colored", defaultColor: "rose" },
-  "essential-tee-indigo": { targetId: "graphic-tee-colored", defaultColor: "indigo" },
-  "heavyweight-boxy-tee-300": { targetId: "essential-oversized-tee", defaultColor: "navy" },
-  "oversized-tee-big-white": { targetId: "essential-oversized-tee", defaultColor: "white" },
-  "essential-tee-blue-m": { targetId: "minimal-embroidered-logo-tee", defaultColor: "blue-m" },
-  "atelier-studio-drop-tee": { targetId: "minimal-embroidered-logo-tee", defaultColor: "white" },
-  "relaxed-earth-tone-tee": { targetId: "minimal-embroidered-logo-tee", defaultColor: "beige" },
-  "classic-relaxed-tank-top": { targetId: "relaxed-tank-top-180gsm", defaultColor: "black" },
-  "tshirt-boxy-inverted-label-grey": { targetId: "tshirt-boxy-inverted-label-navy", defaultColor: "grey" },
-  "tshirt-boxy-inverted-label-pink": { targetId: "tshirt-boxy-inverted-label-navy", defaultColor: "pink" },
-  "tshirt-boxy-inverted-label-black": { targetId: "tshirt-boxy-inverted-label-navy", defaultColor: "black" },
-  "tshirt-boxy-inverted-label": { targetId: "tshirt-boxy-inverted-label-navy", defaultColor: "navy" }
-};
-
-// Initialize and reconcile STORE_PRODUCTS with localStorage and default master catalog
-(function() {
-  const defaults = window.DEFAULT_STORE_PRODUCTS || [];
-  const deprecatedSet = window.DEPRECATED_PRODUCT_IDS || new Set();
-
-  try {
-    if (typeof localStorage !== 'undefined') {
-      const saved = localStorage.getItem("atelier_products_v1");
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          const cleaned = parsed.filter(p => p && p.id && !deprecatedSet.has(p.id));
-          const finalProducts = [];
-          const processedIds = new Set();
-
-          // 1. Reconcile stored items with master defaults
-          cleaned.forEach(item => {
-            if (!item || !item.id) return;
-            processedIds.add(item.id);
-
-            const def = defaults.find(d => d.id === item.id);
-            if (!def) {
-              finalProducts.push(item);
-              return;
-            }
-
-            const merged = { ...def, ...item };
-
-            // Merge collections (ensure default collections like packs-bundles are preserved)
-            const defColls = Array.isArray(def.collections) ? def.collections : [];
-            const itemColls = Array.isArray(item.collections) ? item.collections : [];
-            const mergedColls = Array.from(new Set([...defColls, ...itemColls]));
-            if (def.isBundle || def.id === 'pack-trio-tshirts') {
-              if (!mergedColls.includes('packs-bundles')) {
-                mergedColls.unshift('packs-bundles');
-              }
-            }
-            merged.collections = mergedColls;
-
-            // Merge colors
-            const existingCodes = new Set((item.colors || []).map(c => c.code));
-            const mergedColors = [...(item.colors || [])];
-            (def.colors || []).forEach(defColor => {
-              if (!existingCodes.has(defColor.code)) {
-                mergedColors.push(defColor);
-                existingCodes.add(defColor.code);
-              }
-            });
-            merged.colors = mergedColors;
-
-            // Merge images
-            merged.images = { ...(def.images || {}), ...(item.images || {}) };
-            (def.colors || []).forEach(defColor => {
-              if (!merged.images[defColor.code] || merged.images[defColor.code].length === 0) {
-                if (def.images && def.images[defColor.code]) {
-                  merged.images[defColor.code] = def.images[defColor.code];
-                }
-              }
-            });
-
-            // Merge variants
-            const existingVarKeys = new Set((item.variants || []).map(v => (v.color + '-' + v.size)));
-            const mergedVariants = [...(item.variants || [])];
-            (def.variants || []).forEach(defVar => {
-              const key = defVar.color + '-' + defVar.size;
-              if (!existingVarKeys.has(key)) {
-                mergedVariants.push(defVar);
-                existingVarKeys.add(key);
-              }
-            });
-            merged.variants = mergedVariants;
-
-            finalProducts.push(merged);
-          });
-
-          // 2. Append any default products not yet in localStorage
-          defaults.forEach(def => {
-            if (def && def.id && !processedIds.has(def.id) && !deprecatedSet.has(def.id)) {
-              finalProducts.push(def);
-              processedIds.add(def.id);
-            }
-          });
-
-          localStorage.setItem("atelier_products_v1", JSON.stringify(finalProducts));
-          window.STORE_PRODUCTS = finalProducts;
-          return;
-        }
+  {
+    "id": "dxn-1-dxn-aloev-aqua-gel",
+    "name": "DXN ALOE.V Gel Aqueux Hydratant à l'Aloès",
+    "nameAr": "دي إكس إن ألو في - جل مائي",
+    "titleAr": "دي إكس إن ألو في - جل مائي (DXN)",
+    "brand": "DXN",
+    "sku": "DXN-SKN-001",
+    "barcode": "65000000001",
+    "slug": "dxn-1-dxn-aloev-aqua-gel",
+    "category": "face-creams-serums",
+    "categoryName": "Crèmes Visage & Sérums",
+    "subcategory": "Face Creams & Serums",
+    "categoryGroup": "skincare-beauty",
+    "collections": [
+      "skincare-beauty",
+      "new-arrivals",
+      "face-creams-serums"
+    ],
+    "price": 111,
+    "compareAtPrice": 135,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": true,
+    "isBundle": false,
+    "stock": 53,
+    "weight": "50 ml",
+    "rating": 5,
+    "reviewCount": 17,
+    "shortDescription": "امنحي بشرتك انتعاشاً وتُرطاباً فائقاً مع دي إكس إن ألو في - جل مائي، التركيبة الخفيفة والمنعشة المصممة لتغذية وترطيب البشرة بعمق. مستوحى من الخصائص الطبيعية المهدئة لنبات الصبار، يساعد هذا الجل في الحفاظ على حيوية البشرة ونعومتها طوال اليوم.",
+    "description": "امنحي بشرتك انتعاشاً وتُرطاباً فائقاً مع دي إكس إن ألو في - جل مائي، التركيبة الخفيفة والمنعشة المصممة لتغذية وترطيب البشرة بعمق. مستوحى من الخصائص الطبيعية المهدئة لنبات الصبار، يساعد هذا الجل في الحفاظ على حيوية البشرة ونعومتها طوال اليوم.",
+    "details": [
+      "خلاصة الصبار الطبيعية: غني بفوائد الألوفيرا المعروفة بقدرتها الفعالة على تهدئة، تلطيف، وتجديد شباب البشرة.",
+      "ترطيب خفيف وسريع الامتصاص: تركيبة مائية (Aqua Gel) خفيفة على البشرة، تمتصه بسرعة دون ترك أي ملمس دهني مزعج",
+      "نعومة وحماية: يساعد في الحفاظ على رطوبة البشرة الطبيعية وحمايتها من الجفاف والعوامل البيئية اليومية",
+      "الحجم: عبوة عملية بحجم 50 مل، مثالية للاستخدام اليومي وأثناء التنقل."
+    ],
+    "howToUse": "يُوضع على بشرة نظيفة وجافة (الوجه أو الجسم).يُدلك بلطف بحركات دائرية حتى يتم امتصاصه بالكامل.يُستخدم صباحاً ومساءً أو كلما احتجتِ إلى ترطيب وانتعاش فوري.",
+    "tags": [
+      "DXN",
+      "Aloe Vera",
+      "Aqua Gel",
+      "Moisturizer",
+      "Skincare",
+      "Hydration"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom/1.png",
+        "productId": "dxn-1-dxn-aloev-aqua-gel",
+        "linkUrl": "product.html?id=dxn-1-dxn-aloev-aqua-gel"
       }
-    }
-  } catch (e) {
-    console.warn("Could not synchronize products with localStorage:", e);
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/1.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "50 ml",
+        "stock": 53,
+        "sku": "DXN-SKN-001",
+        "price": 111,
+        "compareAtPrice": 135
+      }
+    ],
+    "nameFr": "DXN ALOE.V Gel Aqueux Hydratant à l'Aloès",
+    "categoryNameFr": "Crèmes Visage & Sérums",
+    "subtitleFr": "Formule aqua-gel ultra-légère rafraîchissante et apaisante à l'Aloe Vera pur",
+    "shortDescriptionFr": "Offrez à votre peau une sensation immédiate de fraîcheur et d'hydratation intense avec le Gel Aqueux DXN ALOE.V. Sa texture légère et non grasse pénètre instantanément pour nourrir et apaiser l'épiderme en profondeur.",
+    "descriptionFr": "Inspiré des vertus réparatrices exceptionnelles de l'Aloe Vera pur, le Gel Aqueux DXN ALOE.V est formulé pour régénérer la barrière cutanée tout en maintenant une souplesse optimale tout au long de la journée. Idéal pour tous les types de peaux, y compris les plus sensibles, il apaise les tiraillements, prévient la déshydratation causée par la pollution ou le climat sec, et laisse un fini velouté mat sans aucun résidu collant.",
+    "detailsFr": [
+      "Extrait d'Aloe Vera pur hautement concentré pour calmer les irritations et revitaliser les peaux fatiguées",
+      "Texture Aqua-Gel aqueuse ultra-fluide qui pénètre instantanément sans effet luisant ni gras",
+      "Protection active contre le dessèchement et les agressions environnementales extérieures",
+      "Format nomade pratique de 50 ml, idéal pour l'application quotidienne du matin et du soir"
+    ],
+    "howToUseFr": "Appliquez une noisette de gel sur une peau propre et sèche (visage et cou). Massez délicatement par mouvements circulaires ascendants jusqu'à pénétration complète. S'utilise matin et soir ou dès que votre peau réclame un coup de fraîcheur.",
+    "mainCategory": "skincare-beauty",
+    "categoryNameAr": "العناية بالوجه والسيرومات",
+    "subtitleAr": "تركيبة جل مائي خفيفة منعشة ومهدئة للبشرة بالألوفيرا النقية"
+  },
+  {
+    "id": "dxn-2-dxn-apple-fruit-drink-base",
+    "name": "DXN Boisson Concentrée Pur Jus de Pomme",
+    "nameAr": "مشروب عصير التفاح",
+    "titleAr": "مشروب عصير التفاح (DXN)",
+    "brand": "DXN",
+    "sku": "DXN-BEV-001",
+    "barcode": "65000000002",
+    "slug": "dxn-2-dxn-apple-fruit-drink-base",
+    "category": "juices-botanical-drinks",
+    "categoryName": "Jus & Boissons Botaniques",
+    "subcategory": "Juices & Botanical Drinks",
+    "categoryGroup": "beverages-drinks",
+    "collections": [
+      "beverages-drinks",
+      "new-arrivals",
+      "juices-botanical-drinks"
+    ],
+    "price": 383,
+    "compareAtPrice": 450,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 56,
+    "weight": "Sachets",
+    "rating": 5,
+    "reviewCount": 19,
+    "shortDescription": "انتعش بحيوية الطبيعة مع مشروب عصير التفاح من دي إكس إن، المصمم خصيصاً ليمنحك مذاق التفاح الأخضر المنعش والفوائد الغذائية الغنية في كل رشفة. يجمع هذا المشروب الفريد بين الطعم اللذيذ والانتعاش الفوري، ليكون رفيقك المثالي طوال اليوم.",
+    "description": "انتعش بحيوية الطبيعة مع مشروب عصير التفاح من دي إكس إن، المصمم خصيصاً ليمنحك مذاق التفاح الأخضر المنعش والفوائد الغذائية الغنية في كل رشفة. يجمع هذا المشروب الفريد بين الطعم اللذيذ والانتعاش الفوري، ليكون رفيقك المثالي طوال اليوم.",
+    "details": [
+      "مذاق التفاح الطبيعي: مستخلص بعناية ليقدم لك النكهة الغنية والحلوة المنعشة للتفاح الأخضر الطازج.",
+      "شكل عملي ومريح: يأتي في عبوة أنيقة تحتوي على أكياس (أظرف) سهلة الحمل والاستخدام، مما يجعله مثالياً للمنزل، العمل، أو أثناء التنقل.",
+      "انتعاش وحيوية: يروي العطش ويمنح شعوراً بالحيوية والنشاط بفضل خصائصه الطبيعية المنعشة.",
+      "جودة عالية: مصمم وفق معايير دي إكس إن الموثوقة لتقديم أفضل تجربة مشروب صحي ولذيذ."
+    ],
+    "howToUse": "يُفرغ محتوى الكيس في كوب من الماء (البارد أو العادي حسب الرغبة).يُقلب جيداً حتى يمتزج تماماً.يُقدم بارداً للاستمتاع بأرقى مذاق وأروع انتعاش!",
+    "tags": [
+      "DXN",
+      "Apple Drink",
+      "Fruit Juice",
+      "Beverages",
+      "Refreshing",
+      "Vitamins"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom/2.png",
+        "productId": "dxn-2-dxn-apple-fruit-drink-base",
+        "linkUrl": "product.html?id=dxn-2-dxn-apple-fruit-drink-base"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/2.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "Sachets",
+        "stock": 56,
+        "sku": "DXN-BEV-001",
+        "price": 383,
+        "compareAtPrice": 450
+      }
+    ],
+    "nameFr": "DXN Boisson Concentrée Pur Jus de Pomme",
+    "categoryNameFr": "Jus & Boissons Botaniques",
+    "subtitleFr": "Concentré naturel de pomme verte rafraîchissant et vitaminé",
+    "shortDescriptionFr": "Ressourcez-vous avec la fraîcheur vivifiante de la Boisson Concentrée à la Pomme DXN. Une alliance parfaite entre douceur acidulée et richesse en nutriments essentiels pour désaltérer et redonner du tonus à tout moment.",
+    "descriptionFr": "Élaborée à partir d'extraits rigoureusement sélectionnés de pommes fraîches, cette préparation concentrée restitue toute la saveur authentique et désaltérante de la pomme verte. Véritable concentré de vitalité pour toute la famille, elle soutient l'hydratation corporelle tout en apportant des antioxydants naturels qui préservent l'énergie au cours de la journée.",
+    "detailsFr": [
+      "Goût fruité authentique et naturellement équilibré de pomme verte fraîche",
+      "Sachets individuels hygiéniques et faciles à emporter au travail, en voyage ou au sport",
+      "Désaltère instantanément et recharge les réserves d'énergie naturelle",
+      "Conforme aux normes de qualité et de pureté strictes des laboratoires DXN"
+    ],
+    "howToUseFr": "Versez un sachet dans un grand verre d'eau fraîche (environ 200 à 250 ml selon votre préférence d'intensité). Mélangez vigoureusement. Servez bien frais avec des glaçons pour une expérience gustative optimale.",
+    "mainCategory": "beverages-drinks",
+    "categoryNameAr": "المشروبات النباتية والعصائر",
+    "subtitleAr": "مشروب مركز طبيعي بالتفاح الأخضر المنعش والغني بالفيتامينات"
+  },
+  {
+    "id": "dxn-3-dxn-black-cumin-plus",
+    "name": "DXN Black Cumin Plus - Gélules de Nigelle Pure",
+    "nameAr": "دي إكس إن بلاك كيمين بلس",
+    "titleAr": "دي إكس إن بلاك كيمين بلس (DXN)",
+    "brand": "DXN",
+    "sku": "DXN-SUP-001",
+    "barcode": "65000000003",
+    "slug": "dxn-3-dxn-black-cumin-plus",
+    "category": "tablets-capsules",
+    "categoryName": "Comprimés & Gélules Nutritionnelles",
+    "subcategory": "Tablets & Capsules",
+    "categoryGroup": "health-supplements",
+    "collections": [
+      "health-supplements",
+      "new-arrivals",
+      "tablets-capsules"
+    ],
+    "price": 233,
+    "compareAtPrice": 280,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": true,
+    "isBundle": false,
+    "stock": 59,
+    "weight": "90 capsules (350 mg)",
+    "rating": 5,
+    "reviewCount": 21,
+    "shortDescription": "عزّز صحتك وعافيتك الطبيعية مع دي إكس إن بلاك كيمين بلس، المكمل الغذائي المميز المستخلص من بذور الحبة السوداء (حبة البركة) المعروفة بخصائصها العلاجية والغذائية العميقة منذ القدم. صُممت هذه الكبسولات لتمنحك فوائد هذا المكون الطبيعي بطريقة عملية وسهلة الاستخدام ضمن روتينك اليومي.",
+    "description": "عزّز صحتك وعافيتك الطبيعية مع دي إكس إن بلاك كيمين بلس، المكمل الغذائي المميز المستخلص من بذور الحبة السوداء (حبة البركة) المعروفة بخصائصها العلاجية والغذائية العميقة منذ القدم. صُممت هذه الكبسولات لتمنحك فوائد هذا المكون الطبيعي بطريقة عملية وسهلة الاستخدام ضمن روتينك اليومي.",
+    "details": [
+      "خلاصة الحبة السوداء النقية: غنية بالفوائد الطبيعية والعناصر الغذائية التي تدعم الصحة العامة وتعزز مناعة الجسم.",
+      "دعم الحيوية والنشاط: تساعد في الحفاظ على التوازن الحيوي للجسم وتمدّه بالطاقة اللازمة لمواجهة ضغوط اليوم.",
+      "شكل كبسولات عملية: تأتي في عبوة مريحة وسهلة الأخذ، مما يجعلها مثالية لنمط الحياة السريع.",
+      "مواصفات العبوة: تحتوي العبوة على 90 كبسولة بتركيز 350 ملغ لكل كبسولة للاستخدام المنتظم."
+    ],
+    "howToUse": "تبتلع الكبسولات بالماء حسب الجرعة الموصى بها على العبوة أو وفقاً لإرشادات الاستخدام.   تُتناول بانتظام كجزء من نظام غذائي متوازن ونمط حياة صحي.",
+    "tags": [
+      "DXN",
+      "Black Cumin",
+      "Habbat Al Baraka",
+      "Immunity",
+      "Supplements",
+      "Wellness"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom/3.png",
+        "productId": "dxn-3-dxn-black-cumin-plus",
+        "linkUrl": "product.html?id=dxn-3-dxn-black-cumin-plus"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/3.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "90 capsules (350 mg)",
+        "stock": 59,
+        "sku": "DXN-SUP-001",
+        "price": 233,
+        "compareAtPrice": 280
+      }
+    ],
+    "nameFr": "DXN Black Cumin Plus - Gélules de Nigelle Pure",
+    "categoryNameFr": "Comprimés & Gélules Nutritionnelles",
+    "subtitleFr": "Gélules de graine noire (Habba Sawda) enrichies en clou de girofle et poivre noir",
+    "shortDescriptionFr": "Renforcez votre immunité et votre vitalité naturelle avec DXN Black Cumin Plus. Une formule synergique réunissant les bienfaits millénaires de la Nigelle (Nigella Sativa) et d'épices nobles pour fortifier l'organisme.",
+    "descriptionFr": "DXN Black Cumin Plus associe la graine noire de Nigelle cultivée selon des méthodes biologiques strictes au clou de girofle et au poivre noir. Cette synergie bioactive stimule le système immunitaire, favorise la digestion et offre une puissante action antioxydante pour préserver le tonus et la santé globale au quotidien.",
+    "detailsFr": [
+      "Concentration optimale en huile et principes actifs purs de Nigella Sativa (Habba Sawda)",
+      "Synergie unique fortifiée au clou de girofle et poivre noir pour une biodisponibilité maximale",
+      "Soutient les défenses immunitaires naturelles et le confort respiratoire",
+      "Gélules végétales pures faciles à intégrer dans votre cure quotidienne"
+    ],
+    "howToUseFr": "Prendre 1 à 2 gélules par jour avec un grand verre d'eau tiède, de préférence après les repas principaux. Une cure régulière de 1 à 3 mois est recommandée pour des bienfaits optimaux.",
+    "mainCategory": "health-supplements",
+    "categoryNameAr": "المكملات الغذائية والكبسولات",
+    "subtitleAr": "كبسولات الحبة السوداء النقية معززة بالقرنفل والفلفل الأسود"
+  },
+  {
+    "id": "dxn-4-dxn-oozhi-tea",
+    "name": "DXN Thé Oozhi Oolong au Ganoderma",
+    "nameAr": "شاي أوزهي دي إكس إن",
+    "titleAr": "شاي أوزهي دي إكس إن (DXN)",
+    "brand": "DXN",
+    "sku": "DXN-BEV-002",
+    "barcode": "65000000004",
+    "slug": "dxn-4-dxn-oozhi-tea",
+    "category": "tea-cocoa",
+    "categoryName": "Thés Botaniques & Cacao",
+    "subcategory": "Tea & Cocoa",
+    "categoryGroup": "beverages-drinks",
+    "collections": [
+      "beverages-drinks",
+      "new-arrivals",
+      "tea-cocoa"
+    ],
+    "price": 243,
+    "compareAtPrice": 290,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 62,
+    "weight": "Pack",
+    "rating": 5,
+    "reviewCount": 23,
+    "shortDescription": "استمتع بلحظات من الاسترخاء والصفاء مع شاي أوزهي من دي إكس إن، الخليط الفريد والمميز الذي يجمع بين شاي أولونغ (Oolong Tea) الفاخر وفطر غانوديرما لوسيدوم (Ganoderma Lucidum) المعروف بخصائصه المجددة للحيوية. يوفر لك هذا الشاي تجربة غنية بالنكهة والفوائد الصحية في كل رشفة.",
+    "description": "استمتع بلحظات من الاسترخاء والصفاء مع شاي أوزهي من دي إكس إن، الخليط الفريد والمميز الذي يجمع بين شاي أولونغ (Oolong Tea) الفاخر وفطر غانوديرما لوسيدوم (Ganoderma Lucidum) المعروف بخصائصه المجددة للحيوية. يوفر لك هذا الشاي تجربة غنية بالنكهة والفوائد الصحية في كل رشفة.",
+    "details": [
+      "خليط فريد من شاي أولونغ والفطر الراشي: يجمع بين الفوائد الطبيعية لشاي أولونغ الأصيل وخلاصة فطر غانوديرما (الريشي) لتعزيز الصحة العامة.",
+      "طعم غني ومنعش: يتميز بنكهة عميقة وعطرية ترضي عشاق الشاي وتمنح شعوراً بالانتعاش والراحة.",
+      "دعم الحيوية والنشاط: خيار رائع لروتينك اليومي للمساعدة في الاسترخاء وتصفية الذهن بفضل المكونات الطبيعية المنتتاقاة بعناية.",
+      "تصميم عملي: عبوة أنيقة وعملية لحفظ النكهة والجودة وسهولة الاستخدام اليومي."
+    ],
+    "howToUse": "يُضاف مقدار مناسب من الشاي إلى الماء الساخن.يُترك منقوعاً لفترة قصيرة حتى تتغلغل النكهات وتستمتع بالمذاق الغني.يُقدم ساخناً لتجربة مهدئة ومنعشة طوال اليوم!",
+    "tags": [
+      "DXN",
+      "Oozhi Tea",
+      "Oolong",
+      "Ganoderma",
+      "Relaxation",
+      "Antioxidants"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom/4.png",
+        "productId": "dxn-4-dxn-oozhi-tea",
+        "linkUrl": "product.html?id=dxn-4-dxn-oozhi-tea"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/4.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "Pack",
+        "stock": 62,
+        "sku": "DXN-BEV-002",
+        "price": 243,
+        "compareAtPrice": 290
+      }
+    ],
+    "nameFr": "DXN Thé Oozhi Oolong au Ganoderma",
+    "categoryNameFr": "Thés Botaniques & Cacao",
+    "subtitleFr": "Feuilles nobles de thé Oolong semi-fermenté sublimées par le Reishi",
+    "shortDescriptionFr": "Dégustez la sérénité et la finesse aromatique du Thé Oozhi DXN. L'harmonie parfaite entre les vertus digestives du thé Oolong traditionnel et la force protectrice du Ganoderma Lucidum.",
+    "descriptionFr": "Le Thé Oozhi de DXN réunit des feuilles de thé Oolong sélectionnées avec rigueur dans les plantations d'altitude et l'extrait pur de Ganoderma Lucidum. Réputé pour favoriser l'élimination des toxines, faciliter la digestion et apaiser l'esprit, ce thé d'exception offre une liqueur ambrée aux notes florales délicates.",
+    "detailsFr": [
+      "Thé Oolong de haute qualité semi-oxydé aux notes riches et subtiles",
+      "Infusé à l'extrait adaptogène de Ganoderma Lucidum pour la vitalité cellulaire",
+      "Aide à la combustion des graisses et soutient un métabolisme équilibré",
+      "Moment de détente garanti sans nervosité excessive"
+    ],
+    "howToUseFr": "Déposez une dosette de Thé Oozhi dans une théière ou une tasse. Versez 200-250 ml d'eau frémissante (85°C-90°C). Laissez infuser 3 à 5 minutes selon l'intensité souhaitée. Savourez chaud ou glacé.",
+    "mainCategory": "beverages-drinks",
+    "categoryNameAr": "الشاي والكاكاو",
+    "subtitleAr": "أوراق شاي أولونغ الفاخرة الممزوجة بفوائد فطر الجانوديرما"
+  },
+  {
+    "id": "dxn-5-dxn-spirudle-tom-yam-flavour",
+    "name": "DXN Nouilles Spirudle Tom Yam à la Spiruline",
+    "nameAr": "دي إكس إن سبيرودل - نكهة التوم يام",
+    "titleAr": "دي إكس إن سبيرودل - نكهة التوم يام (DXN)",
+    "brand": "DXN",
+    "sku": "DXN-FOD-001",
+    "barcode": "65000000005",
+    "slug": "dxn-5-dxn-spirudle-tom-yam-flavour",
+    "category": "treats-snacks",
+    "categoryName": "Snacks & Encas Sains",
+    "subcategory": "Treats & Snacks",
+    "categoryGroup": "food-pantry",
+    "collections": [
+      "food-pantry",
+      "new-arrivals",
+      "treats-snacks"
+    ],
+    "price": 74,
+    "compareAtPrice": 90,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "85 g",
+    "rating": 5,
+    "reviewCount": 25,
+    "shortDescription": "استمتع بتجربة طعام فريدة ومميزة مع دي إكس إن سبيرودل بنكهة التوم يام، المعكرونة السريعة التحضير المعززة بالسبيرولينا ومذاق التوم يام الحامض والحر الشهير. تجمع هذه الوجبة بين الفوائد الصحية للسبيرولينا والنكهات الآسيوية اللذيذة لتمنحك وجبة سريعة ومفعمة بالحيوية.",
+    "description": "استمتع بتجربة طعام فريدة ومميزة مع دي إكس إن سبيرودل بنكهة التوم يام، المعكرونة السريعة التحضير المعززة بالسبيرولينا ومذاق التوم يام الحامض والحر الشهير. تجمع هذه الوجبة بين الفوائد الصحية للسبيرولينا والنكهات الآسيوية اللذيذة لتمنحك وجبة سريعة ومفعمة بالحيوية.",
+    "details": [
+      "معززة بالسبيرولينا: تدمج فوائد السبيرولينا المغذية في نودلز سريعة التحضير لتوفير طاقة وقيمة غذائية أفضل.",
+      "نكهة التوم يام الأصيلة: غنية بمذاق التوم يام الحار والمنعش الذي يوقظ الحواس ويرضي عشاق النكهات القوية.",
+      "سريعة وسهلة التحضير: مثالية للأوقات التي تحتاج فيها إلى وجبة شهية وسريعة التحضير خلال دقائق معدودة.",
+      "خيار عملي وجذاب: وجبة خفيفة ومبتكرة تناسب أسلوب الحياة السريع دون التنازل عن المذاق الرائع."
+    ],
+    "howToUse": "توضع النودلز في الماء المغلي وتُترك حتى تنضج بحسب الإرشادات المدونة على العبوة.   تُضاف توابل التوم يام وتُمزج جيداً مع النودلز.   تُقدم ساخنة للاستمتاع بأرقى النكهات وألذ طعم!",
+    "tags": [
+      "DXN",
+      "Spirudle",
+      "Spirulina",
+      "Tom Yam",
+      "Healthy Noodles",
+      "Snacks"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom/5.png",
+        "productId": "dxn-5-dxn-spirudle-tom-yam-flavour",
+        "linkUrl": "product.html?id=dxn-5-dxn-spirudle-tom-yam-flavour"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/5.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "85 g",
+        "stock": 65,
+        "sku": "DXN-FOD-001",
+        "price": 74,
+        "compareAtPrice": 90
+      }
+    ],
+    "nameFr": "DXN Nouilles Spirudle Tom Yam à la Spiruline",
+    "categoryNameFr": "Snacks & Encas Sains",
+    "subtitleFr": "Nouilles saines séchées sans friture, spiruline pure et bouillon Tom Yam thaï",
+    "shortDescriptionFr": "Savourez un repas sain, rapide et riche en vitalité avec les Spirudle Tom Yam DXN. Des nouilles sans friture enrichies en spiruline naturelle dans un bouillon épicé et parfumé aux herbes thaïlandaises.",
+    "descriptionFr": "Révolutionnez votre pause déjeuner avec les Spirudle Tom Yam DXN. Contrairement aux nouilles instantanées conventionnelles, les Spirudle sont séchées à l'air sans friture dans l'huile et sont enrichies en spiruline cultivée dans les fermes certifiées DXN. Le mélange d'épices Tom Yam authentique procure une explosion de saveurs relevées et vivifiantes.",
+    "detailsFr": [
+      "Enrichies en spiruline pure 100% naturelle riche en protéines et minéraux",
+      "Processus de séchage sans friture dans l'huile : plus léger et digeste",
+      "Bouillon Tom Yam authentique relevé au citron vert, piment doux et citronnelle",
+      "Repas équilibré et complet prêt en 3 minutes"
+    ],
+    "howToUseFr": "Faites bouillir 400 ml d'eau. Plongez les nouilles Spirudle et faites cuire pendant 3 minutes. Ajoutez le sachet d'assaisonnement Tom Yam, mélangez bien et servez bien chaud.",
+    "mainCategory": "food-pantry",
+    "categoryNameAr": "الوجبات الخفيفة الصحية",
+    "subtitleAr": "معكرونة صحية مجففة بدون قلي بالسبيرولينا وتوابل التوم يام"
+  },
+  {
+    "id": "dxn-6-dxn-spirudle-noodles",
+    "name": "DXN Nouilles Diététiques Spirudle à la Spiruline",
+    "nameAr": "دي إكس إن سبيرودل",
+    "titleAr": "دي إكس إن سبيرودل (DXN)",
+    "brand": "DXN",
+    "sku": "DXN-FOD-002",
+    "barcode": "65000000006",
+    "slug": "dxn-6-dxn-spirudle-noodles",
+    "category": "treats-snacks",
+    "categoryName": "Snacks & Encas Sains",
+    "subcategory": "Treats & Snacks",
+    "categoryGroup": "food-pantry",
+    "collections": [
+      "food-pantry",
+      "new-arrivals",
+      "treats-snacks"
+    ],
+    "price": 103,
+    "compareAtPrice": 125,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 68,
+    "weight": "300 g",
+    "rating": 5,
+    "reviewCount": 27,
+    "shortDescription": "ارتقِ بوجباتك اليومية مع دي إكس إن سبيرودل، المعكرونة الصحية والمبتكرة المعززة بخطوات تغذية غنية بالسبيرولينا النقية. تجمع هذه المعكرونة بين المذاق الرائع والقيمة الغذائية الاستثنائية، مما يوفر لك طريقة مريحة لإضافة دفعة صحية إلى أطباقك المفضلة دون المساومة على النكهة.",
+    "description": "ارتقِ بوجباتك اليومية مع دي إكس إن سبيرودل، المعكرونة الصحية والمبتكرة المعززة بخطوات تغذية غنية بالسبيرولينا النقية. تجمع هذه المعكرونة بين المذاق الرائع والقيمة الغذائية الاستثنائية، مما يوفر لك طريقة مريحة لإضافة دفعة صحية إلى أطباقك المفضلة دون المساومة على النكهة.",
+    "details": [
+      "معززة بالسبيرولينا: غنية بالسبيرولينا الخضراء المعروفة بكونها مصدراً قوياً للبروتين النباتي، الفيتامينات، ومضادات الأكسدة.",
+      "صحية ومتوازنة: بديل رائع للمعكرونة التقليدية، وتعتبر مثالية للأشخاص المهتمين بصحتهم والذين يرغبون في إدخال المزيد من الأطعمة الخارقة المغذية إلى نظامهم الغذائي.",
+      "سريعة ومتعددة الاستخدامات: سهلة التحضير ومثالية لمجموعة واسعة من الوصفات، سواء كنت تفضلها في مرق دافئ، أو مقلية مع الخضار، أو مضافة إلى سلطة معكرونة منعشة.",
+      "الوزن الصافي: 300 جرام (مقسمة حصصاً مريحة للاستخدام)."
+    ],
+    "howToUse": "تُطهى المعكرونة في ماء مغلي للمدة الموصى بها حتى تصبح طرية.\n\nتُصفى جيداَ وتُمزج مع الخضار المفضلة لديك، والبروتينات الخالية من الدهون، والصلصات.\n\nتُقدم ساخنة أو باردة للاستمتاع بوجبة مغذية ومشبعة!",
+    "tags": [
+      "DXN",
+      "Spirudle",
+      "Spirulina",
+      "Noodles",
+      "Superfood",
+      "Healthy Meals"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom/6.png",
+        "productId": "dxn-6-dxn-spirudle-noodles",
+        "linkUrl": "product.html?id=dxn-6-dxn-spirudle-noodles"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/6.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "300 g",
+        "stock": 68,
+        "sku": "DXN-FOD-002",
+        "price": 103,
+        "compareAtPrice": 125
+      }
+    ],
+    "nameFr": "DXN Nouilles Diététiques Spirudle à la Spiruline",
+    "categoryNameFr": "Snacks & Encas Sains",
+    "subtitleFr": "Nouilles saines sans friture enrichies en super-aliment Spiruline pure",
+    "shortDescriptionFr": "Adoptez une alimentation saine et nutritive avec les Nouilles Spirudle DXN. Confectionnées avec de la spiruline pure et séchées à l'air sans huile de friture pour une texture ferme et légère.",
+    "descriptionFr": "Les Nouilles Spirudle DXN constituent une alternative diététique moderne pour toute la famille. Leur belle couleur verte naturelle provient exclusivement de la spiruline pure incorporated à la farine de blé sélectionnée. Pauvres en matières grasses et sans conservateurs nocifs, elles constituent la base idéale de vos soupes et woks équilibrés.",
+    "detailsFr": [
+      "Aliment fonctionnel riche en micronutriments et antioxydants naturels",
+      "Sans friture dans l'huile de palme ni additifs chimiques",
+      "Texture al dente parfaite pour soupes, plats sautés ou salades froides",
+      "Alternative saine et digeste aux pâtes instantanées traditionnelles"
+    ],
+    "howToUseFr": "Plongez les nouilles dans une casserole d'eau bouillante pendant 3 à 4 minutes jusqu'à tendreté souhaitée. Égouttez et accommodez avec vos légumes frais sautés, bouillon maison ou sauce préférée.",
+    "mainCategory": "food-pantry",
+    "categoryNameAr": "الوجبات الخفيفة الصحية",
+    "subtitleAr": "معكرونة صحية مجففة بدون قلي غنية بالسبيرولينا النقية المغذية"
+  },
+  {
+    "id": "dxn-7-dxn-reishilium-powder",
+    "name": "DXN Poudre Reishilium Pure de Reishi (Ganoderma)",
+    "nameAr": "مسحوق ريشيليوم دي إكس إن",
+    "titleAr": "مسحوق ريشيليوم دي إكس إن (DXN)",
+    "brand": "DXN",
+    "sku": "DXN-SUP-002",
+    "barcode": "65000000007",
+    "slug": "dxn-7-dxn-reishilium-powder",
+    "category": "mushroom-extracts",
+    "categoryName": "Extraits de Champignons & Reishi",
+    "subcategory": "Mushroom Extracts",
+    "categoryGroup": "health-supplements",
+    "collections": [
+      "health-supplements",
+      "new-arrivals",
+      "mushroom-extracts"
+    ],
+    "price": 286,
+    "compareAtPrice": 340,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": true,
+    "isBundle": false,
+    "stock": 71,
+    "weight": "Powder",
+    "rating": 5,
+    "reviewCount": 29,
+    "shortDescription": "اكتشف القوة الطبيعية لفطر الريشي مع مسحوق ريشيليوم من دي إكس إن، المستخلص الفاخر المصمم خصيصاً لدعم العافية العامة وتعزيز حيوية ونشاط الجسم بطريقة طبيعية. يجمع هذا المسحوق بين الفوائد التقليدية لفطر غانوديرما (الريشي) ليكون إضافة مثالية لروتينك الصحي اليومي.",
+    "description": "اكتشف القوة الطبيعية لفطر الريشي مع مسحوق ريشيليوم من دي إكس إن، المستخلص الفاخر المصمم خصيصاً لدعم العافية العامة وتعزيز حيوية ونشاط الجسم بطريقة طبيعية. يجمع هذا المسحوق بين الفوائد التقليدية لفطر غانوديرما (الريشي) ليكون إضافة مثالية لروتينك الصحي اليومي.",
+    "details": [
+      "خلاصة فطر الريشي النقية: مستخلص من فطر غانوديرما عالي الجودة المعروف بخصائصه الفريدة في دعم جهاز المناعة وتعزيز التوازن العام.",
+      "مسحوق سهل الاستخدام: صيغة مسحوق مرنة ومريحة، تتيح لك إضافته بسهولة إلى المشروبات أو العصائر المفضلة لديك.",
+      "دعم الحيوية والنشاط: يساعد في تجديد طاقة الجسم ومواجهة إرهاق الضغوط اليومية بفضل مكوناته الطبيعية الغنية.",
+      "جودة موثوقة: منتج مصمم بمعايير دقيقة ليمنحك أفضل فوائد الفطر الطبيعي بأسلوب عملي."
+    ],
+    "howToUse": "يُخلط مقدار مناسب من المسحوق مع الماء الدافئ، العصائر، أو المشروبات المفضلة.يُقلب جيداً حتى يذوب تماماً، ويتناوله بانتظام ضمن نظامك الغذائي الصحي.",
+    "tags": [
+      "DXN",
+      "Reishi",
+      "Ganoderma",
+      "Mushroom Extract",
+      "Immunity",
+      "Superfood"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom/7.png",
+        "productId": "dxn-7-dxn-reishilium-powder",
+        "linkUrl": "product.html?id=dxn-7-dxn-reishilium-powder"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/7.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "Powder",
+        "stock": 71,
+        "sku": "DXN-SUP-002",
+        "price": 286,
+        "compareAtPrice": 340
+      }
+    ],
+    "nameFr": "DXN Poudre Reishilium Pure de Reishi (Ganoderma)",
+    "categoryNameFr": "Extraits de Champignons & Reishi",
+    "subtitleFr": "Poudre micronisée de mycélium et fruit de Ganoderma Lucidum d'une pureté absolue",
+    "shortDescriptionFr": "Fortifiez votre organisme en profondeur avec la Poudre Reishilium DXN. Une poudre d'une pureté exceptionnelle concentrant tous les polysaccharides et antioxydants du champignon Reishi pour votre immunité.",
+    "descriptionFr": "La Poudre Reishilium DXN est obtenue à partir des parties les plus actives du champignon Ganoderma Lucidum récolté à maturité optimale. Grâce à une technologie de micronisation brevetée, les parois cellulaires sont ouvertes pour libérer instantanément les triterpènes, peptides et polysaccharides bioactifs qui équilibrent le corps et réduisent la fatigue chronique.",
+    "detailsFr": [
+      "100% poudre pure de Ganoderma Lucidum micronisée sans excipients ni additifs",
+      "Puissant adaptogène qui renforce la résistance au stress et à la fatigue",
+      "Soutient les fonctions hépatiques, immunitaires et cardiovasculaires",
+      "Dissolution facile dans l'eau tiède, les soupes ou vos jus de fruits frais"
+    ],
+    "howToUseFr": "Prendre 1 cuillère doseuse (environ 1 à 2 g) par jour dissoute dans un verre d'eau tiède, un jus frais ou une infusion. À consommer de préférence le matin à jeun pour une absorption optimale.",
+    "mainCategory": "health-supplements",
+    "categoryNameAr": "خلاصات الفطر والريشي",
+    "subtitleAr": "مسحوق فطر الريشي النقي لتعزيز المناعة والطاقة الحيوية"
+  },
+  {
+    "id": "dxn-8-dxn-aloev-hand-body-lotion",
+    "name": "DXN ALOE.V Lait Hydratant Mains & Corps à l'Aloès",
+    "nameAr": "لوشن اليدين والجسم دي إكس إن ألو في",
+    "titleAr": "لوشن اليدين والجسم دي إكس إن ألو في (DXN)",
+    "brand": "DXN",
+    "sku": "DXN-PER-001",
+    "barcode": "65000000008",
+    "slug": "dxn-8-dxn-aloev-hand-body-lotion",
+    "category": "body-care-lotions",
+    "categoryName": "Soins Corps & Lotions",
+    "subcategory": "Body Care & Lotions",
+    "categoryGroup": "personal-care-hygiene",
+    "collections": [
+      "personal-care-hygiene",
+      "new-arrivals",
+      "body-care-lotions"
+    ],
+    "price": 111,
+    "compareAtPrice": 135,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": true,
+    "isBundle": false,
+    "stock": 74,
+    "weight": "285 ml",
+    "rating": 5,
+    "reviewCount": 31,
+    "shortDescription": "ادلل بشرتك وامنحها ترطيباً فائقاَ ومستداماً مع لوشن اليدين والجسم من دي إكس إن ألو في. صُممت هذه التركيبة الغنية خصيصاً لتغذي بشرتك بعمق، وتمنحها ملمساً ناعماً كالحرير، معززة بفوائد الصبار الطبيعي المهدئ.",
+    "description": "ادلل بشرتك وامنحها ترطيباً فائقاَ ومستداماً مع لوشن اليدين والجسم من دي إكس إن ألو في. صُممت هذه التركيبة الغنية خصيصاً لتغذي بشرتك بعمق، وتمنحها ملمساً ناعماً كالحرير، معززة بفوائد الصبار الطبيعي المهدئ.",
+    "details": [
+      "ترطيب عميق ومكثف: يوفر عناية فائقة للبشرة الجافة، مما يساعد على الحفاظ على نعومتها ومرونتها طوال اليوم.",
+      "خلاصة الصبار الطبيعية: غني بخصائص الألوفيرا الملطفة والمهدئة التي تساعد على تجديد حيوية البشرة وحمايتها من الجفاف.",
+      "للويدين والجسم: تركيبة متعددة الاستخدامات تناسب جميع أنحاء الجسم واليدين، تمتصه البشرة بسهولة دون ترك أي أثر دهني مزعج.",
+      "الحجم العملي: يأتي في عبوة عملية بحجم 285 مل، مثالية للاستخدام اليومي المستمر للعائلة."
+    ],
+    "howToUse": "يُوضع كمية مناسبة من اللوشن على اليدين أو الجسم بعد الاستحمام أو كلما دعت الحاجة.يُدلك بلطف بحركات دائرية حتى يتم امتصاصه بالكامل للحصول على بشرة ناعمة ومنعشة.",
+    "tags": [
+      "DXN",
+      "Aloe Vera",
+      "Body Lotion",
+      "Hand Care",
+      "Moisturizing",
+      "Hydration"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom/8.png",
+        "productId": "dxn-8-dxn-aloev-hand-body-lotion",
+        "linkUrl": "product.html?id=dxn-8-dxn-aloev-hand-body-lotion"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/8.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "285 ml",
+        "stock": 74,
+        "sku": "DXN-PER-001",
+        "price": 111,
+        "compareAtPrice": 135
+      }
+    ],
+    "nameFr": "DXN ALOE.V Lait Hydratant Mains & Corps à l'Aloès",
+    "categoryNameFr": "Soins Corps & Lotions",
+    "subtitleFr": "Lait corporel soyeux régénérant et adoucissant à l'extrait d'Aloe Vera",
+    "shortDescriptionFr": "Nourrissez et protégez votre peau au quotidien avec le Lait Mains & Corps DXN ALOE.V. Sa texture fluide veloutée adoucit instantanément les peaux sèches et préserve la souplesse cutanée.",
+    "descriptionFr": "Spécialement formulé pour hydrater et revitaliser l'épiderme après le bain ou l'exposition aux éléments extérieurs, le Lait ALOE.V DXN combine les vertus réparatrices de l'Aloe Vera et des agents émollients doux. Non collant, il pénètre rapidement et laisse un voile protecteur satiné au parfum subtil et discret.",
+    "detailsFr": [
+      "Riche en extrait concentré d'Aloe Vera pour apaiser et hydrater durablement",
+      "Formule double usage adaptée aux mains sèches et à l'ensemble du corps",
+      "Pénétration rapide sans film gras, permet un habillage immédiat",
+      "Flacon ergonomique de 250 ml idéal pour toute la famille"
+    ],
+    "howToUseFr": "Appliquez généreusement sur une peau propre et sèche après la douche ou à chaque fois que la peau tiraille. Massez délicatement sur l'ensemble du corps en insistant sur les coudes, genoux et mains.",
+    "mainCategory": "personal-care-hygiene",
+    "categoryNameAr": "العناية بالجسم واللوشن",
+    "subtitleAr": "حليب مرطب حريري يجدد وينعم بشرة اليدين والجسم بالصبار"
+  },
+  {
+    "id": "dxn-9-dxn-poria-s-capsules",
+    "name": "DXN Poria S Gélules Bien-Être & Vitalité",
+    "nameAr": "كبسولات بوريا إس دي إكس إن",
+    "titleAr": "كبسولات بوريا إس دي إكس إن (DXN)",
+    "brand": "DXN",
+    "sku": "DXN-SUP-003",
+    "barcode": "65000000009",
+    "slug": "dxn-9-dxn-poria-s-capsules",
+    "category": "mushroom-extracts",
+    "categoryName": "Extraits de Champignons & Reishi",
+    "subcategory": "Tablets & Capsules",
+    "categoryGroup": "health-supplements",
+    "collections": [
+      "health-supplements",
+      "new-arrivals",
+      "tablets-capsules"
+    ],
+    "price": 240,
+    "compareAtPrice": 290,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 77,
+    "weight": "Capsules",
+    "rating": 5,
+    "reviewCount": 33,
+    "shortDescription": "اكتشف الفوائد الطبيعية التقليدية مع كبسولات بوريا إس من دي إكس إن، المصممة خصيصاً لدعم العافية العامة وتزويد جسمك بالعناصر الطبيعية بطريقة مريحة وآمنة. يجمع هذا المكمل بين خبرة دي إكس إن وجودة المكونات العشبية التقليدية ليكون جزءاً أساسياً من روتينك الصحي اليومي.",
+    "description": "اكتشف الفوائد الطبيعية التقليدية مع كبسولات بوريا إس من دي إكس إن، المصممة خصيصاً لدعم العافية العامة وتزويد جسمك بالعناصر الطبيعية بطريقة مريحة وآمنة. يجمع هذا المكمل بين خبرة دي إكس إن وجودة المكونات العشبية التقليدية ليكون جزءاً أساسياً من روتينك الصحي اليومي.",
+    "details": [
+      "مستخلصات عشبية طبيعية: يحتوي على خلاصات نباتية تقليدية معروفة بخصائصها الفعالة في دعم التوازن الحيوي وصحة الجسم.",
+      "دعم الصحة والعافية: يساعد في الحفاظ على الحيوية والنشاط ودعم وظائف الجسم الطبيعية بانتظام.",
+      "شكل كبسولات عملية: تأتي في عبوة بيضاء أنيقة وسهلة الاستخدام، مما يجعلها مثالية للتحل بالصحة أثناء التنقل أو في المنزل.",
+      "جودة موثوقة: منتج مصمم بمعايير دي إكس إن عالية الجودة ليمنحك أفضل فائدة عشبية بكل أمان."
+    ],
+    "howToUse": "تُتناول الكبسولات بالماء وفقاً للجرعة الموصى بها على العبوة أو حسب التوجيهات.   تُستخدم بانتظام كجزء من نظام غذائي متوازن ونمط حياة صحي.",
+    "tags": [
+      "DXN",
+      "Poria S",
+      "Herbal Supplement",
+      "Vitality",
+      "Balance",
+      "Natural Herbs"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom/9.png",
+        "productId": "dxn-9-dxn-poria-s-capsules",
+        "linkUrl": "product.html?id=dxn-9-dxn-poria-s-capsules"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/9.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "Capsules",
+        "stock": 77,
+        "sku": "DXN-SUP-003",
+        "price": 240,
+        "compareAtPrice": 290
+      }
+    ],
+    "nameFr": "DXN Poria S Gélules Bien-Être & Vitalité",
+    "categoryNameFr": "Extraits de Champignons & Reishi",
+    "subtitleFr": "Extrait standardisé pur de mycélium de Poria Cocos (Fu Ling)",
+    "shortDescriptionFr": "Harmonisez vos énergies intérieures avec DXN Poria S. Formulé à partir du mycélium précieux de Poria Cocos, ce champignon traditionnel soutient la digestion, le drainage et le bien-être émotionnel.",
+    "descriptionFr": "Pilier incontournable des pharmacopées asiatiques depuis des siècles, le Poria Cocos (Fu Ling) est réputé pour son action bénéfique sur le système digestif, l'élimination de l'humidité corporelle et la sérénité de l'esprit. DXN Poria S offre une concentration maximale en principes actifs purs pour vous aider à retrouver un équilibre holistique durable.",
+    "detailsFr": [
+      "Extrait 100% pur de Poria Cocos cultivé selon des normes biotechnologiques de pointe",
+      "Favorise le drainage naturel et l'équilibre du métabolisme des fluides",
+      "Aide à calmer le stress mental et favorise un sommeil paisible et réparateur",
+      "Gélules végétales sécurisées sans additifs chimiques de synthèse"
+    ],
+    "howToUseFr": "Prendre 1 à 2 gélules par jour avec un verre d'eau tiède, de préférence une demi-heure avant le repas du matin ou du soir.",
+    "mainCategory": "health-supplements",
+    "categoryNameAr": "خلاصات الفطر والريشي",
+    "subtitleAr": "مستخلص نقي من فطر بوريا كوكوس لدعم النشاط والحيوية"
+  },
+  {
+    "id": "dxn-10-dxn-gano-massage-oil",
+    "name": "DXN Huile de Massage Gano au Reishi & Palme",
+    "nameAr": "زيت التدليك جانو دي إكس إن",
+    "titleAr": "زيت التدليك جانو دي إكس إن (DXN)",
+    "brand": "DXN",
+    "sku": "DXN-PER-002",
+    "barcode": "65000000010",
+    "slug": "dxn-10-dxn-gano-massage-oil",
+    "category": "hair-baby-care",
+    "categoryName": "Soins Cheveux, Huiles & Bébé",
+    "subcategory": "Body Care & Lotions",
+    "categoryGroup": "personal-care-hygiene",
+    "collections": [
+      "personal-care-hygiene",
+      "new-arrivals",
+      "body-care-lotions"
+    ],
+    "price": 150,
+    "compareAtPrice": 180,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": true,
+    "isBundle": false,
+    "stock": 80,
+    "weight": "75 ml",
+    "rating": 5,
+    "reviewCount": 35,
+    "shortDescription": "استمتع بتجربة استرخاء فريدة ومجددة للحيوية مع زيت التدليك جانو من دي إكس إن، التركيبة الطبيعية المصممة خصيصاً لتمنحك شعوراً بالراحة العميقة وتساعد في تخفيف إرهاق العضلات. يجمع هذا الزيت بين الخصائص الطبيعية المختارة بعناية ليكون مثالياً لجلسات التدليك والعناية بالبشرة.",
+    "description": "استمتع بتجربة استرخاء فريدة ومجددة للحيوية مع زيت التدليك جانو من دي إكس إن، التركيبة الطبيعية المصممة خصيصاً لتمنحك شعوراً بالراحة العميقة وتساعد في تخفيف إرهاق العضلات. يجمع هذا الزيت بين الخصائص الطبيعية المختارة بعناية ليكون مثالياً لجلسات التدليك والعناية بالبشرة.",
+    "details": [
+      "تركيبة طبيعية 100%: مصنوع من مكونات طبيعية وآمنة تماماً على البشرة، لتوفير تجربة تدليك نقية ومغذية.",
+      "الاسترخاء وتخفيف التوتر: يساعد في تهدئة الجسم، وتنعيم البشرة، ومنح العضلات شعوراً بالراحة والاسترخاء التام بعد يوم شاق.",
+      "ترطيب وتغذية: ينساب بسلاسة على البشرة ليتركها مرطبة، ناعمة، وذات ملمس صحي دون لزوجة مزعجة.",
+      "الحجم العملي: يأتي في عبوة عملية بحجم 75 مل، مناسبة للاستخدام الشخصي المنتظم أو أثناء السفر."
+    ],
+    "howToUse": "توضع كمية مناسبة من الزيت على راحة اليدين.يُدلك الجسم أو المناطق المستهدفة بحركات دائرية لطيفة حتى يتم امتصاصه بلطف لتحقيق أقصى درجات الاسترخاء.",
+    "tags": [
+      "DXN",
+      "Gano Oil",
+      "Massage Oil",
+      "Palm Oil",
+      "Relaxation",
+      "Muscle Relief"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom/10.png",
+        "productId": "dxn-10-dxn-gano-massage-oil",
+        "linkUrl": "product.html?id=dxn-10-dxn-gano-massage-oil"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/10.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "75 ml",
+        "stock": 80,
+        "sku": "DXN-PER-002",
+        "price": 150,
+        "compareAtPrice": 180
+      }
+    ],
+    "nameFr": "DXN Huile de Massage Gano au Reishi & Palme",
+    "categoryNameFr": "Soins Cheveux, Huiles & Bébé",
+    "subtitleFr": "Huile de soin décontractante 100% naturelle enrichie en extrait de Ganoderma",
+    "shortDescriptionFr": "Détendez vos muscles et revitalisez votre peau avec la légendaire Huile de Massage Gano DXN. L'alliance parfaite de l'extrait de Reishi et d'huile de palme pure pour soulager tensions et raideurs.",
+    "descriptionFr": "L'Huile de Massage Gano de DXN est un trésor naturel de bien-être physique. Élaborée avec une huile de palme de première pression à froid riche en vitamine E antioxydante et infusée à l'extrait pur de Ganoderma Lucidum, elle soulage rapidement les courbatures musculaires, détend les articulations et soulage les peaux tiraillées.",
+    "detailsFr": [
+      "Formule 100% naturelle associant huile de palme pure et extrait puissant de Ganoderma",
+      "Soulage efficacement les tensions musculaires, raideurs cervicales et articulaires",
+      "Idéale pour les massages relaxants des sportifs et les soins du corps au quotidien",
+      "Flacon de 75 ml pratique et facile à emporter dans votre sac de sport"
+    ],
+    "howToUseFr": "Versez une petite quantité d'huile dans le creux des mains pour la réchauffer. Massez fermement sur les zones musculaires tendues, les épaules ou les jambes jusqu'à complète pénétration.",
+    "mainCategory": "personal-care-hygiene",
+    "categoryNameAr": "العناية بالشعر والزيوت",
+    "subtitleAr": "زيت تدليك طبيعي 100% مهدئ ومريح للعضلات بخلاصة الجانوديرما"
+  },
+  {
+    "id": "dxn-11-dxn-ganoodle-tom-yam-flavour",
+    "name": "DXN Ganoodle Tom Yam au Ganoderma",
+    "nameAr": "دي إكس إن جانودل - نكهة التوم يام",
+    "titleAr": "دي إكس إن جانودل - نكهة التوم يام (DXN)",
+    "brand": "DXN",
+    "sku": "DXN-FOD-003",
+    "barcode": "65000000011",
+    "slug": "dxn-11-dxn-ganoodle-tom-yam-flavour",
+    "category": "treats-snacks",
+    "categoryName": "Snacks & Encas Sains",
+    "subcategory": "Treats & Snacks",
+    "categoryGroup": "food-pantry",
+    "collections": [
+      "food-pantry",
+      "new-arrivals",
+      "treats-snacks"
+    ],
+    "price": 105,
+    "compareAtPrice": 130,
+    "isNew": false,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 83,
+    "weight": "4 × 85 g (340 g)",
+    "rating": 5,
+    "reviewCount": 37,
+    "shortDescription": "استمتع بوجبة سريعة ومغذية تجمع بين المذاق الآسيوي الشهي والفوائد الطبيعية مع دي إكس إن جانودل بنكهة التوم يام. معكرونة فورية مبتكرة معززة بخلاصة فطر غانوديرما لوسيدوم (الريشي) ونكهة التوم يام الحامضة والحرّة المميزة لتلبي تطلعاتك في وجبة سريعة ولذيذة.",
+    "description": "استمتع بوجبة سريعة ومغذية تجمع بين المذاق الآسيوي الشهي والفوائد الطبيعية مع دي إكس إن جانودل بنكهة التوم يام. معكرونة فورية مبتكرة معززة بخلاصة فطر غانوديرما لوسيدوم (الريشي) ونكهة التوم يام الحامضة والحرّة المميزة لتلبي تطلعاتك في وجبة سريعة ولذيذة.",
+    "details": [
+      "معززة بفطر الريشي (Ganoderma lucidum): تدمج الفوائد الصحية لفطر غانوديرما المعروف في معكرونة سريعة التحضير لتمنحك قيمة إضافية.",
+      "نكهة التوم يام الأصيلة: غنية بالمذاق الحار والمنعش للتوم يام الذي يوقظ حواسك ويرضي عشاق النكهات الآسيوية القوية.",
+      "سريعة وسهلة التحضير: الخيار الأمثل للأوقات المزدحمة عندما تحتاج إلى وجبة خفيفة ومشبعة خلال دقائق معدودة.",
+      "مواصفات العبوة: عبوة اقتصادية وعملية تحتوي على عدة أكياس بوزن صافي يبلغ 85 غراماً لكل عبوة (تتضمن 4 أكياس/عبوات)."
+    ],
+    "howToUse": "تُوضع النودلز في الماء المغلي وتترك حتى تنضج بحسب الإرشادات الموضحة على العبوة.   تضاف توابل التوم يام المرفقة وتخلط جيداً مع النودلز.   تقدم ساخنة للاستمتاع بأرقى وأشهى نكهة!",
+    "tags": [
+      "DXN",
+      "Ganoodle",
+      "Ganoderma",
+      "Tom Yam",
+      "Asian Noodles",
+      "Food"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom/11.png",
+        "productId": "dxn-11-dxn-ganoodle-tom-yam-flavour",
+        "linkUrl": "product.html?id=dxn-11-dxn-ganoodle-tom-yam-flavour"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/11.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "4 × 85 g (340 g)",
+        "stock": 83,
+        "sku": "DXN-FOD-003",
+        "price": 105,
+        "compareAtPrice": 130
+      }
+    ],
+    "nameFr": "DXN Ganoodle Tom Yam au Ganoderma",
+    "categoryNameFr": "Snacks & Encas Sains",
+    "subtitleFr": "Nouilles instantanées saines au Ganoderma et bouillon piquant Tom Yam",
+    "shortDescriptionFr": "Régalez-vous avec les nouilles Ganoodle Tom Yam DXN. Une recette gourmande et tonique associant l'extrait adaptogène de Ganoderma à un bouillon Tom Yam savoureusement relevé.",
+    "descriptionFr": "Les nouilles Ganoodle DXN réinventent le plaisir du plat express en y intégrant les bienfaits du Ganoderma Lucidum. Séchées sainement, ces nouilles conservent une texture ferme et agréable tout en offrant un bouillon riche en épices thaïlandaises qui réchauffe le corps et stimule l'énergie.",
+    "detailsFr": [
+      "Enrichies en extrait de Ganoderma Lucidum pour booster la vitalité quotidienne",
+      "Épices Tom Yam savoureuses et parfumées aux herbes aromatiques d'Asie",
+      "Repas chaud réconfortant prêt en quelques minutes à la maison ou au travail",
+      "Qualité de fabrication rigoureuse certifiée par DXN"
+    ],
+    "howToUseFr": "Plongez les nouilles dans 400 ml d'eau bouillante pendant 3 minutes. Ajoutez les sachets d'assaisonnement fournis, remuez délicatement et dégustez chaud.",
+    "mainCategory": "food-pantry",
+    "categoryNameAr": "الوجبات الخفيفة الصحية",
+    "subtitleAr": "معكرونة سريعة التحضير صحية بالفطر الريشي ونكهة التوم يام اللذيذة"
+  },
+  {
+    "id": "dxn-12-dxn-florathemum-drink",
+    "name": "DXN Infusion Florathemum aux Fleurs de Chrysanthème",
+    "nameAr": "مشروب فلوراتيموم دي إكس إن",
+    "titleAr": "مشروب فلوراتيموم دي إكس إن (DXN)",
+    "brand": "DXN",
+    "sku": "DXN-BEV-003",
+    "barcode": "65000000012",
+    "slug": "dxn-12-dxn-florathemum-drink",
+    "category": "tea-cocoa",
+    "categoryName": "Thés Botaniques & Cacao",
+    "subcategory": "Tea & Cocoa",
+    "categoryGroup": "beverages-drinks",
+    "collections": [
+      "beverages-drinks",
+      "new-arrivals",
+      "tea-cocoa"
+    ],
+    "price": 277,
+    "compareAtPrice": 330,
+    "isNew": false,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 86,
+    "weight": "390 g",
+    "rating": 5,
+    "reviewCount": 39,
+    "shortDescription": "استمتع بلحظات من الاسترخاء والصفاء الذهني مع مشروب فلوراتيموم من دي إكس إن. خليط نباتي منعش مستخلص بعناية من زهور الأقحوان البري (Wild Chrysanthemum)، ليمنحك تجربة شاي عشبية فريدة تجمع بين المذاق الهادئ والفوائد المنعشة في كل رشفة.",
+    "description": "استمتع بلحظات من الاسترخاء والصفاء الذهني مع مشروب فلوراتيموم من دي إكس إن. خليط نباتي منعش مستخلص بعناية من زهور الأقحوان البري (Wild Chrysanthemum)، ليمنحك تجربة شاي عشبية فريدة تجمع بين المذاق الهادئ والفوائد المنعشة في كل رشفة.",
+    "details": [
+      "خليط نباتي طبيعي: مصنوع من خلاصات زهور الأقحوان البري الطبيعية والمعروفة بمخصائصها المهدئة والمنعشة.",
+      "الاسترخاء والهدوء: خيار مثالي للمساعدة في تصفية الذهن، تخفيف توتر اليوم، ومنح الجسم شعوراً بالراحة والاسترخاء.",
+      "مذاق خفيف ومنعش: يتميز بنكهة زهرية ناعمة ولطيفة ترضي عشاق المشروبات العشبية الطبيعية.",
+      "تصميم وعرض عملي: يأتي في عبوة عملية وأنيقة تحافظ على جودة ونكهة المكونات، بوزن صافٍ يبلغ 390 غراماً."
+    ],
+    "howToUse": "يُضاف مقدار مناسب من المسحوق إلى الماء الساخن.يُقلب جيداً حتى يذوب تماماً وتتغلغل النكهة العطرية للزهور.يُقدم ساخناً أو دافئاً للاستمتاع بأرقى تجربة استرخاء طبيعية!",
+    "tags": [
+      "DXN",
+      "Florathemum",
+      "Chrysanthemum",
+      "Floral Tea",
+      "Relaxation",
+      "Herbal Drink"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom/12.png",
+        "productId": "dxn-12-dxn-florathemum-drink",
+        "linkUrl": "product.html?id=dxn-12-dxn-florathemum-drink"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/12.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "390 g",
+        "stock": 86,
+        "sku": "DXN-BEV-003",
+        "price": 277,
+        "compareAtPrice": 330
+      }
+    ],
+    "nameFr": "DXN Infusion Florathemum aux Fleurs de Chrysanthème",
+    "categoryNameFr": "Thés Botaniques & Cacao",
+    "subtitleFr": "Infusion florale désaltérante apaisante aux fleurs de chrysanthème pures",
+    "shortDescriptionFr": "Rafraîchissez votre esprit et apaisez votre corps avec la Boisson Florathemum DXN. Une infusion florale naturellement bienfaisante pour détendre la vision et calmer la chaleur intérieure.",
+    "descriptionFr": "La boisson Florathemum DXN est issue d'une sélection minutieuse de fleurs de chrysanthème séchées selon la tradition ancestrale asiatique. Réputée pour ses vertus rafraîchissantes, elle apaise la fatigue oculaire due aux écrans, décongestionne et procure un apaisement immédiat tout au long de la journée.",
+    "detailsFr": [
+      "Extrait pur de fleurs de chrysanthème naturelles riches en flavonoïdes",
+      "Propriétés rafraîchissantes et apaisantes pour la gorge et la vue",
+      "Sachets individuels hermétiques pour préserver l'arôme floral délicat",
+      "À déguster aussi bien chaude et réconfortante que glacée en été"
+    ],
+    "howToUseFr": "Dissoudre un sachet de Florathemum dans 150-200 ml d'eau chaude ou fraîche. Mélangez bien. Ajoutez quelques glaçons en saison chaude pour une boisson désaltérante suprême.",
+    "mainCategory": "beverages-drinks",
+    "categoryNameAr": "الشاي والكاكاو",
+    "subtitleAr": "منقوع أزهار الأقحوان الطبيعية المهدئ والمنعش للجسم"
+  },
+  {
+    "id": "kallow-13-kallow-divine-touch-lifting-impact-",
+    "name": "Kallow Divine Touch Crème Contour des Yeux Effet Liftant",
+    "nameAr": "كريم العين كالو ديفاين تاتش - تأثير الشد",
+    "titleAr": "كريم العين كالو ديفاين تاتش - تأثير الشد (Kallow)",
+    "brand": "Kallow",
+    "sku": "KLW-SKN-001",
+    "barcode": "65000000013",
+    "slug": "kallow-13-kallow-divine-touch-lifting-impact-",
+    "category": "face-creams-serums",
+    "categoryName": "Crèmes Visage & Sérums",
+    "subcategory": "Face Creams & Serums",
+    "categoryGroup": "skincare-beauty",
+    "collections": [
+    "kallow",
+      "skincare-beauty",
+      "new-arrivals",
+      "face-creams-serums"
+    ],
+    "price": 360,
+    "compareAtPrice": 430,
+    "isNew": false,
+    "isSale": true,
+    "isFeatured": true,
+    "isBundle": false,
+    "stock": 89,
+    "weight": "15 ml",
+    "rating": 5,
+    "reviewCount": 41,
+    "shortDescription": "امنحي منطقة حول العينين عناية فائقة وإشراقة شبابية مع كريم العين كالو ديفاين تاتش. صُممت هذه التركيبة الفاخرة ذات تأثير الشد خصيصاً لتنعيم، وشد، وتجديد شباب البشرة الرقيقة حول العينين، لتتألقي بنظرة أكثر حيوية وانتعاشاً.",
+    "description": "امنحي منطقة حول العينين عناية فائقة وإشراقة شبابية مع كريم العين كالو ديفاين تاتش. صُممت هذه التركيبة الفاخرة ذات تأثير الشد خصيصاً لتنعيم، وشد، وتجديد شباب البشرة الرقيقة حول العينين، لتتألقي بنظرة أكثر حيوية وانتعاشاً.",
+    "details": [
+      "تأثير الشد والنعومة (Lifting Impact): يساعد على تحسين مظهر الخطوط الدقيقة ومقاومة علامات التعب لتبدو منطقة حول العينين أكثر مشداً وحيوية.",
+      "عناية فائقة ومتطورة: تركيبة غنية ومغذية ترطب بعمق وتعزز مرونة الجلد الرقيق المحيط بالعين.",
+      "تصميم أنيق وعملي: يأتي في علبة زجاجية كحلي أنيقة مع غطاء معدني فاخر، ترافقه عبوة خارجية متناسقة لتجربة جمالية راقية.",
+      "مناسب للاستخدام اليومي: يمتزج بلطف مع البشرة ليكون إضافة مثالية لروتين العناية الليلية أو الصباحية الخاصة بك."
+    ],
+    "howToUse": "تُوضع كمية صغيرة جداً برفق على بشرة نظيفة وجافة حول محيط العينين.يُدلك بلطف باستخدام أطراف الأصابع بحركات تربيت خفيفة من الداخل إلى الخارج حتى يتم امتصاصه تماماً.",
+    "tags": [
+      "Kallow",
+      "Eye Cream",
+      "Lifting Impact",
+      "Anti-Aging",
+      "Dark Circles",
+      "Skincare"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#1A365D",
+        "image": "assets/ecom/13.png",
+        "productId": "kallow-13-kallow-divine-touch-lifting-impact-",
+        "linkUrl": "product.html?id=kallow-13-kallow-divine-touch-lifting-impact-"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/13.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "15 ml",
+        "stock": 89,
+        "sku": "KLW-SKN-001",
+        "price": 360,
+        "compareAtPrice": 430
+      }
+    ],
+    "nameFr": "Kallow Divine Touch Crème Contour des Yeux Effet Liftant",
+    "categoryNameFr": "Crèmes Visage & Sérums",
+    "subtitleFr": "Soin regard anti-âge lissant et illuminateur anti-cernes et ridules",
+    "shortDescriptionFr": "Offrez à votre regard un éclat rajeuni et un lissage visible avec la Crème Contour des Yeux Kallow Divine Touch. Sa formule concentrée lifte délicatement la zone fragile du regard, estompe les ridules d'expression et atténue les poches et cernes pour un regard frais et reposé.",
+    "descriptionFr": "Développée spécifiquement pour la zone ultra-fine et sensible du contour de l'œil, la Crème Divine Touch Lifting Impact offre un effet liftant et tenseur instantané. Enrichie en peptides botaniques, antioxydants et agents raffermissants, elle stimule la microcirculation, réduit visiblement les cernes pigmentaires et redensifie les tissus cutanés tout au long de la journée.",
+    "detailsFr": [
+      "Effet tenseur et lissant ciblé sur les ridules et pattes d'oie",
+      "Réduit visiblement l'apparence des poches et des cernes sous les yeux",
+      "Formule douce haute tolérance adaptée à la peau délicate du contour oculaire",
+      "Texture soyeuse fluide à pénétration rapide, idéale sous le maquillage",
+      "Flacon pompe précision de 15 ml hygiénique et économique"
+    ],
+    "howToUseFr": "Matin et soir sur une peau préalablement nettoyée, prélevez une demi-pression de crème sur le bout de l'annulaire. Tapotez délicatement sur l'arcade sourcilière et le contour sous l'œil de l'intérieur vers l'extérieur jusqu'à pénétration complète, sans frotter.",
+    "mainCategory": "skincare-beauty",
+    "categoryNameAr": "العناية بالوجه والسيرومات",
+    "subtitleAr": "عناية متقدمة لمحيط العين لشد البشرة ومقاومة الهالات والتجاعيد"
+  },
+  {
+    "id": "kallow-14-kallow-cooling-after-sun-lotion",
+    "name": "Kallow Lait Après-Soleil Rafraîchissant & Apaisant",
+    "nameAr": "لوشن كالو المبرد بعد التعرض للشمس",
+    "titleAr": "لوشن كالو المبرد بعد التعرض للشمس (Kallow)",
+    "brand": "Kallow",
+    "sku": "KLW-SKN-002",
+    "barcode": "65000000014",
+    "slug": "kallow-14-kallow-cooling-after-sun-lotion",
+    "category": "sunscreens-tanning",
+    "categoryName": "Protection Solaire & Bronzage",
+    "subcategory": "Sunscreens & Tanning",
+    "categoryGroup": "skincare-beauty",
+    "collections": [
+    "kallow",
+      "skincare-beauty",
+      "new-arrivals",
+      "sunscreens-tanning"
+    ],
+    "price": 131,
+    "compareAtPrice": 160,
+    "isNew": false,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 92,
+    "weight": "280 ml (10.7 fl oz)",
+    "rating": 5,
+    "reviewCount": 43,
+    "shortDescription": "امنحي بشرتك الانتعاش والتهدئة الفورية بعد التعرض لأشعة الشمس مع لوشن كالو المبرد (Cooling After Sun). صُممت هذه التركيبة الفريدة خصيصاً لتناسب جميع أنواع البشرة، وتعمل على ترطيب وتلطيف الجلد ومنحه شعوراً بالراحة والاسترخاء الفوري.",
+    "description": "امنحي بشرتك الانتعاش والتهدئة الفورية بعد التعرض لأشعة الشمس مع لوشن كالو المبرد (Cooling After Sun). صُممت هذه التركيبة الفريدة خصيصاً لتناسب جميع أنواع البشرة، وتعمل على ترطيب وتلطيف الجلد ومنحه شعوراً بالراحة والاسترخاء الفوري.",
+    "details": [
+      "تأثير مبرد ومهدئ: يساعد على تخفيف حرارة البشرة وانتعاشها بفعالية فائقة بعد قضاء أوقات طويلة في الشمس.",
+      "مناسب لجميع أنواع البشرة: تركيبة لطيفة ومدروسة لتلائم احتياجات مختلف أنواع البشرة دون التسبب بأي تهيج.",
+      "ترطيب وتجديد: يغذي البشرة بعمق ويساعد في الحفاظ على رطوبتها ونعومتها الطبيعية.",
+      "عبوة عملية: يأتي في زجاجة زرقاء أنيقة ذات غطاء عملي، بحجم كبير يبلغ 280 مل (10.7 أوقية سائلة) للاستخدام المستمر."
+    ],
+    "howToUse": "يُوضع كمية مناسبة من اللوشن على البشرة النظيفة والجافة بعد التعرض للشمس.يُدلك بلطف وبحركات دائرية حتى يتم امتصاصه تماماً للحصول على شعور فوري بالبرودة والانتعاش.",
+    "tags": [
+      "Kallow",
+      "After Sun",
+      "Cooling Lotion",
+      "Sun Care",
+      "Soothing",
+      "Hydration"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#1A365D",
+        "image": "assets/ecom/14.png",
+        "productId": "kallow-14-kallow-cooling-after-sun-lotion",
+        "linkUrl": "product.html?id=kallow-14-kallow-cooling-after-sun-lotion"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/14.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "280 ml (10.7 fl oz)",
+        "stock": 92,
+        "sku": "KLW-SKN-002",
+        "price": 131,
+        "compareAtPrice": 160
+      }
+    ],
+    "nameFr": "Kallow Lait Après-Soleil Rafraîchissant & Apaisant",
+    "categoryNameFr": "Protection Solaire & Bronzage",
+    "subtitleFr": "Lait réparateur après-soleil rafraîchissant et prolongateur de bronzage",
+    "shortDescriptionFr": "Apaisez, désaltérez et réconfortez votre épiderme après chaque exposition au soleil avec le Lait Après-Soleil Kallow. Une formule fluide ultra-fraîche qui calme immédiatement les sensations d'échauffement et prolonge l'éclat de votre hâle.",
+    "descriptionFr": "Le Lait Rafraîchissant Après-Soleil Kallow est le geste réparateur indispensable pour régénérer la peau après une journée sous le soleil estival. Gorgé d'actifs apaisants, de menthol délicat et d'extraits végétaux nourrissants, il restaure la barrière lipidique, prévient la desquamation et enveloppe le corps d'une sensation de fraîcheur bienfaitrice.",
+    "detailsFr": [
+      "Effet glaçon instantané qui calme les tiraillements et échauffements cutanés",
+      "Hydratation profonde longue durée pour prolonger un bronzage lumineux",
+      "Pénétration immédiate sans fini gras ni effet collant",
+      "Format généreux de 280 ml idéal pour toute la famille lors des vacances",
+      "Subtil parfum estival enveloppant et relaxant"
+    ],
+    "howToUseFr": "Appliquez généreusement sur l'ensemble du corps et du visage après la douche, suite à une exposition solaire. Massez délicatement par mouvements circulaires. Renouvelez l'application le soir avant le coucher pour une régénération nocturne maximale.",
+    "mainCategory": "skincare-beauty",
+    "categoryNameAr": "الحماية من الشمس والتسمير",
+    "subtitleAr": "لوشن مبرد ومهدئ للبشرة بعد التعرض لأشعة الشمس"
+  },
+  {
+    "id": "kallow-15-kallow-spirulina-avocado-hydrating-",
+    "name": "Kallow Masque Visage Hydratant Spiruline & Avocat",
+    "nameAr": "قناع الوجه المرطب كالو بالسبيرولينا والأفوكادو",
+    "titleAr": "قناع الوجه المرطب كالو بالسبيرولينا والأفوكادو (Kallow)",
+    "brand": "Kallow",
+    "sku": "KLW-SKN-003",
+    "barcode": "65000000015",
+    "slug": "kallow-15-kallow-spirulina-avocado-hydrating-",
+    "category": "face-masks-lip-care",
+    "categoryName": "Masques Visage & Soins Lèvres",
+    "subcategory": "Face Masks & Lip Care",
+    "categoryGroup": "skincare-beauty",
+    "collections": [
+    "kallow",
+      "skincare-beauty",
+      "new-arrivals",
+      "face-masks-lip-care"
+    ],
+    "price": 146,
+    "compareAtPrice": 175,
+    "isNew": false,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 95,
+    "weight": "100 ml",
+    "rating": 5,
+    "reviewCount": 45,
+    "shortDescription": "امنحي بشرتك دفعة عميقة من الترطيب والإنعاش مع قناع الوجه المرطب كالو بالسبيرولينا والأفوكادو. صُممت هذه التركيبة الفريدة خصيصاً لتغذي البشرة بعمق وتستعيد حماوتها، جامِعةً بين فوائد الأفوكادو المغذي والسبيرولينا الغنية بالعناصر الطبيعية لتتألقي ببشرة ناعمة ومشرقة.",
+    "description": "امنحي بشرتك دفعة عميقة من الترطيب والإنعاش مع قناع الوجه المرطب كالو بالسبيرولينا والأفوكادو. صُممت هذه التركيبة الفريدة خصيصاً لتغذي البشرة بعمق وتستعيد حماوتها، جامِعةً بين فوائد الأفوكادو المغذي والسبيرولينا الغنية بالعناصر الطبيعية لتتألقي ببشرة ناعمة ومشرقة.",
+    "details": [
+      "مزيج مغذي من الأفوكادو والسبيرولينا: يجمع بين خلاصات سوبرفود طبيعية تعمل على ترطيب البشرة وإمدادها بالعناصر الحيوية الضرورية.",
+      "ترطيب فائق وعميق: يساعد في حبس الرطوبة داخل البشرة، مما يقلل من الجفاف ويمنح الوجه ملمساً حريراً ناعماً.",
+      "تجديد الحيوية والإشراق: يعيد للبشرة المتعبة نضارتها ولمعانها الطبيعي بفضل تركيبته الغنية واللطيفة.",
+      "تصميم أنيق وعملي: يأتي في عبوة دائرية بيضاء أنيقة مع غطاء فضي محكم، مثالي للاستخدام المنتظم ضمن روتين العناية بالبشرة."
+    ],
+    "howToUse": "تُوضع طبقة متساوية من القناع على بشرة نظيفة وجافة، مع تجنب منطقة العينين.يُترك القناع لمدة تتراوح بين 10 إلى 15 دقيقة ليتم امتصاصه وغذاؤه للبشرة.يُشطف الوجه جيداً بالماء الفاتر للحصول على بشرة نضرة ومرطبة تماماً.",
+    "tags": [
+      "Kallow",
+      "Face Mask",
+      "Spirulina",
+      "Avocado",
+      "Superfood Mask",
+      "Glowing Skin"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#1A365D",
+        "image": "assets/ecom/15.png",
+        "productId": "kallow-15-kallow-spirulina-avocado-hydrating-",
+        "linkUrl": "product.html?id=kallow-15-kallow-spirulina-avocado-hydrating-"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/15.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "100 ml",
+        "stock": 95,
+        "sku": "KLW-SKN-003",
+        "price": 146,
+        "compareAtPrice": 175
+      }
+    ],
+    "nameFr": "Kallow Masque Visage Hydratant Spiruline & Avocat",
+    "categoryNameFr": "Masques Visage & Soins Lèvres",
+    "subtitleFr": "Masque nourrissant et détoxifiant aux super-aliments bienfaisants",
+    "shortDescriptionFr": "Revitalisez et nourrissez les peaux sèches ou dévitalisées avec le Masque Hydratant Kallow Spiruline & Avocat. Une synergie végétale riche en antioxydants, vitamines et acides gras essentiels pour un teint rayonnant de vitalité.",
+    "descriptionFr": "Véritable bain de jouvence pour l'épiderme, ce masque crémeux associe la richesse nutritive exceptionnelle de la spiruline pure aux propriétés relipidantes et émollientes de l'avocat frais. Il détoxifie les pores, repulpe le derme et protège des radicaux libres responsables du vieillissement prématuré.",
+    "detailsFr": [
+      "Duo puissant de super-aliments : Spiruline détoxifiante & Huile d'avocat nourrissante",
+      "Redonne immédiatement souplesse, douceur et élasticité aux peaux fatiguées",
+      "Renforce la barrière cutanée face à la pollution et au stress urbain",
+      "Texture onctueuse veloutée facile à étaler et à rincer",
+      "Pot pratique de 100 ml offrant plus de 15 applications généreuses"
+    ],
+    "howToUseFr": "1 à 2 fois par semaine, appliquez en couche généreuse sur le visage et le cou propres en évitant le contour des yeux. Laissez poser 15 à 20 minutes, puis rincez à l'eau tiède à l'aide d'une éponge douce avant de vaporiser votre lotion tonique.",
+    "mainCategory": "skincare-beauty",
+    "categoryNameAr": "أقنعة الوجه والعناية بالشفاه",
+    "subtitleAr": "قناع مغذٍ ومنقٍ للبشرة بفوائد السبيرولينا والأفوكادو الغنية"
+  },
+  {
+    "id": "kallow-16-kallow-divine-touch-lifting-impact-",
+    "name": "Kallow Divine Touch Crème Visage Effet Liftant",
+    "nameAr": "كريم الوجه كالو ديفاين تاتش - تأثير الشد",
+    "titleAr": "كريم الوجه كالو ديفاين تاتش - تأثير الشد (Kallow)",
+    "brand": "Kallow",
+    "sku": "KLW-SKN-004",
+    "barcode": "65000000016",
+    "slug": "kallow-16-kallow-divine-touch-lifting-impact-",
+    "category": "face-creams-serums",
+    "categoryName": "Crèmes Visage & Sérums",
+    "subcategory": "Face Creams & Serums",
+    "categoryGroup": "skincare-beauty",
+    "collections": [
+    "kallow",
+      "skincare-beauty",
+      "new-arrivals",
+      "face-creams-serums"
+    ],
+    "price": 400,
+    "compareAtPrice": 480,
+    "isNew": false,
+    "isSale": true,
+    "isFeatured": true,
+    "isBundle": false,
+    "stock": 98,
+    "weight": "50 ml",
+    "rating": 5,
+    "reviewCount": 47,
+    "shortDescription": "استعيدي شباب وإشراقة بشرتك مع كريم الوجه كالو ديفاين تاتش. صُممت هذه التركيبة الفاخرة بأسلوب متطور لتمنح بشرتك تأثيراً مشدوداً وملمساً ناعماً، معززة بعناية فائقة لتلائم جميع أنواع البشرة وتمنحك مظهراً أكثر حيوية وشباباً.",
+    "description": "استعيدي شباب وإشراقة بشرتك مع كريم الوجه كالو ديفاين تاتش. صُممت هذه التركيبة الفاخرة بأسلوب متطور لتمنح بشرتك تأثيراً مشدوداً وملمساً ناعماً، معززة بعناية فائقة لتلائم جميع أنواع البشرة وتمنحك مظهراً أكثر حيوية وشباباً.",
+    "details": [
+      "تأثير الشد والرفع (Lifting Impact): يساعد على تحسين مرونة البشرة ومظهرها العام، ليمنح الوجه ملامح أكثر مشداً وشباباً.",
+      "مناسب لجميع أنواع البشرة: تركيبة غنية ومتوازنة صُممت بعناية لتلائم احتياجات مختلف أنواع البشرة وتقدم لها العناية المثالية.",
+      "ترطيب وتغذية عميقة: يغذي البشرة بعمق ويجدد حيويتها، مما يقلل من علامات التعب والإرهاق اليومي.",
+      "تصميم راقٍ وعملي: يأتي في عبوة زجاجية كحلي أنيقة ذات غطاء معدني فاخر، مع علبة خارجية متناسقة تضفي طابعاً راقياً."
+    ],
+    "howToUse": "توضع كمية مناسبة من الكريم على بشرة نظيفة وجافة للوجه والرقبة.يُدلك بلطف بحركات تصاعدية خفيفة حتى يتم امتصاصه تماماً للحصول على أفضل نتائج لشد وترطيب البشرة.",
+    "tags": [
+      "Kallow",
+      "Face Cream",
+      "Lifting Impact",
+      "Firming",
+      "Divine Touch",
+      "Luxury Skincare"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#1A365D",
+        "image": "assets/ecom/16.png",
+        "productId": "kallow-16-kallow-divine-touch-lifting-impact-",
+        "linkUrl": "product.html?id=kallow-16-kallow-divine-touch-lifting-impact-"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/16.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "50 ml",
+        "stock": 98,
+        "sku": "KLW-SKN-004",
+        "price": 400,
+        "compareAtPrice": 480
+      }
+    ],
+    "nameFr": "Kallow Divine Touch Crème Visage Effet Liftant",
+    "categoryNameFr": "Crèmes Visage & Sérums",
+    "subtitleFr": "Crème de jour anti-âge raffermissante, repulpante et redensifiante",
+    "shortDescriptionFr": "Sublimez la jeunesse de votre visage avec la Crème Liftante Kallow Divine Touch. Sa texture soyeuse raffermit les contours, atténue visiblement les rides et ridules et procure une hydratation continue 24 heures.",
+    "descriptionFr": "Alliance sophistiquée de science cosmétique et de précieux extraits botaniques, la Crème Divine Touch Lifting Impact stimule la synthèse de collagène et raffermit les contours du visage. Elle défie le relâchement cutané, apporte du volume aux zones creusées et crée un voile de douceur protecteur contre les agressions quotidiennes.",
+    "detailsFr": [
+      "Action liftante et raffermissante prouvée sur l'ovale du visage",
+      "Hydratation continue 24h avec effet repulpant immédiat",
+      "Améliore significativement l'élasticité et la tonicité des tissus",
+      "Fini poudré velouté mat, excellente base pour le maquillage",
+      "Convient parfaitement à tous les types de peaux, dès les premiers signes de l'âge"
+    ],
+    "howToUseFr": "Chaque matin, appliquez une noisette de crème sur l'ensemble du visage, le cou et le décolleté préalablement nettoyés. Massez de bas en haut et du centre vers l'extérieur pour stimuler le drainage lymphatique et maximiser l'effet liftant.",
+    "mainCategory": "skincare-beauty",
+    "categoryNameAr": "العناية بالوجه والسيرومات",
+    "subtitleAr": "كريم يومي مضاد للشيخوخة لشد البشرة واستعادة مرونتها ونضارتها"
+  },
+  {
+    "id": "kallow-17-kallow-nourishing-hand-cream",
+    "name": "Kallow Crème Mains Ultra-Nourrissante",
+    "nameAr": "كريم اليدين المغذي كالو",
+    "titleAr": "كريم اليدين المغذي كالو (Kallow)",
+    "brand": "Kallow",
+    "sku": "KLW-PER-001",
+    "barcode": "65000000017",
+    "slug": "kallow-17-kallow-nourishing-hand-cream",
+    "category": "body-care-lotions",
+    "categoryName": "Soins Corps & Lotions",
+    "subcategory": "Body Care & Lotions",
+    "categoryGroup": "personal-care-hygiene",
+    "collections": [
+    "kallow",
+      "personal-care-hygiene",
+      "new-arrivals",
+      "body-care-lotions"
+    ],
+    "price": 131,
+    "compareAtPrice": 160,
+    "isNew": false,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 101,
+    "weight": "75 ml",
+    "rating": 5,
+    "reviewCount": 49,
+    "shortDescription": "امنحي يديك عناية فائقة وترطيباً غنياً مع كريم اليدين المغذي كالو. صُممت هذه التركيبة الفريدة لتناسب جميع أنواع البشرة، وتعمل على تغذية اليدين بعمق وحمايتها من الجفاف، لتستمتعي بملمس ناعم وحريري طوال اليوم.",
+    "description": "امنحي يديك عناية فائقة وترطيباً غنياً مع كريم اليدين المغذي كالو. صُممت هذه التركيبة الفريدة لتناسب جميع أنواع البشرة، وتعمل على تغذية اليدين بعمق وحمايتها من الجفاف، لتستمتعي بملمس ناعم وحريري طوال اليوم.",
+    "details": [
+      "تغذية عميقة ومكثفة: يمنح اليدين ترطيباً فائقاَ يعيد إليهما النعومة والمرونة ويحارب الجفاف بفعالية.",
+      "مناسب لجميع أنواع البشرة: تركيبة لطيفة ومدروسة لتلائم احتياجات مختلف أنواع البشرة وتمنحها عناية يومية متكاملة.",
+      "امتصاص سريع: يتميز بقوام خفيف يمتصه الجلد بسرعة دون ترك أي أثر دهني مزعج، لراحة تامة بعد كل استخدام.",
+      "تصميم أنيق وعملي: يأتي في عبوة دائرية بيضاء أنيقة ذات غطاء معدني محكم، مثالية لحفظ المنتج وسهولة الاستخدام اليومي."
+    ],
+    "howToUse": "توضع كمية مناسبة من الكريم على اليدين النظيفتين والجافتين.يُدلك بلطف وبحركات دائرية حتى يتم امتصاصه تماماً، ويوصى باستخدامه كلما دعت الحاجة للحفاظ على نعومة اليدين.",
+    "tags": [
+      "Kallow",
+      "Hand Cream",
+      "Nourishing",
+      "Dry Hands",
+      "Silky Skin",
+      "Personal Care"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#1A365D",
+        "image": "assets/ecom/17.png",
+        "productId": "kallow-17-kallow-nourishing-hand-cream",
+        "linkUrl": "product.html?id=kallow-17-kallow-nourishing-hand-cream"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/17.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "75 ml",
+        "stock": 101,
+        "sku": "KLW-PER-001",
+        "price": 131,
+        "compareAtPrice": 160
+      }
+    ],
+    "nameFr": "Kallow Crème Mains Ultra-Nourrissante",
+    "categoryNameFr": "Soins Corps & Lotions",
+    "subtitleFr": "Soin protecteur velouté réparateur pour mains sèches et abîmées",
+    "shortDescriptionFr": "Prenez soin de vos mains au quotidien avec la Crème Mains Ultra-Nourrissante Kallow. Sa texture non grasse répare les gerçures, hydrate en profondeur et renforce les ongles face aux agressions climatiques et aux lavages fréquents.",
+    "descriptionFr": "Formulée à partir d'huiles végétales émollientes et de cires naturelles protectrices, cette crème crée un gant invisible qui préserve l'hydratation des mains sans laisser de film collant. Elle répare les épidermes fragilisés par l'eau calcaire, le vent ou les détergents et adoucit visiblement les cuticules.",
+    "detailsFr": [
+      "Nourrit intensément et répare les mains sèches, gercées ou abîmées",
+      "Renforce la kératine des ongles et assouplit les cuticules",
+      "Absorption ultra-rapide en 30 secondes sans laisser de traces grasses",
+      "Format tube nomade 75 ml parfait dans votre sac à main ou au bureau",
+      "Parfum délicat frais et relaxant pour un confort immédiat"
+    ],
+    "howToUseFr": "Déposez une petite quantité de crème sur le dos de la main et massez doucement les paumes, le dos des mains, les doigts et le pourtour des ongles. Renouvelez après chaque lavage des mains ou dès que le besoin d'hydratation se fait sentir.",
+    "mainCategory": "personal-care-hygiene",
+    "categoryNameAr": "العناية بالجسم واللوشن",
+    "subtitleAr": "عناية مخملية مغذية ومرممة لحماية الأيدي الجافة والحساسة"
+  },
+  {
+    "id": "kallow-18-kallow-essential-sunscreen-emulsion",
+    "name": "Kallow Émulsion Solaire Protectrice SPF 30",
+    "nameAr": "مستحلب واقي الشمس الأساسي كالو SPF 30",
+    "titleAr": "مستحلب واقي الشمس الأساسي كالو SPF 30 (Kallow)",
+    "brand": "Kallow",
+    "sku": "KLW-SKN-005",
+    "barcode": "65000000018",
+    "slug": "kallow-18-kallow-essential-sunscreen-emulsion",
+    "category": "sunscreens-tanning",
+    "categoryName": "Protection Solaire & Bronzage",
+    "subcategory": "Sunscreens & Tanning",
+    "categoryGroup": "skincare-beauty",
+    "collections": [
+    "kallow",
+      "skincare-beauty",
+      "new-arrivals",
+      "sunscreens-tanning"
+    ],
+    "price": 227,
+    "compareAtPrice": 270,
+    "isNew": false,
+    "isSale": true,
+    "isFeatured": true,
+    "isBundle": false,
+    "stock": 104,
+    "weight": "150 ml (5.07 fl oz)",
+    "rating": 5,
+    "reviewCount": 51,
+    "shortDescription": "احمِ بشرتك وتألقي بإشراقة صحية كل يوم مع مستحلب واقي الشمس الأساسي كالو SPF 30. صُممت هذه التركيبة الخفيفة لتناسب جميع أنواع البشرة، وتوفر حماية فعالة ضد أشعة الشمس الضارة مع ترطيب البشرة والحفاظ على حيويتها.",
+    "description": "احمِ بشرتك وتألقي بإشراقة صحية كل يوم مع مستحلب واقي الشمس الأساسي كالو SPF 30. صُممت هذه التركيبة الخفيفة لتناسب جميع أنواع البشرة، وتوفر حماية فعالة ضد أشعة الشمس الضارة مع ترطيب البشرة والحفاظ على حيويتها.",
+    "details": [
+      "حماية متقدمة SPF 30: يوفر درعاً واقياً فعالاً ضد أشعة الشمس اليومية لحماية البشرة من التلف وعلامات الشيخوخة المبكرة.",
+      "مناسب لجميع أنواع البشرة: تركيبة لطيفة ومدروسة تلبي احتياجات مختلف أنواع البشرة دون أن تترك أي أثر دهني مزعج.",
+      "قوام خفيف وسريع الامتصاص: مستحلب خفيف على البشرة ينساب بسلاسة ويمتصه الجلد بسهولة ليمنحك شعوراً بالراحة والانتعاش.",
+      "تصميم عملي وجميل: يأتي في زجاجة زرقاء أنيقة مزودة بمضخة (بومب) بيضاء عملية لسهولة وسرعة الاستخدام، بحجم 150 مل (5.07 أوقية سائلة)."
+    ],
+    "howToUse": "توضع كمية مناسبة من المستحلب على الوجه والبشرة المعرضة للشمس قبل التعرض لها بـ 15 دقيقة.يُدلك بلطف حتى يتم امتصاصه تماماً، ويوصى بإعادة وضعه بانتظام للحفاظ على حماية مستمرة طوال اليوم.",
+    "tags": [
+      "Kallow",
+      "Sunscreen",
+      "SPF 30",
+      "UV Protection",
+      "Emulsion",
+      "Sun Care"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#1A365D",
+        "image": "assets/ecom/18.png",
+        "productId": "kallow-18-kallow-essential-sunscreen-emulsion",
+        "linkUrl": "product.html?id=kallow-18-kallow-essential-sunscreen-emulsion"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/18.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "150 ml (5.07 fl oz)",
+        "stock": 104,
+        "sku": "KLW-SKN-005",
+        "price": 227,
+        "compareAtPrice": 270
+      }
+    ],
+    "nameFr": "Kallow Émulsion Solaire Protectrice SPF 30",
+    "categoryNameFr": "Protection Solaire & Bronzage",
+    "subtitleFr": "Protection solaire quotidienne à large spectre UVA/UVB fini invisible",
+    "shortDescriptionFr": "Protégez votre capital soleil au quotidien avec l'Émulsion Solaire Protectrice SPF 30 Kallow. Sa formule fluide légère offre un bouclier efficace contre les rayons ultraviolets tout en maintenant l'hydratation de la peau.",
+    "descriptionFr": "Spécialement conçue pour résister à la transpiration et à l'eau, l'émulsion solaire Kallow SPF 30 combine filtres photostables de haute précision et agents antioxydants protecteurs. Elle prévient les coups de soleil, combat le photovieillissement prématuré et laisse la peau douce, souple sans film blanc ni sensation d'étouffement.",
+    "detailsFr": [
+      "Protection équilibrée SPF 30 contre les rayons UVA responsables du vieillissement et UVB responsables des brûlures",
+      "Formule fluide ultra-légère ne laissant aucune trace blanche",
+      "Résistante à l'eau et aux frottements pour une efficacité prolongée",
+      "Convient au visage et au corps pour les activités sportives et le plein air",
+      "Flacon pompe économique de 150 ml idéal pour toute la famille"
+    ],
+    "howToUseFr": "Appliquez uniformément et généreusement sur toutes les parties exposées du corps et du visage 20 minutes avant toute exposition solaire. Réappliquez toutes les 2 heures et systématiquement après vous être baigné, essuyé ou après avoir transpiré.",
+    "mainCategory": "skincare-beauty",
+    "categoryNameAr": "الحماية من الشمس والتسمير",
+    "subtitleAr": "حماية يومية واسعة النطاق SPF 30 بملمس شفاف غير دهني"
+  },
+  {
+    "id": "kallow-19-kallow-instant-tightening-serum",
+    "name": "Kallow Sérum Tenseur & Liftant Immédiat",
+    "nameAr": "سيروم الشد الفوري كالو",
+    "titleAr": "سيروم الشد الفوري كالو (Kallow)",
+    "brand": "Kallow",
+    "sku": "KLW-SKN-006",
+    "barcode": "65000000019",
+    "slug": "kallow-19-kallow-instant-tightening-serum",
+    "category": "face-creams-serums",
+    "categoryName": "Crèmes Visage & Sérums",
+    "subcategory": "Face Creams & Serums",
+    "categoryGroup": "skincare-beauty",
+    "collections": [
+    "kallow",
+      "skincare-beauty",
+      "new-arrivals",
+      "face-creams-serums"
+    ],
+    "price": 233,
+    "compareAtPrice": 280,
+    "isNew": false,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 107,
+    "weight": "30 ml",
+    "rating": 5,
+    "reviewCount": 53,
+    "shortDescription": "استمتعي ببشرة أكثر شباباً وحيوية مع سيروم الشد الفوري من كالو. صُممت هذه التركيبة المتطورة بعناية لتمنح وجهك مظهراً مشدوداً وأكثر إشراقاً، وتلائم جميع أنواع البشرة لتعزيز مرونتها ونضارتها الطبيعية.",
+    "description": "استمتعي ببشرة أكثر شباباً وحيوية مع سيروم الشد الفوري من كالو. صُممت هذه التركيبة المتطورة بعناية لتمنح وجهك مظهراً مشدوداً وأكثر إشراقاً، وتلائم جميع أنواع البشرة لتعزيز مرونتها ونضارتها الطبيعية.",
+    "details": [
+      "تأثير الشد الفوري (Instant Tightening): يساعد في تحسين مظهر البشرة ومنحها ملمساً مشدوداً وأكثر نعومة خلال لحظات.",
+      "مناسب لجميع أنواع البشرة: تركيبة لطيفة ومدروسة لتلبي احتياجات مختلف أنواع البشرة وتمنحها عناية متكاملة.",
+      "ترطيب وتجديد: يغذي البشرة بعمق ويساعد في محاربة علامات التعب والإرهاق اليومي لتتألقي بإطلالة متجددة.",
+      "تصميم عملي وأنيق: يأتي في زجاجة بيضاء أنيقة مزودة بمضخة عملية وغطاء شفاف، بالإضافة إلى علبة خارجية متناسقة بحجم 30 مل."
+    ],
+    "howToUse": "توضع بضع قطرات من السيروم على بشرة نظيفة وجافة للوجه والرقبة.يُدلك بلطف بحركات خفيفة وتصاعدية حتى يتم امتصاصه تماماً قبل استخدام المرطب.",
+    "tags": [
+      "Kallow",
+      "Tightening Serum",
+      "Instant Lifting",
+      "Anti-Wrinkle",
+      "Radiance",
+      "Facial Serum"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#1A365D",
+        "image": "assets/ecom/19.png",
+        "productId": "kallow-19-kallow-instant-tightening-serum",
+        "linkUrl": "product.html?id=kallow-19-kallow-instant-tightening-serum"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/19.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "30 ml",
+        "stock": 107,
+        "sku": "KLW-SKN-006",
+        "price": 233,
+        "compareAtPrice": 280
+      }
+    ],
+    "nameFr": "Kallow Sérum Tenseur & Liftant Immédiat",
+    "categoryNameFr": "Crèmes Visage & Sérums",
+    "subtitleFr": "Élixir concentré tenseur flash express pour un grain de peau lissé",
+    "shortDescriptionFr": "Offrez à votre visage un coup d'éclat spectaculaire avec le Sérum Tenseur Immédiat Kallow. Sa concentration en polymères végétaux et peptides tenseurs retend la peau en quelques minutes pour un effet lissé éclatant.",
+    "descriptionFr": "Solution ultra-efficace pour les journées importantes ou les moments de fatigue, ce sérum booster diffuse instantanément un maillage invisible qui lisse les ridules, resserre le grain de peau et estompe les signes d'épuisement. Votre teint est visiblement reposé, frais et rayonnant dès la première minute d'application.",
+    "detailsFr": [
+      "Effet tenseur flash visible dès 5 minutes après l'application",
+      "Lisse visiblement le micro-relief cutané et resserre les pores dilatés",
+      "Formule aqueuse non comédogène, pénètre instantanément au cœur de la peau",
+      "Sublime la tenue et la lumière du maquillage tout au long de la journée",
+      "Flacon compte-gouttes en verre de 30 ml haute précision"
+    ],
+    "howToUseFr": "Appliquez 3 à 4 gouttes sur une peau préalablement nettoyée et tonifiée (visage et cou). Lissez doucement sans frictionner et maintenez les traits détendus pendant 2 minutes pour laisser le film tenseur s'installer parfaitement avant d'appliquer votre crème de jour.",
+    "mainCategory": "skincare-beauty",
+    "categoryNameAr": "العناية بالوجه والسيرومات",
+    "subtitleAr": "إكسير مركز لشد البشرة الفوري وتنعيم المسام والخطوط الدقيقة"
+  },
+  {
+    "id": "kallow-20-kallow-divine-touch-lifting-impact-",
+    "name": "Kallow Divine Touch Sérum Visage Effet Liftant",
+    "nameAr": "سيروم الوجه كالو ديفاين تاتش - تأثير الشد",
+    "titleAr": "سيروم الوجه كالو ديفاين تاتش - تأثير الشد (Kallow)",
+    "brand": "Kallow",
+    "sku": "KLW-SKN-007",
+    "barcode": "65000000020",
+    "slug": "kallow-20-kallow-divine-touch-lifting-impact-",
+    "category": "face-creams-serums",
+    "categoryName": "Crèmes Visage & Sérums",
+    "subcategory": "Face Creams & Serums",
+    "categoryGroup": "skincare-beauty",
+    "collections": [
+    "kallow",
+      "skincare-beauty",
+      "new-arrivals",
+      "face-creams-serums"
+    ],
+    "price": 366,
+    "compareAtPrice": 440,
+    "isNew": false,
+    "isSale": true,
+    "isFeatured": true,
+    "isBundle": false,
+    "stock": 110,
+    "weight": "30 ml",
+    "rating": 5,
+    "reviewCount": 55,
+    "shortDescription": "استمتعي بإطلالة متجددة وبشرة أكثر شباباً مع سيروم الوجه كالو ديفاين تاتش. صُممت هذه التركيبة الفاخرة ذات اللون الكحلي الأنيق لتمنح بشرتك تأثيراً مشدوداً وعناية فائقة تلائم جميع أنواع البشرة، لتتألقي بنقاء ونضارة لا مثيل لها.",
+    "description": "تأثير الشد والرفع (Lifting Impact): يساعد على تحسين مرونة البشرة ومنح ملامح الوجه مظهراً أكثر مشداً وشباباً.   مناسب لجميع أنواع البشرة: تركيبة متوازنة ومدروسة بعناية لتلبي احتياجات مختلف أنواع البشرة بفعالية وأمان.   تغذية وعناية عميقة: يغذي البشرة بعمق ويجدد حيويتها، مما يساعد في محاربة علامات الإرهاق اليومي لإشراقة دائمة.   تصميم راقٍ وعملي: يأتي في عبوة زجاجية كحلي فاخرة مزودة بمضخة عملية وغطاء فضي، بالإضافة إلى علبة خارجية بنفس التصميم الأنيق.",
+    "details": [
+      "مستخلص من مكونات طبيعية عالية النقاء وخالية من المواد الكيميائية الضارة",
+      "صُمم وفق أعلى معايير الجودة العالمية لضمان الفعالية والأمان التام",
+      "خيار مثالي للعناية اليومية ونمط حياة صحي ومتوازن"
+    ],
+    "howToUse": "توضع بضع قطرات من السيروم على بشرة نظيفة وجافة للوجه والرقبة.يُدلك بلطف بحركات تصاعدية خفيفة حتى يتم امتصاصه تماماً قبل تطبيق كريم المرطب.",
+    "tags": [
+      "Kallow",
+      "Face Serum",
+      "Divine Touch",
+      "Lifting",
+      "Luxury Skincare",
+      "Youthful Glow"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#1A365D",
+        "image": "assets/ecom/20.png",
+        "productId": "kallow-20-kallow-divine-touch-lifting-impact-",
+        "linkUrl": "product.html?id=kallow-20-kallow-divine-touch-lifting-impact-"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/20.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "30 ml",
+        "stock": 110,
+        "sku": "KLW-SKN-007",
+        "price": 366,
+        "compareAtPrice": 440
+      }
+    ],
+    "nameFr": "Kallow Divine Touch Sérum Visage Effet Liftant",
+    "categoryNameFr": "Crèmes Visage & Sérums",
+    "subtitleFr": "Sérum intensif régénérant et raffermissant pour les contours du visage",
+    "shortDescriptionFr": "Révélez une peau plus ferme, tonique et regalbée avec le Sérum Liftant Kallow Divine Touch. Sa texture micro-émulsion pénètre profondément pour stimuler le renouvellement cellulaire et redéfinir les traits du visage.",
+    "descriptionFr": "Chef-d'œuvre de la gamme Divine Touch, ce sérum d'exception associe des complexes d'acides hyaluroniques multi-moléculaires et des extraits botaniques raffermissants. Il repulpe les couches cutanées de l'intérieur, raffermit les joues et le menton et estompe les rides marquées pour une jeunesse préservée au quotidien.",
+    "detailsFr": [
+      "Complexe concentré d'acide hyaluronique et d'actifs liftants d'origine végétale",
+      "Redéfinit l'ovale du visage et rehausse les pommettes affaissées",
+      "Booste la synthèse naturelle d'élastine et de collagène cutané",
+      "Flacon pipette 30 ml pour un dosage millimétré et sans gaspillage"
+    ],
+    "howToUseFr": "Appliquez matin et soir 4 gouttes sur l'ensemble du visage et du cou avant votre crème Divine Touch. Massez délicatement par effleurements ascendants jusqu'à absorption complète.",
+    "mainCategory": "skincare-beauty",
+    "categoryNameAr": "العناية بالوجه والسيرومات",
+    "subtitleAr": "سيروم مكثف لشد ونحت ملامح الوجه وتجديد شباب البشرة"
+  },
+  {
+    "id": "kallow-21-kallow-aloe-chamomile-instant-foami",
+    "name": "Kallow Mousse Nettoyante Instantanée Aloe Vera & Camomille",
+    "nameAr": "غسول رغوي فوري كالو بالصبار والبابونج",
+    "titleAr": "غسول رغوي فوري كالو بالصبار والبابونج (Kallow)",
+    "brand": "Kallow",
+    "sku": "KLW-SKN-008",
+    "barcode": "65000000021",
+    "slug": "kallow-21-kallow-aloe-chamomile-instant-foami",
+    "category": "cleansers-toners",
+    "categoryName": "Nettoyants & Toniques",
+    "subcategory": "Cleansers & Toners",
+    "categoryGroup": "skincare-beauty",
+    "collections": [
+    "kallow",
+      "skincare-beauty",
+      "new-arrivals",
+      "cleansers-toners"
+    ],
+    "price": 153,
+    "compareAtPrice": 185,
+    "isNew": false,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 113,
+    "weight": "150 ml (5.07 fl oz)",
+    "rating": 5,
+    "reviewCount": 57,
+    "shortDescription": "استمتعي بتنظيف عميق ومنعش للبشرة مع الغسول الرغوي الفوري كالو بالصبار والبابونج. صُممت هذه التركيبة اللطيفة خصيصاً لتناسب جميع أنواع البشرة، وتجمع بين الخصائص المهدئة للصبار والبابونج لتنقي البشرة بلطف وتتركها منتعشة وناعمة.",
+    "description": "خلاصة الصبار والبابونج: يدمج الفوائد الطبيعية المهدئة والمرطبة للألوفيرا والبابونج ليمنح البشرة عناية فائقة ويقلل من التهيّج.   رغوة فورية ناعمة: يمنحك رغوة خفيفة وغنية تنظف المسام بعمق وتزيل الشوائب بقوة دون أن تسبب جفاف البشرة.   مناسب لجميع أنواع البشرة: تركيبة متوازنة ومدروسة بعناية لتلبي احتياجات مختلف أنواع البشرة بأمان تام.   تصميم عملي وأنيق: يأتي في زجاجة بيضاء عملية مزودة بمضخة رغوة (Foam Pump) لتسهيل الاستخدام، بحجم 150 مل (5.07 أوقية سائلة).",
+    "details": [
+      "مستخلص من مكونات طبيعية عالية النقاء وخالية من المواد الكيميائية الضارة",
+      "صُمم وفق أعلى معايير الجودة العالمية لضمان الفعالية والأمان التام",
+      "خيار مثالي للعناية اليومية ونمط حياة صحي ومتوازن"
+    ],
+    "howToUse": "يُضغط على المضخة للحصول على كمية مناسبة من الرغوة على راحة اليد.تُدلك الرغوة بلطف على بشرة مبللة للوجه بحركات دائرية.يُشطف الوجه جيداً بالماء الفاتر للحصول على بشرة نظيفة، منتعشة، ومشرقة.",
+    "tags": [
+      "Kallow",
+      "Foaming Cleanser",
+      "Aloe Vera",
+      "Chamomile",
+      "Facial Wash",
+      "Purifying"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#1A365D",
+        "image": "assets/ecom/21.png",
+        "productId": "kallow-21-kallow-aloe-chamomile-instant-foami",
+        "linkUrl": "product.html?id=kallow-21-kallow-aloe-chamomile-instant-foami"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/21.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "150 ml (5.07 fl oz)",
+        "stock": 113,
+        "sku": "KLW-SKN-008",
+        "price": 153,
+        "compareAtPrice": 185
+      }
+    ],
+    "nameFr": "Kallow Mousse Nettoyante Instantanée Aloe Vera & Camomille",
+    "categoryNameFr": "Nettoyants & Toniques",
+    "subtitleFr": "Nuage purifiant doux et apaisant pour peaux sensibles et délicates",
+    "shortDescriptionFr": "Nettoyez votre peau en douceur avec la Mousse Nettoyante Instantanée Kallow à l'Aloe Vera et à la Camomille. Un nuage aérien ultra-délicat qui élimine les impuretés, le sébum et les résidus de maquillage sans assécher.",
+    "descriptionFr": "Grâce à son flacon auto-moussant, cette lotion se transforme en une mousse onctueuse veloutée qui capture instantanément les particules de pollution et les impuretés accumulées. Enrichie en hydrolat de camomille calmante et en jus pur d'aloe vera hydratant, elle respecte le pH physiologique et apaise les épidermes sujets aux rougeurs.",
+    "detailsFr": [
+      "Duo apaisant haute tolérance : Aloe Vera hydratant & Camomille calmante",
+      "Nettoie en profondeur sans agresser ni déshydrater la barrière cutanée",
+      "Texture mousse aérienne ultra-onctueuse au rinçage facile",
+      "Flacon pompe moussant de 150 ml sans gaz propulseur"
+    ],
+    "howToUseFr": "Humidifiez votre visage à l'eau tiède. Déposez 2 pressions de mousse dans le creux de la main et massez le visage et le cou par mouvements circulaires en évitant les yeux. Rincez abondamment à l'eau claire puis séchez délicatement en tapotant.",
+    "mainCategory": "skincare-beauty",
+    "categoryNameAr": "الغسول والتونر",
+    "subtitleAr": "رغوة منظفة لطيفة ومهدئة لتنقية البشرة الحساسة بعمق"
+  },
+  {
+    "id": "kallow-22-kallow-moisturizing-lip-balm",
+    "name": "Kallow Baume à Lèvres Ultra-Hydratant",
+    "nameAr": "مرطب الشفاه كالو",
+    "titleAr": "مرطب الشفاه كالو (Kallow)",
+    "brand": "Kallow",
+    "sku": "KLW-SKN-009",
+    "barcode": "65000000022",
+    "slug": "kallow-22-kallow-moisturizing-lip-balm",
+    "category": "face-masks-lip-care",
+    "categoryName": "Masques Visage & Soins Lèvres",
+    "subcategory": "Face Masks & Lip Care",
+    "categoryGroup": "skincare-beauty",
+    "collections": [
+    "kallow",
+      "skincare-beauty",
+      "new-arrivals",
+      "face-masks-lip-care"
+    ],
+    "price": 65,
+    "compareAtPrice": 80,
+    "isNew": false,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 116,
+    "weight": "7 ml (0.24 fl oz)",
+    "rating": 5,
+    "reviewCount": 59,
+    "shortDescription": "امنحي شفتيك عناية فائقة وترطيباً عميقاً يدوم طويلاً مع مرطب الشفاه كالو. صُممت هذه التركيبة الغنية خصيصاً لتغذي الشفاه الجافة وتحميها، وتمنحها ملمساً ناعماً ومظهرأ متألقاً كل يوم.",
+    "description": "ترطيب مكثف وعميق: يساعد على حماية الشفاه من الجفاف والتشقق، ويعيد إليها نعومتها ومرونتها الطبيعية.   تغذية وعناية لطيفة: تركيبة مريحة وخفيفة تغذي الشفاه بعمق وتمنحها شعوراً بالراحة الفورية.   تصميم أنيق وعملي: يأتي في عبوة دائرية بيضاء أنيقة ذات غطاء فضي محكم، بحجم عملي يبلغ 7 مل (0.24 أوقية سائلة) يسهل حمله في حقيبتك طوال اليوم.",
+    "details": [
+      "مستخلص من مكونات طبيعية عالية النقاء وخالية من المواد الكيميائية الضارة",
+      "صُمم وفق أعلى معايير الجودة العالمية لضمان الفعالية والأمان التام",
+      "خيار مثالي للعناية اليومية ونمط حياة صحي ومتوازن"
+    ],
+    "howToUse": "توضع كمية مناسبة من المرطب على الشفاه باستخدام أطراف الأصابع أو أداة التطبيق.يُعاد وضعه كلما دعت الحاجة طوال اليوم للحفاظ على ترطيب الشفاه ونعومتها.",
+    "tags": [
+      "Kallow",
+      "Lip Balm",
+      "Moisturizing",
+      "Chapped Lips",
+      "Hydrating",
+      "Lip Care"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#1A365D",
+        "image": "assets/ecom/22.png",
+        "productId": "kallow-22-kallow-moisturizing-lip-balm",
+        "linkUrl": "product.html?id=kallow-22-kallow-moisturizing-lip-balm"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/22.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "7 ml (0.24 fl oz)",
+        "stock": 116,
+        "sku": "KLW-SKN-009",
+        "price": 65,
+        "compareAtPrice": 80
+      }
+    ],
+    "nameFr": "Kallow Baume à Lèvres Ultra-Hydratant",
+    "categoryNameFr": "Masques Visage & Soins Lèvres",
+    "subtitleFr": "Soin nourrissant réparateur au fini brillant naturel pour lèvres gercées",
+    "shortDescriptionFr": "Protégez et sublimez vos lèvres avec le Baume à Lèvres Ultra-Hydratant Kallow. Sa texture fondante répare les gerçures, prévient le dessèchement et offre un confort longue durée avec un léger éclat naturel.",
+    "descriptionFr": "Véritable concentré de cires nobles, de beurres végétaux protecteurs et de vitamine E antioxydante, ce baume crée une barrière isolante contre le froid, le vent et la sécheresse. Il restaure immédiatement la douceur des lèvres gercées ou abîmées et préserve leur pulpeux naturel.",
+    "detailsFr": [
+      "Répare et nourrit intensément les lèvres sèches et abîmées",
+      "Protège contre le vent, les variations climatiques et la climatisation",
+      "Fini transparent lumineux et non collant au confort longue durée",
+      "Format tube nomade de 7 ml facile à glisser dans la poche"
+    ],
+    "howToUseFr": "Appliquez directement sur les lèvres à l'aide de l'embout biseauté aussi souvent que nécessaire tout au long de la journée. Idéal également en couche épaisse le soir comme masque réparateur de nuit.",
+    "mainCategory": "skincare-beauty",
+    "categoryNameAr": "أقنعة الوجه والعناية بالشفاه",
+    "subtitleAr": "مرطب ومغذي مكثف للشفاه الجافة يمنح لمعاناً ونعومة طبيعية"
+  },
+  {
+    "id": "kallow-23-kallow-luxury-aromatic-shower-gel",
+    "name": "Kallow Gel Douche Aromatique & Sensoriel de Luxe",
+    "nameAr": "جل الاستحمام العطري الفاخر كالو",
+    "titleAr": "جل الاستحمام العطري الفاخر كالو (Kallow)",
+    "brand": "Kallow",
+    "sku": "KLW-PER-002",
+    "barcode": "65000000023",
+    "slug": "kallow-23-kallow-luxury-aromatic-shower-gel",
+    "category": "body-care-lotions",
+    "categoryName": "Soins Corps & Lotions",
+    "subcategory": "Body Care & Lotions",
+    "categoryGroup": "personal-care-hygiene",
+    "collections": [
+    "kallow",
+      "personal-care-hygiene",
+      "new-arrivals",
+      "body-care-lotions"
+    ],
+    "price": 125,
+    "compareAtPrice": 150,
+    "isNew": false,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 119,
+    "weight": "250 ml (8.45 fl oz)",
+    "rating": 5,
+    "reviewCount": 61,
+    "shortDescription": "حوّل روتين الاستحمام اليومي إلى تجربة سبا فاخرة ومنعشة مع جل الاستحمام العطري الفاخر كالو. صُممت هذه التركيبة المميزة لتناسب جميع أنواع البشرة، وتعمل على تنظيف البشرة بلطف مع غمر حواسك بروائح عطرية مهدئة تمنحك شعوراً بالاسترخاء والنقاء.",
+    "description": "تنظيف لطيف ومنعش: يزيل الشوائب والأوساخ بفعالية دون أن يسبب جفاف البشرة، ليتركها ناعمة ومنتعشة طوال اليوم.   عطر عطري فاخر: يمنح الجسم رائحة عطرية زكية تساهم في الاسترخاء وتجديد الحيوية بعد يوم شاق.   مناسب لجميع أنواع البشرة: تركيبة متوازنة ولطيفة صُممت بعناية لتلبي احتياجات مختلف أنواع البشرة بأمان.   تصميم عملي وأنيق: يأتي في عبوة بيضاء أنيقة مزينة بنقوش زرقاء فاخرة ومزودة بمضخة عملية، بحجم 250 مل (8.45 أوقية سائلة).",
+    "details": [
+      "مستخلص من مكونات طبيعية عالية النقاء وخالية من المواد الكيميائية الضارة",
+      "صُمم وفق أعلى معايير الجودة العالمية لضمان الفعالية والأمان التام",
+      "خيار مثالي للعناية اليومية ونمط حياة صحي ومتوازن"
+    ],
+    "howToUse": "توضع كمية مناسبة من جل الاستحمام على لوفة الاستحمام أو راحة اليدين.يُدلك الجسم برفق حتى تتكون رغوة غنية وعطرة.يُشطف الجسم جيداً بالماء الفاتر للاستمتاع ببشرة نظيفة ومنعشة.",
+    "tags": [
+      "Kallow",
+      "Shower Gel",
+      "Aromatic Spa",
+      "Body Wash",
+      "Luxury Bath",
+      "Freshness"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#1A365D",
+        "image": "assets/ecom/23.png",
+        "productId": "kallow-23-kallow-luxury-aromatic-shower-gel",
+        "linkUrl": "product.html?id=kallow-23-kallow-luxury-aromatic-shower-gel"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/23.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "250 ml (8.45 fl oz)",
+        "stock": 119,
+        "sku": "KLW-PER-002",
+        "price": 125,
+        "compareAtPrice": 150
+      }
+    ],
+    "nameFr": "Kallow Gel Douche Aromatique & Sensoriel de Luxe",
+    "categoryNameFr": "Soins Corps & Lotions",
+    "subtitleFr": "Gel moussant sensoriel aux essences précieuses aromatiques",
+    "shortDescriptionFr": "Transformez votre douche quotidienne en une véritable parenthèse spa avec le Gel Douche Aromatique Kallow. Sa mousse généreuse nettoie la peau en douceur et libère des fragrances raffinées qui éveillent les sens.",
+    "descriptionFr": "Conçu avec une base lavante douce d'origine végétale sans sulfates agressifs, ce gel douche luxueux respecte l'équilibre naturel de la peau. Il laisse l'épiderme soyeux, souple et subtilement parfumé d'effluves nobles qui procurent une sensation immédiate de sérénité et de vitalité.",
+    "detailsFr": [
+      "Base lavante douce enrichie qui préserve le film hydrolipidique cutané",
+      "Expérience aromathérapie relaxante aux notes boisées et florales",
+      "Mousse crémeuse onctueuse et rinçage parfait sans tiraillement",
+      "Flacon élégant design luxe de 250 ml pour votre salle de bain"
+    ],
+    "howToUseFr": "Appliquez une noisette de gel douche sur peau mouillée ou sur une éponge de bain. Faites mousser par de légers massages sur tout le corps en inhalant les notes aromatiques, puis rincez abondamment à l'eau tiède.",
+    "mainCategory": "personal-care-hygiene",
+    "categoryNameAr": "العناية بالجسم واللوشن",
+    "subtitleAr": "جل استحمام رغوي فاخر بخلاصات عطرية منعشة تدوم طويلاً"
+  },
+  {
+    "id": "kallow-24-kallow-divine-touch-nourishing-nigh",
+    "name": "Kallow Divine Touch Huile Visage Nourrissante de Nuit",
+    "nameAr": "زيت التغذية الليلي كالو ديفاين تاتش",
+    "titleAr": "زيت التغذية الليلي كالو ديفاين تاتش (Kallow)",
+    "brand": "Kallow",
+    "sku": "KLW-SKN-010",
+    "barcode": "65000000024",
+    "slug": "kallow-24-kallow-divine-touch-nourishing-nigh",
+    "category": "hair-baby-care",
+    "categoryName": "Soins Cheveux, Huiles & Bébé",
+    "subcategory": "Face Creams & Serums",
+    "categoryGroup": "personal-care-hygiene",
+    "collections": [
+    "kallow",
+      "personal-care-hygiene",
+      "new-arrivals",
+      "face-creams-serums"
+    ],
+    "price": 233,
+    "compareAtPrice": 280,
+    "isNew": false,
+    "isSale": true,
+    "isFeatured": true,
+    "isBundle": false,
+    "stock": 122,
+    "weight": "30 ml",
+    "rating": 5,
+    "reviewCount": 63,
+    "shortDescription": "امنحي بشرتك عناية ليلية فائقة واستعيدي إشراقتها الطبيعية مع زيت التغذية الليلي كالو ديفاين تاتش. صُممت هذه التركيبة الفاخرة ذات اللون الكحلي الأنيق لتغذية البشرة بعمق أثناء النوم، وتناسب جميع أنواع البشرة لتستيقظي ببشرة أكثر نعومة وحيوية.",
+    "description": "تغذية ليلية مكثفة: يعمل بفاعلية أثناء فترة النوم ليغذي البشرة بعمق ويجدد خلاياها ويقاوم علامات الإرهاق اليومي.   مناسب لجميع أنواع البشرة: تركيبة غنية ومدروسة بعناية لتلبي احتياجات مختلف أنواع البشرة وتمنحها ترطيباً فائه‌اً دون لزوجة مزعجة.   استرخاء ونضارة: يساعد على استعادة مرونة البشرة ونعومتها الملمس، لتتألقي ببشرة متجددة ومشرقة كل صباح.   تصميم راقٍ وعملي: يأتي في زجاجة زجاجية كحلي أنيقة مزودة بمضخة عملية وغطاء شفاف، بالإضافة إلى علبة خارجية متناسقة بتصميم راقٍ.",
+    "details": [
+      "مستخلص من مكونات طبيعية عالية النقاء وخالية من المواد الكيميائية الضارة",
+      "صُمم وفق أعلى معايير الجودة العالمية لضمان الفعالية والأمان التام",
+      "خيار مثالي للعناية اليومية ونمط حياة صحي ومتوازن"
+    ],
+    "howToUse": "توضع بضع قطرات من الزيت على بشرة نظيفة وجافة للوجه والرقبة كخطوة أخيرة في روتين العناية المسائي.يُدلك بلطف بحركات دائرية خفيفة حتى يتم امتصاصه تماماً قبل النوم.",
+    "tags": [
+      "Kallow",
+      "Night Oil",
+      "Divine Touch",
+      "Nourishing Oil",
+      "Night Treatment",
+      "Youth Restoring"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#1A365D",
+        "image": "assets/ecom/24.png",
+        "productId": "kallow-24-kallow-divine-touch-nourishing-nigh",
+        "linkUrl": "product.html?id=kallow-24-kallow-divine-touch-nourishing-nigh"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/24.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "30 ml",
+        "stock": 122,
+        "sku": "KLW-SKN-010",
+        "price": 233,
+        "compareAtPrice": 280
+      }
+    ],
+    "nameFr": "Kallow Divine Touch Huile Visage Nourrissante de Nuit",
+    "categoryNameFr": "Soins Cheveux, Huiles & Bébé",
+    "subtitleFr": "Huile précieuse régénératrice nocturne aux huiles végétales pures",
+    "shortDescriptionFr": "Régénérez votre peau pendant votre sommeil avec l'Huile de Nuit Nourrissante Kallow Divine Touch. Un cocktail d'huiles végétales précieuses qui nourrit en profondeur et redonne au teint tout son éclat au réveil.",
+    "descriptionFr": "Durant la nuit, la peau active ses mécanismes naturels de régénération cellulaire. Cette huile sèche précieuse apporte des acides gras oméga-3, 6 et 9 ainsi que des vitamines liposolubles qui réparent les dommages du jour, apaisent les tensions et laissent au réveil une peau rebondie, lisse et lumineuse.",
+    "detailsFr": [
+      "Cocktail exclusif d'huiles végétales nobles vierges pressées à froid",
+      "Texture huile sèche satinée à absorption complète sans tacher l'oreiller",
+      "Réveille l'éclat du teint et comble les carences lipidiques nocturnes",
+      "Flacon compte-gouttes élégant de 30 ml avec verre opaque protecteur"
+    ],
+    "howToUseFr": "Le soir, déposez 3 à 5 gouttes d'huile au creux de vos mains chauffées. Appliquez délicatement par pressions sur l'ensemble du visage, le cou et le décolleté nettoyés, en dernière étape de votre rituel du soir.",
+    "mainCategory": "personal-care-hygiene",
+    "categoryNameAr": "العناية بالشعر والزيوت",
+    "subtitleAr": "زيت ليلي فاخر لتغذية وتجديد خلايا البشرة أثناء النوم"
+  },
+  {
+    "id": "kallow-25-kallow-natural-tanning-oil",
+    "name": "Kallow Huile de Bronzage Naturelle & Dorée",
+    "nameAr": "زيت التسمير الطبيعي كالو",
+    "titleAr": "زيت التسمير الطبيعي كالو (Kallow)",
+    "brand": "Kallow",
+    "sku": "KLW-SKN-011",
+    "barcode": "65000000025",
+    "slug": "kallow-25-kallow-natural-tanning-oil",
+    "category": "sunscreens-tanning",
+    "categoryName": "Protection Solaire & Bronzage",
+    "subcategory": "Sunscreens & Tanning",
+    "categoryGroup": "skincare-beauty",
+    "collections": [
+    "kallow",
+      "skincare-beauty",
+      "new-arrivals",
+      "sunscreens-tanning"
+    ],
+    "price": 186,
+    "compareAtPrice": 225,
+    "isNew": false,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 125,
+    "weight": "75 ml (2.6 fl oz)",
+    "rating": 5,
+    "reviewCount": 65,
+    "shortDescription": "استمتعي بلون برونزي ساحر وجذاب تحت أشعة الشمس مع زيت التسمير الطبيعي كالو. صُممت هذه التركيبة الفريدة لتناسب جميع أنواع البشرة، وتعمل على ترطيبها ومنحها مظهراً مشرقاً ومثالياَ أثناء الاستحمام الشمسي.",
+    "description": "تسمير طبيعي ومثالي: يساعد في الحصول على لون برونزي متجانس وجذاب بكل سهولة وأمان تحت الشمس.   مناسب لجميع أنواع البشرة: تركيبة لطيفة ومدروسة لتلائم احتياجات مختلف أنواع البشرة وتمنحها ترطيباً وعناية فائقة.   تغذية ونعومة: يغذي البشرة بعمق ويحافظ على مرونتها ونعومتها، ليتركها بملمس صحي ومشرق.   تصميم عملي وأنيق: يأتي في زجاجة زرقاء أنيقة ذات غطاء أبيض عملي، بحجم 75 مل (2.6 أوقية سائلة) يسهل حمله في حقيبة الشاطئ.",
+    "details": [
+      "مستخلص من مكونات طبيعية عالية النقاء وخالية من المواد الكيميائية الضارة",
+      "صُمم وفق أعلى معايير الجودة العالمية لضمان الفعالية والأمان التام",
+      "خيار مثالي للعناية اليومية ونمط حياة صحي ومتوازن"
+    ],
+    "howToUse": "توضع كمية مناسبة من الزيت على بشرة نظيفة وجافة قبل التعرض لأشعة الشمس.يُدلك بلطف وبحركات دائرية حتى يتم توزيع المنتج بالتساوي على الجسم للحصول على أفضل نتيجة تسمير.",
+    "tags": [
+      "Kallow",
+      "Tanning Oil",
+      "Golden Glow",
+      "Sun Tanning",
+      "Bronze Skin",
+      "Beach Care"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#1A365D",
+        "image": "assets/ecom/25.png",
+        "productId": "kallow-25-kallow-natural-tanning-oil",
+        "linkUrl": "product.html?id=kallow-25-kallow-natural-tanning-oil"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/25.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "75 ml (2.6 fl oz)",
+        "stock": 125,
+        "sku": "KLW-SKN-011",
+        "price": 186,
+        "compareAtPrice": 225
+      }
+    ],
+    "nameFr": "Kallow Huile de Bronzage Naturelle & Dorée",
+    "categoryNameFr": "Protection Solaire & Bronzage",
+    "subtitleFr": "Huile sublimatrice pour un hâle doré scintillant et intense",
+    "shortDescriptionFr": "Obtenez un bronzage doré, uniforme et lumineux avec l'Huile de Bronzage Naturelle Kallow. Sa formule enrichie en huiles végétales nourrit intensément votre peau tout en sublimant son éclat au soleil.",
+    "descriptionFr": "Élaborée à partir d'huiles végétales soigneusement sélectionnées reconnues pour favoriser la montée mélanique, cette huile procure à la peau un hâle chaud et durable. Elle prévient le dessèchement lié à l'eau salée et au soleil, laissant un voile satiné radieux qui magnifie chaque silhouette.",
+    "detailsFr": [
+      "Accélère et magnifie un bronzage doré intense et uniforme",
+      "Formule naturelle gorgée de nutriments émollients anti-dessèchement",
+      "Toucher soyeux non collant qui sublime le grain de peau",
+      "Flacon nomade ergonomique de 75 ml résistant au sable"
+    ],
+    "howToUseFr": "Appliquez uniformément sur l'ensemble du corps avant l'exposition solaire. Pour une protection optimale contre les coups de soleil, appliquez toujours au préalable une protection solaire à indice adapté (SPF).",
+    "mainCategory": "skincare-beauty",
+    "categoryNameAr": "الحماية من الشمس والتسمير",
+    "subtitleAr": "زيت طبيعي يمنح البشرة سمرة ذهبية لامعة وجذابة"
+  },
+  {
+    "id": "kallow-26-kallow-divine-touch-multi-purpose-s",
+    "name": "Kallow Divine Touch Brume Multi-Usages Visage & Corps",
+    "nameAr": "بخاخ متعدد الاستخدامات كالو ديفاين تاتش",
+    "titleAr": "بخاخ متعدد الاستخدامات كالو ديفاين تاتش (Kallow)",
+    "brand": "Kallow",
+    "sku": "KLW-PER-003",
+    "barcode": "65000000026",
+    "slug": "kallow-26-kallow-divine-touch-multi-purpose-s",
+    "category": "body-care-lotions",
+    "categoryName": "Soins Corps & Lotions",
+    "subcategory": "Body Care & Lotions",
+    "categoryGroup": "personal-care-hygiene",
+    "collections": [
+    "kallow",
+      "personal-care-hygiene",
+      "new-arrivals",
+      "body-care-lotions"
+    ],
+    "price": 267,
+    "compareAtPrice": 320,
+    "isNew": false,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 128,
+    "weight": "100 ml",
+    "rating": 5,
+    "reviewCount": 67,
+    "shortDescription": "استمتع بانتعاش راقٍ وعناية متكاملة مع بخاخ متعدد الاستخدامات كالو ديفاين تاتش. صُممت هذه التركيبة الفريدة والأنيقة لتمنحك لمسة من النقاء والانتعاش الفاخر، وتعد خياراً عملياً يناسب مختلف احتياجاتك اليومية بكل أناقة.",
+    "description": "استخدامات متعددة (Multi-Purpose): تصميم عملي ومرن يلبي متطلباتك المختلفة ليمنحك الانتعاش والعناية في أي وقت.   عطر وانتعاش راقٍ: يغمر حواسك بنفحات زكية ومنعشة تضفي شعوراً بالتميز والجاذبية طوال اليوم.   جودة ومظهر فخم: يعكس هوية منتجات دي إكس إن الفاخرة ليعتني بتفاصيل إطلالتك اليومية بكل ثقة.   تصميم زجاجي أنيق: يأتي في زجاجة شفافة فاخرة مزودة بمرذاذ فضي أنيق، مما يجعله إضافة راقية تزيّن روتينك اليومي.",
+    "details": [
+      "مستخلص من مكونات طبيعية عالية النقاء وخالية من المواد الكيميائية الضارة",
+      "صُمم وفق أعلى معايير الجودة العالمية لضمان الفعالية والأمان التام",
+      "خيار مثالي للعناية اليومية ونمط حياة صحي ومتوازن"
+    ],
+    "howToUse": "يُرش بلطف على مسافة مناسبة من الجسم أو الأماكن المستهدفة للحصول على انتعاش يدوم.يُستخدم كلما دعت الحاجة لتجديد الحيوية والنشاط طوال اليوم.",
+    "tags": [
+      "Kallow",
+      "Body Spray",
+      "Multi-Purpose",
+      "Divine Touch",
+      "Refreshing Mist",
+      "Fragrance"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#1A365D",
+        "image": "assets/ecom/26.png",
+        "productId": "kallow-26-kallow-divine-touch-multi-purpose-s",
+        "linkUrl": "product.html?id=kallow-26-kallow-divine-touch-multi-purpose-s"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/26.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "100 ml",
+        "stock": 128,
+        "sku": "KLW-PER-003",
+        "price": 267,
+        "compareAtPrice": 320
+      }
+    ],
+    "nameFr": "Kallow Divine Touch Brume Multi-Usages Visage & Corps",
+    "categoryNameFr": "Soins Corps & Lotions",
+    "subtitleFr": "Brume hydratante rafraîchissante fixatrice d'éclat visage et corps",
+    "shortDescriptionFr": "Désaltérez et illuminez votre peau à chaque instant avec la Brume Multi-Usages Kallow Divine Touch. Une brumisation micro-fine gorgée d'actifs hydratants pour un coup d'éclat instantané et longue tenue.",
+    "descriptionFr": "Cette brume aérienne polyvalente s'utilise à tout moment de la journée : le matin pour tonifier la peau au réveil, après le maquillage pour le fixer délicatement, ou au cours de la journée pour contrer l'effet asséchant de la climatisation et de la pollution. Elle redonne un teint lumineux et une fraîcheur immédiate.",
+    "detailsFr": [
+      "Brume micro-diffusée ultra-fine qui n'altère pas le maquillage",
+      "Hydrate, rafraîchit et revitalise les peaux ternes ou surchauffées",
+      "Fixateur de maquillage naturel pour une tenue impeccable",
+      "Flacon vaporisateur nomade chic de 100 ml pratique à emporter"
+    ],
+    "howToUseFr": "Fermez les yeux et vaporisez à environ 20-30 cm du visage et du cou. Laissez sécher naturellement à l'air libre sans essuyer. À réappliquer sans modération dès que votre peau a besoin d'un coup de fraîcheur.",
+    "mainCategory": "personal-care-hygiene",
+    "categoryNameAr": "العناية بالجسم واللوشن",
+    "subtitleAr": "رذاذ مرطب ومنعش متعدد الاستخدامات للوجه والجسم"
+  },
+  {
+    "id": "kallow-27-kallow-argan-grapeseed-oil-hydratin",
+    "name": "Kallow Crème Visage Hydratante Huile d'Argan & Pépins de Raisin",
+    "nameAr": "كريم الوجه المرطب كالو بزيت الأرغان وبذور العنب",
+    "titleAr": "كريم الوجه المرطب كالو بزيت الأرغان وبذور العنب (Kallow)",
+    "brand": "Kallow",
+    "sku": "KLW-SKN-012",
+    "barcode": "65000000027",
+    "slug": "kallow-27-kallow-argan-grapeseed-oil-hydratin",
+    "category": "face-creams-serums",
+    "categoryName": "Crèmes Visage & Sérums",
+    "subcategory": "Face Creams & Serums",
+    "categoryGroup": "skincare-beauty",
+    "collections": [
+    "kallow",
+      "skincare-beauty",
+      "new-arrivals",
+      "face-creams-serums"
+    ],
+    "price": 206,
+    "compareAtPrice": 250,
+    "isNew": false,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 131,
+    "weight": "50 ml (1.69 fl oz)",
+    "rating": 5,
+    "reviewCount": 69,
+    "shortDescription": "امنحي بشرتك ترطيباً غنياً وعناية فائقة مع كريم الوجه المرطب كالو بزيت الأرغان وبذور العنب. صُممت هذه التركيبة الفاخرة لتناسب جميع أنواع البشرة، وتجمع بين فوائد زيت الأرغان المرطب ومستخلص بذور العنب المغذي لتستعيد بشرتك نعومتها وحيويتها الطبيعية.",
+    "description": "ترطيب عميق ومكثف: يغذي البشرة بعمق ويحارب الجفاف، ليترك الوجه بملمس ناعم وحريري طوال اليوم.\n\nخلاصة زيت الأرغان وبذور العنب: يدمج مكونات طبيعية غنية بمضادات الأكسدة والعناصر المغذية لتعزيز مرونة البشرة وشبابها.\n\nمناسب لجميع أنواع البشرة: تركيبة متوازنة ولطيفة صُممت بعناية لتلبي احتياجات مختلف أنواع البشرة بكل أمان.\n\nتصميم أنيق وعملي: يأتي في عبوة دائرية بيضاء أنيقة ذات غطاء فضي محكم، مع علبة خارجية متناسقة بحجم 50 مل (1.69 أوقية سائلة).",
+    "details": [
+      "مستخلص من مكونات طبيعية عالية النقاء وخالية من المواد الكيميائية الضارة",
+      "صُمم وفق أعلى معايير الجودة العالمية لضمان الفعالية والأمان التام",
+      "خيار مثالي للعناية اليومية ونمط حياة صحي ومتوازن"
+    ],
+    "howToUse": "توضع كمية مناسبة من الكريم على بشرة نظيفة وجافة للوجه والرقبة.\n\nيُدلك بلطف بحركات دائرية خفيفة حتى يتم امتصاصه تماماً، ويوصى باستخدامه صباحاً ومساءً للحصول على أفضل النتائج.",
+    "tags": [
+      "Kallow",
+      "Argan Oil",
+      "Grapeseed",
+      "Face Cream",
+      "Antioxidants",
+      "Hydrating Cream"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#1A365D",
+        "image": "assets/ecom/27.png",
+        "productId": "kallow-27-kallow-argan-grapeseed-oil-hydratin",
+        "linkUrl": "product.html?id=kallow-27-kallow-argan-grapeseed-oil-hydratin"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/27.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "50 ml (1.69 fl oz)",
+        "stock": 131,
+        "sku": "KLW-SKN-012",
+        "price": 206,
+        "compareAtPrice": 250
+      }
+    ],
+    "nameFr": "Kallow Crème Visage Hydratante Huile d'Argan & Pépins de Raisin",
+    "categoryNameFr": "Crèmes Visage & Sérums",
+    "subtitleFr": "Soin équilibrant antioxydant et revitalisant aux trésors du terroir",
+    "shortDescriptionFr": "Désaltérez votre peau en profondeur avec la Crème Hydratante Kallow à l'Huile d'Argan et aux Pépins de Raisin. Une alliance prestigieuse d'antioxydants et d'omégas essentiels pour une peau douce, équilibrée et protégée.",
+    "descriptionFr": "Le trésor de l'huile d'Argan marocaine s'allie à l'huile fine de pépins de raisin riche en polyphénols antioxydants. Cette crème fondante non comédogène apporte un confort immédiat aux peaux déshydratées, renforce le film lipidique naturel et neutralise les radicaux libres pour un teint frais et rayonnant de santé.",
+    "detailsFr": [
+      "Alliance prestigieuse : Huile d'Argan pure nourrissante & Pépins de raisin antioxydants",
+      "Hydratation intense et équilibrée sans obstruer les pores",
+      "Renforce la souplesse naturelle de la peau et apaise les tiraillements",
+      "Pot élégant de 50 ml adapté à une utilisation quotidienne matin et soir"
+    ],
+    "howToUseFr": "Appliquez une noisette de crème sur une peau propre et sèche (visage et cou). Faites pénétrer délicatement par massages circulaires ascendants. S'utilise le matin pour protéger la peau et le soir pour l'assouplir.",
+    "mainCategory": "skincare-beauty",
+    "categoryNameAr": "العناية بالوجه والسيرومات",
+    "subtitleAr": "كريم مرطب ومضاد للأكسدة غني بزيت الأرغان وبذور العنب المغربية"
+  },
+  {
+    "id": "kallow-28-kallow-luxury-aromatic-body-lotion",
+    "name": "Kallow Lait Corporel Aromatique & Parfumé de Luxe",
+    "nameAr": "لوشن الجسم العطري الفاخر كالو",
+    "titleAr": "لوشن الجسم العطري الفاخر كالو (Kallow)",
+    "brand": "Kallow",
+    "sku": "KLW-PER-004",
+    "barcode": "65000000028",
+    "slug": "kallow-28-kallow-luxury-aromatic-body-lotion",
+    "category": "body-care-lotions",
+    "categoryName": "Soins Corps & Lotions",
+    "subcategory": "Body Care & Lotions",
+    "categoryGroup": "personal-care-hygiene",
+    "collections": [
+    "kallow",
+      "personal-care-hygiene",
+      "new-arrivals",
+      "body-care-lotions"
+    ],
+    "price": 152,
+    "compareAtPrice": 185,
+    "isNew": false,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 134,
+    "weight": "250 ml (8.45 fl oz)",
+    "rating": 5,
+    "reviewCount": 71,
+    "shortDescription": "ادلل بشرتك وامنحها ترطيباً فائقاَ وعناية استثنائية مع لوشن الجسم العطري الفاخر كالو. صُممت هذه التركيبة الراقية لتناسب جميع أنواع البشرة، وتعمل على ترطيب الجلد بعمق مع غمر حواسك بنفحات عطرية زكية تمنحك شعوراً بالانتعاش والرفاهية طوال اليوم.",
+    "description": "ترطيب عميق ومكثف: يغذي البشرة بعقبة ويساعد على حبس الرطوبة داخلها، ليتركها بملمس ناعم كالحرير وخالٍ من الجفاف.\n\nعطر عطري فاخر: يمنح الجسم رائحة زكية ومنعشة تدوم طويلاً، مما يضفي لمسة من الاسترخاء والجاذبية على روتينك اليومي.\n\nمناسب لجميع أنواع البشرة: تركيبة لطيفة ومتوازنة صُممت بعناية لتلبي احتياجات مختلف أنواع البشرة بكل أمان دون أي تهيج.\n\nتصميم عملي وأنيق: يأتي في زجاجة بيضاء أنيقة مزينة بنقوش زرقاء فاخرة ومزودة بمضخة عملية لسهولة الاستخدام، بحجم 250 مل (8.45 أوقية سائلة).",
+    "details": [
+      "مستخلص من مكونات طبيعية عالية النقاء وخالية من المواد الكيميائية الضارة",
+      "صُمم وفق أعلى معايير الجودة العالمية لضمان الفعالية والأمان التام",
+      "خيار مثالي للعناية اليومية ونمط حياة صحي ومتوازن"
+    ],
+    "howToUse": "توضع كمية مناسبة من اللوشن على راحة اليدين بعد الاستحمام أو كلما دعت الحاجة.\n\nيُدلك الجسم بلطف وبحركات دائرية حتى يتم امتصاصه تماماً للحصول على بشرة ناعمة ومرطبة بعمق.",
+    "tags": [
+      "Kallow",
+      "Body Lotion",
+      "Aromatic",
+      "Silk Touch",
+      "Deep Moisture",
+      "Body Care"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#1A365D",
+        "image": "assets/ecom/28.png",
+        "productId": "kallow-28-kallow-luxury-aromatic-body-lotion",
+        "linkUrl": "product.html?id=kallow-28-kallow-luxury-aromatic-body-lotion"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/28.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "250 ml (8.45 fl oz)",
+        "stock": 134,
+        "sku": "KLW-PER-004",
+        "price": 152,
+        "compareAtPrice": 185
+      }
+    ],
+    "nameFr": "Kallow Lait Corporel Aromatique & Parfumé de Luxe",
+    "categoryNameFr": "Soins Corps & Lotions",
+    "subtitleFr": "Lait hydratant corporel satiné parfumé aux fragrances envoûtantes",
+    "shortDescriptionFr": "Sublimez votre corps d'une hydratation satinée et d'un sillage délicat avec le Lait Corporel Aromatique de Luxe Kallow. Sa texture onctueuse pénètre rapidement et laisse la peau incroyablement douce et soyeuse.",
+    "descriptionFr": "Formulé pour combler les peaux déshydratées, ce lait corporel voluptueux associe des beurres végétaux émollients et des extraits hydratants haute performance. Il fond instantanément sur l'épiderme sans laisser de film gras et diffuse un sillage raffiné et persistant qui vous accompagne tout au long de la journée.",
+    "detailsFr": [
+      "Hydrate durablement et satine la peau dès la première application",
+      "Pénétration express permettant un habillage immédiat sans effet gras",
+      "Parfum luxueux sophistiqué qui remplace agréablement l'eau de toilette",
+      "Flacon pompe pratique de 250 ml pour une application facile et agréable"
+    ],
+    "howToUseFr": "Appliquez généreusement sur l'ensemble du corps après le bain ou la douche sur peau séchée. Insistez sur les zones les plus sèches (coudes, genoux, talons). Massez jusqu'à complète pénétration.",
+    "mainCategory": "personal-care-hygiene",
+    "categoryNameAr": "العناية بالجسم واللوشن",
+    "subtitleAr": "حليب مرطب حريري للجسم يمنح نعومة وترطيباً بنفحات ساحرة"
+  },
+  {
+    "id": "kallow-29-kallow-sage-witch-hazel-micellar-cl",
+    "name": "Kallow Eau Tonique & Micellaire Purifiante Sauge & Hamamélis",
+    "nameAr": "ماء التونيك المنظف والميسلار كالو بالميرمية وبندق الساحرة",
+    "titleAr": "ماء التونيك المنظف والميسلار كالو بالميرمية وبندق الساحرة (Kallow)",
+    "brand": "Kallow",
+    "sku": "KLW-SKN-013",
+    "barcode": "65000000029",
+    "slug": "kallow-29-kallow-sage-witch-hazel-micellar-cl",
+    "category": "cleansers-toners",
+    "categoryName": "Nettoyants & Toniques",
+    "subcategory": "Cleansers & Toners",
+    "categoryGroup": "skincare-beauty",
+    "collections": [
+    "kallow",
+      "skincare-beauty",
+      "new-arrivals",
+      "cleansers-toners"
+    ],
+    "price": 146,
+    "compareAtPrice": 175,
+    "isNew": false,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 137,
+    "weight": "200 ml (6.76 fl oz)",
+    "rating": 5,
+    "reviewCount": 73,
+    "shortDescription": "استمتعي ببشرة منتعشة، نقية، ونظيفة بعمق مع ماء التونيك المنظف وميسلار كالو بالميرمية وبندق الساحرة. صُممت هذه التركيبة الفريدة لتناسب جميع أنواع البشرة، وتعمل على إزالة الشوائب والمكياج بلطف فائق مع تنقية وترطيب البشرة في خطوة واحدة سهلة.",
+    "description": "تقنية الميسلار الفعالة: تلتقط الشوائب، والزيوت الزائدة، وآثار المكياج بفعالية عالية دون الحاجة للفرك القاسي المضر بالبشرة.\n\nخلاصة الميرمية وبندق الساحرة (Sage & Witch Hazel): تدمج مكونات طبيعية تعمل على تهدئة البشرة، قبض المسام الواسعة، ومنحها شعوراً فورياً بالانتعاش والحيوية.\n\nمناسب لجميع أنواع البشرة: تركيبة متوازنة ولطيفة صُممت بعناية لتلبي احتياجات مختلف أنواع البشرة بكل أمان ودون تهيج.\n\nتصميم عملي وأنيق: يأتي في عبوة عملية وأنيقة بلون فضي مميز مع غطاء محكم، بحجم 200 مل (6.76 أوقية سائلة) مثالي للاستخدام اليومي.",
+    "details": [
+      "مستخلص من مكونات طبيعية عالية النقاء وخالية من المواد الكيميائية الضارة",
+      "صُمم وفق أعلى معايير الجودة العالمية لضمان الفعالية والأمان التام",
+      "خيار مثالي للعناية اليومية ونمط حياة صحي ومتوازن"
+    ],
+    "howToUse": "توضع كمية مناسبة من التونيك على قطنة نظيفة.\n\nيُمسح الوجه والرقبة بلطف لإزالة المكياج والشوائب، ولا يحتاج إلى الشطف بالماء. يُستخدم صباحاً ومساءً كجزء أساسي من روتين العناية بالبشرة.",
+    "tags": [
+      "Kallow",
+      "Micellar Water",
+      "Tonic",
+      "Sage",
+      "Witch Hazel",
+      "Pore Tightening"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#1A365D",
+        "image": "assets/ecom/29.png",
+        "productId": "kallow-29-kallow-sage-witch-hazel-micellar-cl",
+        "linkUrl": "product.html?id=kallow-29-kallow-sage-witch-hazel-micellar-cl"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/29.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "200 ml (6.76 fl oz)",
+        "stock": 137,
+        "sku": "KLW-SKN-013",
+        "price": 146,
+        "compareAtPrice": 175
+      }
+    ],
+    "nameFr": "Kallow Eau Tonique & Micellaire Purifiante Sauge & Hamamélis",
+    "categoryNameFr": "Nettoyants & Toniques",
+    "subtitleFr": "Eau micellaire clarifiante, démaquillante et astringente aux extraits botaniques",
+    "shortDescriptionFr": "Purifiez et démaquillez votre visage en un seul geste avec l'Eau Micellaire Kallow à la Sauge et à l'Hamamélis. Elle capture les impuretés, resserre les pores et laisse un teint net, équilibré et éclatant.",
+    "descriptionFr": "Spécialement élaborée avec des micelles ultra-douces et des distillats de sauge et d'hamamélis reconnus pour leurs vertus astringentes et purifiantes, cette formule élimine efficacement le maquillage même longue tenue et l'excès de sébum. Elle tonifie l'épiderme, resserre le grain de peau et prévient l'apparition des imperfections sans assécher.",
+    "detailsFr": [
+      "Complexe assainissant végétal : Sauge purifiante & Hamamélis astringent",
+      "Démaquille visage, yeux et lèvres en un seul geste sans frotter",
+      "Resserre visiblement les pores et régule l'excès de brillance",
+      "Formule sans rinçage flacon de 200 ml pour un usage bi-quotidien"
+    ],
+    "howToUseFr": "Imbibez généreusement un coton d'eau micellaire. Passez-le délicatement sur l'ensemble du visage, des yeux et des lèvres. Renouvelez l'opération jusqu'à ce que le coton soit parfaitement propre. Inutile de rincer.",
+    "mainCategory": "skincare-beauty",
+    "categoryNameAr": "الغسول والتونر",
+    "subtitleAr": "ماء ميسلار منظف ومزيل للمكياج ينقي البشرة بالميرمية وبندق الساحرة"
+  },
+  {
+    "id": "kallow-30-kallow-high-protection-face-sunscre",
+    "name": "Kallow Crème Solaire Visage Haute Protection SPF 50",
+    "nameAr": "واقي الشمس للوجه عالي الحماية كالو SPF 50",
+    "titleAr": "واقي الشمس للوجه عالي الحماية كالو SPF 50 (Kallow)",
+    "brand": "Kallow",
+    "sku": "KLW-SKN-014",
+    "barcode": "65000000030",
+    "slug": "kallow-30-kallow-high-protection-face-sunscre",
+    "category": "sunscreens-tanning",
+    "categoryName": "Protection Solaire & Bronzage",
+    "subcategory": "Sunscreens & Tanning",
+    "categoryGroup": "skincare-beauty",
+    "collections": [
+    "kallow",
+      "skincare-beauty",
+      "new-arrivals",
+      "sunscreens-tanning"
+    ],
+    "price": 272,
+    "compareAtPrice": 330,
+    "isNew": false,
+    "isSale": true,
+    "isFeatured": true,
+    "isBundle": false,
+    "stock": 140,
+    "weight": "50 ml (1.60 fl oz)",
+    "rating": 5,
+    "reviewCount": 75,
+    "shortDescription": "حافِظي على صحة وشباب بشرتك واحمِها من الأضرار اليومية مع واقي الشمس للوجه عالي الحماية كالو SPF 50. صُممت هذه التركيبة المتقدمة خصيصاً لتناسب جميع أنواع البشرة، وتوفر درعاً وقائياً قوياً ضد أشعة الشمس الضارة لتمنحك إشراقة محمية طوال اليوم.",
+    "description": "حماية عالية SPF 50: يوفر درعاً وقائياً فعالاً وعالياً ضد الأشعة فوق البنفسجية لحماية مثالية ضد التلف وعلامات الشيخوخة المبكرة.\n\nمناسب لجميع أنواع البشرة: تركيبة لطيفة ومتوازنة صُممت بعناية لتلبي احتياجات مختلف أنواع البشرة بكل أمان ودون أي تهيج.\n\nقوام خفيف وسريع الامتصاص: ينساب بسلاسة على البشرة ويمتصه الجلد بسهولة دون أن يترك أي طبقة دهنية أو لزجة مزعجة.\n\nتصميم عملي وأنيق: يأتي في عبوة بيضاء عملية مزودة بمضخة (بومب) وغطاء شفاف لحماية المضخة، مع علبة خارجية متناسقة بحجم 50 مل (1.60 أوقية سائلة).",
+    "details": [
+      "مستخلص من مكونات طبيعية عالية النقاء وخالية من المواد الكيميائية الضارة",
+      "صُمم وفق أعلى معايير الجودة العالمية لضمان الفعالية والأمان التام",
+      "خيار مثالي للعناية اليومية ونمط حياة صحي ومتوازن"
+    ],
+    "howToUse": "توضع كمية مناسبة من واقي الشمس على الوجه والرقبة قبل التعرض لأشعة الشمس بـ 15 دقيقة.\n\nيُدلك بلطف بحركات خفيفة حتى يتم امتصاصه تماماً، ويوصى بإعادة وضعه بانتظام (خاصة بعد السباحة أو التعرق) للحفاظ على حماية مستمرة.",
+    "tags": [
+      "Kallow",
+      "Sunscreen SPF 50",
+      "High Protection",
+      "Face Sunblock",
+      "Non-Greasy",
+      "Daily Shield"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#1A365D",
+        "image": "assets/ecom/30.png",
+        "productId": "kallow-30-kallow-high-protection-face-sunscre",
+        "linkUrl": "product.html?id=kallow-30-kallow-high-protection-face-sunscre"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom/30.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "50 ml (1.60 fl oz)",
+        "stock": 140,
+        "sku": "KLW-SKN-014",
+        "price": 272,
+        "compareAtPrice": 330
+      }
+    ],
+    "nameFr": "Kallow Crème Solaire Visage Haute Protection SPF 50",
+    "categoryNameFr": "Protection Solaire & Bronzage",
+    "subtitleFr": "Bouclier solaire urbain et balnéaire anti-taches SPF 50+ très haute protection",
+    "shortDescriptionFr": "Préservez la jeunesse de votre visage avec la Crème Solaire Haute Protection SPF 50 Kallow. Un bouclier ultra-performant contre les UVA/UVB et la lumière bleue, sans traces blanches ni fini gras.",
+    "descriptionFr": "Soin solaire anti-âge par excellence, cette crème SPF 50 protège les cellules cutanées des méfaits du soleil, prévient l'apparition des taches pigmentaires et préserve l'hydratation de la peau. Sa texture émulsion légère pénètre instantanément sans obstruer les pores, ce qui en fait un soin solaire quotidien idéal en ville comme à la plage.",
+    "detailsFr": [
+      "Très haute protection SPF 50 à large spectre anti-UVA, anti-UVB et antioxydant",
+      "Action préventive ciblée contre l'hyperpigmentation et le photovieillissement",
+      "Texture invisible sans effet masque blanc ni brillance excessive",
+      "Format tube voyage 50 ml idéal dans votre sac pour les retouches quotidiennes"
+    ],
+    "howToUseFr": "Chaque matin, après votre crème hydratante et 15 minutes avant toute exposition au soleil, appliquez uniformément sur le visage, le cou et le décolleté. Renouvelez l'application toutes les 2 heures en cas d'exposition continue ou après avoir transpiré.",
+    "mainCategory": "skincare-beauty",
+    "categoryNameAr": "الحماية من الشمس والتسمير",
+    "subtitleAr": "واقي شمس فائق الحماية SPF 50+ مقاوم للبقع والتصبغات"
+  },
+  {
+    "id": "dxn-e2-1-dxn-ganozhi-body-foam",
+    "name": "DXN Mousse de Douche Ganozhi au Ganoderma",
+    "nameAr": "رغوة الاستحمام جانوزي دي إكس إن",
+    "titleAr": "رغوة الاستحمام جانوزي دي إكس إن (DXN Ganozhi Body Foam)",
+    "nameFr": "DXN Mousse de Douche Ganozhi au Ganoderma",
+    "subtitleAr": "رغوة استحمام منعشة وفاخرة بخلاصة فطر الريشي وفيتامين E",
+    "subtitleFr": "Mousse de douche hydratante et tonifiante enrichie au Reishi et vitamine E",
+    "brand": "DXN",
+    "sku": "DXN-E2-001",
+    "barcode": "65000000101",
+    "slug": "dxn-e2-1-dxn-ganozhi-body-foam",
+    "category": "body-care-lotions",
+    "categoryName": "Soins Corps & Lotions",
+    "categoryNameAr": "العناية بالجسم واللوشن",
+    "categoryNameFr": "Soins Corps & Lotions",
+    "subcategory": "Body Care & Lotions",
+    "mainCategory": "personal-care-hygiene",
+    "categoryGroup": "personal-care-hygiene",
+    "collections": [
+      "personal-care-hygiene",
+      "new-arrivals",
+      "body-care-lotions",
+      "best-sellers"
+    ],
+    "price": 157,
+    "compareAtPrice": 190,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": true,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "200 ml",
+    "rating": 5,
+    "reviewCount": 16,
+    "shortDescription": "استمتع بتجربة استحمام منعشة ومجددة للحيوية مع رغوة الاستحمام جانوزي من دي إكس إن. صُممت هذه التركيبة الفريدة لتنظيف البشرة بلطف وعناية فائقة، مانحة إياها شعوراً بالغنى والنقاء والانتعاش الذي يدوم طوال اليوم.",
+    "shortDescriptionFr": "Mousse de douche hydratante et tonifiante enrichie au Reishi et vitamine E",
+    "description": "استمتع بتجربة استحمام منعشة ومجددة للحيوية مع رغوة الاستحمام جانوزي من دي إكس إن. صُممت هذه التركيبة الفريدة لتنظيف البشرة بلطف وعناية فائقة، مانحة إياها شعوراً بالغنى والنقاء والانتعاش الذي يدوم طوال اليوم.",
+    "descriptionFr": "Mousse de douche hydratante et tonifiante enrichie au Reishi et vitamine E",
+    "details": [
+      "تنظيف لطيف وفعال: يزيل الأوساخ والشوائب برفق دون أن يسبب جفاف البشرة، ليحافظ على توازنها الطبيعي.",
+      "ترطيب ونعومة فائقة: يترك البشرة بملمس ناعم، مرطب، ومنتعش بفضل مكوناته المختارة بعناية.",
+      "مناسب للاستخدام اليومي: تركيبة لطيفة ومريحة تناسب مختلف أنواع البشرة للاستخدام اليومي المستمر للعائلة.",
+      "حجم عملي وأنيق: يأتي في عبوة بيضاء عملية وأنيقة بحجم 200 مل، سهلة الاستخدام أثناء الاستحمام."
+    ],
+    "detailsFr": [
+      "Nettoyage doux et efficace : élimine les impuretés en douceur sans assécher la barrière cutanée",
+      "Hydratation et souplesse intense : enrichi au Ganoderma pour nourrir la peau et préserver son éclat",
+      "Adapté à un usage quotidien pour toute la famille, respecte le pH naturel de l'épiderme",
+      "Flacon ergonomique et élégant de 200 ml, facile d'utilisation sous la douche"
+    ],
+    "howToUse": "توضع كمية مناسبة من رغوة الاستحمام على لوفة الاستحمام أو راحة اليدين.\n\nيُدلك الجسم برفق بحركات دائرية حتى تتكون رغوة غنية ومنعشة.\n\nيُشطف الجسم جيداً بالماء الفاتر للاستمتاع بنظافة مثالية وانتعاش يدوم.",
+    "howToUseFr": "Déposez une quantité généreuse de mousse sur une fleur de douche ou dans le creux des mains. Massez délicatement l'ensemble du corps par mouvements circulaires jusqu'à l'obtention d'une mousse riche, puis rincez abondamment à l'eau tiède.",
+    "tags": [
+      "DXN",
+      "Ganozhi",
+      "Body Foam",
+      "Reishi",
+      "Shower Gel",
+      "Personal Care",
+      "Moisturizing"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/1.png",
+        "productId": "dxn-e2-1-dxn-ganozhi-body-foam",
+        "linkUrl": "product.html?id=dxn-e2-1-dxn-ganozhi-body-foam"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/1.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "200 ml",
+        "stock": 65,
+        "sku": "DXN-E2-001",
+        "price": 157,
+        "compareAtPrice": 190
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-2-dxn-zhi-mint-plus",
+    "name": "DXN Pastilles Zhi Mint Plus Sans Sucre au Reishi",
+    "nameAr": "حلوى نعناع خالية من السكر زي مينت بلس دي إكس إن",
+    "titleAr": "حلوى نعناع خالية من السكر زي مينت بلس دي إكس إن (DXN Zhi Mint Plus)",
+    "nameFr": "DXN Pastilles Zhi Mint Plus Sans Sucre au Reishi",
+    "subtitleAr": "حلوى نعناع منعشة خالية من السكر معززة بفطر الجانوديرما لنفس منعش",
+    "subtitleFr": "Pastilles à la menthe forte sans sucre enrichies à l'extrait de Reishi adaptogène",
+    "brand": "DXN",
+    "sku": "DXN-E2-002",
+    "barcode": "65000000102",
+    "slug": "dxn-e2-2-dxn-zhi-mint-plus",
+    "category": "oral-care",
+    "categoryName": "Hygiène Bucco-Dentaire",
+    "categoryNameAr": "العناية بالفم والأسنان",
+    "categoryNameFr": "Hygiène Bucco-Dentaire",
+    "subcategory": "Oral Care",
+    "mainCategory": "personal-care-hygiene",
+    "categoryGroup": "personal-care-hygiene",
+    "collections": [
+      "personal-care-hygiene",
+      "new-arrivals",
+      "oral-care",
+      "best-sellers"
+    ],
+    "price": 380,
+    "compareAtPrice": 450,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": true,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "12 × 25 g",
+    "rating": 5,
+    "reviewCount": 17,
+    "shortDescription": "استمتع بانتعاش الفم الفوري والنفس المنعش طوال اليوم مع حلوى نعناع زي مينت بلس من دي إكس إن. صُممت هذه الحلوى بعناية لتكون خالية تماماً من السكر ومعززة بخلاصة فطر جانوديرما (الريشي)، لتجمع بين المذاق المنعش والعناية الذكية.",
+    "shortDescriptionFr": "Pastilles à la menthe forte sans sucre enrichies à l'extrait de Reishi adaptogène",
+    "description": "استمتع بانتعاش الفم الفوري والنفس المنعش طوال اليوم مع حلوى نعناع زي مينت بلس من دي إكس إن. صُممت هذه الحلوى بعناية لتكون خالية تماماً من السكر ومعززة بخلاصة فطر جانوديرما (الريشي)، لتجمع بين المذاق المنعش والعناية الذكية.",
+    "descriptionFr": "Pastilles à la menthe forte sans sucre enrichies à l'extrait de Reishi adaptogène",
+    "details": [
+      "خالية من السكر (Sugar Free): الخيار المثالي لمن يبحثون عن الانتعاش دون القلق بشأن السكريات أو السعرات الحرارية الإضافية.",
+      "انتعاش مضاعف: تمنحك نفساً عطرورياً ومنعشاً بفضل نكهة النعناع القوية التي توقظ حواسك في أي وقت.",
+      "معززة بفطر الريشي: تدمج فوائد فطر جانوديرما (Ganoderma) المعروف، لتقدم لك لمسة صحية مميزة في كل حبة.",
+      "عبوة عملية واقتصادية: تأتي في علبة أنيقة بلون أزرق وأخضر مميز، تحتوي على 12 عبوة فرعية بوزن 25 غرام لكل منها، مما يجعلها سهلة الحمل في الجيب أو الحقيبة."
+    ],
+    "detailsFr": [
+      "100% sans sucre ajouté : idéal pour les personnes attentives aux apports caloriques ou diabétiques",
+      "Haleine fraîche immédiate et durable grâce à l'arôme intense de menthe poivrée",
+      "Enrichi à l'extrait pur de Ganoderma (Reishi) pour un soutien apaisant de la gorge",
+      "Boîte distributrice pratique contenant 12 étuis nomades de 25 g chacun"
+    ],
+    "howToUse": "تُمص حبة واحدة ببطء في الفم كلما دعت الحاجة للحصول على نفس منعش وانتعاش فوري يدوم طويلاً.",
+    "howToUseFr": "Laissez fondre lentement une pastille dans la bouche dès que vous ressentez le besoin d'une haleine fraîche ou d'un soulagement de la gorge.",
+    "tags": [
+      "DXN",
+      "Zhi Mint",
+      "Sugar Free",
+      "Ganoderma",
+      "Fresh Breath",
+      "Oral Care"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/2.png",
+        "productId": "dxn-e2-2-dxn-zhi-mint-plus",
+        "linkUrl": "product.html?id=dxn-e2-2-dxn-zhi-mint-plus"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/2.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "12 × 25 g",
+        "stock": 65,
+        "sku": "DXN-E2-002",
+        "price": 380,
+        "compareAtPrice": 450
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-3-dxn-chubby-baby-oil",
+    "name": "DXN Huile Douce Bébé Chubby Baby Oil",
+    "nameAr": "زيت الأطفال تشابي دي إكس إن",
+    "titleAr": "زيت الأطفال تشابي دي إكس إن (DXN Chubby Baby Oil)",
+    "nameFr": "DXN Huile Douce Bébé Chubby Baby Oil",
+    "subtitleAr": "زيت أطفال فائق النعومة والترطيب لحماية بشرة الرضع الحساسة",
+    "subtitleFr": "Huile de massage protectrice et nourrissante pour la peau délicate de bébé",
+    "brand": "DXN",
+    "sku": "DXN-E2-003",
+    "barcode": "65000000103",
+    "slug": "dxn-e2-3-dxn-chubby-baby-oil",
+    "category": "hair-baby-care",
+    "categoryName": "Soins Cheveux, Huiles & Bébé",
+    "categoryNameAr": "العناية بالشعر والزيوت",
+    "categoryNameFr": "Soins Cheveux, Huiles & Bébé",
+    "subcategory": "Hair & Baby Care",
+    "mainCategory": "personal-care-hygiene",
+    "categoryGroup": "personal-care-hygiene",
+    "collections": [
+      "personal-care-hygiene",
+      "new-arrivals",
+      "hair-baby-care",
+      "best-sellers"
+    ],
+    "price": 98,
+    "compareAtPrice": 120,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "200 ml",
+    "rating": 5,
+    "reviewCount": 18,
+    "shortDescription": "امنح بشرة طفلك الرقيقة عناية فائقة وترطيباً ناعماً مع زيت الأطفال تشابي من دي إكس إن. صُممت هذه التركيبة اللطيفة خصيصاً لتغذية وحماية بشرة الأطفال الحساسة، ومنحها ملمسًا ناعمًا ومحميًا ضد الجفاف طوال اليوم.",
+    "shortDescriptionFr": "Huile de massage protectrice et nourrissante pour la peau délicate de bébé",
+    "description": "امنح بشرة طفلك الرقيقة عناية فائقة وترطيباً ناعماً مع زيت الأطفال تشابي من دي إكس إن. صُممت هذه التركيبة اللطيفة خصيصاً لتغذية وحماية بشرة الأطفال الحساسة، ومنحها ملمسًا ناعمًا ومحميًا ضد الجفاف طوال اليوم.",
+    "descriptionFr": "Huile de massage protectrice et nourrissante pour la peau délicate de bébé",
+    "details": [
+      "ترطيب لطيف وناعم: يساعد على ترطيب بشرة الطفل الحساسة بعمق وحمايتها من الجفاف والخشونة.",
+      "تركيبة آمنة ومخصصة: خفيفة ولطيفة للغاية، صُممت بعناية فائقة لتلائم بشرة الأطفال الرقيقة بكل أمان.",
+      "ملمس ناعم وسريع الامتصاص: ينساب بسلاسة على الجلد ليترك البشرة ناعمة ومرطبة دون ترك أي أثر دهني مزعج.",
+      "حجم عملي ومناسب: يأتي في عبوة شفافة عملية بحجم 200 مل لسهولة الاستخدام اليومي المستمر."
+    ],
+    "detailsFr": [
+      "Protection active contre les rougeurs et le dessèchement de l'épiderme délicat",
+      "Formule hypoallergénique ultra-douce testée pour les nouveau-nés et bébés",
+      "Absorption rapide sans sensation grasse ni résidu collant sur les vêtements",
+      "Format généreux de 200 ml avec bouchon doseur sécurisé"
+    ],
+    "howToUse": "توضع كمية صغيرة من الزيت على راحة اليدين وتدفأ قليلاً بين اليدين.يُدلك جسم الطفل برفق وبحركات دائرية هادئة بعد الاستحمام أو قبل النوم للحصول على بشرة ناعمة ومسترخية.",
+    "howToUseFr": "Faites tiédir quelques gouttes d'huile entre vos paumes. Massez tendrement le corps de bébé après le bain ou avant le coucher par de doux effleurements circulaires.",
+    "tags": [
+      "DXN",
+      "Baby Oil",
+      "Chubby",
+      "Infant Care",
+      "Gentle",
+      "Hypoallergenic"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/3.png",
+        "productId": "dxn-e2-3-dxn-chubby-baby-oil",
+        "linkUrl": "product.html?id=dxn-e2-3-dxn-chubby-baby-oil"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/3.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "200 ml",
+        "stock": 65,
+        "sku": "DXN-E2-003",
+        "price": 98,
+        "compareAtPrice": 120
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-4-dxn-vco-1-virgin-coconut-oil",
+    "name": "DXN Huile de Coco Vierge VCO-1 au Ganoderma",
+    "nameAr": "مزيج زيت جوز الهند البكر مع فطر الريشي دي إكس إن VCO-1",
+    "titleAr": "مزيج زيت جوز الهند البكر مع فطر الريشي دي إكس إن VCO-1 (DXN VCO-1)",
+    "nameFr": "DXN Huile de Coco Vierge VCO-1 au Ganoderma",
+    "subtitleAr": "زيت جوز هند بكر نقي معزز بخلاصة فطر الريشي للصحة والبشرة والشعر",
+    "subtitleFr": "Huile de noix de coco vierge première pression à froid combinée au Reishi",
+    "brand": "DXN",
+    "sku": "DXN-E2-004",
+    "barcode": "65000000104",
+    "slug": "dxn-e2-4-dxn-vco-1-virgin-coconut-oil",
+    "category": "pantry-condiments",
+    "categoryName": "Épicerie, Miel & Condiments",
+    "categoryNameAr": "المؤونة والتوابل الصحية",
+    "categoryNameFr": "Épicerie, Miel & Condiments",
+    "subcategory": "Pantry & Condiments",
+    "mainCategory": "food-pantry",
+    "categoryGroup": "food-pantry",
+    "collections": [
+      "food-pantry",
+      "new-arrivals",
+      "pantry-condiments",
+      "best-sellers"
+    ],
+    "price": 269,
+    "compareAtPrice": 320,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "285 ml",
+    "rating": 5,
+    "reviewCount": 19,
+    "shortDescription": "اكتشف مزيجاً فريداً يجمع بين نقاء الطبيعة والفوائد الصحية المتقدمة مع مزيج زيت جوز الهند البكر مع فطر الريشي من دي إكس إن (VCO-1). صُممت هذه التركيبة المبتكرة لتمنحك عناية متكاملة تجمع بين خصائص زيت جوز الهند البكر المرطبة وغنى فطر غانوديرما لوسيدوم (الريشي) لتعزيز الحيوية والعافية.",
+    "shortDescriptionFr": "Huile de noix de coco vierge première pression à froid combinée au Reishi",
+    "description": "اكتشف مزيجاً فريداً يجمع بين نقاء الطبيعة والفوائد الصحية المتقدمة مع مزيج زيت جوز الهند البكر مع فطر الريشي من دي إكس إن (VCO-1). صُممت هذه التركيبة المبتكرة لتمنحك عناية متكاملة تجمع بين خصائص زيت جوز الهند البكر المرطبة وغنى فطر غانوديرما لوسيدوم (الريشي) لتعزيز الحيوية والعافية.",
+    "descriptionFr": "Huile de noix de coco vierge première pression à froid combinée au Reishi",
+    "details": [
+      "مزيج طبيعي متطور: يدمج بين زيت جوز الهند البكر عالي الجودة وخلاصة فطر الريشي المعروف بخصائصه الفريدة في دعم الصحة العامة.",
+      "ترطيب وتغذية فائقة: يوفر عناية ممتازة للجسم والبشرة والشعر، مما يساعد على الحفاظ على النعومة والمرونة طوال اليوم.",
+      "دعم الحيوية والعافية: يساهم في تعزيز نشاط الجسم وحيويته بفضل المكونات الطبيعية المختارة بعناية فائقة.",
+      "حجم عملي وأنيق: يأتي في عبوة زجاجية عملية بسعة 285 مل، مصممة للحفاظ على جودة ونقاء المنتج لفترة طويلة."
+    ],
+    "detailsFr": [
+      "Huile de noix de coco vierge 100% pure extraite à froid, non raffinée",
+      "Synergie exclusive avec le champignon Reishi pour stimuler l'immunité et la longévité",
+      "Polyvalence exceptionnelle : utilisable en diététique, en soin capillaire ou hydratant corporel",
+      "Bouteille en verre protectrice de 285 ml préservant la pureté des acides gras MCT"
+    ],
+    "howToUse": "يُستخدم بحسب الحاجة سواء للعناية الشخصية (للبشرة أو الشعر) أو وفقاً للتوجيهات الموضحة على العبوة.   يُحفظ في مكان بارد وجاف بعيداً عن أشعة الشمس المباشرة للحفاظ على خصائصه الطبيعية.",
+    "howToUseFr": "Prenez 1 à 2 cuillères à soupe par jour dans vos boissons ou plats, ou appliquez directement en masque nourrissant sur les pointes des cheveux et sur la peau sèche.",
+    "tags": [
+      "DXN",
+      "VCO",
+      "Coconut Oil",
+      "Ganoderma",
+      "Superfood",
+      "Hair Care",
+      "Healthy Fats"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/4.png",
+        "productId": "dxn-e2-4-dxn-vco-1-virgin-coconut-oil",
+        "linkUrl": "product.html?id=dxn-e2-4-dxn-vco-1-virgin-coconut-oil"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/4.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "285 ml",
+        "stock": 65,
+        "sku": "DXN-E2-004",
+        "price": 269,
+        "compareAtPrice": 320
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-5-dxn-zhimeko-cream",
+    "name": "DXN Pommade Apaisante Zhimeko aux Extraits Naturels",
+    "nameAr": "كريم / مرهم زهيمكو دي إكس إن",
+    "titleAr": "كريم / مرهم زهيمكو دي إكس إن (DXN Zhimeko)",
+    "nameFr": "DXN Pommade Apaisante Zhimeko aux Extraits Naturels",
+    "subtitleAr": "مرهم عشبي طبيعي متعدد الفوائد لتلطيف وحماية البشرة المجهدة",
+    "subtitleFr": "Onguent réparateur multi-usages pour apaiser et soulager les zones cutanées irritées",
+    "brand": "DXN",
+    "sku": "DXN-E2-005",
+    "barcode": "65000000105",
+    "slug": "dxn-e2-5-dxn-zhimeko-cream",
+    "category": "face-creams-serums",
+    "categoryName": "Crèmes Visage & Sérums",
+    "categoryNameAr": "العناية بالوجه والسيرومات",
+    "categoryNameFr": "Crèmes Visage & Sérums",
+    "subcategory": "Face Creams & Serums",
+    "mainCategory": "skincare-beauty",
+    "categoryGroup": "skincare-beauty",
+    "collections": [
+      "skincare-beauty",
+      "new-arrivals",
+      "face-creams-serums",
+      "best-sellers"
+    ],
+    "price": 110,
+    "compareAtPrice": 135,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "30 g",
+    "rating": 5,
+    "reviewCount": 20,
+    "shortDescription": "امنح بشرتك عناية طبيعية ومميزة مع زهيمكو من دي إكس إن. صُممت هذه التركيبة الفريدة لتمنحك عناية متكاملة بلمسة من جودة منتجات دي إكس إن الموثوقة لتلبية احتياجاتك اليومية بكل كفاءة.",
+    "shortDescriptionFr": "Onguent réparateur multi-usages pour apaiser et soulager les zones cutanées irritées",
+    "description": "امنح بشرتك عناية طبيعية ومميزة مع زهيمكو من دي إكس إن. صُممت هذه التركيبة الفريدة لتمنحك عناية متكاملة بلمسة من جودة منتجات دي إكس إن الموثوقة لتلبية احتياجاتك اليومية بكل كفاءة.",
+    "descriptionFr": "Onguent réparateur multi-usages pour apaiser et soulager les zones cutanées irritées",
+    "details": [
+      "تركيبة طبيعية وعالية الجودة: مصنوع بعناية فائقة لتقديم أفضل أداء وعناية فعالة للبشرة.",
+      "حجم عملي ومميز: يأتي في عبوة أنبوبية أنيقة مع علبة خارجية متناسقة، بوزن صافٍ يبلغ 30 غراماً، مما يجعله سهل الحمل والاستخدام في أي وقت وفي كل مكان.",
+      "عناية موثوقة: يحمل بصمة جودة دي إكس إن الشهيرة ليكون إضافة مثالية وعملية لروتين العناية الشخصية الخاص بك."
+    ],
+    "detailsFr": [
+      "Texture onctueuse protectrice formulée à partir d'extraits botaniques concentrés",
+      "Soulage rapidement les zones sèches, démangeaisons légères et tiraillements cutanés",
+      "Format tube de 30 g pratique à emporter dans la trousse de premiers secours",
+      "Garantie de qualité pharmaceutique naturelle des laboratoires DXN"
+    ],
+    "howToUse": "تُوضع كمية مناسبة من المنتج على المنطقة المستهدفة وهي نظيفة وجافة.يُدلك بلطف بحركات دائرية حتى يتم امتصاصه تماماً، ويوصى باستخدامه حسب الحاجة للحصول على أفضل نتيجة.",
+    "howToUseFr": "Appliquez une fine couche d'onguent sur la zone concernée propre et sèche. Massez doucement jusqu'à absorption. Renouvelez l'application 2 à 3 fois par jour si nécessaire.",
+    "tags": [
+      "DXN",
+      "Zhimeko",
+      "Balm",
+      "Skin Soothing",
+      "Herbal",
+      "Emergency Care"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/5.png",
+        "productId": "dxn-e2-5-dxn-zhimeko-cream",
+        "linkUrl": "product.html?id=dxn-e2-5-dxn-zhimeko-cream"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/5.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "30 g",
+        "stock": 65,
+        "sku": "DXN-E2-005",
+        "price": 110,
+        "compareAtPrice": 135
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-6-dxn-spirunanas-pineapple-cake",
+    "name": "DXN Biscuits SpiruNanas Ananas, Spiruline & Reishi",
+    "nameAr": "كعكة الأناناس بالسبيرولينا وفطر الريشي دي إكس إن",
+    "titleAr": "كعكة الأناناس بالسبيرولينا وفطر الريشي دي إكس إن (DXN SpiruNanas)",
+    "nameFr": "DXN Biscuits SpiruNanas Ananas, Spiruline & Reishi",
+    "subtitleAr": "كعكة شهية تجمع بين حلاوة الأناناس الاستوائي والسبيرولينا وفطر الريشي",
+    "subtitleFr": "Gourmandise diététique raffinée alliant pulpe d'ananas, spiruline et Reishi",
+    "brand": "DXN",
+    "sku": "DXN-E2-006",
+    "barcode": "65000000106",
+    "slug": "dxn-e2-6-dxn-spirunanas-pineapple-cake",
+    "category": "treats-snacks",
+    "categoryName": "Encas Sains & Douceurs",
+    "categoryNameAr": "الوجبات الخفيفة والحلويات",
+    "categoryNameFr": "Encas Sains & Douceurs",
+    "subcategory": "Treats & Snacks",
+    "mainCategory": "food-pantry",
+    "categoryGroup": "food-pantry",
+    "collections": [
+      "food-pantry",
+      "new-arrivals",
+      "treats-snacks",
+      "best-sellers"
+    ],
+    "price": 298,
+    "compareAtPrice": 360,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "450 g",
+    "rating": 5,
+    "reviewCount": 21,
+    "shortDescription": "استمتع بمذاق استثنائي يجمع بين لذة الأناناس وفوائد الطبيعة مع كعكة الأناناس بالسبيرولينا وفطر الريشي (SpiruNanas) من دي إكس إن. صُممت هذه الحلوى الفريدة لتمنحك تجربة تذوق غنية ومميزة تمزج بين المكونات الطبيعية المغذية بلمسة فاخرة.",
+    "shortDescriptionFr": "Gourmandise diététique raffinée alliant pulpe d'ananas, spiruline et Reishi",
+    "description": "استمتع بمذاق استثنائي يجمع بين لذة الأناناس وفوائد الطبيعة مع كعكة الأناناس بالسبيرولينا وفطر الريشي (SpiruNanas) من دي إكس إن. صُممت هذه الحلوى الفريدة لتمنحك تجربة تذوق غنية ومميزة تمزج بين المكونات الطبيعية المغذية بلمسة فاخرة.",
+    "descriptionFr": "Gourmandise diététique raffinée alliant pulpe d'ananas, spiruline et Reishi",
+    "details": [
+      "مزيج طبيعي فريد: يدمج بين حلاوة الأناناس، وطحالب السبيرولينا، وخلاصة فطر جانوديرما (الريشي) لتقديم وجبة خفيفة مبتكرة.",
+      "مذاق شهي ومميز: يقدم نكهة لذيذة ترضي حواسك وتعد خياراً رائعاً للاستمتاع بأوقات الاستراحة والضيافة.",
+      "جودة موثوقة: مُحضرة بعناية وفق معايير الجودة المتميزة لمنتجات دي إكس إن لتمنحك تجربة فريدة في كل حبة.",
+      "عبوة عملية ومناسبة: تأتي في علبة أنيقة بحجم 450 غرام، مثالية للمشاركة مع العائلة والأصدقاء."
+    ],
+    "detailsFr": [
+      "Alliance originale et savoureuse de confit d'ananas exotique et de super-aliments",
+      "Enrichi en spiruline nutritive et extrait de Ganoderma pour une collation saine",
+      "Idéal pour accompagner le thé ou le café en famille et lors des réceptions",
+      "Boîte cadeau prestigieuse de 450 g garnie de portions individuelles protégées"
+    ],
+    "howToUse": "تُستهلك مباشرة كوجبة خفيفة ولذيذة في أي وقت من اليوم بجانب مشروبك المفضّل.   يُحفظ في مكان بارد وجاف بعيداً عن أشعة الشمس المباشرة للحفاظ على نضارته وجودته.",
+    "howToUseFr": "Dégustez tel quel au goûter ou au petit-déjeuner accompagné de votre boisson DXN favorite (thé Oozhi, Cocozhi ou café Lingzhi).",
+    "tags": [
+      "DXN",
+      "SpiruNanas",
+      "Pineapple Cake",
+      "Spirulina",
+      "Ganoderma",
+      "Healthy Snack"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/6.png",
+        "productId": "dxn-e2-6-dxn-spirunanas-pineapple-cake",
+        "linkUrl": "product.html?id=dxn-e2-6-dxn-spirunanas-pineapple-cake"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/6.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "450 g",
+        "stock": 65,
+        "sku": "DXN-E2-006",
+        "price": 298,
+        "compareAtPrice": 360
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-7-dxn-spirulina-660-tablets",
+    "name": "DXN Spiruline Pure 660 Comprimés - Format Économique",
+    "nameAr": "سبيرولينا دي إكس إن",
+    "titleAr": "سبيرولينا دي إكس إن (DXN Spirulina)",
+    "nameFr": "DXN Spiruline Pure 660 Comprimés - Format Économique",
+    "subtitleAr": "الغذاء الفائق الطبيعي 100% لتعزيز الطاقة والمناعة - عبوة عائلية اقتصادية 660 حبة",
+    "subtitleFr": "Super-aliment complet riche en protéines végétales, fer et antioxydants (660 comprimés)",
+    "brand": "DXN",
+    "sku": "DXN-E2-007",
+    "barcode": "65000000107",
+    "slug": "dxn-e2-7-dxn-spirulina-660-tablets",
+    "category": "tablets-capsules",
+    "categoryName": "Comprimés & Gélules Nutritionnelles",
+    "categoryNameAr": "المكملات الغذائية والكبسولات",
+    "categoryNameFr": "Comprimés & Gélules Nutritionnelles",
+    "subcategory": "Tablets & Capsules",
+    "mainCategory": "health-supplements",
+    "categoryGroup": "health-supplements",
+    "collections": [
+      "health-supplements",
+      "new-arrivals",
+      "tablets-capsules",
+      "best-sellers"
+    ],
+    "price": 925,
+    "compareAtPrice": 1100,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": true,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "660 comprimés (259 mg)",
+    "rating": 5,
+    "reviewCount": 22,
+    "shortDescription": "عزّز صحتك العامة وحيويتك مع سبيرولينا دي إكس إن. تُعد السبيرولينا من أهم الأغذية الطبيعية الفائقة (Superfood) الغنية بالعناصر الغذائية الأساسية، والفيتامينات، والمعادن التي تدعم النشاط البدني وتساهم في تحقيق التوازن الغذائي اليومي.",
+    "shortDescriptionFr": "Super-aliment complet riche en protéines végétales, fer et antioxydants (660 comprimés)",
+    "description": "عزّز صحتك العامة وحيويتك مع سبيرولينا دي إكس إن. تُعد السبيرولينا من أهم الأغذية الطبيعية الفائقة (Superfood) الغنية بالعناصر الغذائية الأساسية، والفيتامينات، والمعادن التي تدعم النشاط البدني وتساهم في تحقيق التوازن الغذائي اليومي.",
+    "descriptionFr": "Super-aliment complet riche en protéines végétales, fer et antioxydants (660 comprimés)",
+    "details": [
+      "غذاء طبيعي متكامل: غنية بالبروتينات النباتية، ومضادات الأكسدة، والفيتامينات التي تغذي الجسم وتدعم وظائفه الحيوية بكفاءة.",
+      "تعزيز الطاقة والحيوية: تساهم في تقليل الشعور بالإرهاق وتمنح الجسم طاقة ونشاطاً مستمراً طوال اليوم.",
+      "دعم الجهاز المناعي: تساعد في تقوية مناعة الجسم وحماية الخلايا بفضل مكوناتها الطبيعية العالية الجودة.",
+      "عبوة عملية واقتصادية: تأتي في زجاجة بيضاء أنيقة ذات غطاء أخضر محكم، تحتوي على 660 حبة بتركيز 259 ملغ لكل حبة، لتوفير استخدام طويل الأمد وعملي."
+    ],
+    "detailsFr": [
+      "Concentration exceptionnelle en protéines complètes, chlorophylle, bêta-carotène et vitamines B",
+      "Renforce vigoureusement l'énergie vitale et réduit durablement la fatigue physique et mentale",
+      "Soutient les défenses immunitaires et favorise la détoxification de l'organisme",
+      "Grand flacon économique de 660 comprimés de 259 mg pour une cure longue durée"
+    ],
+    "howToUse": "تُناول الحبات وفقاً للجرعات الموصى بها أو حسب التوجيهات الموضحة على العبوة.   تُحفظ العبوة في مكان بارد وجاف بعيداً عن أشعة الشمس المباشرة للحفاظ على جودة ونقاء المنتج.",
+    "howToUseFr": "Prendre 4 à 6 comprimés par jour avec un grand verre d'eau, de préférence 30 minutes avant les repas ou selon les recommandations de votre conseiller santé.",
+    "tags": [
+      "DXN",
+      "Spirulina",
+      "Superfood",
+      "Energy",
+      "Immunity",
+      "Protein",
+      "Supplements"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/7.png",
+        "productId": "dxn-e2-7-dxn-spirulina-660-tablets",
+        "linkUrl": "product.html?id=dxn-e2-7-dxn-spirulina-660-tablets"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/7.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "660 comprimés (259 mg)",
+        "stock": 65,
+        "sku": "DXN-E2-007",
+        "price": 925,
+        "compareAtPrice": 1100
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-8-dxn-spirulina-120-tablets",
+    "name": "DXN Spiruline Pure 120 Comprimés Super-Aliment",
+    "nameAr": "سبيرولينا دي إكس إن",
+    "titleAr": "سبيرولينا دي إكس إن (DXN Spirulina)",
+    "nameFr": "DXN Spiruline Pure 120 Comprimés Super-Aliment",
+    "subtitleAr": "طحالب السبيرولينا النقية الغنية بالبروتين والمعادن - عبوة مريحة 120 قرص",
+    "subtitleFr": "Complément nutritionnel d'élite pour vitalité et tonus quotidien (120 comprimés)",
+    "brand": "DXN",
+    "sku": "DXN-E2-008",
+    "barcode": "65000000108",
+    "slug": "dxn-e2-8-dxn-spirulina-120-tablets",
+    "category": "tablets-capsules",
+    "categoryName": "Comprimés & Gélules Nutritionnelles",
+    "categoryNameAr": "المكملات الغذائية والكبسولات",
+    "categoryNameFr": "Comprimés & Gélules Nutritionnelles",
+    "subcategory": "Tablets & Capsules",
+    "mainCategory": "health-supplements",
+    "categoryGroup": "health-supplements",
+    "collections": [
+      "health-supplements",
+      "new-arrivals",
+      "tablets-capsules",
+      "best-sellers"
+    ],
+    "price": 260,
+    "compareAtPrice": 310,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "120 comprimés (259 mg)",
+    "rating": 5,
+    "reviewCount": 23,
+    "shortDescription": "ادعم صحتك العامة ونشاطك اليومي مع سبيرولينا دي إكس إن. تُعد السبيرولينا من أبرز الأغذية الطبيعية الفائقة الغنية بالعناصر الغذائية الأساسية، والفيتامينات، والمعادن التي تساهم في تلبية احتياجات الجسم وتعزيز حيويته بأسلوب طبيعي وموثوق.",
+    "shortDescriptionFr": "Complément nutritionnel d'élite pour vitalité et tonus quotidien (120 comprimés)",
+    "description": "ادعم صحتك العامة ونشاطك اليومي مع سبيرولينا دي إكس إن. تُعد السبيرولينا من أبرز الأغذية الطبيعية الفائقة الغنية بالعناصر الغذائية الأساسية، والفيتامينات، والمعادن التي تساهم في تلبية احتياجات الجسم وتعزيز حيويته بأسلوب طبيعي وموثوق.",
+    "descriptionFr": "Complément nutritionnel d'élite pour vitalité et tonus quotidien (120 comprimés)",
+    "details": [
+      "غذاء طبيعي متكامل: غنية بالبروتينات النباتية ومضادات الأكسدة التي تعزز الصحة العامة وتدعم وظائف الجسم الحيوية.",
+      "تعزيز الطاقة والحيوية: تساهم في رفع مستوى النشاط البدني وتقليل الشعور بالإرهاق طوال اليوم.",
+      "دعم الجهاز المناعي: تساعد في تقوية مناعة الجسم وحماية الخلايا بفضل مكوناتها الطبيعية المختارة بعناية.",
+      "عبوة عملية وأنيقة: تأتي في عبوة بيضاء عملية ذات غطاء أخضر محكم، مصممة للحفاظ على نقاء وجودة المنتج لفترة طويلة."
+    ],
+    "detailsFr": [
+      "Algue microscopique d'eau douce cultivée sous contrôle biologique strict DXN",
+      "Source hautement assimilable d'acides aminés essentiels et de minéraux (fer, magnésium)",
+      "Idéal pour démarrer une cure de remise en forme ou pour les étudiants et sportifs",
+      "Format flacon nomade de 120 comprimés, facile à emporter partout"
+    ],
+    "howToUse": "تُناول الحبات وفقاً للجرعات الموصى بها أو حسب التوجيهات المدونة على العبوة.\n\nتُحفظ العبوة في مكان بارد وجاف بعيداً عن أشعة الشمس المباشرة للحفاظ على جودتها.",
+    "howToUseFr": "Prendre 2 à 4 comprimés deux fois par jour avant les repas avec de l'eau tiède ou un jus de fruits naturel.",
+    "tags": [
+      "DXN",
+      "Spirulina",
+      "120 Tabs",
+      "Superfood",
+      "Vitamins",
+      "Daily Vitality"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/8.png",
+        "productId": "dxn-e2-8-dxn-spirulina-120-tablets",
+        "linkUrl": "product.html?id=dxn-e2-8-dxn-spirulina-120-tablets"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/8.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "120 comprimés (259 mg)",
+        "stock": 65,
+        "sku": "DXN-E2-008",
+        "price": 260,
+        "compareAtPrice": 310
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-9-dxn-ganozhi-shampoo",
+    "name": "DXN Shampoing Revitalisant Ganozhi au Ganoderma",
+    "nameAr": "شامبو جانوزي دي إكس إن",
+    "titleAr": "شامبو جانوزي دي إكس إن (DXN Ganozhi Shampoo)",
+    "nameFr": "DXN Shampoing Revitalisant Ganozhi au Ganoderma",
+    "subtitleAr": "شامبو طبيعي مقوٍّ للشعر بخلاصة فطر الريشي وفيتامين B5 لفروة رأس صحية",
+    "subtitleFr": "Shampoing traitant doux équilibrant au Reishi et provitamine B5 pour cheveux vigoureux",
+    "brand": "DXN",
+    "sku": "DXN-E2-009",
+    "barcode": "65000000109",
+    "slug": "dxn-e2-9-dxn-ganozhi-shampoo",
+    "category": "hair-baby-care",
+    "categoryName": "Soins Cheveux, Huiles & Bébé",
+    "categoryNameAr": "العناية بالشعر والزيوت",
+    "categoryNameFr": "Soins Cheveux, Huiles & Bébé",
+    "subcategory": "Hair & Baby Care",
+    "mainCategory": "personal-care-hygiene",
+    "categoryGroup": "personal-care-hygiene",
+    "collections": [
+      "personal-care-hygiene",
+      "new-arrivals",
+      "hair-baby-care",
+      "best-sellers"
+    ],
+    "price": 157,
+    "compareAtPrice": 190,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "230 ml",
+    "rating": 5,
+    "reviewCount": 24,
+    "shortDescription": "استمتع بشعر نظيف، صحي، وحيوي مع شامبو جانوزي من دي إكس إن. صُممت هذه التركيبة المتطورة لتنظيف الشعر وفروة الرأس بلطف مع الحفاظ على التوازن الطبيعي، وتمنح شعرك مظهراً لامعاً ونظيفاً يدوم طويلاً.",
+    "shortDescriptionFr": "Shampoing traitant doux équilibrant au Reishi et provitamine B5 pour cheveux vigoureux",
+    "description": "استمتع بشعر نظيف، صحي، وحيوي مع شامبو جانوزي من دي إكس إن. صُممت هذه التركيبة المتطورة لتنظيف الشعر وفروة الرأس بلطف مع الحفاظ على التوازن الطبيعي، وتمنح شعرك مظهراً لامعاً ونظيفاً يدوم طويلاً.",
+    "descriptionFr": "Shampoing traitant doux équilibrant au Reishi et provitamine B5 pour cheveux vigoureux",
+    "details": [
+      "تنظيف لطيف وفعال: يزيل الشوائب والأوساخ والزيوت الزائدة من الشعر وفروة الرأس برفق دون أن يسبب أي جفاف.",
+      "تغذية وعناية متكاملة: يساهم في دعم صحة الشعر ومنحه ملمساً ناعماً ومظهراً متألقاً ومليئاً بالحيوية.",
+      "مناسب للاستخدام المنتظم: تركيبة متوازنة ولطيفة تناسب مختلف أنواع الشعر للاستخدام اليومي أو المنتظم للعائلة.",
+      "تصميم عملي وأنيق: يأتي في عبوة بيضاء عملية وأنيقة بحجم 230 مل، مصممة لسهولة الاستخدام أثناء الاستحمام."
+    ],
+    "detailsFr": [
+      "Nettoie en profondeur sans agresser le cuir chevelu ni déséquilibrer son pH physiologique",
+      "Fortifie la racine du cheveu et prévient la casse grâce aux nutriments du Ganoderma",
+      "Laisse la chevelure souple, soyeuse et naturellement brillante dès les premières utilisations",
+      "Bouteille élégante de 230 ml conçue pour un dosage économique sous la douche"
+    ],
+    "howToUse": "يُوضع الشامبو على شعر مبلل ويُدلك بلطف على فروة الرأس والشعر حتى تتكون رغوة غنية.   يُشطف الشعر جيداً بالماء الفاتر، ويمكن إعادة الكرة إذا لزم الأمر للحصول على أفضل نتيجة.",
+    "howToUseFr": "Appliquez sur cheveux mouillés. Massez délicatement le cuir chevelu du bout des doigts pour activer la microcirculation, laissez agir 2 à 3 minutes puis rincez abondamment.",
+    "tags": [
+      "DXN",
+      "Ganozhi",
+      "Shampoo",
+      "Hair Care",
+      "Reishi",
+      "Anti-Dandruff",
+      "Scalp Care"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/9.png",
+        "productId": "dxn-e2-9-dxn-ganozhi-shampoo",
+        "linkUrl": "product.html?id=dxn-e2-9-dxn-ganozhi-shampoo"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/9.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "230 ml",
+        "stock": 65,
+        "sku": "DXN-E2-009",
+        "price": 157,
+        "compareAtPrice": 190
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-10-dxn-zhitea-premix-tea",
+    "name": "DXN Thé Instantané Zhitea Premix Énergisant",
+    "nameAr": "شاي زهي بريمكس دي إكس إن",
+    "titleAr": "شاي زهي بريمكس دي إكس إن (DXN Zhitea Premix Tea)",
+    "nameFr": "DXN Thé Instantané Zhitea Premix Énergisant",
+    "subtitleAr": "شاي أسود فاخر سريع التحضير بنكهة غنية ومريحة للأعصاب",
+    "subtitleFr": "Mélange de thé noir supérieur instantané aux notes chaleureuses et réconfortantes",
+    "brand": "DXN",
+    "sku": "DXN-E2-010",
+    "barcode": "65000000110",
+    "slug": "dxn-e2-10-dxn-zhitea-premix-tea",
+    "category": "tea-cocoa",
+    "categoryName": "Thés Botaniques & Cacao",
+    "categoryNameAr": "الشاي والكاكاو الصحي",
+    "categoryNameFr": "Thés Botaniques & Cacao",
+    "subcategory": "Tea & Cocoa",
+    "mainCategory": "beverages-drinks",
+    "categoryGroup": "beverages-drinks",
+    "collections": [
+      "beverages-drinks",
+      "new-arrivals",
+      "tea-cocoa",
+      "best-sellers"
+    ],
+    "price": 250,
+    "compareAtPrice": 300,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "300 g",
+    "rating": 5,
+    "reviewCount": 25,
+    "shortDescription": "استمتع بمذاق الشاي الغني والمنعش مع شاي زهي بريمكس من دي إكس إن. صُممت هذه التركيبة المميزة لتمنحك تجربة شاي فريدة تجمع بين المذاق الراقي والانتعاش اليومي في كل كوب.",
+    "shortDescriptionFr": "Mélange de thé noir supérieur instantané aux notes chaleureuses et réconfortantes",
+    "description": "استمتع بمذاق الشاي الغني والمنعش مع شاي زهي بريمكس من دي إكس إن. صُممت هذه التركيبة المميزة لتمنحك تجربة شاي فريدة تجمع بين المذاق الراقي والانتعاش اليومي في كل كوب.",
+    "descriptionFr": "Mélange de thé noir supérieur instantané aux notes chaleureuses et réconfortantes",
+    "details": [
+      "مذاق غني ومميز: يقدم نكهة شاي رائعة ومريحة تلبي تطلعات عشاق الشاي الفاخر.",
+      "تجربة منعشة: يمنحك شعوراً بالنشاط والحيوية في كل رشفة لتستمتع بأوقات الاسترخاء والراحة.",
+      "عبوة عملية وأنيقة: تأتي في عبوة بيضاء عملية وأنيقة بوزن صافٍ يبلغ 300 غرام، مما يجعلها سهلة الاستخدام والتخزين."
+    ],
+    "detailsFr": [
+      "Sélection minutieuse de feuilles de thé noir riches en flavonoïdes antioxydants",
+      "Procure un moment de sérénité et réveille agréablement les sens tout au long de la journée",
+      "Dissolution instantanée sans résidus, chaude ou glacée",
+      "Boîte étanche de 300 g garantissant la fraîcheur aromatique"
+    ],
+    "howToUse": "تُخلط كمية مناسبة من المسحوق مع الماء الساخن بحسب التفضيل.   يُحرك جيداً حتى يذوب تماماً ويُستمتع بتناوله دافئاً في أي وقت من اليوم.",
+    "howToUseFr": "Mélangez 1 à 2 cuillères à café de poudre dans une tasse d'eau frémissante (150-200 ml). Sucrez selon vos préférences ou dégustez nature.",
+    "tags": [
+      "DXN",
+      "Zhitea",
+      "Black Tea",
+      "Premix",
+      "Antioxidants",
+      "Beverages"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/10.png",
+        "productId": "dxn-e2-10-dxn-zhitea-premix-tea",
+        "linkUrl": "product.html?id=dxn-e2-10-dxn-zhitea-premix-tea"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/10.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "300 g",
+        "stock": 65,
+        "sku": "DXN-E2-010",
+        "price": 250,
+        "compareAtPrice": 300
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-11-dxn-lions-mane-oocha",
+    "name": "DXN Boisson Botanique Oocha à la Crinière de Lion",
+    "nameAr": "مشروب شاي عشبة عرف الأسد دي إكس إن",
+    "titleAr": "مشروب شاي عشبة عرف الأسد دي إكس إن (DXN Lion's Mane Oocha)",
+    "nameFr": "DXN Boisson Botanique Oocha à la Crinière de Lion",
+    "subtitleAr": "شاي عشبي استثنائي يدمج الشاي الفاخر مع فطر عرف الأسد للتركيز والصفاء الذهني",
+    "subtitleFr": "Infusion botanique exclusive combinant thé noble et champignon Lion's Mane cognitif",
+    "brand": "DXN",
+    "sku": "DXN-E2-011",
+    "barcode": "65000000111",
+    "slug": "dxn-e2-11-dxn-lions-mane-oocha",
+    "category": "tea-cocoa",
+    "categoryName": "Thés Botaniques & Cacao",
+    "categoryNameAr": "الشاي والكاكاو الصحي",
+    "categoryNameFr": "Thés Botaniques & Cacao",
+    "subcategory": "Tea & Cocoa",
+    "mainCategory": "beverages-drinks",
+    "categoryGroup": "beverages-drinks",
+    "collections": [
+      "beverages-drinks",
+      "new-arrivals",
+      "tea-cocoa",
+      "best-sellers"
+    ],
+    "price": 188,
+    "compareAtPrice": 230,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "20 sachets",
+    "rating": 5,
+    "reviewCount": 26,
+    "shortDescription": "استمتع بتجربة مشروب فريد ومبتكر يجمع بين نكهة الشاي المنعشة وفوائد الطبيعة مع مشروب شاي عرف الأسد (Lion's Mane Oocha) من دي إكس إن. صُممت هذه التركيبة المميزة لتمنحك لحظات من الاسترخاء والنشاط معاً، جامدة بين المذاق الراقي وخصائص فطر عرف الأسد المعروف.",
+    "shortDescriptionFr": "Infusion botanique exclusive combinant thé noble et champignon Lion's Mane cognitif",
+    "description": "استمتع بتجربة مشروب فريد ومبتكر يجمع بين نكهة الشاي المنعشة وفوائد الطبيعة مع مشروب شاي عرف الأسد (Lion's Mane Oocha) من دي إكس إن. صُممت هذه التركيبة المميزة لتمنحك لحظات من الاسترخاء والنشاط معاً، جامدة بين المذاق الراقي وخصائص فطر عرف الأسد المعروف.",
+    "descriptionFr": "Infusion botanique exclusive combinant thé noble et champignon Lion's Mane cognitif",
+    "details": [
+      "مزيج طبيعي متطور: يدمج بين مستخلص الشاي وفطر عرف الأسد (Lion's Mane) لتقديم مشروب صحي يدعم الحيوية اليومية.",
+      "تعزيز الصفاء والنشاط: يساهم في دعم التركيز واليقظة الذهنية بفضل المكونات الطبيعية المختارة بعناية فائقة.",
+      "مذاق شهي ومنعش: يقدم نكهة متميزة تضفي شعوراً بالراحة والاسترخاء في كل رشفة.",
+      "أظرف عملية وسهلة التحضير: يأتي في عبوة أنيقة تحتوي على أظرف فردية عملية، مما يجعله مثالياً للاستخدام في المنزل، العمل، أو أثناء السفر."
+    ],
+    "detailsFr": [
+      "Formule nootropique naturelle stimulant la mémoire, l'attention et la vivacité d'esprit",
+      "Association harmonieuse des extraits de thé et du champignon Crinière de Lion",
+      "Boisson chaude apaisante pour le système digestif et le système nerveux",
+      "Sachets individuels hermétiques facilitant la dégustation au bureau ou en voyage"
+    ],
+    "howToUse": "يُستخدم بانتظام وفق الإرشادات المدونة على العبوة للحصول على أفضل النتائج الصحية.",
+    "howToUseFr": "Infusez un sachet dans 200 ml d'eau chaude pendant 3 à 5 minutes. Savourez le matin ou en milieu de journée pendant vos sessions de travail intense.",
+    "tags": [
+      "DXN",
+      "Lions Mane",
+      "Oocha",
+      "Herbal Tea",
+      "Focus",
+      "Brain Health"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/11.png",
+        "productId": "dxn-e2-11-dxn-lions-mane-oocha",
+        "linkUrl": "product.html?id=dxn-e2-11-dxn-lions-mane-oocha"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/11.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "20 sachets",
+        "stock": 65,
+        "sku": "DXN-E2-011",
+        "price": 188,
+        "compareAtPrice": 230
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-12-dxn-oocha-trans-soap",
+    "name": "DXN Savon Translucide Végétal Oocha Trans Soap",
+    "nameAr": "صابون أوتشا الشفاف دي إكس إن",
+    "titleAr": "صابون أوتشا الشفاف دي إكس إن (DXN Oocha Trans Soap)",
+    "nameFr": "DXN Savon Translucide Végétal Oocha Trans Soap",
+    "subtitleAr": "صابون عشبي شفاف نقي ينظف البشرة بلطف ويمنحها إشراقة وانتعاشاً دائماً",
+    "subtitleFr": "Pain de savon transparent ultra-doux formulé aux extraits botaniques purifiants",
+    "brand": "DXN",
+    "sku": "DXN-E2-012",
+    "barcode": "65000000112",
+    "slug": "dxn-e2-12-dxn-oocha-trans-soap",
+    "category": "soaps",
+    "categoryName": "Savons Naturels & Nettoyants",
+    "categoryNameAr": "الصابون الطبيعي الفاخر",
+    "categoryNameFr": "Savons Naturels & Nettoyants",
+    "subcategory": "Soaps",
+    "mainCategory": "personal-care-hygiene",
+    "categoryGroup": "personal-care-hygiene",
+    "collections": [
+      "personal-care-hygiene",
+      "new-arrivals",
+      "soaps",
+      "best-sellers"
+    ],
+    "price": 130,
+    "compareAtPrice": 160,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "Pain 100 g",
+    "rating": 5,
+    "reviewCount": 27,
+    "shortDescription": "استمتع بتجربة تنظيف منعشة ونقية مع صابون أوتشا الشفاف من دي إكس إن. صُممت هذه التركيبة الفريدة لتنظيف البشرة بلطف وعناية فائقة، مانحة إياها شعوراً بالانتعاش والصفاء بلمسة طبيعية مميزة.",
+    "shortDescriptionFr": "Pain de savon transparent ultra-doux formulé aux extraits botaniques purifiants",
+    "description": "استمتع بتجربة تنظيف منعشة ونقية مع صابون أوتشا الشفاف من دي إكس إن. صُممت هذه التركيبة الفريدة لتنظيف البشرة بلطف وعناية فائقة، مانحة إياها شعوراً بالانتعاش والصفاء بلمسة طبيعية مميزة.",
+    "descriptionFr": "Pain de savon transparent ultra-doux formulé aux extraits botaniques purifiants",
+    "details": [
+      "تنظيف لطيف وفعال: يزيل الأوساخ والشوائب برفق دون أن يسبب جفاف البشرة، ليحافظ على ترطيبها ونعومتها.",
+      "تركيبة شفافة ونقية: مُحضر بعناية لتقديم تجربة استحمام وعناية شخصية راقية ومريحة.",
+      "مناسب للاستخدام اليومي: تركيبة لطيفة ومتوازنة تناسب مختلف أنواع البشرة للاستخدام اليومي المستمر.",
+      "تصميم عملي وأنيق: يأتي في قالب صابون شفاف وعملي يحمل علامة دي إكس إن الموثوقة."
+    ],
+    "detailsFr": [
+      "Glycérine végétale hydratante et extraits botaniques sélectionnés avec exigence",
+      "Mousse onctueuse et aérienne qui décolle les impuretés sans tirailler la peau",
+      "Convient parfaitement à la toilette du visage et du corps de tous types de peaux",
+      "Pain moulé ergonomique translucide longue durée de 100 g"
+    ],
+    "howToUse": "يُبلل الصابون بالماء حتى تتكون رغوة غنية وناعمة.   تُدلك الرغوة برفق على الوجه أو الجسم بحركات دائرية، ثم يُشطف جيداً بالماء الفاتر.",
+    "howToUseFr": "Faites mousser le savon entre vos mains humides. Appliquez sur le visage et le corps par massages circulaires, puis rincez à l'eau claire.",
+    "tags": [
+      "DXN",
+      "Oocha",
+      "Soap",
+      "Translucent Soap",
+      "Facial Bar",
+      "Herbal Cleansing"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/12.png",
+        "productId": "dxn-e2-12-dxn-oocha-trans-soap",
+        "linkUrl": "product.html?id=dxn-e2-12-dxn-oocha-trans-soap"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/12.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "Pain 100 g",
+        "stock": 65,
+        "sku": "DXN-E2-012",
+        "price": 130,
+        "compareAtPrice": 160
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-13-dxn-ganozhi-trans-soap",
+    "name": "DXN Savon Translucide Ganozhi Trans Soap au Reishi",
+    "nameAr": "صابون جانوزي الشفاف دي إكس إن",
+    "titleAr": "صابون جانوزي الشفاف دي إكس إن (DXN Ganozhi Trans Soap)",
+    "nameFr": "DXN Savon Translucide Ganozhi Trans Soap au Reishi",
+    "subtitleAr": "صابون جانوزي الشفاف الفاخر المدعم بفطر الريشي للبشرة الحساسة والنضرة",
+    "subtitleFr": "Savonnette transparente enrichie au Ganoderma Lucidum pour éclat et douceur",
+    "brand": "DXN",
+    "sku": "DXN-E2-013",
+    "barcode": "65000000113",
+    "slug": "dxn-e2-13-dxn-ganozhi-trans-soap",
+    "category": "soaps",
+    "categoryName": "Savons Naturels & Nettoyants",
+    "categoryNameAr": "الصابون الطبيعي الفاخر",
+    "categoryNameFr": "Savons Naturels & Nettoyants",
+    "subcategory": "Soaps",
+    "mainCategory": "personal-care-hygiene",
+    "categoryGroup": "personal-care-hygiene",
+    "collections": [
+      "personal-care-hygiene",
+      "new-arrivals",
+      "soaps",
+      "best-sellers"
+    ],
+    "price": 143,
+    "compareAtPrice": 175,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "Pain 100 g",
+    "rating": 5,
+    "reviewCount": 28,
+    "shortDescription": "استمتع بتجربة تنظيف منعشة ونقية مع صابون جانوزي الشفاف من دي إكس إن. صُممت هذه التركيبة الفريدة لتنظيف البشرة بلطف وعناية فائقة، مانحة إياها شعوراً بالانتعاش والنقاء بلمسة من فطر الريشي المميز.",
+    "shortDescriptionFr": "Savonnette transparente enrichie au Ganoderma Lucidum pour éclat et douceur",
+    "description": "استمتع بتجربة تنظيف منعشة ونقية مع صابون جانوزي الشفاف من دي إكس إن. صُممت هذه التركيبة الفريدة لتنظيف البشرة بلطف وعناية فائقة، مانحة إياها شعوراً بالانتعاش والنقاء بلمسة من فطر الريشي المميز.",
+    "descriptionFr": "Savonnette transparente enrichie au Ganoderma Lucidum pour éclat et douceur",
+    "details": [
+      "تنظيف لطيف وفعال: يزيل الأوساخ والشوائب برفق دون أن يسبب جفاف البشرة، ليحافظ على ترطيبها ونعومتها.",
+      "معزز بخلاصة فطر الريشي: يدمج خصائص فطر جانوديرما لتقديم عناية متكاملة ومتميزة للبشرة.",
+      "مناسب لجميع أنواع البشرة: تركيبة لطيفة ومتوازنة تناسب مختلف أنواع البشرة للاستخدام اليومي المستمر.",
+      "تصميم عملي وأنيق: يأتي في قالب صابون شفاف وعملي يحمل علامة دي إكس إن الموثوقة وصورة فطر الريشي الواضحة."
+    ],
+    "detailsFr": [
+      "Concentration optimale en extrait de Ganoderma Lucidum pour régénérer les tissus",
+      "Protège le film hydrolipidique et prévient les sensations d'irritation ou de tiraillement",
+      "Révèle un teint clair, purifié et débarrassé de l'excès de sébum",
+      "Présentation transparente raffinée avec gravure officielle DXN"
+    ],
+    "howToUse": "يُبلل الصابون بالماء حتى تتكون رغوة غنية وناعمة.   تُدلك الرغوة برفق على الوجه أو الجسم بحركات دائرية، ثم يُشطف جيداً بالماء الفاتر.",
+    "howToUseFr": "Émulsionnez délicatement sur peau mouillée pour créer un nuage de mousse soyeux. Rincez abondamment à l'eau tiède le matin et le soir.",
+    "tags": [
+      "DXN",
+      "Ganozhi",
+      "Trans Soap",
+      "Ganoderma",
+      "Reishi Soap",
+      "Gentle Cleanser"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/13.png",
+        "productId": "dxn-e2-13-dxn-ganozhi-trans-soap",
+        "linkUrl": "product.html?id=dxn-e2-13-dxn-ganozhi-trans-soap"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/13.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "Pain 100 g",
+        "stock": 65,
+        "sku": "DXN-E2-013",
+        "price": 143,
+        "compareAtPrice": 175
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-14-dxn-ganozhi-soap-classic",
+    "name": "DXN Pain de Savon Naturel Ganozhi à l'Huile de Palme & Ganoderma",
+    "nameAr": "صابون جانوزي دي إكس إن",
+    "titleAr": "صابون جانوزي دي إكس إن (DXN Ganozhi Soap)",
+    "nameFr": "DXN Pain de Savon Naturel Ganozhi à l'Huile de Palme & Ganoderma",
+    "subtitleAr": "الصابون الكلاسيكي الأشهر من دي إكس إن بزيت النخيل والريشي لبشرة ناعمة ونظيفة",
+    "subtitleFr": "Savon emblématique DXN associant huile de palme riche en vitamine E et Ganoderma",
+    "brand": "DXN",
+    "sku": "DXN-E2-014",
+    "barcode": "65000000114",
+    "slug": "dxn-e2-14-dxn-ganozhi-soap-classic",
+    "category": "soaps",
+    "categoryName": "Savons Naturels & Nettoyants",
+    "categoryNameAr": "الصابون الطبيعي الفاخر",
+    "categoryNameFr": "Savons Naturels & Nettoyants",
+    "subcategory": "Soaps",
+    "mainCategory": "personal-care-hygiene",
+    "categoryGroup": "personal-care-hygiene",
+    "collections": [
+      "personal-care-hygiene",
+      "new-arrivals",
+      "soaps",
+      "best-sellers"
+    ],
+    "price": 52,
+    "compareAtPrice": 65,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": true,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "Pain 80 g",
+    "rating": 5,
+    "reviewCount": 29,
+    "shortDescription": "استمتع ببشرة نظيفة، صحية، ومنتعشة مع صابون جانوزي من دي إكس إن. صُممت هذه التركيبة الفريدة لتنظيف البشرة بلطف وعناية فائقة، وهي معززة بخلاصة فطر الريشي (جانوديرما) لتمنح بشرتك إشراقة ونقاء طبيعياً كل يوم.",
+    "shortDescriptionFr": "Savon emblématique DXN associant huile de palme riche en vitamine E et Ganoderma",
+    "description": "استمتع ببشرة نظيفة، صحية، ومنتعشة مع صابون جانوزي من دي إكس إن. صُممت هذه التركيبة الفريدة لتنظيف البشرة بلطف وعناية فائقة، وهي معززة بخلاصة فطر الريشي (جانوديرما) لتمنح بشرتك إشراقة ونقاء طبيعياً كل يوم.",
+    "descriptionFr": "Savon emblématique DXN associant huile de palme riche en vitamine E et Ganoderma",
+    "details": [
+      "تنظيف لطيف وفعال: يزيل الأوساخ والشوائب الزائدة برفق دون أن يسبب جفاف البشرة، ليحافظ على توازنها ونعومتها الطبيعية.",
+      "معزز بخلاصة فطر الريشي (Ganoderma): يدمج الخصائص الفريدة لفطر جانوديرما لتقديم عناية متكاملة ومتميزة تغذي البشرة وتعزز حيويتها.",
+      "مناسب لجميع أنواع البشرة: تركيبة لطيفة ومتوازنة تناسب مختلف أنواع البشرة للاستخدام اليومي المستمر للعائلة.",
+      "غلاف عملي وأنيق: يأتي في عبوة مغلفة أنيقة تحمل شعار دي إكس إن الموثوق وتفاصيل المنتج الواضحة."
+    ],
+    "detailsFr": [
+      "Formule culte DXN plébiscitée dans le monde entier pour ses résultats remarquables",
+      "Riche en vitamine E naturelle et antioxydants protecteurs contre le vieillissement cutané",
+      "Élimine les comédons et impuretés tout en préservant l'hydratation naturelle de l'épiderme",
+      "Convient aux adultes comme aux enfants pour un usage quotidien complet"
+    ],
+    "howToUse": "يُبلل الصابون بالماء حتى تتكون رغوة غنية وناعمة.   تُدلك الرغوة برفق على الوجه أو الجسم بحركات دائرية، ثم يُشطف جيداً بالماء الفاتر للحصول على بشرة منتعشة ونظيفة.",
+    "howToUseFr": "Humidifiez le savon pour obtenir une mousse crémeuse. Laissez poser 1 à 2 minutes sur le visage avant de rincer pour décupler les bienfaits du Ganoderma.",
+    "tags": [
+      "DXN",
+      "Ganozhi Soap",
+      "Palm Oil",
+      "Vitamin E",
+      "Reishi",
+      "Best Seller"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/14.png",
+        "productId": "dxn-e2-14-dxn-ganozhi-soap-classic",
+        "linkUrl": "product.html?id=dxn-e2-14-dxn-ganozhi-soap-classic"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/14.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "Pain 80 g",
+        "stock": 65,
+        "sku": "DXN-E2-014",
+        "price": 52,
+        "compareAtPrice": 65
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-15-dxn-lions-mane-tablets",
+    "name": "DXN Crinière de Lion Pure 120 Comprimés (Lion's Mane)",
+    "nameAr": "أقراص عرف الأسد دي إكس إن",
+    "titleAr": "أقراص عرف الأسد دي إكس إن (DXN Lion's Mane Tablets)",
+    "nameFr": "DXN Crinière de Lion Pure 120 Comprimés (Lion's Mane)",
+    "subtitleAr": "أقراص فطر عرف الأسد عالي النقاوة لدعم الدماغ، الذاكرة، والجهاز العصبي والهضمي",
+    "subtitleFr": "Champignon adaptogène d'exception (Hericium Erinaceus) pour mémoire et système nerveux",
+    "brand": "DXN",
+    "sku": "DXN-E2-015",
+    "barcode": "65000000115",
+    "slug": "dxn-e2-15-dxn-lions-mane-tablets",
+    "category": "tablets-capsules",
+    "categoryName": "Comprimés & Gélules Nutritionnelles",
+    "categoryNameAr": "المكملات الغذائية والكبسولات",
+    "categoryNameFr": "Comprimés & Gélules Nutritionnelles",
+    "subcategory": "Tablets & Capsules",
+    "mainCategory": "health-supplements",
+    "categoryGroup": "health-supplements",
+    "collections": [
+      "health-supplements",
+      "new-arrivals",
+      "tablets-capsules",
+      "best-sellers"
+    ],
+    "price": 370,
+    "compareAtPrice": 440,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "120 comprimés (300 mg)",
+    "rating": 5,
+    "reviewCount": 30,
+    "shortDescription": "عزّز صحتك الذهنية وتركيزك مع أقراص عرف الأسد من دي إكس إن. صُممت هذه الأقراص لتمنحك فوائد فطر عرف الأسد (Lion's Mane) المعروف بخصائصه الفريدة في دعم وظائف الدماغ، الذاكرة، والصحة العامة بأسلوب طبيعي وموثوق.",
+    "shortDescriptionFr": "Champignon adaptogène d'exception (Hericium Erinaceus) pour mémoire et système nerveux",
+    "description": "عزّز صحتك الذهنية وتركيزك مع أقراص عرف الأسد من دي إكس إن. صُممت هذه الأقراص لتمنحك فوائد فطر عرف الأسد (Lion's Mane) المعروف بخصائصه الفريدة في دعم وظائف الدماغ، الذاكرة، والصحة العامة بأسلوب طبيعي وموثوق.",
+    "descriptionFr": "Champignon adaptogène d'exception (Hericium Erinaceus) pour mémoire et système nerveux",
+    "details": [
+      "دعم الوظائف الإدراكية والتركيز: يساهم في تعزيز الصفاء الذهني، الذاكرة، والتركيز بفضل خلاصة فطر عرف الأسد الغنية.",
+      "دعم الصحة العامة: يقدم خصائص طبيعية تغذي الجسم وتدعم الجهاز العصبي والمناعي بكفاءة.",
+      "مكونات نقية وعالية الجودة: مُحضر وفق معايير الجودة المرموقة لمنتجات دي إكس إن لضمان الفاعلية والأمان.",
+      "عبوة عملية واقتصادية: تأتي في عبوة بيضاء أنيقة تحتوي على 120 قرصاً، مما يوفر استخداماً عملياً ومريحاً لفترة طويلة."
+    ],
+    "detailsFr": [
+      "Favorise la production du facteur de croissance nerveuse (NGF) pour soutenir les neurones",
+      "Améliore la clarté mentale, la concentration soutenue et la rétention d'informations",
+      "Participe à l'équilibre et au confort de la muqueuse gastro-intestinale",
+      "Flacon protecteur de 120 comprimés dosés à 300 mg de pur champignon cultivé par DXN"
+    ],
+    "howToUse": "تُناول الأقراص وفقاً للجرعات الموصى بها أو حسب التوجيهات المدونة على العبوة.   تُحفظ العبوة في مكان بارد وجاف بعيداً عن أشعة الشمس المباشرة للحفاظ على جودتها ونقائها.",
+    "howToUseFr": "Prendre 2 comprimés deux à trois fois par jour avant les repas avec un verre d'eau tempérée.",
+    "tags": [
+      "DXN",
+      "Lions Mane",
+      "Hericium",
+      "Memory",
+      "Nootropic",
+      "Brain Health",
+      "Digestion"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/15.png",
+        "productId": "dxn-e2-15-dxn-lions-mane-tablets",
+        "linkUrl": "product.html?id=dxn-e2-15-dxn-lions-mane-tablets"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/15.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "120 comprimés (300 mg)",
+        "stock": 65,
+        "sku": "DXN-E2-015",
+        "price": 370,
+        "compareAtPrice": 440
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-16-dxn-vinaigrette-honey",
+    "name": "DXN Vinaigrette Gourmande Miel Pur & Vinaigre de Riz",
+    "nameAr": "مزيج العسل مع خل الأرز دي إكس إن",
+    "titleAr": "مزيج العسل مع خل الأرز دي إكس إن (DXN Vinaigrette Honey)",
+    "nameFr": "DXN Vinaigrette Gourmande Miel Pur & Vinaigre de Riz",
+    "subtitleAr": "مزيج متكامل يجمع بين عسل النحل الطبيعي وخل الأرز المخمر لتعزيز الهضم والنشاط",
+    "subtitleFr": "Élixir diététique associant miel naturel d'abeille et vinaigre de riz fermenté",
+    "brand": "DXN",
+    "sku": "DXN-E2-016",
+    "barcode": "65000000116",
+    "slug": "dxn-e2-16-dxn-vinaigrette-honey",
+    "category": "juices-botanical-drinks",
+    "categoryName": "Jus Naturels & Boissons Botaniques",
+    "categoryNameAr": "العصائر والمشروبات النباتية",
+    "categoryNameFr": "Jus Naturels & Boissons Botaniques",
+    "subcategory": "Juices & Botanical Drinks",
+    "mainCategory": "beverages-drinks",
+    "categoryGroup": "beverages-drinks",
+    "collections": [
+      "beverages-drinks",
+      "new-arrivals",
+      "juices-botanical-drinks",
+      "best-sellers"
+    ],
+    "price": 243,
+    "compareAtPrice": 290,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "285 ml",
+    "rating": 5,
+    "reviewCount": 31,
+    "shortDescription": "استمتع بتجربة فريدة ومميزة تجمع بين حلاوة العسل الطبيعي ونكهة خل الأرز المنعشة مع مزيج العسل مع خل الأرز (Vinaigrette Honey) من دي إكس إن. صُممت هذه التركيبة المبتكرة لتمنحك توازناً مثالياً ونكهة غنية تضفي لمسة صحية ومميزة على نظامك اليومي.",
+    "shortDescriptionFr": "Élixir diététique associant miel naturel d'abeille et vinaigre de riz fermenté",
+    "description": "استمتع بتجربة فريدة ومميزة تجمع بين حلاوة العسل الطبيعي ونكهة خل الأرز المنعشة مع مزيج العسل مع خل الأرز (Vinaigrette Honey) من دي إكس إن. صُممت هذه التركيبة المبتكرة لتمنحك توازناً مثالياً ونكهة غنية تضفي لمسة صحية ومميزة على نظامك اليومي.",
+    "descriptionFr": "Élixir diététique associant miel naturel d'abeille et vinaigre de riz fermenté",
+    "details": [
+      "مزيج طبيعي متطور: يجمع بانسجام تام بين عسل النحل الطبيعي وخل الأرز عالي الجودة لتقديم منتج فريد ومتكامل.",
+      "مذاق غني ومتوازن: يمنحك تجربة تذوق مميزة تجمع بين حلاوة العسل ونكهة الخل المنعشة لتناسب مختلف الاستخدامات.",
+      "جودة موثوقة: مُحضَر وفق معايير الجودة المرموقة لمنتجات دي إكس إن لضمان النقاء والتميز.",
+      "عبوة عملية وأنيقة: يأتي في زجاجة زجاجية عملية بسعة 285 مل، مصممة بعناية للحفاظ على جودة المنتج ونضارته لفترة طويلة."
+    ],
+    "detailsFr": [
+      "Équilibre saveur aigre-douce gourmande et bienfaits d'aliments fermentés traditionnels",
+      "Favorise une digestion légère et contribue à l'équilibre acido-basique de l'organisme",
+      "S'utilise en boisson diluée tonifiante ou en assaisonnement gastronomique de salades",
+      "Bouteille en verre de 285 ml préservant la fraîcheur enzymatique naturelle"
+    ],
+    "howToUse": "يُستخدم بحسب التفضيل الشخصي أو وفقاً للتوجيهات الموضحة على العبوة.\n\nيُحفظ في مكان بارد وجاف بعيداً عن أشعة الشمس المباشرة للحفاظ على جودته وخصائصه الطبيعية.",
+    "howToUseFr": "Diluez 1 à 2 cuillères à soupe dans un verre d'eau fraîche avant les repas, ou versez directement sur vos crudités pour sublimer vos repas.",
+    "tags": [
+      "DXN",
+      "Honey",
+      "Vinaigrette",
+      "Rice Vinegar",
+      "Digestion",
+      "Wellness Tonic"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/16.png",
+        "productId": "dxn-e2-16-dxn-vinaigrette-honey",
+        "linkUrl": "product.html?id=dxn-e2-16-dxn-vinaigrette-honey"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/16.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "285 ml",
+        "stock": 65,
+        "sku": "DXN-E2-016",
+        "price": 243,
+        "compareAtPrice": 290
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-17-dxn-aloe-vita-botanical-beverage",
+    "name": "DXN Boisson Botanique Hydratante Aloe Vita à l'Aloe Vera",
+    "nameAr": "مشروب نباتي ألوة فيتا دي إكس إن",
+    "titleAr": "مشروب نباتي ألوة فيتا دي إكس إن (DXN Aloe Vita Botanical Beverage)",
+    "nameFr": "DXN Boisson Botanique Hydratante Aloe Vita à l'Aloe Vera",
+    "subtitleAr": "مشروب نباتي منعش مستخلص من جل الصبار النقي لترطيب الجسم ودعم الهضم",
+    "subtitleFr": "Boisson bien-être rafraîchissante enrichie à la pulpe d'Aloe Vera pure",
+    "brand": "DXN",
+    "sku": "DXN-E2-017",
+    "barcode": "65000000117",
+    "slug": "dxn-e2-17-dxn-aloe-vita-botanical-beverage",
+    "category": "juices-botanical-drinks",
+    "categoryName": "Jus Naturels & Boissons Botaniques",
+    "categoryNameAr": "العصائر والمشروبات النباتية",
+    "categoryNameFr": "Jus Naturels & Boissons Botaniques",
+    "subcategory": "Juices & Botanical Drinks",
+    "mainCategory": "beverages-drinks",
+    "categoryGroup": "beverages-drinks",
+    "collections": [
+      "beverages-drinks",
+      "new-arrivals",
+      "juices-botanical-drinks",
+      "best-sellers"
+    ],
+    "price": 63,
+    "compareAtPrice": 79,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "285 ml",
+    "rating": 5,
+    "reviewCount": 32,
+    "shortDescription": "استمتع بالانتعاش الفوري والفوائد الطبيعية المنعشة مع مشروب نباتي ألوة فيتا (Aloe Vita) من دي إكس إن. صُممت هذه التركيبة المبتكرة لتمنحك خلاصة الألوة فيرا (الصبار) النقية في مشروب نباتي منعش يروي عطشك ويدعم حيويتك اليومية بأسلوب طبيعي ومميز.",
+    "shortDescriptionFr": "Boisson bien-être rafraîchissante enrichie à la pulpe d'Aloe Vera pure",
+    "description": "استمتع بالانتعاش الفوري والفوائد الطبيعية المنعشة مع مشروب نباتي ألوة فيتا (Aloe Vita) من دي إكس إن. صُممت هذه التركيبة المبتكرة لتمنحك خلاصة الألوة فيرا (الصبار) النقية في مشروب نباتي منعش يروي عطشك ويدعم حيويتك اليومية بأسلوب طبيعي ومميز.",
+    "descriptionFr": "Boisson bien-être rafraîchissante enrichie à la pulpe d'Aloe Vera pure",
+    "details": [
+      "خلاصة الألوة فيرا النقية: يدمج فوائد نبات الصبار المعروف بخصائصه الملطفة والمهدئة والداعمة لصحة الجسم العامة.",
+      "انتعاش طبيعي ومميز: يمنحك شعوراً بالانتعاش والارتواء بفضل نكهته الخفيفة والمنعشة المناسبة لكل الأوقات.",
+      "جودة موثوقة: مُحضَر بعناية وفق معايير الجودة المرموقة لمنتجات دي إكس إن لضمان النقاء والتميز.",
+      "عبوة عملية وأنيقة: يأتي في زجاجة عملية بسعة 285 مل، مصممة بعناية للحفاظ على جودة المنتج ونضارته."
+    ],
+    "detailsFr": [
+      "Extrait purifié d'Aloe Vera réputé pour ses vertus apaisantes digestives et hydratantes",
+      "Goût délicat et rafraîchissant qui désaltère instantanément par temps chaud ou après l'effort",
+      "Apporte des vitamines et oligo-éléments essentiels à la régénération cellulaire",
+      "Bouteille en verre de 285 ml hermétique"
+    ],
+    "howToUse": "يُرج جيداً قبل الاستخدام.   يُتناول مبرداً للاستمتاع بأفضل مذاق منعش، ويُحفظ في الثلاجة بعد الفتح.",
+    "howToUseFr": "Bien agiter avant ouverture. Servir très frais avec quelques glaçons ou mélanger avec de l'eau minérale gazeuse.",
+    "tags": [
+      "DXN",
+      "Aloe Vita",
+      "Aloe Vera Drink",
+      "Botanical Beverage",
+      "Hydration",
+      "Detox"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/17.png",
+        "productId": "dxn-e2-17-dxn-aloe-vita-botanical-beverage",
+        "linkUrl": "product.html?id=dxn-e2-17-dxn-aloe-vita-botanical-beverage"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/17.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "285 ml",
+        "stock": 65,
+        "sku": "DXN-E2-017",
+        "price": 63,
+        "compareAtPrice": 79
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-18-dxn-lemonzhi-tea",
+    "name": "DXN Thé Citronné Lemonzhi au Ganoderma & Thé Noir",
+    "nameAr": "شاي ليمونزي دي إكس إن",
+    "titleAr": "شاي ليمونزي دي إكس إن (DXN Lemonzhi)",
+    "nameFr": "DXN Thé Citronné Lemonzhi au Ganoderma & Thé Noir",
+    "subtitleAr": "شاي الليمون المنعش مع الشاي الأسود وخلاصة فطر الريشي لطاقة وحيوية فورية",
+    "subtitleFr": "Infusion tonique associant thé noir de choix, jus de citron acidulé et Reishi",
+    "brand": "DXN",
+    "sku": "DXN-E2-018",
+    "barcode": "65000000118",
+    "slug": "dxn-e2-18-dxn-lemonzhi-tea",
+    "category": "tea-cocoa",
+    "categoryName": "Thés Botaniques & Cacao",
+    "categoryNameAr": "الشاي والكاكاو الصحي",
+    "categoryNameFr": "Thés Botaniques & Cacao",
+    "subcategory": "Tea & Cocoa",
+    "mainCategory": "beverages-drinks",
+    "categoryGroup": "beverages-drinks",
+    "collections": [
+      "beverages-drinks",
+      "new-arrivals",
+      "tea-cocoa",
+      "best-sellers"
+    ],
+    "price": 146,
+    "compareAtPrice": 175,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "20 sachets",
+    "rating": 5,
+    "reviewCount": 33,
+    "shortDescription": "استمتع بانتعاش الطبيعة ومذاقها الفريد مع شاي ليمونزي (Lemonzhi) من دي إكس إن. صُممت هذه التركيبة المميزة لتجمع بين مسحوق الليمون المنعش، الشاي الأسود الفاخر، وخلاصة فطر الجانوديرما (الريشي) لتمنحك مشروباً منشطاً يروي عطشك ويدعم حيويتك اليومية بكل سهولة ويسر.",
+    "shortDescriptionFr": "Infusion tonique associant thé noir de choix, jus de citron acidulé et Reishi",
+    "description": "استمتع بانتعاش الطبيعة ومذاقها الفريد مع شاي ليمونزي (Lemonzhi) من دي إكس إن. صُممت هذه التركيبة المميزة لتجمع بين مسحوق الليمون المنعش، الشاي الأسود الفاخر، وخلاصة فطر الجانوديرما (الريشي) لتمنحك مشروباً منشطاً يروي عطشك ويدعم حيويتك اليومية بكل سهولة ويسر.",
+    "descriptionFr": "Infusion tonique associant thé noir de choix, jus de citron acidulé et Reishi",
+    "details": [
+      "مزيج منعش ومتطور: يدمج بانسجام تام بين حموضة الليمون المنعشة، الشاي الأسود، ومستخلص فطر الريشي لتجربة متميزة وفريدة من نوعها.",
+      "تعزيز الطاقة والانتعاش: يساهم في رفع مستوى النشاط ودعم نمط حياة حيوي ونشيط، مما يجعله مثالياً للاستخدام في أي وقت من اليوم.",
+      "مذاق رائع ولذيذ: يقدم نكهة متوازنة تجمع بين الانتعاش والمذاق الغني لترضي جميع الأذواق في كل رشفة.",
+      "عبوة عملية وأنيقة: تأتي في كيس أنيق وعملي مزود بمقبض، ويحتوي على أظرف فردية عملية (20 ظرفاً × 22 غراماً) لسهولة التحضير والاستخدام."
+    ],
+    "detailsFr": [
+      "Saveur vive et revigorante de citron mûr alliée à la rondeur du thé noir",
+      "Enrichi au champignon Reishi pour soutenir l'immunité et la résistance au stress",
+      "Idéal pour étancher la soif et recharger les batteries à tout moment de la journée",
+      "Paquet de 20 sachets unidoses faciles à emporter"
+    ],
+    "howToUse": "يُفرغ محتوى الظرف في كوب من الماء (البارد أو الساخن حسب التفضيل).\n\nيُحرك جيداً حتى يذوب تماماً، ويُستمتع بتناوله للاستفادة من طعمه المنعش وانتعاشه المستمر.",
+    "howToUseFr": "Versez un sachet dans 150-200 ml d'eau chaude ou d'eau glacée. Remuez vivement et savourez votre pause tonifiante.",
+    "tags": [
+      "DXN",
+      "Lemonzhi",
+      "Lemon Tea",
+      "Ganoderma",
+      "Refreshing",
+      "Energy Boost"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/18.png",
+        "productId": "dxn-e2-18-dxn-lemonzhi-tea",
+        "linkUrl": "product.html?id=dxn-e2-18-dxn-lemonzhi-tea"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/18.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "20 sachets",
+        "stock": 65,
+        "sku": "DXN-E2-018",
+        "price": 146,
+        "compareAtPrice": 175
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-19-dxn-lemonzhi-drink",
+    "name": "DXN Boisson Rafraîchissante Instantanée Lemonzhi au Citron",
+    "nameAr": "مشروب ليمونزي دي إكس إن",
+    "titleAr": "مشروب ليمونزي دي إكس إن (DXN Lemonzhi)",
+    "nameFr": "DXN Boisson Rafraîchissante Instantanée Lemonzhi au Citron",
+    "subtitleAr": "مشروب ليمونزي سريع التحضير بطعم الليمون اللذيذ وخلاصة الريشي المنشطة",
+    "subtitleFr": "Boisson instantanée désaltérante au citron naturel et Ganoderma adaptogène",
+    "brand": "DXN",
+    "sku": "DXN-E2-019",
+    "barcode": "65000000119",
+    "slug": "dxn-e2-19-dxn-lemonzhi-drink",
+    "category": "juices-botanical-drinks",
+    "categoryName": "Jus Naturels & Boissons Botaniques",
+    "categoryNameAr": "العصائر والمشروبات النباتية",
+    "categoryNameFr": "Jus Naturels & Boissons Botaniques",
+    "subcategory": "Juices & Botanical Drinks",
+    "mainCategory": "beverages-drinks",
+    "categoryGroup": "beverages-drinks",
+    "collections": [
+      "beverages-drinks",
+      "new-arrivals",
+      "juices-botanical-drinks",
+      "best-sellers"
+    ],
+    "price": 146,
+    "compareAtPrice": 175,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "20 sachets",
+    "rating": 5,
+    "reviewCount": 34,
+    "shortDescription": "استمتع بانتعاش لا يُضاهى ومذاق فريد يجمع بين حامضية الليمون المنعشة والشاي الأسود مع مشروب ليمونزي من دي إكس إن. صُممت هذه التركيبة المبتكرة لتمنحك شعوراً فورياً بالانتعاش والنشاط مع لمسة غنية من خلاصة فطر الجانوديرما (الريشي) المميزة.",
+    "shortDescriptionFr": "Boisson instantanée désaltérante au citron naturel et Ganoderma adaptogène",
+    "description": "استمتع بانتعاش لا يُضاهى ومذاق فريد يجمع بين حامضية الليمون المنعشة والشاي الأسود مع مشروب ليمونزي من دي إكس إن. صُممت هذه التركيبة المبتكرة لتمنحك شعوراً فورياً بالانتعاش والنشاط مع لمسة غنية من خلاصة فطر الجانوديرما (الريشي) المميزة.",
+    "descriptionFr": "Boisson instantanée désaltérante au citron naturel et Ganoderma adaptogène",
+    "details": [
+      "انتعاش مضاعف: يجمع بانسجام تام بين نكهة الليمون المنعشة والشاي الأسود لتقديم مشروب مثالي يروي العطش في كل الأوقات.",
+      "معزز بخلاصة فطر الريشي: يدمج خصائص فطر جانوديرما لتقديم لمسة صحية فريدة ومميزة في كل كوب.",
+      "أظرف عملية وسهلة التحضير: يأتي في عبوة عملية تحتوي على 20 ظرفاً بوزن 22 غراماً لكل ظرف، مما يجعله مثالياً للاستخدام في المنزل، العمل، أو أثناء التنقل.",
+      "جودة موثوقة: مُحضَر وفق معايير الجودة العالية لمنتجات دي إكس إن لضمان النقاء والتميز."
+    ],
+    "detailsFr": [
+      "Préparation instantanée vitaminée idéale en boisson fraîche l'été",
+      "Favorise l'hydratation et stimule la digestion grâce aux extraits d'agrumes",
+      "Exempt de conservateurs chimiques agressifs",
+      "Contient 20 sachets pratiques à diluer instantanément"
+    ],
+    "howToUse": "يُفرغ محتوى الظرف في كوب من الماء البارد أو الساخن حسب التفضيل.   يُحرك جيداً حتى يذوب تماماً، ويُستمتع بتناوله للاستمتاع بانتعاش فوري ومذاق لذيذ.",
+    "howToUseFr": "Dissoudre le contenu d'un sachet dans un grand verre d'eau fraîche (200-250 ml), ajouter des glaçons et déguster.",
+    "tags": [
+      "DXN",
+      "Lemonzhi",
+      "Cold Drink",
+      "Lemon",
+      "Reishi",
+      "Immunity"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/19.png",
+        "productId": "dxn-e2-19-dxn-lemonzhi-drink",
+        "linkUrl": "product.html?id=dxn-e2-19-dxn-lemonzhi-drink"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/19.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "20 sachets",
+        "stock": 65,
+        "sku": "DXN-E2-019",
+        "price": 146,
+        "compareAtPrice": 175
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-20-dxn-morinzhi-285ml",
+    "name": "DXN Pur Jus Morinzhi Fermenté de Noni & Hibiscus (285 ml)",
+    "nameAr": "مشروب عصير مورينزي دي إكس إن",
+    "titleAr": "مشروب عصير مورينزي دي إكس إن (DXN Morinzhi)",
+    "nameFr": "DXN Pur Jus Morinzhi Fermenté de Noni & Hibiscus (285 ml)",
+    "subtitleAr": "عصير المورينزي الطبيعي المستخلص من فاكهة النوني الاستوائية والكركديه لصحة الجهاز الهضمي",
+    "subtitleFr": "Élixir puissant de Noni (Morinda citrifolia) et Roselle riche en enzymes et antioxydants",
+    "brand": "DXN",
+    "sku": "DXN-E2-020",
+    "barcode": "65000000120",
+    "slug": "dxn-e2-20-dxn-morinzhi-285ml",
+    "category": "juices-botanical-drinks",
+    "categoryName": "Jus Naturels & Boissons Botaniques",
+    "categoryNameAr": "العصائر والمشروبات النباتية",
+    "categoryNameFr": "Jus Naturels & Boissons Botaniques",
+    "subcategory": "Juices & Botanical Drinks",
+    "mainCategory": "beverages-drinks",
+    "categoryGroup": "beverages-drinks",
+    "collections": [
+      "beverages-drinks",
+      "new-arrivals",
+      "juices-botanical-drinks",
+      "best-sellers"
+    ],
+    "price": 214,
+    "compareAtPrice": 260,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": true,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "285 ml",
+    "rating": 5,
+    "reviewCount": 15,
+    "shortDescription": "استمتع بحيوية الطبيعة والفوائد الصحية المتقدمة مع مشروب عصير مورينزي (Morinzhi) من دي إكس إن. صُممت هذه التركيبة الفريدة المستخلصة من فاكهة النوني (Morinda citrifolia) المركزة لتمنحك طاقة متجددة ودعماً متكاملاً لصحة الجسم وحيويته بأسلوب طبيعي وموثوق.",
+    "shortDescriptionFr": "Élixir puissant de Noni (Morinda citrifolia) et Roselle riche en enzymes et antioxydants",
+    "description": "استمتع بحيوية الطبيعة والفوائد الصحية المتقدمة مع مشروب عصير مورينزي (Morinzhi) من دي إكس إن. صُممت هذه التركيبة الفريدة المستخلصة من فاكهة النوني (Morinda citrifolia) المركزة لتمنحك طاقة متجددة ودعماً متكاملاً لصحة الجسم وحيويته بأسلوب طبيعي وموثوق.",
+    "descriptionFr": "Élixir puissant de Noni (Morinda citrifolia) et Roselle riche en enzymes et antioxydants",
+    "details": [
+      "خلاصة فاكهة النوني المركزة: غنية بالعناصر الغذائية الطبيعية ومضادات الأكسدة التي تدعم الصحة العامة وتساهم في تعزيز المناعة.",
+      "تعزيز الحيوية والنشاط: تساهم في رفع مستوى الطاقة اليومية وتقليل الشعور بالإرهاق لتستمتع بيوم مليء بالنشاط.",
+      "جودة موثوقة: مُحضرة بعناية فائقة وفق معايير الجودة العالية لمنتجات دي إكس إن لضمان النقاء والتميز.",
+      "عبوة عملية وأنيقة: تأتي في زجاجة عملية بسعة 285 مل، مصممة بعناية للحفاظ على جودة ونضارة المنتج."
+    ],
+    "detailsFr": [
+      "Jus de Noni pur fermenté selon des procédés stricts préservant les enzymes vivantes",
+      "Favorise l'assimilation des nutriments, le confort intestinal et la vitalité générale",
+      "Enrichi en fleur d'hibiscus (Roselle) pour une saveur fruitée agréable et un apport en vitamine C",
+      "Bouteille en verre de 285 ml pour une cure revitalisante"
+    ],
+    "howToUse": "تُمزج كمية مناسبة من العصير مع الماء (البارد أو الفاتر) بحسب التفضيل الشخصي.   يُرج جيداً قبل الاستخدام، ويُحفظ في الثلاجة بعد الفتح للحفاظ على جودته وخصائصه.",
+    "howToUseFr": "Prendre 2 cuillères à soupe (30 ml) diluées dans un verre d'eau tiède le matin à jeun et avant le coucher.",
+    "tags": [
+      "DXN",
+      "Morinzhi",
+      "Noni Juice",
+      "Roselle",
+      "Enzymes",
+      "Digestion",
+      "Immunity"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/20.png",
+        "productId": "dxn-e2-20-dxn-morinzhi-285ml",
+        "linkUrl": "product.html?id=dxn-e2-20-dxn-morinzhi-285ml"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/20.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "285 ml",
+        "stock": 65,
+        "sku": "DXN-E2-020",
+        "price": 214,
+        "compareAtPrice": 260
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-21-dxn-morinzhi-700ml",
+    "name": "DXN Jus Morinzhi Noni & Hibiscus Grand Format (700 ml)",
+    "nameAr": "مشروب عصير مورينزي دي إكس إن 700 مل",
+    "titleAr": "مشروب عصير مورينزي دي إكس إن 700 مل (DXN Morinzhi)",
+    "nameFr": "DXN Jus Morinzhi Noni & Hibiscus Grand Format (700 ml)",
+    "subtitleAr": "عصير المورينزي الطبيعي بالنوني والكركديه - عبوة عائلية كبيرة 700 مل",
+    "subtitleFr": "Bouteille familiale grand format 700 ml de pur jus fermenté de Noni et Roselle",
+    "brand": "DXN",
+    "sku": "DXN-E2-021",
+    "barcode": "65000000121",
+    "slug": "dxn-e2-21-dxn-morinzhi-700ml",
+    "category": "juices-botanical-drinks",
+    "categoryName": "Jus Naturels & Boissons Botaniques",
+    "categoryNameAr": "العصائر والمشروبات النباتية",
+    "categoryNameFr": "Jus Naturels & Boissons Botaniques",
+    "subcategory": "Juices & Botanical Drinks",
+    "mainCategory": "beverages-drinks",
+    "categoryGroup": "beverages-drinks",
+    "collections": [
+      "beverages-drinks",
+      "new-arrivals",
+      "juices-botanical-drinks",
+      "best-sellers"
+    ],
+    "price": 418,
+    "compareAtPrice": 499,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "700 ml",
+    "rating": 5,
+    "reviewCount": 16,
+    "shortDescription": "استمتع بحيوية الطبيعة والفوائد الصحية المتقدمة مع العبوة الاقتصادية الكبيرة من مشروب عصير مورينزي (Morinzhi) من دي إكس إن. صُممت هذه التركيبة الفريدة المستخلصة من فاكهة النوني (Morinda citrifolia) المركزة لتمنحك طاقة متجددة ودعماً متكاملاً لصحة الجسم وحيويته بأسلوب طبيعي وموثوق.",
+    "shortDescriptionFr": "Bouteille familiale grand format 700 ml de pur jus fermenté de Noni et Roselle",
+    "description": "استمتع بحيوية الطبيعة والفوائد الصحية المتقدمة مع العبوة الاقتصادية الكبيرة من مشروب عصير مورينزي (Morinzhi) من دي إكس إن. صُممت هذه التركيبة الفريدة المستخلصة من فاكهة النوني (Morinda citrifolia) المركزة لتمنحك طاقة متجددة ودعماً متكاملاً لصحة الجسم وحيويته بأسلوب طبيعي وموثوق.",
+    "descriptionFr": "Bouteille familiale grand format 700 ml de pur jus fermenté de Noni et Roselle",
+    "details": [
+      "خلاصة فاكهة النوني المركزة: غنية بالعناصر الغذائية الطبيعية ومضادات الأكسدة التي تدعم الصحة العامة وتساهم في تعزيز المناعة.",
+      "تعزيز الحيوية والنشاط: تساهم في رفع مستوى الطاقة اليومية وتقليل الشعور بالإرهاق لتستمتع بيوم مليء بالنشاط.",
+      "عبوة اقتصادية كبيرة: تأتي في زجاجة عملية بسعة 700 مل مع علبة خارجية متناسقة لتلبي احتياجاتك لفترة أطول.",
+      "جودة موثوقة: مُحضرة بعناية فائقة وفق معايير الجودة العالية لمنتجات دي إكس إن لضمان النقاء والتميز."
+    ],
+    "detailsFr": [
+      "Format économique 700 ml adapté à une consommation quotidienne familiale",
+      "Soutient activement le système immunitaire, les articulations et la régulation du transit",
+      "Procédé de fermentation naturelle certifié sans additifs ni colorants artificiels",
+      "Bouteille en verre grand volume avec bouchon hermétique préservateur"
+    ],
+    "howToUse": "تُمزج كمية مناسبة من العصير مع الماء (البارد أو الفاتر) بحسب التفضيل الشخصي.   يُرج جيداً قبل الاستخدام، ويُحفظ في الثلاجة بعد الفتح للحفاظ على جودته وخصائصه.",
+    "howToUseFr": "Prendre 30 à 50 ml par jour pur ou dilué dans de l'eau ou un jus de fruits. Conserver au réfrigérateur après ouverture.",
+    "tags": [
+      "DXN",
+      "Morinzhi",
+      "700ml",
+      "Family Pack",
+      "Noni",
+      "Superfood Drink"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/21.png",
+        "productId": "dxn-e2-21-dxn-morinzhi-700ml",
+        "linkUrl": "product.html?id=dxn-e2-21-dxn-morinzhi-700ml"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/21.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "700 ml",
+        "stock": 65,
+        "sku": "DXN-E2-021",
+        "price": 418,
+        "compareAtPrice": 499
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-22-dxn-cordyceps-capsules",
+    "name": "DXN Cordyceps Purifié en Gélules Énergie & Endurance",
+    "nameAr": "كبسولات كوردسيبس دي إكس إن",
+    "titleAr": "كبسولات كوردسيبس دي إكس إن (DXN Cordyceps)",
+    "nameFr": "DXN Cordyceps Purifié en Gélules Énergie & Endurance",
+    "subtitleAr": "كبسولات فطر الكورديسيبس النقي لتعزيز القدرة البدنية ووظائف الرئتين والكلى والنشاط",
+    "subtitleFr": "Champignon tibétain adaptogène renommé pour la performance physique et respiratoire",
+    "brand": "DXN",
+    "sku": "DXN-E2-022",
+    "barcode": "65000000122",
+    "slug": "dxn-e2-22-dxn-cordyceps-capsules",
+    "category": "tablets-capsules",
+    "categoryName": "Comprimés & Gélules Nutritionnelles",
+    "categoryNameAr": "المكملات الغذائية والكبسولات",
+    "categoryNameFr": "Comprimés & Gélules Nutritionnelles",
+    "subcategory": "Tablets & Capsules",
+    "mainCategory": "health-supplements",
+    "categoryGroup": "health-supplements",
+    "collections": [
+      "health-supplements",
+      "new-arrivals",
+      "tablets-capsules",
+      "best-sellers"
+    ],
+    "price": 620,
+    "compareAtPrice": 740,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "60 gélules (450 mg)",
+    "rating": 5,
+    "reviewCount": 17,
+    "shortDescription": "عزّز طاقتك وحيويتك اليومية مع كبسولات كوردسيبس من دي إكس إن. صُممت هذه الكبسولات لتمنحك فوائد فطر الكوردسيبس المعروف بخصائصه الفريدة في دعم النشاط البدني، تعزيز مستويات الطاقة، وتحسين الصحة العامة بأسلوب طبيعي وموثوق.",
+    "shortDescriptionFr": "Champignon tibétain adaptogène renommé pour la performance physique et respiratoire",
+    "description": "عزّز طاقتك وحيويتك اليومية مع كبسولات كوردسيبس من دي إكس إن. صُممت هذه الكبسولات لتمنحك فوائد فطر الكوردسيبس المعروف بخصائصه الفريدة في دعم النشاط البدني، تعزيز مستويات الطاقة، وتحسين الصحة العامة بأسلوب طبيعي وموثوق.",
+    "descriptionFr": "Champignon tibétain adaptogène renommé pour la performance physique et respiratoire",
+    "details": [
+      "تعزيز الطاقة والحيوية: تساهم في رفع مستوى النشاط البدني وتقليل الشعور بالإرهاق لدعم نمط حياة نشط.",
+      "دعم الجهاز المناعي: تساعد في تقوية مناعة الجسم وتعزيز وظائفه الحيوية بفضل مكوناتها الطبيعية المختارة بعناية.",
+      "جودة عالية وموثوقة: مُحضرة وفق معايير الجودة المرموقة لمنتجات دي إكس إن لضمان النقاء والفعالية.",
+      "عبوة عملية ومريحة: تأتي في عبوة بيضاء أنيقة تحتوي على 60 كبسولة، مما يوفر استخداماً عملياً ومناسباً لفترة جيدة."
+    ],
+    "detailsFr": [
+      "Extrait premium de Cordyceps sinensis cultivé scientifiquement par DXN",
+      "Augmente la capacité d'oxygénation cellulaire et soutient les voies respiratoires",
+      "Recommandé pour les sportifs, personnes fatiguées ou en phase de convalescence",
+      "Flacon de 60 gélules végétales faciles à assimiler"
+    ],
+    "howToUse": "تُناول الكبسولات وفقاً للجرعات الموصى بها أو حسب التوجيهات المدونة على العبوة.   تُحفظ العبوة في مكان بارد وجاف بعيداً عن أشعة الشمس المباشرة للحفاظ على جودتها ونقائها.",
+    "howToUseFr": "Prendre 1 à 2 gélules deux fois par jour avant les repas avec un grand verre d'eau.",
+    "tags": [
+      "DXN",
+      "Cordyceps",
+      "Sinensis",
+      "Stamina",
+      "Energy",
+      "Respiratory",
+      "Fitness"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/22.png",
+        "productId": "dxn-e2-22-dxn-cordyceps-capsules",
+        "linkUrl": "product.html?id=dxn-e2-22-dxn-cordyceps-capsules"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/22.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "60 gélules (450 mg)",
+        "stock": 65,
+        "sku": "DXN-E2-022",
+        "price": 620,
+        "compareAtPrice": 740
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-23-dxn-ganocelium-gl",
+    "name": "DXN Ganocelium GL Mycélium de Reishi Oxygénant",
+    "nameAr": "جانوسيليوم دي إكس إن",
+    "titleAr": "جانوسيليوم دي إكس إن (DXN Ganocelium GL)",
+    "nameFr": "DXN Ganocelium GL Mycélium de Reishi Oxygénant",
+    "subtitleAr": "مستخلص ميسليوم فطر الريشي الرضيع عمر 18 يوماً الغني بالجرانيوم العضوي والأكسجين الخلوي",
+    "subtitleFr": "Mycélium jeune de Ganoderma Lucidum réputé pour oxygéner le cerveau et les tissus",
+    "brand": "DXN",
+    "sku": "DXN-E2-023",
+    "barcode": "65000000123",
+    "slug": "dxn-e2-23-dxn-ganocelium-gl",
+    "category": "mushroom-extracts",
+    "categoryName": "Extraits de Champignons & Reishi",
+    "categoryNameAr": "خلاصات الفطر والريشي",
+    "categoryNameFr": "Extraits de Champignons & Reishi",
+    "subcategory": "Mushroom Extracts",
+    "mainCategory": "health-supplements",
+    "categoryGroup": "health-supplements",
+    "collections": [
+      "health-supplements",
+      "new-arrivals",
+      "mushroom-extracts",
+      "best-sellers"
+    ],
+    "price": 504,
+    "compareAtPrice": 600,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "90 gélules (450 mg)",
+    "rating": 5,
+    "reviewCount": 18,
+    "shortDescription": "عزّز صحتك العامة وحيويتك مع جانوسيليوم (GL) من دي إكس إن. صُممت هذه التركيبة المميزة لتلبي احتياجاتك اليومية عبر تقديم خلاصة ميسيليوم فطر الريشي (Ganoderma lucidum)، المعروف بغناه بالعناصر الغذائية التي تدعم التوازن الطبيعي للجسم وتعزز وظائفه الحيوية بأسلوب طبيعي وموثوق.",
+    "shortDescriptionFr": "Mycélium jeune de Ganoderma Lucidum réputé pour oxygéner le cerveau et les tissus",
+    "description": "عزّز صحتك العامة وحيويتك مع جانوسيليوم (GL) من دي إكس إن. صُممت هذه التركيبة المميزة لتلبي احتياجاتك اليومية عبر تقديم خلاصة ميسيليوم فطر الريشي (Ganoderma lucidum)، المعروف بغناه بالعناصر الغذائية التي تدعم التوازن الطبيعي للجسم وتعزز وظائفه الحيوية بأسلوب طبيعي وموثوق.",
+    "descriptionFr": "Mycélium jeune de Ganoderma Lucidum réputé pour oxygéner le cerveau et les tissus",
+    "details": [
+      "خلاصة ميسيليوم الريشي: غنية بالعناصر الغذائية الأساسية التي تساعد في تغذية الجسم ودعم أجهزته الحيوية بكفاءة عالية.",
+      "تعزيز الحيوية والنشاط: تساهم في رفع مستوى الطاقة العامة ودعم نمط حياة صحي ونشيط طوال اليوم.",
+      "جودة عالية وموثوقة: مُحضرة وفق معايير الجودة المرموقة لمنتجات دي إكس إن لضمان النقاء والفاعلية.",
+      "عبوة عملية وأنيقة: تأتي في عبوة بيضاء عملية مصممة بعناية للحفاظ على جودة المنتج ونقائه لفترة طويلة."
+    ],
+    "detailsFr": [
+      "Récolté au 18ème jour pour une concentration maximale en polysaccharides et germanium organique",
+      "Stimule l'oxygénation cérébrale, la régénération cellulaire et la clarté d'esprit",
+      "Partenaire indissociable du Reishi Gano (RG) pour un rééquilibrage global du corps",
+      "Flacon de 90 gélules dosées à 450 mg d'extrait pur"
+    ],
+    "howToUse": "تُستخدم وفقاً للجرعات الموصى بها أو حسب التوجيهات المدونة على العبوة.   تُحفظ العبوة في مكان بارد وجاف بعيداً عن أشعة الشمس المباشرة للحفاظ على جودتها وخصائصها الطبيعية.",
+    "howToUseFr": "Prendre 1 à 3 gélules par jour la première semaine, puis 2 à 6 gélules en cure régulière avec de l'eau tiède, idéalement combiné avec le RG.",
+    "tags": [
+      "DXN",
+      "GL",
+      "Ganocelium",
+      "Reishi Mycelium",
+      "Brain Oxygen",
+      "Immunity",
+      "RG-GL"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/23.png",
+        "productId": "dxn-e2-23-dxn-ganocelium-gl",
+        "linkUrl": "product.html?id=dxn-e2-23-dxn-ganocelium-gl"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/23.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "90 gélules (450 mg)",
+        "stock": 65,
+        "sku": "DXN-E2-023",
+        "price": 504,
+        "compareAtPrice": 600
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-24-dxn-reishi-gano-rg",
+    "name": "DXN Reishi Gano RG Extrait Concentré Détoxifiant",
+    "nameAr": "ريشي گانو دي إكس إن RG",
+    "titleAr": "ريشي گانو دي إكس إن RG (DXN Reishi Gano RG)",
+    "nameFr": "DXN Reishi Gano RG Extrait Concentré Détoxifiant",
+    "subtitleAr": "خلاصة فطر الريشي البالغ عمر 90 يوماً الغني بالتريتربينات لإزالة السموم وتنقية الجسم",
+    "subtitleFr": "Corps fructifère mature de Ganoderma Lucidum 90 jours pour purification et vitalité",
+    "brand": "DXN",
+    "sku": "DXN-E2-024",
+    "barcode": "65000000124",
+    "slug": "dxn-e2-24-dxn-reishi-gano-rg",
+    "category": "mushroom-extracts",
+    "categoryName": "Extraits de Champignons & Reishi",
+    "categoryNameAr": "خلاصات الفطر والريشي",
+    "categoryNameFr": "Extraits de Champignons & Reishi",
+    "subcategory": "Mushroom Extracts",
+    "mainCategory": "health-supplements",
+    "categoryGroup": "health-supplements",
+    "collections": [
+      "health-supplements",
+      "new-arrivals",
+      "mushroom-extracts",
+      "best-sellers"
+    ],
+    "price": 504,
+    "compareAtPrice": 600,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": true,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "90 gélules (270 mg)",
+    "rating": 5,
+    "reviewCount": 19,
+    "shortDescription": "عزّز صحتك العامة وحيويتك مع ريشي گانو (RG) من دي إكس إن. صُممت هذه التركيبة المميزة لتلبي احتياجاتك اليومية عبر تقديم خلاصة فطر الريشي (Ganoderma lucidum) الناضج، المعروف بخصائصه الفريدة في دعم التوازن الطبيعي للجسم وتعزيز وظائفه الحيوية بأسلوب طبيعي وموثوق.",
+    "shortDescriptionFr": "Corps fructifère mature de Ganoderma Lucidum 90 jours pour purification et vitalité",
+    "description": "عزّز صحتك العامة وحيويتك مع ريشي گانو (RG) من دي إكس إن. صُممت هذه التركيبة المميزة لتلبي احتياجاتك اليومية عبر تقديم خلاصة فطر الريشي (Ganoderma lucidum) الناضج، المعروف بخصائصه الفريدة في دعم التوازن الطبيعي للجسم وتعزيز وظائفه الحيوية بأسلوب طبيعي وموثوق.",
+    "descriptionFr": "Corps fructifère mature de Ganoderma Lucidum 90 jours pour purification et vitalité",
+    "details": [
+      "خلاصة فطر الريشي الناضج: غنية بالعناصر الغذائية الأساسية ومضادات الأكسدة التي تساعد في دعم مناعة الجسم وتطهيره من السموم بكفاءة عالية.",
+      "تعزيز الحيوية والنشاط: تساهم في رفع مستوى الطاقة العامة ودعم نمط حياة صحي ونشيط طوال اليوم.",
+      "جودة عالية وموثوقة: مُحضرة وفق معايير الجودة المرموقة لمنتجات دي إكس إن لضمان النقاء والفاعلية.",
+      "عبوة عملية وأنيقة: تأتي في عبوة بيضاء عملية مصممة بعناية للحفاظ على جودة المنتج ونقائه لفترة طويلة."
+    ],
+    "detailsFr": [
+      "Extrait à partir du champignon rouge adulte de 90 jours concentré en triterpénoïdes et adénosine",
+      "Accélère l'élimination des toxines métaboliques et soutient la circulation sanguine saine",
+      "Agit en synergie parfaite avec le Ganocelium GL (principe fondamental de la mycothérapie DXN)",
+      "Flacon de 90 gélules de 270 mg certifiées 100% naturelles"
+    ],
+    "howToUse": "تُستخدم وفقاً للجرعات الموصى بها أو حسب التوجيهات المدونة على العبوة.   تُحفظ العبوة في مكان بارد وجاف بعيداً عن أشعة الشمس المباشرة للحفاظ على جودتها وخصائصها الطبيعية.",
+    "howToUseFr": "Prendre 1 à 3 gélules par jour avec de l'eau tiède le matin, de préférence en binôme avec le Ganocelium GL.",
+    "tags": [
+      "DXN",
+      "RG",
+      "Reishi Gano",
+      "Mature Reishi",
+      "Detox",
+      "Blood Circulation",
+      "Triterpenes"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/24.png",
+        "productId": "dxn-e2-24-dxn-reishi-gano-rg",
+        "linkUrl": "product.html?id=dxn-e2-24-dxn-reishi-gano-rg"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/24.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "90 gélules (270 mg)",
+        "stock": 65,
+        "sku": "DXN-E2-024",
+        "price": 504,
+        "compareAtPrice": 600
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-25-dxn-cordyceps-coffee-3in1",
+    "name": "DXN Café Cordyceps 3-en-1 Tonus & Vitalité",
+    "nameAr": "قهوة كوردسيبس 3 في 1 دي إكس إن",
+    "titleAr": "قهوة كوردسيبس 3 في 1 دي إكس إن (DXN Cordyceps Coffee 3 in 1)",
+    "nameFr": "DXN Café Cordyceps 3-en-1 Tonus & Vitalité",
+    "subtitleAr": "قهوة لذيذة ممزوجة بخلاصة فطر الكورديسيبس لطاقة حيوية وقدرة تحمل طوال اليوم",
+    "subtitleFr": "Café gourmand instantané crémeux enrichi à l'extrait tonifiant de Cordyceps",
+    "brand": "DXN",
+    "sku": "DXN-E2-025",
+    "barcode": "65000000125",
+    "slug": "dxn-e2-25-dxn-cordyceps-coffee-3in1",
+    "category": "coffee",
+    "categoryName": "Cafés Gourmets au Ganoderma",
+    "categoryNameAr": "القهوة الصحية بالريشي",
+    "categoryNameFr": "Cafés Gourmets au Ganoderma",
+    "subcategory": "Coffee",
+    "mainCategory": "beverages-drinks",
+    "categoryGroup": "beverages-drinks",
+    "collections": [
+      "beverages-drinks",
+      "new-arrivals",
+      "coffee",
+      "best-sellers"
+    ],
+    "price": 213,
+    "compareAtPrice": 255,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "20 sachets × 21 g",
+    "rating": 5,
+    "reviewCount": 20,
+    "shortDescription": "استمتع بمذاق القهوة الغني والمنعش مع قهوة كوردسيبس 3 في 1 من دي إكس إن. صُممت هذه التركيبة المبتكرة لتمنحك مزيجاً مثالياً يجمع بين نكهة القهوة الفاخرة وفوائد فطر الكوردسيبس لتنشيط حواسك ودعم حيويتك اليومية بكل سهولة ويسر.",
+    "shortDescriptionFr": "Café gourmand instantané crémeux enrichi à l'extrait tonifiant de Cordyceps",
+    "description": "استمتع بمذاق القهوة الغني والمنعش مع قهوة كوردسيبس 3 في 1 من دي إكس إن. صُممت هذه التركيبة المبتكرة لتمنحك مزيجاً مثالياً يجمع بين نكهة القهوة الفاخرة وفوائد فطر الكوردسيبس لتنشيط حواسك ودعم حيويتك اليومية بكل سهولة ويسر.",
+    "descriptionFr": "Café gourmand instantané crémeux enrichi à l'extrait tonifiant de Cordyceps",
+    "details": [
+      "مزيج متطور وثلاثي في واحد: يجمع بانسجام تام بين القهوة الفاخرة ومستخلص فطر الكوردسيبس لتجربة متميزة وسهلة التحضير.",
+      "تعزيز الطاقة والحيوية: تساهم في رفع مستوى النشاط ودعم نمط حياة حوي، مما يجعلها مثالية لبدء يومك بنشاط.",
+      "مذاق غني ورائع: تقدم نكهة قهوة غنية ومريحة ترضي أذواق عشاق القهوة المميزة في كل رشفة.",
+      "عبوة عملية وأنيقة: تأتي في كيس أنيق وعملي مزود بمقبض لسهولة الحمل والاستخدام والتخزين."
+    ],
+    "detailsFr": [
+      "Grains de café d'exception torréfiés et adoucis par un nuage végétal onctueux",
+      "Renforcé en extrait de Cordyceps sinensis pour un coup de fouet naturel sans nervosité",
+      "Pratique et rapide à préparer à la maison, au sport ou au travail",
+      "Boîte de 20 sachets individuels généreux de 21 g"
+    ],
+    "howToUse": "يُفرغ محتوى الظرف في كوب من الماء الساخن.   يُحرك جيداً حتى يذوب تماماً، ويُستمتع بتناوله دافئاً في أي وقت من اليوم للاستفادة من طعمه الرائع.",
+    "howToUseFr": "Versez un sachet dans 150 ml d'eau chaude, remuez soigneusement et dégustez pour démarrer votre journée au sommet de votre forme.",
+    "tags": [
+      "DXN",
+      "Cordyceps Coffee",
+      "3 in 1",
+      "Energy Coffee",
+      "Stamina",
+      "Gourmet"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/25.png",
+        "productId": "dxn-e2-25-dxn-cordyceps-coffee-3in1",
+        "linkUrl": "product.html?id=dxn-e2-25-dxn-cordyceps-coffee-3in1"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/25.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "20 sachets × 21 g",
+        "stock": 65,
+        "sku": "DXN-E2-025",
+        "price": 213,
+        "compareAtPrice": 255
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-26-dxn-lions-mane-coffee",
+    "name": "DXN Café Crinière de Lion Concentration & Clarté",
+    "nameAr": "قهوة عرف الأسد دي إكس إن",
+    "titleAr": "قهوة عرف الأسد دي إكس إن (DXN Lion's Mane Coffee)",
+    "nameFr": "DXN Café Crinière de Lion Concentration & Clarté",
+    "subtitleAr": "قهوة صحية فاخرة مدعمة بفطر عرف الأسد لدعم التركيز الذهني والتفكير الواضح",
+    "subtitleFr": "Café gourmet tonifiant infusé au champignon nootropique Lion's Mane",
+    "brand": "DXN",
+    "sku": "DXN-E2-026",
+    "barcode": "65000000126",
+    "slug": "dxn-e2-26-dxn-lions-mane-coffee",
+    "category": "coffee",
+    "categoryName": "Cafés Gourmets au Ganoderma",
+    "categoryNameAr": "القهوة الصحية بالريشي",
+    "categoryNameFr": "Cafés Gourmets au Ganoderma",
+    "subcategory": "Coffee",
+    "mainCategory": "beverages-drinks",
+    "categoryGroup": "beverages-drinks",
+    "collections": [
+      "beverages-drinks",
+      "new-arrivals",
+      "coffee",
+      "best-sellers"
+    ],
+    "price": 244,
+    "compareAtPrice": 295,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "20 sachets × 21 g",
+    "rating": 5,
+    "reviewCount": 21,
+    "shortDescription": "استمتع بتجربة قهوة فريدة ومميزة تجمع بين المذاق الراقي وفوائد الطبيعة مع قهوة عرف الأسد (Lion's Mane Coffee) من دي إكس إن. صُممت هذه التركيبة المبتكرة لتمنحك طاقة متجددة وتركيزاً صفائياً يجمع بين نكهة القهوة الفاخرة وخصائص فطر عرف الأسد المعروف لدعم الحيوية واليقظة الذهنية.",
+    "shortDescriptionFr": "Café gourmet tonifiant infusé au champignon nootropique Lion's Mane",
+    "description": "استمتع بتجربة قهوة فريدة ومميزة تجمع بين المذاق الراقي وفوائد الطبيعة مع قهوة عرف الأسد (Lion's Mane Coffee) من دي إكس إن. صُممت هذه التركيبة المبتكرة لتمنحك طاقة متجددة وتركيزاً صفائياً يجمع بين نكهة القهوة الفاخرة وخصائص فطر عرف الأسد المعروف لدعم الحيوية واليقظة الذهنية.",
+    "descriptionFr": "Café gourmet tonifiant infusé au champignon nootropique Lion's Mane",
+    "details": [
+      "مزيج طبيعي متطور: يدمج بانسجام تام بين قهوة عالية الجودة ومستخلص فطر عرف الأسد (Lion's Mane) لتقديم مشروب صحي ومتميز يجمع بين المتعة والفائدة.",
+      "تعزيز الصفاء الذهني والتركيز: يساهم في دعم الذاكرة، اليقظة، والتركيز بفضل المكونات الطبيعية المغذية، مما يجعلها مثالية لبدء يومك بنشاط.",
+      "مذاق غني ورائع: يقدم نكهة قهوة غنية ومريحة ترضي أذواق عشاق القهوة المميزة في كل رشفة.",
+      "عبوة عملية وأنيقة: تأتي في علبة أنيقة وعملية مصممة بعناية للحفاظ على جودة ونضارة المنتج."
+    ],
+    "detailsFr": [
+      "Formule idéale pour stimuler les performances intellectuelles et la concentration au travail",
+      "Saveur aromatique équilibrée combinant café de maître et extrait de Crinière de Lion",
+      "Aide à dissiper le brouillard cérébral et préserve l'énergie intellectuelle",
+      "Pack de 20 sachets individuels fraîcheur"
+    ],
+    "howToUse": "يُفرغ محتوى الحصة في كوب من الماء الساخن ويُحرك جيداً حتى يذوب تماماً.\n\nيُستمتع بتناوله دافئاً في أي وقت من اليوم للاستفادة من طعمه الفاخر وانتعاشه المستمر.",
+    "howToUseFr": "Versez un sachet dans une tasse, ajoutez 150 ml d'eau chaude non bouillante, remuez et savourez pendant vos révisions ou vos réunions.",
+    "tags": [
+      "DXN",
+      "Lions Mane Coffee",
+      "Brain Coffee",
+      "Focus",
+      "Memory",
+      "Cognitive"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/26.png",
+        "productId": "dxn-e2-26-dxn-lions-mane-coffee",
+        "linkUrl": "product.html?id=dxn-e2-26-dxn-lions-mane-coffee"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/26.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "20 sachets × 21 g",
+        "stock": 65,
+        "sku": "DXN-E2-026",
+        "price": 244,
+        "compareAtPrice": 295
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-27-dxn-lingzhi-coffee-3in1",
+    "name": "DXN Café Onctueux Lingzhi 3-en-1 au Ganoderma",
+    "nameAr": "قهوة لينجزي 3 في 1 دي إكس إن",
+    "titleAr": "قهوة لينجزي 3 في 1 دي إكس إن (DXN Lingzhi Coffee 3 in 1)",
+    "nameFr": "DXN Café Onctueux Lingzhi 3-en-1 au Ganoderma",
+    "subtitleAr": "القهوة الكلاسيكية الأكثر مبيعاً بمذاقها الغني والكريمي المعزز بفطر الريشي",
+    "subtitleFr": "Le café bien-être légendaire de DXN, velouté et équilibré au Reishi rouge",
+    "brand": "DXN",
+    "sku": "DXN-E2-027",
+    "barcode": "65000000127",
+    "slug": "dxn-e2-27-dxn-lingzhi-coffee-3in1",
+    "category": "coffee",
+    "categoryName": "Cafés Gourmets au Ganoderma",
+    "categoryNameAr": "القهوة الصحية بالريشي",
+    "categoryNameFr": "Cafés Gourmets au Ganoderma",
+    "subcategory": "Coffee",
+    "mainCategory": "beverages-drinks",
+    "categoryGroup": "beverages-drinks",
+    "collections": [
+      "beverages-drinks",
+      "new-arrivals",
+      "coffee",
+      "best-sellers"
+    ],
+    "price": 221,
+    "compareAtPrice": 265,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": true,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "20 sachets × 21 g",
+    "rating": 5,
+    "reviewCount": 22,
+    "shortDescription": "استمتع بمذاق القهوة الغني والمنعش مع قهوة لينجزي 3 في 1 من دي إكس إن. صُممت هذه التركيبة المبتكرة لتمنحك مزيجاً مثالياً يجمع بين نكهة القهوة الفاخرة وفوائد خلاصة فطر الجانوديرما (الريشي) لتنشيط حواسك ودعم حيويتك اليومية بكل سهولة ويسر.",
+    "shortDescriptionFr": "Le café bien-être légendaire de DXN, velouté et équilibré au Reishi rouge",
+    "description": "استمتع بمذاق القهوة الغني والمنعش مع قهوة لينجزي 3 في 1 من دي إكس إن. صُممت هذه التركيبة المبتكرة لتمنحك مزيجاً مثالياً يجمع بين نكهة القهوة الفاخرة وفوائد خلاصة فطر الجانوديرما (الريشي) لتنشيط حواسك ودعم حيويتك اليومية بكل سهولة ويسر.",
+    "descriptionFr": "Le café bien-être légendaire de DXN, velouté et équilibré au Reishi rouge",
+    "details": [
+      "مزيج متطور وثلاثي في واحد: يجمع بانسجام تام بين القهوة الفاخرة، ومستخلص فطر الريشي، والمكونات المتوازنة لتجربة متميزة وسهلة التحضير.",
+      "تعزيز الطاقة والحيوية: تساهم في رفع مستوى النشاط ودعم نمط حياة حيوي، مما يجعلها مثالية لبدء يومك بنشاط.",
+      "مذاق غني ورائع: تقدم نكهة قهوة غنية ومريحة ترضي أذواق عشاق القهوة المميزة في كل رشفة.",
+      "عبوة عملية وأنيقة: تأتي في كيس أنيق وعملي مزود بمقبض لسهولة الحمل والاستخدام، مع أظرف فردية عملية."
+    ],
+    "detailsFr": [
+      "Café brésilien de première qualité mélangé à une crème végétale douce et au Ganoderma",
+      "Faible teneur en caféine, ne provoque ni aigreur d'estomac ni palpitations",
+      "Apporte une énergie stable et soutient l'immunité à chaque pause-café",
+      "Sachet de 20 portions individuelles de 21 g"
+    ],
+    "howToUse": "يُفرغ محتوى الظرف في كوب من الماء الساخن.   يُحرك جيداً حتى يذوب تماماً، ويُستمتع بتناوله دافئاً في أي وقت من اليوم للاستفادة من طعمه الرائع.",
+    "howToUseFr": "Dissoudre un sachet dans 150 ml d'eau chaude. Remuer et déguster à tout moment pour un réconfort gourmand.",
+    "tags": [
+      "DXN",
+      "Lingzhi Coffee",
+      "3 in 1",
+      "Best Seller",
+      "Ganoderma Coffee",
+      "Creamy Coffee"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/27.png",
+        "productId": "dxn-e2-27-dxn-lingzhi-coffee-3in1",
+        "linkUrl": "product.html?id=dxn-e2-27-dxn-lingzhi-coffee-3in1"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/27.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "20 sachets × 21 g",
+        "stock": 65,
+        "sku": "DXN-E2-027",
+        "price": 221,
+        "compareAtPrice": 265
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-28-dxn-lingzhi-black-coffee-pure",
+    "name": "DXN Café Noir Pur Lingzhi Black Coffee Sans Sucre",
+    "nameAr": "قهوة لينجزي السوداء دي إكس إن",
+    "titleAr": "قهوة لينجزي السوداء دي إكس إن (DXN Lingzhi Coffee Black Coffee)",
+    "nameFr": "DXN Café Noir Pur Lingzhi Black Coffee Sans Sucre",
+    "subtitleAr": "قهوة سوداء نقية 100% خالية من السكر والكريمة، معززة بفطر الريشي لمذاق قهوة أصيل",
+    "subtitleFr": "Café noir pur intense sans sucre ni lait enrichi à l'extrait pur de Ganoderma",
+    "brand": "DXN",
+    "sku": "DXN-E2-028",
+    "barcode": "65000000128",
+    "slug": "dxn-e2-28-dxn-lingzhi-black-coffee-pure",
+    "category": "coffee",
+    "categoryName": "Cafés Gourmets au Ganoderma",
+    "categoryNameAr": "القهوة الصحية بالريشي",
+    "categoryNameFr": "Cafés Gourmets au Ganoderma",
+    "subcategory": "Coffee",
+    "mainCategory": "beverages-drinks",
+    "categoryGroup": "beverages-drinks",
+    "collections": [
+      "beverages-drinks",
+      "new-arrivals",
+      "coffee",
+      "best-sellers"
+    ],
+    "price": 221,
+    "compareAtPrice": 265,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "20 sachets × 4.5 g",
+    "rating": 5,
+    "reviewCount": 23,
+    "shortDescription": "استمتع بمذاق القهوة السوداء الأصيل والمنعش مع قهوة لينجزي السوداء من دي إكس إن. صُممت هذه التركيبة المبتكرة لتمنحك تجربة قهوة نقية تجمع بين نكهة القهوة الفاخرة وفوائد خلاصة فطر الجانوديرما (الريشي) لدعم حيويتك ونشاطك اليومي بأسلوب طبيعي وموثوق.",
+    "shortDescriptionFr": "Café noir pur intense sans sucre ni lait enrichi à l'extrait pur de Ganoderma",
+    "description": "استمتع بمذاق القهوة السوداء الأصيل والمنعش مع قهوة لينجزي السوداء من دي إكس إن. صُممت هذه التركيبة المبتكرة لتمنحك تجربة قهوة نقية تجمع بين نكهة القهوة الفاخرة وفوائد خلاصة فطر الجانوديرما (الريشي) لدعم حيويتك ونشاطك اليومي بأسلوب طبيعي وموثوق.",
+    "descriptionFr": "Café noir pur intense sans sucre ni lait enrichi à l'extrait pur de Ganoderma",
+    "details": [
+      "قهوة سوداء نقية: تقدم نكهة القهوة السوداء الأصلية الغنية التي تفضلها عشاق القهوة الكلاسيكية الصافية.",
+      "معزز بخلاصة فطر الريشي: يدمج خصائص فطر جانوديرما لتقديم لمسة صحية فريدة ومميزة في كل كوب.",
+      "تعزيز الطاقة والنشاط: تساهم في رفع مستوى اليقظة ودعم نمط حياة حيوي ونشيط طوال اليوم.",
+      "عبوة عملية وأنيقة: تأتي في عبوة عملية وأنيقة مصممة بعناية للحفاظ على جودة ونضارة المنتج."
+    ],
+    "detailsFr": [
+      "0% de sucre, 0% de crème : arôme pur et intense pour les véritables puristes du café",
+      "Convient parfaitement aux régimes cétogènes, aux personnes diabétiques et aux jeûneurs",
+      "Favorise le métabolisme lipidique et soutient l'énergie sans acidité gastrique",
+      "Étui de 20 sachets nomades ultra-légers de 4,5 g"
+    ],
+    "howToUse": "يُفرغ محتوى الظرف أو الحصة في كوب من الماء الساخن.   يُحرك جيداً حتى يذوب تماماً، ويُستمتع بتناوله دافئاً في أي وقت من اليوم للاستفادة من طعمه الرائع.",
+    "howToUseFr": "Videz le sachet dans une tasse, ajoutez 150-200 ml d'eau bien chaude, mélangez et appréciez la puissance aromatique du café noir au Reishi.",
+    "tags": [
+      "DXN",
+      "Black Coffee",
+      "Zero Sugar",
+      "Keto",
+      "Ganoderma",
+      "Weight Loss"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/28.png",
+        "productId": "dxn-e2-28-dxn-lingzhi-black-coffee-pure",
+        "linkUrl": "product.html?id=dxn-e2-28-dxn-lingzhi-black-coffee-pure"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/28.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "20 sachets × 4.5 g",
+        "stock": 65,
+        "sku": "DXN-E2-028",
+        "price": 221,
+        "compareAtPrice": 265
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-29-dxn-tea-tree-cream",
+    "name": "DXN Crème Purifiante à l'Arbre à Thé (Tea Tree Cream)",
+    "nameAr": "كريم شجرة الشاي دي إكس إن",
+    "titleAr": "كريم شجرة الشاي دي إكس إن (DXN Tea Tree Cream)",
+    "nameFr": "DXN Crème Purifiante à l'Arbre à Thé (Tea Tree Cream)",
+    "subtitleAr": "كريم شجرة الشاي المهدئ للبشرة والمضاد للبكتيريا والشوائب والحبوب",
+    "subtitleFr": "Crème apaisante et purifiante enrichie en huile essentielle d'arbre à thé pure",
+    "brand": "DXN",
+    "sku": "DXN-E2-029",
+    "barcode": "65000000129",
+    "slug": "dxn-e2-29-dxn-tea-tree-cream",
+    "category": "face-creams-serums",
+    "categoryName": "Crèmes Visage & Sérums",
+    "categoryNameAr": "العناية بالوجه والسيرومات",
+    "categoryNameFr": "Crèmes Visage & Sérums",
+    "subcategory": "Face Creams & Serums",
+    "mainCategory": "skincare-beauty",
+    "categoryGroup": "skincare-beauty",
+    "collections": [
+      "skincare-beauty",
+      "new-arrivals",
+      "face-creams-serums",
+      "best-sellers"
+    ],
+    "price": 102,
+    "compareAtPrice": 125,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "30 g",
+    "rating": 5,
+    "reviewCount": 24,
+    "shortDescription": "استمتع ببشرة نقية ومنتعشة مع كريم شجرة الشاي من دي إكس إن. صُممت هذه التركيبة المبتكرة لتمنحك العناية الفائقة والتهدئة الطبيعية للبشرة، مستفيدة من خصائص زيت شجرة الشاي المعروف بفوائده المتعددة في العناية بالبشرة وحمايتها بأسلوب طبيعي وموثوق.",
+    "shortDescriptionFr": "Crème apaisante et purifiante enrichie en huile essentielle d'arbre à thé pure",
+    "description": "استمتع ببشرة نقية ومنتعشة مع كريم شجرة الشاي من دي إكس إن. صُممت هذه التركيبة المبتكرة لتمنحك العناية الفائقة والتهدئة الطبيعية للبشرة، مستفيدة من خصائص زيت شجرة الشاي المعروف بفوائده المتعددة في العناية بالبشرة وحمايتها بأسلوب طبيعي وموثوق.",
+    "descriptionFr": "Crème apaisante et purifiante enrichie en huile essentielle d'arbre à thé pure",
+    "details": [
+      "عناية طبيعية وفعالة: يساهم في تهدئة البشرة وتجديد مظهرها بفضل خلاصة زيت شجرة الشاي النقية.",
+      "ترطيب وتلطيف: يساعد في ترطيب البشرة ومنحها شعوراً بالراحة والنعومة والانتعاش طوال اليوم.",
+      "مناسب للاستخدام اليومي: تركيبة لطيفة ومتوازنة تناسب مختلف أنواع البشرة للاستخدام المنتظم والعناية الشخصية.",
+      "عبوة عملية وأنيقة: يأتي في أنبوب عملي بحجم 30 غراماً مصحوباً بعلبة خارجية متناسقة لسهولة الاستخدام والحفظ."
+    ],
+    "detailsFr": [
+      "Propriétés antibactériennes et purifiantes naturelles reconnues de l'arbre à thé (Melaleuca)",
+      "Aide à résorber les imperfections, boutons et irritations sans dessécher la peau",
+      "Texture légère qui pénètre instantanément sans fini gras",
+      "Tube nomade pratique de 30 g indispensable au quotidien"
+    ],
+    "howToUse": "تُوضع كمية مناسبة من الكريم على المنطقة المطلوبة بعد تنظيفها وتجفيفها جيداً.   يُدلك بلطف بحركات دائرية حتى يتم امتصاصه بالكامل، ويُستخدم حسب الحاجة.",
+    "howToUseFr": "Appliquez localement sur les imperfections ou sur l'ensemble du visage nettoyé matin et soir en massant doucement.",
+    "tags": [
+      "DXN",
+      "Tea Tree",
+      "Acne",
+      "Purifying Cream",
+      "Antiseptic",
+      "Skin Soothing"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/29.png",
+        "productId": "dxn-e2-29-dxn-tea-tree-cream",
+        "linkUrl": "product.html?id=dxn-e2-29-dxn-tea-tree-cream"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/29.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "30 g",
+        "stock": 65,
+        "sku": "DXN-E2-029",
+        "price": 102,
+        "compareAtPrice": 125
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-30-dxn-cordypine-fermented-pineapple",
+    "name": "DXN Éixir Cordypine Ananas Fermenté & Cordyceps",
+    "nameAr": "مشروب عصير كوردباين دي إكس إن",
+    "titleAr": "مشروب عصير كوردباين دي إكس إن (DXN Cordypine)",
+    "nameFr": "DXN Éixir Cordypine Ananas Fermenté & Cordyceps",
+    "subtitleAr": "إكسير استوائي مخمر يجمع بين أنزيمات الأناناس الحية وخلاصة فطر الكورديسيبس الثمين",
+    "subtitleFr": "Boisson enzymatique d'élite associant jus d'ananas naturellement fermenté et Cordyceps",
+    "brand": "DXN",
+    "sku": "DXN-E2-030",
+    "barcode": "65000000130",
+    "slug": "dxn-e2-30-dxn-cordypine-fermented-pineapple",
+    "category": "juices-botanical-drinks",
+    "categoryName": "Jus Naturels & Boissons Botaniques",
+    "categoryNameAr": "العصائر والمشروبات النباتية",
+    "categoryNameFr": "Jus Naturels & Boissons Botaniques",
+    "subcategory": "Juices & Botanical Drinks",
+    "mainCategory": "beverages-drinks",
+    "categoryGroup": "beverages-drinks",
+    "collections": [
+      "beverages-drinks",
+      "new-arrivals",
+      "juices-botanical-drinks",
+      "best-sellers"
+    ],
+    "price": 450,
+    "compareAtPrice": 540,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "285 ml",
+    "rating": 5,
+    "reviewCount": 25,
+    "shortDescription": "استمتع بمذاق الأناناس المنعش والفوائد الصحية المتقدمة مع مشروب عصير كوردباين (Cordypine) من دي إكس إن. صُممت هذه التركيبة الفريدة لتجمع بين خلاصة عصير الأناناس المركز وفوائد فطر الكوردسيبس لتمنحك طاقة متجددة ودعماً متكاملاً لصحة الجسم وحيويته بأسلوب طبيعي وموثوق.",
+    "shortDescriptionFr": "Boisson enzymatique d'élite associant jus d'ananas naturellement fermenté et Cordyceps",
+    "description": "استمتع بمذاق الأناناس المنعش والفوائد الصحية المتقدمة مع مشروب عصير كوردباين (Cordypine) من دي إكس إن. صُممت هذه التركيبة الفريدة لتجمع بين خلاصة عصير الأناناس المركز وفوائد فطر الكوردسيبس لتمنحك طاقة متجددة ودعماً متكاملاً لصحة الجسم وحيويته بأسلوب طبيعي وموثوق.",
+    "descriptionFr": "Boisson enzymatique d'élite associant jus d'ananas naturellement fermenté et Cordyceps",
+    "details": [
+      "مزيج طبيعي متطور: يدمج بانسجام تام بين خلاصة الأناناس المركز وفطر الكوردسيبس لتقديم مشروب صحي ومتميز يجمع بين المتعة والفائدة.",
+      "تعزيز الطاقة والحيوية: تساهم في رفع مستوى النشاط البدني ودعم نمط حياة حيوي ونشيط طوال اليوم.",
+      "دعم الهضم والصحة العامة: تساهم مكونات الأناناس الطبيعية في دعم الهضم وتعزيز راحة الجسم ووظائفه الحيوية.",
+      "عبوة عملية وأنيقة: تأتي في زجاجة عملية بسعة 285 مل، مصممة بعناية للحفاظ على جودة ونضارة المنتج."
+    ],
+    "detailsFr": [
+      "Richesse exceptionnelle en bromélaïne naturelle et enzymes digestives actives",
+      "Soutient puissamment la respiration, les articulations et l'énergie cellulaire globale",
+      "Procédé exclusif de bio-fermentation développant des bio-nutriments hautement biodisponibles",
+      "Flacon en verre de 285 ml préservant l'intégrité enzymatique"
+    ],
+    "howToUse": "تُمزج كمية مناسبة من العصير مع الماء بحسب التفضيل الشخصي.   يُرج جيداً قبل الاستخدام، ويُحفظ في الثلاجة بعد الفتح للحفاظ على جودته وخصائصه الطبيعية.",
+    "howToUseFr": "Mélangez 20 à 30 ml de Cordypine dans un verre d'eau fraîche (dilution 1:9). Boire avant ou après les repas pour un confort digestif optimal.",
+    "tags": [
+      "DXN",
+      "Cordypine",
+      "Pineapple",
+      "Cordyceps",
+      "Enzymes",
+      "Longevity",
+      "Vitality"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/30.png",
+        "productId": "dxn-e2-30-dxn-cordypine-fermented-pineapple",
+        "linkUrl": "product.html?id=dxn-e2-30-dxn-cordypine-fermented-pineapple"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/30.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "285 ml",
+        "stock": 65,
+        "sku": "DXN-E2-030",
+        "price": 450,
+        "compareAtPrice": 540
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-31-dxn-lingzhi-pineapple-cake",
+    "name": "DXN Gâteau Moelleux Lingzhi Ananas au Ganoderma",
+    "nameAr": "كيك لينجزي الأناناس دي إكس إن",
+    "titleAr": "كيك لينجزي الأناناس دي إكس إن (DXN Lingzhi Pineapple Cake)",
+    "nameFr": "DXN Gâteau Moelleux Lingzhi Ananas au Ganoderma",
+    "subtitleAr": "كيك الأناناس التايواني الفاخر بحشوة طبيعية وخلاصة فطر الريشي الصحي",
+    "subtitleFr": "Pâtisserie gourmande traditionnelle garnie de confiture d'ananas et de Reishi",
+    "brand": "DXN",
+    "sku": "DXN-E2-031",
+    "barcode": "65000000131",
+    "slug": "dxn-e2-31-dxn-lingzhi-pineapple-cake",
+    "category": "treats-snacks",
+    "categoryName": "Encas Sains & Douceurs",
+    "categoryNameAr": "الوجبات الخفيفة والحلويات",
+    "categoryNameFr": "Encas Sains & Douceurs",
+    "subcategory": "Treats & Snacks",
+    "mainCategory": "food-pantry",
+    "categoryGroup": "food-pantry",
+    "collections": [
+      "food-pantry",
+      "new-arrivals",
+      "treats-snacks",
+      "best-sellers"
+    ],
+    "price": 298,
+    "compareAtPrice": 360,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "450 g",
+    "rating": 5,
+    "reviewCount": 26,
+    "shortDescription": "استمتع بتجربة ضيافة فريدة ولذيذة تجمع بين حلاوة الأناناس الطبيعية وفوائد فطر اللينجزي (الريشي) مع كيك لينجزي الأناناس من دي إكس إن. صُممت هذه الحلوى المبتكرة لتمنحك مذاقاً شهياً ولحظات من الاستمتاع الراقي بلمسة صحية مميزة.",
+    "shortDescriptionFr": "Pâtisserie gourmande traditionnelle garnie de confiture d'ananas et de Reishi",
+    "description": "استمتع بتجربة ضيافة فريدة ولذيذة تجمع بين حلاوة الأناناس الطبيعية وفوائد فطر اللينجزي (الريشي) مع كيك لينجزي الأناناس من دي إكس إن. صُممت هذه الحلوى المبتكرة لتمنحك مذاقاً شهياً ولحظات من الاستمتاع الراقي بلمسة صحية مميزة.",
+    "descriptionFr": "Pâtisserie gourmande traditionnelle garnie de confiture d'ananas et de Reishi",
+    "details": [
+      "مزيج فريد ومبتكر: يدمج بانسجام تام بين نكهة الأناناس الشهية ومستخلص فطر اللينجزي (Ganoderma) لتقديم وجبة خفيفة ومميزة.",
+      "مذاق غني ولذيذ: يقدم طعماً غنياً ومتوازناً يجمع بين قوام الكيك الناعم وحشوة الأناناس الفاخرة لترضي جميع الأذواق.",
+      "جودة عالية وموثوقة: مُحضَر بعناية فائقة وفق معايير الجودة المرموقة لمنتجات دي إكس إن لضمان النقاء والتميز.",
+      "عبوة عملية وأنيقة: تأتي في علبة أنيقة بوزن 450 غراماً، مما يجعلها مثالية للضيافة أو للمشاركة مع العائلة والأصدقاء."
+    ],
+    "detailsFr": [
+      "Pâte sablée dorée fondante en bouche renfermant un cœur généreux d'ananas caramélisé",
+      "Infusé au Ganoderma Lucidum pour apporter des vertus bien-être à chaque bouchée",
+      "Sans graisses trans nocives, sans arômes artificiels excessifs",
+      "Coffret d'exception de 450 g idéal pour offrir ou recevoir vos convives"
+    ],
+    "howToUse": "يُتناول مباشرة كوجبة خفيفة وممتعة في أي وقت من اليوم.   يُقدم بجانب القهوة أو الشاي للضيافة، ويُحفظ في مكان بارد وجاف بعيداً عن أشعة الشمس المباشرة للحفاظ على نكهته الطازجة.",
+    "howToUseFr": "À déguster chaud ou à température ambiante, accompagné d'une infusion de thé DXN ou d'un café noir pour une harmonie gustative parfaite.",
+    "tags": [
+      "DXN",
+      "Pineapple Cake",
+      "Lingzhi Cake",
+      "Pastry",
+      "Gourmet Snack",
+      "Ganoderma"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/31.png",
+        "productId": "dxn-e2-31-dxn-lingzhi-pineapple-cake",
+        "linkUrl": "product.html?id=dxn-e2-31-dxn-lingzhi-pineapple-cake"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/31.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "450 g",
+        "stock": 65,
+        "sku": "DXN-E2-031",
+        "price": 298,
+        "compareAtPrice": 360
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-32-dxn-mycoveggie-botanical-fiber",
+    "name": "DXN Poudre Végétale Détox MycoVeggie Riches en Fibres",
+    "nameAr": "مسحوق ميكو فيجي دي إكس إن",
+    "titleAr": "مسحوق ميكو فيجي دي إكس إن (DXN MycoVeggie)",
+    "nameFr": "DXN Poudre Végétale Détox MycoVeggie Riches en Fibres",
+    "subtitleAr": "مزيج الألياف النباتية والخضار والأعشاب والفطور لتنظيف القولون والتخلص من الوزن الزائد",
+    "subtitleFr": "Mélange exclusif de fibres botaniques, légumes, champignons et spiruline pour détox et satiété",
+    "brand": "DXN",
+    "sku": "DXN-E2-032",
+    "barcode": "65000000132",
+    "slug": "dxn-e2-32-dxn-mycoveggie-botanical-fiber",
+    "category": "tablets-capsules",
+    "categoryName": "Comprimés & Gélules Nutritionnelles",
+    "categoryNameAr": "المكملات الغذائية والكبسولات",
+    "categoryNameFr": "Comprimés & Gélules Nutritionnelles",
+    "subcategory": "Tablets & Capsules",
+    "mainCategory": "health-supplements",
+    "categoryGroup": "health-supplements",
+    "collections": [
+      "health-supplements",
+      "new-arrivals",
+      "tablets-capsules",
+      "best-sellers"
+    ],
+    "price": 856,
+    "compareAtPrice": 1020,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "Pot 400 g",
+    "rating": 5,
+    "reviewCount": 27,
+    "shortDescription": "استمتع بتجربة غذائية طبيعية ومتكاملة مع ميكو فيجي (MycoVeggie) من دي إكس إن. صُممت هذه التركيبة الفريدة لتجمع بين مزيج مختار بعناية من الخضروات، الفطر، الفواكه، والتوابل لتمنحك دعماً متكاملاً لصحة الجهاز الهضمي والحيوية اليومية بأسلوب طبيعي وموثوق.",
+    "shortDescriptionFr": "Mélange exclusif de fibres botaniques, légumes, champignons et spiruline pour détox et satiété",
+    "description": "استمتع بتجربة غذائية طبيعية ومتكاملة مع ميكو فيجي (MycoVeggie) من دي إكس إن. صُممت هذه التركيبة الفريدة لتجمع بين مزيج مختار بعناية من الخضروات، الفطر، الفواكه، والتوابل لتمنحك دعماً متكاملاً لصحة الجهاز الهضمي والحيوية اليومية بأسلوب طبيعي وموثوق.",
+    "descriptionFr": "Mélange exclusif de fibres botaniques, légumes, champignons et spiruline pour détox et satiété",
+    "details": [
+      "مزيج نباتي متطور: يدمج بانسجام تام بين الخضروات، الفطر الفاخر، الفواكه، والتوابل لتقديم منتج غني بالألياف والعناصر الغذائية الأساسية.",
+      "دعم الهضم والصحة العامة: يساهم في دعم صحة الجهاز الهضمي وتسهيل حركة الأمعاء بفضل غناه بالألياف الطبيعية المختارة.",
+      "مكونات نقية وعالية الجودة: مُحضرة وفق معايير الجودة المرموقة لمنتجات دي إكس إن لضمان النقاء والفعالية.",
+      "عبوة عملية وأنيقة: تأتي في عبوة بيضاء عملية مصممة بعناية للحفاظ على جودة المنتج ونقائه لفترة طويلة."
+    ],
+    "detailsFr": [
+      "Complexe synergique de fibres solubles et insolubles issues de 20 plantes et champignons nobles",
+      "Purifie les intestins en douceur, régule le transit et procure une agréable satiété durable",
+      "Allié incontournable des programmes minceur, de contrôle du cholestérol et de détoxification",
+      "Grand pot hermétique de 400 g avec cuillère doseuse incluse"
+    ],
+    "howToUse": "تُمزج كمية مناسبة من المسحوق مع الماء أو العصير بحسب التفضيل الشخصي.\n\nيُحرك جيداً ويُتناول مباشرة، ويُحفظ في مكان بارد وجاف بعيداً عن أشعة الشمس المباشرة للحفاظ على جودته وخصائصه الطبيعية.",
+    "howToUseFr": "Mélanger une dosette (environ 5 g) dans un grand verre d'eau fraîche ou de jus de fruits. Boire immédiatement puis boire un second verre d'eau claire.",
+    "tags": [
+      "DXN",
+      "MycoVeggie",
+      "Fiber",
+      "Detox",
+      "Weight Management",
+      "Colon Cleanse",
+      "Superfood"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/32.png",
+        "productId": "dxn-e2-32-dxn-mycoveggie-botanical-fiber",
+        "linkUrl": "product.html?id=dxn-e2-32-dxn-mycoveggie-botanical-fiber"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/32.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "Pot 400 g",
+        "stock": 65,
+        "sku": "DXN-E2-032",
+        "price": 856,
+        "compareAtPrice": 1020
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-33-dxn-apple-fermented-jam",
+    "name": "DXN Confiture Artisanale de Pommes Fermentées Saines",
+    "nameAr": "مربى التفاح المخمر دي إكس إن",
+    "titleAr": "مربى التفاح المخمر دي إكس إن (DXN Apple Fermented Jam)",
+    "nameFr": "DXN Confiture Artisanale de Pommes Fermentées Saines",
+    "subtitleAr": "مربى التفاح الطبيعي المخمر غني بالبروبيوتيك والأنزيمات لصحة الأمعاء والإفطار الصحي",
+    "subtitleFr": "Préparation de pommes fraîches fermentées riche en ferments vivants et pectine naturelle",
+    "brand": "DXN",
+    "sku": "DXN-E2-033",
+    "barcode": "65000000133",
+    "slug": "dxn-e2-33-dxn-apple-fermented-jam",
+    "category": "pantry-condiments",
+    "categoryName": "Épicerie, Miel & Condiments",
+    "categoryNameAr": "المؤونة والتوابل الصحية",
+    "categoryNameFr": "Épicerie, Miel & Condiments",
+    "subcategory": "Pantry & Condiments",
+    "mainCategory": "food-pantry",
+    "categoryGroup": "food-pantry",
+    "collections": [
+      "food-pantry",
+      "new-arrivals",
+      "pantry-condiments",
+      "best-sellers"
+    ],
+    "price": 104,
+    "compareAtPrice": 125,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "Pot 250 g",
+    "rating": 5,
+    "reviewCount": 28,
+    "shortDescription": "استمتع بمذاق منعش وفوائد الطبيعة المتجددة مع مربى التفاح المخمر (Apple Fermented Jam) من دي إكس إن. صُممت هذه التركيبة الفريدة لتمنحك خلاصة التفاح المخمر بعناية في أظرف عملية ومبتكرة تدعم حيويتك ونظامك اليومي بأسلوب طبيعي وموثوق.",
+    "shortDescriptionFr": "Préparation de pommes fraîches fermentées riche en ferments vivants et pectine naturelle",
+    "description": "استمتع بمذاق منعش وفوائد الطبيعة المتجددة مع مربى التفاح المخمر (Apple Fermented Jam) من دي إكس إن. صُممت هذه التركيبة الفريدة لتمنحك خلاصة التفاح المخمر بعناية في أظرف عملية ومبتكرة تدعم حيويتك ونظامك اليومي بأسلوب طبيعي وموثوق.",
+    "descriptionFr": "Préparation de pommes fraîches fermentées riche en ferments vivants et pectine naturelle",
+    "details": [
+      "تخمر طبيعي متطور: يدمج فوائد التفاح المخمر لتقديم تجربة غذائية غنية ومتميزة تساهم في دعم صحة الجسم العامة.",
+      "مذاق غني ومنعش: يمنحك طعماً شهياً ومنعشاً يجمع بين نكهة التفاح الطبيعية وفوائد عمليات التخمير المتقدمة.",
+      "أظرف عملية وسهلة الاستخدام: تأتي في علبة أنيقة تحتوي على أظرف فردية عملية، مما يجعلها مثالية للاستخدام في المنزل، العمل، أو أثناء التنقل.",
+      "جودة موثوقة: مُحضرة بعناية فائقة وفق معايير الجودة المرموقة لمنتجات دي إكس إن لضمان النقاء والتميز."
+    ],
+    "detailsFr": [
+      "Pommes juteuses sélectionnées soumises à un processus de bio-fermentation protecteur",
+      "Apporte de précieux ferments probiotiques soutenant le microbiote intestinal",
+      "Douceur naturelle préservée sans excès de sucre raffiné",
+      "Bocal en verre hermétique de 250 g"
+    ],
+    "howToUse": "يُتناول محتوى الظرف مباشرة أو يُضاف ويُمزج بحسب التفضيل الشخصي.   يُحفظ في مكان بارد وجاف بعيداً عن أشعة الشمس المباشرة للحفاظ على جودته وخصائصه الطبيعية.",
+    "howToUseFr": "Tartinez généreusement sur vos biscottes complètes ou incorporez dans vos yaourts et porridges matinaux.",
+    "tags": [
+      "DXN",
+      "Apple Jam",
+      "Fermented Food",
+      "Breakfast",
+      "Probiotics",
+      "Pantry"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/33.png",
+        "productId": "dxn-e2-33-dxn-apple-fermented-jam",
+        "linkUrl": "product.html?id=dxn-e2-33-dxn-apple-fermented-jam"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/33.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "Pot 250 g",
+        "stock": 65,
+        "sku": "DXN-E2-033",
+        "price": 104,
+        "compareAtPrice": 125
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-34-dxn-cocozhi-chocolate-drink",
+    "name": "DXN Boisson Cacao Gourmande Cocozhi au Ganoderma",
+    "nameAr": "مشروب كوكوزي دي إكس إن",
+    "titleAr": "مشروب كوكوزي دي إكس إن (DXN Cocozhi)",
+    "nameFr": "DXN Boisson Cacao Gourmande Cocozhi au Ganoderma",
+    "subtitleAr": "مشروب الشوكولاتة والكاكاو الفاخر المعزز بفطر الريشي للأطفال والكبار لنمو ونشاط دائم",
+    "subtitleFr": "Chocolat chaud onctueux premium enrichi au Reishi et extrait de malt nutritif",
+    "brand": "DXN",
+    "sku": "DXN-E2-034",
+    "barcode": "65000000134",
+    "slug": "dxn-e2-34-dxn-cocozhi-chocolate-drink",
+    "category": "tea-cocoa",
+    "categoryName": "Thés Botaniques & Cacao",
+    "categoryNameAr": "الشاي والكاكاو الصحي",
+    "categoryNameFr": "Thés Botaniques & Cacao",
+    "subcategory": "Tea & Cocoa",
+    "mainCategory": "beverages-drinks",
+    "categoryGroup": "beverages-drinks",
+    "collections": [
+      "beverages-drinks",
+      "new-arrivals",
+      "tea-cocoa",
+      "best-sellers"
+    ],
+    "price": 276,
+    "compareAtPrice": 330,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": true,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "20 sachets × 32 g",
+    "rating": 5,
+    "reviewCount": 29,
+    "shortDescription": "استمتع بمذاق الشوكولاتة الغني والدافئ مع مشروب كوكوزي (Cocozhi) من دي إكس إن. صُممت هذه التركيبة المبتكرة لتمنحك مزيجاً مثالياً يجمع بين نكهة الكاكاو الفاخرة وفوائد خلاصة فطر الجانوديرما (الريشي) لتنشيط حواسك ودعم حيويتك اليومية بكل سهولة ويسر.",
+    "shortDescriptionFr": "Chocolat chaud onctueux premium enrichi au Reishi et extrait de malt nutritif",
+    "description": "استمتع بمذاق الشوكولاتة الغني والدافئ مع مشروب كوكوزي (Cocozhi) من دي إكس إن. صُممت هذه التركيبة المبتكرة لتمنحك مزيجاً مثالياً يجمع بين نكهة الكاكاو الفاخرة وفوائد خلاصة فطر الجانوديرما (الريشي) لتنشيط حواسك ودعم حيويتك اليومية بكل سهولة ويسر.",
+    "descriptionFr": "Chocolat chaud onctueux premium enrichi au Reishi et extrait de malt nutritif",
+    "details": [
+      "مزيج كاكاو غني: يدمج بانسجام تام بين مسحوق الكاكاو الفاخر ومستخلص فطر الريشي لتجربة متميزة ولذيذة.",
+      "تعزيز الطاقة والنشاط: تساهم في رفع مستوى النشاط ودعم نمط حياة حيوي، مما يجعلها مناسبة لجميع أفراد العائلة.",
+      "مذاق شهي ومريح: يقدم نكهة شوكولاتة غنية ومريحة ترضي أذواق الكبار والصغار في كل رشفة.",
+      "أظرف عملية وسهلة التحضير: تأتي في عبوة عملية تحتوي على أظرف فردية لسهولة الاستخدام في أي وقت وفي أي مكان."
+    ],
+    "detailsFr": [
+      "Fèves de cacao d'élite combinées à l'extrait de Ganoderma Lucidum et au malt d'orge",
+      "Favorise le développement physique et intellectuel des enfants tout en régalant les adultes",
+      "Apporte réconfort, calcium, minéraux et antioxydants protecteurs",
+      "Paquet familial contenant 20 grands sachets de 32 g"
+    ],
+    "howToUse": "يُفرغ محتوى الظرف في كوب من الماء الساخن.   يُحرك جيداً حتى يذوب تماماً، ويُستمتع بتناوله دافئاً في أي وقت من اليوم للاستفادة من طعمه الرائع.",
+    "howToUseFr": "Verser un sachet dans un mug d'eau chaude ou de lait chaud (environ 200 ml). Mélanger vivement et savourer chaud ou glacé.",
+    "tags": [
+      "DXN",
+      "Cocozhi",
+      "Cocoa",
+      "Chocolate",
+      "Kids Health",
+      "Ganoderma",
+      "Best Seller"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/34.png",
+        "productId": "dxn-e2-34-dxn-cocozhi-chocolate-drink",
+        "linkUrl": "product.html?id=dxn-e2-34-dxn-cocozhi-chocolate-drink"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/34.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "20 sachets × 32 g",
+        "stock": 65,
+        "sku": "DXN-E2-034",
+        "price": 276,
+        "compareAtPrice": 330
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-35-dxn-roselle-botanical-beverage",
+    "name": "DXN Boisson Botanique Roselle à l'Hibiscus Pur",
+    "nameAr": "مشروب نباتي كركديه دي إكس إن",
+    "titleAr": "مشروب نباتي كركديه دي إكس إن (DXN Roselle Botanical Beverage)",
+    "nameFr": "DXN Boisson Botanique Roselle à l'Hibiscus Pur",
+    "subtitleAr": "مشروب الكركديه المنعش الغني بفيتامين C ومضادات الأكسدة لضبط الضغط والحيوية",
+    "subtitleFr": "Concentré pur de calices d'Hibiscus Sabdariffa regorgeant de vitamine C naturelle",
+    "brand": "DXN",
+    "sku": "DXN-E2-035",
+    "barcode": "65000000135",
+    "slug": "dxn-e2-35-dxn-roselle-botanical-beverage",
+    "category": "juices-botanical-drinks",
+    "categoryName": "Jus Naturels & Boissons Botaniques",
+    "categoryNameAr": "العصائر والمشروبات النباتية",
+    "categoryNameFr": "Jus Naturels & Boissons Botaniques",
+    "subcategory": "Juices & Botanical Drinks",
+    "mainCategory": "beverages-drinks",
+    "categoryGroup": "beverages-drinks",
+    "collections": [
+      "beverages-drinks",
+      "new-arrivals",
+      "juices-botanical-drinks",
+      "best-sellers"
+    ],
+    "price": 141,
+    "compareAtPrice": 170,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "285 ml",
+    "rating": 5,
+    "reviewCount": 30,
+    "shortDescription": "استمتع بانتعاش الطبيعة ومذاقها الفريد مع مشروب نباتي كركديه (Roselle) من دي إكس إن. صُممت هذه التركيبة المميزة لتمنحك خلاصة أزهار الكركديه الطبيعية في مشروب نباتي منعش يروي عطشك ويدعم حيويتك اليومية بأسلوب طبيعي وموثوق.",
+    "shortDescriptionFr": "Concentré pur de calices d'Hibiscus Sabdariffa regorgeant de vitamine C naturelle",
+    "description": "استمتع بانتعاش الطبيعة ومذاقها الفريد مع مشروب نباتي كركديه (Roselle) من دي إكس إن. صُممت هذه التركيبة المميزة لتمنحك خلاصة أزهار الكركديه الطبيعية في مشروب نباتي منعش يروي عطشك ويدعم حيويتك اليومية بأسلوب طبيعي وموثوق.",
+    "descriptionFr": "Concentré pur de calices d'Hibiscus Sabdariffa regorgeant de vitamine C naturelle",
+    "details": [
+      "خلاصة أزهار الكركديه النقية: يدمج فوائد الكركديه المعروف بخصائصه المنعشة والداعمة لصحة الجسم العامة.",
+      "انتعاش طبيعي ومميز: يمنحك شعوراً بالانتعاش والارتواء بفضل نكهته الغنية ومذاقه المميز المناسب لكل الأوقات.",
+      "جودة موثوقة: مُحضَر بعناية وفق معايير الجودة المرموقة لمنتجات دي إكس إن لضمان النقاء والتميز.",
+      "عبوة عملية وأنيقة: يأتي في زجاجة عملية مصممة بعناية للحفاظ على جودة المنتج ونضارته."
+    ],
+    "detailsFr": [
+      "Extrait de fleurs d'hibiscus naturellement riche en acides organiques et anthocyanes",
+      "Soutient la tonicité vasculaire, régule la tension et fortifie le système immunitaire",
+      "Couleur rubis spectaculaire et goût acidulé délicieusement désaltérant",
+      "Flacon en verre de 285 ml"
+    ],
+    "howToUse": "يُرج جيداً قبل الاستخدام.   يُتناول مبرداً للاستمتاع بأفضل مذاق منعش، ويُحفظ في الثلاجة بعد الفتح. x",
+    "howToUseFr": "Diluer 1 part de concentré Roselle dans 4 à 5 parts d'eau fraîche. Ajouter des feuilles de menthe ou des glaçons pour un cocktail santé.",
+    "tags": [
+      "DXN",
+      "Roselle",
+      "Hibiscus",
+      "Vitamin C",
+      "Blood Pressure",
+      "Refreshing Juice"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/35.png",
+        "productId": "dxn-e2-35-dxn-roselle-botanical-beverage",
+        "linkUrl": "product.html?id=dxn-e2-35-dxn-roselle-botanical-beverage"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/35.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "285 ml",
+        "stock": 65,
+        "sku": "DXN-E2-035",
+        "price": 141,
+        "compareAtPrice": 170
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-36-dxn-ganozhi-toothpaste-fluoride-free",
+    "name": "DXN Dentifrice Naturel Ganozhi au Ganoderma Sans Fluor",
+    "nameAr": "معجون أسنان جانوزي دي إكس إن",
+    "titleAr": "معجون أسنان جانوزي دي إكس إن (DXN Ganozhi Toothpaste)",
+    "nameFr": "DXN Dentifrice Naturel Ganozhi au Ganoderma Sans Fluor",
+    "subtitleAr": "معجون الأسنان الطبيعي 100% بالجانوديرما والنعناع، بدون فلورايد أو مواد كيميائية لحماية اللثة",
+    "subtitleFr": "Pâte dentifrice thérapeutique naturelle au Reishi pur, menthol doux et sans fluor",
+    "brand": "DXN",
+    "sku": "DXN-E2-036",
+    "barcode": "65000000136",
+    "slug": "dxn-e2-36-dxn-ganozhi-toothpaste-fluoride-free",
+    "category": "oral-care",
+    "categoryName": "Hygiène Bucco-Dentaire",
+    "categoryNameAr": "العناية بالفم والأسنان",
+    "categoryNameFr": "Hygiène Bucco-Dentaire",
+    "subcategory": "Oral Care",
+    "mainCategory": "personal-care-hygiene",
+    "categoryGroup": "personal-care-hygiene",
+    "collections": [
+      "personal-care-hygiene",
+      "new-arrivals",
+      "oral-care",
+      "best-sellers"
+    ],
+    "price": 111,
+    "compareAtPrice": 135,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": true,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "Tube 150 g",
+    "rating": 5,
+    "reviewCount": 31,
+    "shortDescription": "استمتع بابتسامة مشرقة ونظافة منعشة مع معجون أسنان جانوزي من دي إكس إن. صُممت هذه التركيبة الفريدة لتنظيف الأسنان بفعالية ولطف، وهي معززة بخلاصة فطر الجانوديرما (الريشي) لتمنحك عناية متكاملة بالفم والأسنان بأسلوب طبيعي وموثوق.",
+    "shortDescriptionFr": "Pâte dentifrice thérapeutique naturelle au Reishi pur, menthol doux et sans fluor",
+    "description": "استمتع بابتسامة مشرقة ونظافة منعشة مع معجون أسنان جانوزي من دي إكس إن. صُممت هذه التركيبة الفريدة لتنظيف الأسنان بفعالية ولطف، وهي معززة بخلاصة فطر الجانوديرما (الريشي) لتمنحك عناية متكاملة بالفم والأسنان بأسلوب طبيعي وموثوق.",
+    "descriptionFr": "Pâte dentifrice thérapeutique naturelle au Reishi pur, menthol doux et sans fluor",
+    "details": [
+      "تنظيف فعال ولطيف: يزيل البلاك والبقع برفق ليحافظ على بياض الأسنان ونظافتها دون أن يسبب تهيج اللثة.",
+      "معزز بخلاصة فطر الريشي: يدمج الخصائص الفريدة لفطر جانوديرما لتقديم عناية إضافية ودعم صحة اللثة والفم.",
+      "انتعاش يدوم طوال اليوم: يمنح الفم شعوراً بالانتعاش والنظافة ويساعد في محاربة رائحة الفم الكريهة لتستمتع بثقة طوال اليوم.",
+      "عبوة عملية واقتصادية: يأتي في أنبوب عملي بحجم 150 غراماً مصحوباً بعلبة خارجية متناسقة لسهولة الاستخدام والتخزين."
+    ],
+    "detailsFr": [
+      "Formule sans fluorure, sans saccharine et sans colorants artificiels agressifs",
+      "Assainit la cavité buccale, stoppe les saignements des gencives et prévient les aphtes",
+      "Laisse les dents parfaitement propres et une sensation de fraîcheur éclatante pendant des heures",
+      "Grand tube économique de 150 g"
+    ],
+    "howToUse": "تُوضع كمية مناسبة من المعجون على فرشاة الأسنان.   تُفرك الأسنان بلطف لمدة دقيقتين على الأقل، ثم يُشطف الفم جيداً بالماء، ويُفضل استخدامه بانتظام صباحاً ومساءً.",
+    "howToUseFr": "Brossez-vous les dents après chaque repas pendant 2 à 3 minutes. Peut également s'appliquer localement sur les gencives sensibles pour un effet apaisant rapide.",
+    "tags": [
+      "DXN",
+      "Ganozhi Toothpaste",
+      "Fluoride Free",
+      "Ganoderma",
+      "Gum Health",
+      "Best Seller"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/36.png",
+        "productId": "dxn-e2-36-dxn-ganozhi-toothpaste-fluoride-free",
+        "linkUrl": "product.html?id=dxn-e2-36-dxn-ganozhi-toothpaste-fluoride-free"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/36.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "Tube 150 g",
+        "stock": 65,
+        "sku": "DXN-E2-036",
+        "price": 111,
+        "compareAtPrice": 135
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-37-dxn-himalayan-salt-iodized",
+    "name": "DXN Sel Rose Pur de l'Himalaya Iodé de Table",
+    "nameAr": "ملح الهيمالايا المعالج باليود دي إكس إن",
+    "titleAr": "ملح الهيمالايا المعالج باليود دي إكس إن (DXN Himalayan Salt)",
+    "nameFr": "DXN Sel Rose Pur de l'Himalaya Iodé de Table",
+    "subtitleAr": "ملح صخري بلوري نقي من جبال الهيمالايا غني بـ 84 معدناً نادراً ومعالج باليود",
+    "subtitleFr": "Cristaux de sel gemme rose fossile pur non raffiné enrichi en iode alimentaire",
+    "brand": "DXN",
+    "sku": "DXN-E2-037",
+    "barcode": "65000000137",
+    "slug": "dxn-e2-37-dxn-himalayan-salt-iodized",
+    "category": "pantry-condiments",
+    "categoryName": "Épicerie, Miel & Condiments",
+    "categoryNameAr": "المؤونة والتوابل الصحية",
+    "categoryNameFr": "Épicerie, Miel & Condiments",
+    "subcategory": "Pantry & Condiments",
+    "mainCategory": "food-pantry",
+    "categoryGroup": "food-pantry",
+    "collections": [
+      "food-pantry",
+      "new-arrivals",
+      "pantry-condiments",
+      "best-sellers"
+    ],
+    "price": 95,
+    "compareAtPrice": 115,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "Paquet 650 g",
+    "rating": 5,
+    "reviewCount": 32,
+    "shortDescription": "استمتع بالنقاء والجودة الفائقة مع ملح الهيمالايا المعالج باليود من دي إكس إن. صُمم هذا المنتج ليمنحك نقاء ملح الهيمالايا الطبيعي مع دعم غذائي إضافي باليود لتلبية احتياجاتك اليومية بأسلوب صحي وموثوق.",
+    "shortDescriptionFr": "Cristaux de sel gemme rose fossile pur non raffiné enrichi en iode alimentaire",
+    "description": "استمتع بالنقاء والجودة الفائقة مع ملح الهيمالايا المعالج باليود من دي إكس إن. صُمم هذا المنتج ليمنحك نقاء ملح الهيمالايا الطبيعي مع دعم غذائي إضافي باليود لتلبية احتياجاتك اليومية بأسلوب صحي وموثوق.",
+    "descriptionFr": "Cristaux de sel gemme rose fossile pur non raffiné enrichi en iode alimentaire",
+    "details": [
+      "نقاء الجودة الطبيعية: يدمج خصائص ملح الهيمالايا النقي المعروف بمصدره الفريد وعناصره المعدنية المتوازنة.",
+      "معالج باليود: مُعزز باليود الأساسي لدعم وظائف الجسم الحيوية وصحة الغدة الدرقية بفعالية.",
+      "مثالي للاستخدام اليومي: يناسب مختلف الأطباق ووصفات الطهي لإضافة نكهة غنية ومتوازنة لنظامك الغذائي.",
+      "عبوة عملية واقتصادية: يأتي في عبوة بيضاء عملية بسعة 650 غراماً، مصممة بعناية للحفاظ على جودة ونقاء الملح لفترة طويلة."
+    ],
+    "detailsFr": [
+      "Sel fossile millénaire vierge de toute pollution marine moderne ou microplastique",
+      "Fournit une myriade d'oligo-éléments essentiels et prévient les carences en iode",
+      "Saveur fine et délicate qui sublime toutes vos préparations culinaires au quotidien",
+      "Paquet hermétique protecteur de 650 g"
+    ],
+    "howToUse": "يُستخدم كمكون أساسي في مختلف وصفات الطهي وإعداد الأطباق بحسب التفضيل الشخصي.   يُحفظ في مكان بارد وجاف بعيداً عن الرطوبة وأشعة الشمس المباشرة للحفاظ على خواصه وجودته.",
+    "howToUseFr": "Utilisez en sel de table ou pour assaisonner vos cuissons et marinades comme alternative saine au sel blanc raffiné.",
+    "tags": [
+      "DXN",
+      "Himalayan Salt",
+      "Pink Salt",
+      "Iodized Salt",
+      "Minerals",
+      "Healthy Cooking"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/37.png",
+        "productId": "dxn-e2-37-dxn-himalayan-salt-iodized",
+        "linkUrl": "product.html?id=dxn-e2-37-dxn-himalayan-salt-iodized"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/37.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "Paquet 650 g",
+        "stock": 65,
+        "sku": "DXN-E2-037",
+        "price": 95,
+        "compareAtPrice": 115
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-38-dxn-aloev-cleansing-gel",
+    "name": "DXN ALOE.V Gel Nettoyant Doux Visage à l'Aloès",
+    "nameAr": "جل منظف ألوة فيرا دي إكس إن",
+    "titleAr": "جل منظف ألوة فيرا دي إكس إن (DXN ALOE.V Cleansing Gel)",
+    "nameFr": "DXN ALOE.V Gel Nettoyant Doux Visage à l'Aloès",
+    "subtitleAr": "جل منظف للوجه بالألوفيرا النقية يزيل الدهون والشوائب وينقي المسام دون جفاف",
+    "subtitleFr": "Gel nettoyant moussant visage équilibrant et démaquillant à l'Aloe Vera biologique",
+    "brand": "DXN",
+    "sku": "DXN-E2-038",
+    "barcode": "65000000138",
+    "slug": "dxn-e2-38-dxn-aloev-cleansing-gel",
+    "category": "cleansers-toners",
+    "categoryName": "Nettoyants & Eaux Toniques",
+    "categoryNameAr": "الغسول والتونر المنقي",
+    "categoryNameFr": "Nettoyants & Eaux Toniques",
+    "subcategory": "Cleansers & Toners",
+    "mainCategory": "skincare-beauty",
+    "categoryGroup": "skincare-beauty",
+    "collections": [
+      "skincare-beauty",
+      "new-arrivals",
+      "cleansers-toners",
+      "best-sellers"
+    ],
+    "price": 111,
+    "compareAtPrice": 135,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "Tube 100 ml",
+    "rating": 5,
+    "reviewCount": 33,
+    "shortDescription": "استمتع ببشرة نقية ومنتعشة مع جل منظف ألوة فيرا (ALOE.V Cleansing Gel) من دي إكس إن. صُممت هذه التركيبة اللطيفة لتنظيف البشرة بعمق وإزالة الشوائب بأسلوب طبيعي وموثوق يعزز نعومتها ونضارتها طوال اليوم.",
+    "shortDescriptionFr": "Gel nettoyant moussant visage équilibrant et démaquillant à l'Aloe Vera biologique",
+    "description": "استمتع ببشرة نقية ومنتعشة مع جل منظف ألوة فيرا (ALOE.V Cleansing Gel) من دي إكس إن. صُممت هذه التركيبة اللطيفة لتنظيف البشرة بعمق وإزالة الشوائب بأسلوب طبيعي وموثوق يعزز نعومتها ونضارتها طوال اليوم.",
+    "descriptionFr": "Gel nettoyant moussant visage équilibrant et démaquillant à l'Aloe Vera biologique",
+    "details": [
+      "تنظيف عميق ولطيف: يزيل الأوساخ والشوائب بفعالية دون أن يسبب جفاف البشرة أو تهيجها.",
+      "خلاصة الألوة فيرا الملطفة: يدمج خصائص الصبار المعروف بقدرته على ترطيب وتهدئة البشرة ومنحها شعوراً فورياً بالانتعاش.",
+      "مناسب للاستخدام اليومي: تركيبة متوازنة تناسب مختلف أنواع البشرة للعناية اليومية المنتظمة.",
+      "عبوة عملية وأنيقة: يأتي في أنبوب عملي بسعة 100 مل، مصمم بعناية لسهولة الاستخدام والحفظ."
+    ],
+    "detailsFr": [
+      "Élimine instantanément résidus de maquillage, pollution et excès de sébum",
+      "Maintient le taux d'hydratation optimal grâce à l'action bienfaisante du gel d'Aloe Vera",
+      "Convient à tous types d'épidermes, même sensibles et réactifs",
+      "Tube ergonomique de 100 ml idéal sous la douche ou au lavabo"
+    ],
+    "howToUse": "تُوضع كمية مناسبة من الجل على راحة اليد وتُرغى بقليل من الماء.   يُدلك الوجه برفق بحركات دائرية، ثم يُشطف جيداً بالماء الفاتر، ويُفضل استخدامه صباحاً ومساءً.",
+    "howToUseFr": "Appliquez une noisette sur visage humide, massez délicatement en mouvements circulaires pour émulsionner, puis rincez à l'eau claire.",
+    "tags": [
+      "DXN",
+      "Aloe V",
+      "Cleansing Gel",
+      "Facial Wash",
+      "Aloe Vera",
+      "Pore Cleanser"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/38.png",
+        "productId": "dxn-e2-38-dxn-aloev-cleansing-gel",
+        "linkUrl": "product.html?id=dxn-e2-38-dxn-aloev-cleansing-gel"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/38.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "Tube 100 ml",
+        "stock": 65,
+        "sku": "DXN-E2-038",
+        "price": 111,
+        "compareAtPrice": 135
+      }
+    ]
+  },
+  {
+    "id": "dxn-e2-39-dxn-mycovita-pure-reishi",
+    "name": "ميكوفيتا – MYCOVITA DXN",
+    "nameAr": "ميكوفيتا – MYCOVITA DXN",
+    "titleAr": "ميكوفيتا – MYCOVITA DXN",
+    "nameFr": "MYCOVITA DXN - Poudre Thérapeutique Concentrée de Reishi",
+    "subtitleAr": "المزيج الأقوى والأعلى تركيزاً من مسحوق فطر الريشي البالغ وميسليوم الجانوديرما لتعافي الخلايا",
+    "subtitleFr": "Formulation magistrale hautement dosée en extraits de Reishi RG & GL pour régénération cellulaire",
+    "brand": "DXN",
+    "sku": "DXN-E2-039",
+    "barcode": "65000000139",
+    "slug": "dxn-e2-39-dxn-mycovita-pure-reishi",
+    "category": "mushroom-extracts",
+    "categoryName": "Extraits de Champignons & Reishi",
+    "categoryNameAr": "المكملات الغذائية DXN",
+    "categoryNameFr": "Extraits de Champignons & Reishi",
+    "subcategory": "Mushroom Extracts",
+    "mainCategory": "health-supplements",
+    "categoryGroup": "health-supplements",
+    "collections": [
+      "health-supplements",
+      "new-arrivals",
+      "mushroom-extracts",
+      "best-sellers"
+    ],
+    "price": 3429,
+    "compareAtPrice": 4100,
+    "isNew": true,
+    "isSale": true,
+    "isFeatured": false,
+    "isBundle": false,
+    "stock": 65,
+    "weight": "30 sachets",
+    "rating": 5,
+    "reviewCount": 34,
+    "shortDescription": "استمتع بالفوائد الصحية المتقدمة والدعم الحيوي المتكامل مع ميكوفيتا (Mycovita) من دي إكس إن. صُممت هذه التركيبة المبتكرة لتمنحك خلاصة فطر الريشي (Ganoderma) الغنية بالعناصر الغذائية التي تدعم مناعة الجسم وحيويته بأسلوب طبيعي وموثوق.",
+    "shortDescriptionFr": "Formulation magistrale hautement dosée en extraits de Reishi RG & GL pour régénération cellulaire",
+    "description": "استمتع بالفوائد الصحية المتقدمة والدعم الحيوي المتكامل مع ميكوفيتا (Mycovita) من دي إكس إن. صُممت هذه التركيبة المبتكرة لتمنحك خلاصة فطر الريشي (Ganoderma) الغنية بالعناصر الغذائية التي تدعم مناعة الجسم وحيويته بأسلوب طبيعي وموثوق.",
+    "descriptionFr": "Formulation magistrale hautement dosée en extraits de Reishi RG & GL pour régénération cellulaire",
+    "details": [
+      "خلاصة فطر الريشي المركزة: تدمج فوائد فطر الجانوديرما المعروف بقدرته على دعم الصحة العامة وتطهير الجسم.",
+      "تعزيز الحيوية والنشاط: تساهم في رفع مستوى الطاقة اليومية لدعم نمط حياة صحي ونشيط.",
+      "أظرف عملية وسهلة الاستخدام: تأتي في علبة أنيقة تحتوي على 30 ظرفاً (بوزن 24 غراماً لكل ظرف)، مما يجعلها عملية ومناسبة للاستخدام اليومي.",
+      "جودة موثوقة: مُحضرة بعناية وفق معايير الجودة المرموقة لمنتجات دي إكس إن لضمان النقاء والتميز."
+    ],
+    "detailsFr": [
+      "Concentration d'élite réunissant à la fois les principes actifs du Reishi mature et du mycélium",
+      "Soutien thérapeutique d'exception pour fortifier le système immunitaire et la vitalité profonde",
+      "Poudre micronisée ultra-fine pour une biodisponibilité et une absorption intestinale immédiate",
+      "Coffret d'élite de 30 sachets unidoses haute protection"
+    ],
+    "howToUse": "يُفرغ محتوى الظرف ويُمزج مع الماء أو المشروب المفضل بحسب التوجيهات.   يُحرك جيداً حتى يذوب تماماً، ويُحفظ في مكان بارد وجاف بعيداً عن أشعة الشمس المباشرة للحفاظ على جودته وخصائصه.",
+    "howToUseFr": "Diluer un sachet dans 200 ml d'eau tiède ou dans une soupe légère. Boire de préférence le matin à jeun ou en fin d'après-midi.",
+    "tags": [
+      "DXN",
+      "Mycovita",
+      "Reishi Powder",
+      "RG GL",
+      "Immunity Elite",
+      "Cellular Health"
+    ],
+    "colors": [
+      {
+        "name": "Standard",
+        "code": "standard",
+        "hex": "#2F5233",
+        "image": "assets/ecom2/39.png",
+        "productId": "dxn-e2-39-dxn-mycovita-pure-reishi",
+        "linkUrl": "product.html?id=dxn-e2-39-dxn-mycovita-pure-reishi"
+      }
+    ],
+    "images": {
+      "standard": [
+        "assets/ecom2/39.png"
+      ]
+    },
+    "variants": [
+      {
+        "color": "standard",
+        "size": "30 sachets",
+        "stock": 65,
+        "sku": "DXN-E2-039",
+        "price": 3429,
+        "compareAtPrice": 4100
+      }
+    ]
+  }
+];
+// Deprecated legacy clothing IDs pruned from localStorage
+window.DEPRECATED_PRODUCT_IDS = new Set([]);
+
+// Legacy aliases mapping
+window.PRODUCT_ALIASES = {};
+
+// Runtime Fallback & Cache Sync
+if (typeof window !== "undefined") {
+  const CURRENT_VERSION = "2026_10_26_catalog_v8_kallow";
+  const storedVersion = localStorage.getItem("atelier_catalog_version");
+  
+  if (storedVersion !== CURRENT_VERSION) {
+    localStorage.removeItem("atelier_products_v2");
+    localStorage.removeItem("dxn_catalog_version_square");
+    localStorage.setItem("atelier_catalog_version", CURRENT_VERSION);
   }
 
-  window.STORE_PRODUCTS = defaults;
-})();
+  const getDeletedIds = () => {
+    try {
+      const raw = localStorage.getItem("atelier_deleted_product_ids_v2");
+      return new Set(raw ? JSON.parse(raw) : []);
+    } catch(e) {
+      return new Set();
+    }
+  };
+
+  const filterStorefrontProducts = (list) => {
+    if (!Array.isArray(list)) return [];
+    const deleted = getDeletedIds();
+    return list.filter(p => p && p.id && !window.DEPRECATED_PRODUCT_IDS.has(p.id) && !deleted.has(p.id) && p.status !== "disabled" && p.isActive !== false && p.disabled !== true);
+  };
+
+  const cached = localStorage.getItem("atelier_products_v2");
+  if (cached) {
+    try {
+      const parsed = JSON.parse(cached);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        window.STORE_PRODUCTS = filterStorefrontProducts(parsed);
+      } else {
+        window.STORE_PRODUCTS = filterStorefrontProducts(window.DEFAULT_STORE_PRODUCTS);
+      }
+    } catch(e) {
+      window.STORE_PRODUCTS = filterStorefrontProducts(window.DEFAULT_STORE_PRODUCTS);
+    }
+  } else {
+    window.STORE_PRODUCTS = filterStorefrontProducts(window.DEFAULT_STORE_PRODUCTS);
+  }
+
+  // Optional background fresh fetch for real-time inventory from backend
+  if (typeof fetch === "function") {
+    fetch("/api/products")
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.success && Array.isArray(data.products) && data.products.length > 0) {
+          const fresh = filterStorefrontProducts(data.products);
+          if (fresh.length > 0) {
+            window.STORE_PRODUCTS = fresh;
+            try {
+              localStorage.setItem("atelier_products_v2", JSON.stringify(data.products));
+            } catch(e) {}
+          }
+        }
+      })
+      .catch(() => {
+        // Offline / fallback to master DEFAULT_STORE_PRODUCTS
+      });
+  }
+}

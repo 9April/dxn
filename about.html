@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Notre Histoire & Savoir-Faire | ATELIER</title>
-  <meta name="description" content="Découvrez l'histoire de notre marque de vêtements, notre choix de cotons peignés lourds et notre vision de la confection durable à Casablanca.">
+
+  <!-- Google Fonts: Cairo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>من نحن ورؤيتنا الصحية | دي إكس إن وكالو المغرب</title>
+  <meta name="description" content="تعرف على قصة متجر دي إكس إن (DXN) وكالو (Kallow) بالمغرب، التزامنا بتوفير أرقى منتجات فطر الريشي والسبيرولينا ومستحضرات التجميل الطبيعية 100%.">
   
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/components.css">
-  <link rel="stylesheet" href="assets/css/pages.css">
-  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/base.css?v=41">
+  <link rel="stylesheet" href="assets/css/components.css?v=41">
+  <link rel="stylesheet" href="assets/css/pages.css?v=41">
+  <link rel="stylesheet" href="assets/css/animations.css?v=18">
 </head>
 <body>
 
@@ -20,80 +25,88 @@
   <main id="main-content">
     
     <!-- Hero Editorial -->
-    <section style="background-color: var(--color-dark); color: #FFFFFF; padding: clamp(60px, 8vw, 100px) 0; text-align: center;">
-      <div class="container-narrow">
-        <span class="hero-tagline" style="color: #A0A0A0;">NOTRE HISTOIRE</span>
-        <h1 style="color: #FFFFFF; font-size: clamp(2.2rem, 5vw, 3.8rem); margin-top: 8px;">L'OBSESSION DU DÉTAIL</h1>
-        <p style="color: #D0D0D0; font-size: 1.15rem; max-width: 640px; margin: 16px auto 0;">
-          Redéfinir le t-shirt essentiel grâce à des grammages nobles, des coupes contemporaines et une confection locale irréprochable.
+    <section style="background: linear-gradient(135deg, #1A365D 0%, #0F172A 100%); color: #FFFFFF; padding: clamp(60px, 8vw, 100px) 0; text-align: center;">
+      <div class="container-narrow" style="display: contents;">
+        <div class="pdp-breadcrumbs" style="margin-bottom: 16px; justify-content: center;">
+          <a href="index.html" style="color: #93C5FD;">الرئيسية</a>
+          <span style="color: #64748B;">/</span>
+          <span style="color: #FFFFFF;">من نحن</span>
+        </div>
+        <span class="hero-tagline" id="about-hero-tag" style="color: #FCD34D;">من نحن ورؤيتنا</span>
+        <h1 id="about-hero-title" style="color: #FFFFFF; font-size: clamp(2.2rem, 5vw, 3.6rem); margin-top: 10px; font-weight: 800; line-height: 1.3;">
+          شغف الطبيعة ونقاء المكونات لصحتك وجمالك
+        </h1>
+        <p id="about-hero-desc" style="color: #E2E8F0; font-size: 1.12rem; max-width: 680px; margin: 18px auto 0; line-height: 1.8;">
+          متجرك المعتمد لمنتجات دي إكس إن (DXN) وكالو (Kallow) الطبيعية بالمغرب. نلتزم بتوفير أرقى منتجات فطر الريشي والسبيرولينا ومستحضرات التجميل الفاخرة لتعزيز صحتك وجمالك الطبيعي.
         </p>
       </div>
     </section>
 
-    <!-- Section 1: The Vision -->
+    <!-- Section 1: The Vision & Genesis -->
     <section class="section-spacing">
       <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 64px); align-items: center;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 64px); align-items: center;" class="responsive-about-grid">
           <div>
-            <span class="badge badge-new" style="margin-bottom: 12px;">GENÈSE DU PROJET</span>
-            <h2 style="margin-bottom: 20px;">POURQUOI ATELIER ?</h2>
-            <p style="margin-bottom: 16px;">
-              Tout est parti d'un constat simple : la grande majorité des t-shirts disponibles sur le marché se déforment après quelques lavages, ont des cols qui s'affaissent et utilisent des cotons trop fins et transparents.
+            <span class="badge badge-new" id="about-gen-badge" style="margin-bottom: 12px; font-weight: 700;">قصتنا وانطلاقتنا</span>
+            <h2 id="about-gen-title" style="margin-bottom: 20px; font-weight: 800; font-size: 2rem;">لماذا دي إكس إن وكالو في المغرب؟</h2>
+            <p id="about-gen-p1" style="margin-bottom: 16px; line-height: 1.8; color: var(--color-text-secondary); font-size: 1.02rem;">
+              انطلقت فكرتنا من قناعة راسخة: الصحة الحقيقية والجمال الدائم ينبعان من التغذية الخلوية المتوازنة والمكونات الطبيعية النقية. في عالم مليء بالمنتجات المعالجة كيميائياً، أردنا أن نوفر للمستهلك المغربي بديلاً طبيعياً 100%، أصلياً وموثوقاً يجمع بين قوة العلاج الطبي التقليدي وأحدث معايير الجودة العالمية.
             </p>
-            <p>
-              Nous avons passé plus de 8 mois à développer notre premier patronage à Casablanca. Notre objectif était de créer le t-shirt ultime : un tissu dense de 240 à 300 GSM qui a du maintien, un col renforcé double piqûre et une coupe ample résolument moderne.
+            <p id="about-gen-p2" style="line-height: 1.8; color: var(--color-text-secondary); font-size: 1.02rem;">
+              عبر شراكتنا مع العلامتين الرائدتين عالمياً، DXN المتخصصة في فطر الريشي والأغذية الفائقة، وKallow المتخصصة في مستحضرات العناية الفاخرة المعتمدة على الألوفيرا وزيت الأرغان، نوفر لك حلولاً متكاملة للعناية بالبشرة، دعم المناعة، وتجديد الحيوية اليومية مع توصيل سريع وموثوق لكافة مدن المملكة.
             </p>
           </div>
           <div>
-            <img src="assets/images/lookbook/lookbook-male.jpg" alt="Atelier Craftsmanship" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; box-shadow: var(--shadow-medium);">
+            <img id="about-showcase-img" src="assets/dxn-africa.jpeg" alt="DXN & Kallow Maroc" style="width: 100%; border-radius: 8px; box-shadow: var(--shadow-medium); aspect-ratio: 4 / 3; object-fit: cover;">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Section 2: Materials & Craft -->
-    <section id="craft" class="section-spacing" style="background-color: var(--color-bg-secondary); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <!-- Section 2: 3 Pillars -->
+    <section class="section-spacing" style="background-color: var(--color-bg-secondary); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
       <div class="container">
-        <div class="section-header text-center">
-          <span class="badge" style="background: #E5E5E0; color: #111; margin-bottom: 8px;">MATIÈRES & STANDARDS</span>
-          <h2>CONÇU POUR TRAVERSER LES SAISONS</h2>
-          <p class="section-subtitle">Chaque élément technique répond à un standard de durabilité intransigeant.</p>
+        <div class="section-header text-center" style="margin-bottom: 48px;">
+          <h2 id="about-pillars-title" style="font-weight: 800; font-size: 2.2rem;">ركائزنا وقيمنا الأساسية</h2>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;">
-          <div style="background: #FFF; padding: 32px; border: 1px solid var(--color-border);">
-            <div style="font-size: 2rem; margin-bottom: 12px;">🧵</div>
-            <h3 style="font-size: 1.2rem; margin-bottom: 8px;">COTON PEIGNÉ 240-300 GSM</h3>
-            <p style="font-size: 0.9rem;">
-              Nos fibres de coton longues sont peignées pour éliminer toutes les impuretés, offrant un jersey dense, soyeux et extrêmement résistant aux frottements.
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+          <!-- Pillar 1 -->
+          <div style="background: #FFFFFF; padding: 36px 28px; border-radius: 8px; border: 1px solid var(--color-border); box-shadow: var(--shadow-subtle);">
+            <h3 id="about-p1-title" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; color: #166534;">🍄 فطر الريشي والأغذية الفائقة (DXN)</h3>
+            <p id="about-p1-desc" style="line-height: 1.7; color: var(--color-text-secondary); font-size: 0.95rem; margin: 0;">
+              تعتمد منتجات DXN على فطر الجانوديرما لوسيدوم (الفطر الريشي) المعروف بملك الأعشاب، لدعم توازن الجسم، تقوية جهاز المناعة، ومقاومة الإرهاق والسموم بفعالية مثبتة.
             </p>
           </div>
 
-          <div style="background: #FFF; padding: 32px; border: 1px solid var(--color-border);">
-            <div style="font-size: 2rem; margin-bottom: 12px;">🛡️</div>
-            <h3 style="font-size: 1.2rem; margin-bottom: 8px;">COL TRICOTÉ RENFORCÉ</h3>
-            <p style="font-size: 0.9rem;">
-              Bord-côte dense 1x1 doublé de 3 cm de largeur avec surpiqûre de renfort. Il conserve sa forme initiale et ne gondole jamais.
+          <!-- Pillar 2 -->
+          <div style="background: #FFFFFF; padding: 36px 28px; border-radius: 8px; border: 1px solid var(--color-border); box-shadow: var(--shadow-subtle);">
+            <h3 id="about-p2-title" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; color: #1E3A8A;">🌿 العناية الطبيعية الفاخرة (Kallow)</h3>
+            <p id="about-p2-desc" style="line-height: 1.7; color: var(--color-text-secondary); font-size: 0.95rem; margin: 0;">
+              تركيبات غنية بالألوفيرا، البابونج، وحمض الهيالورونيك مصممة لترطيب وتغذية وشد البشرة دون مواد كيميائية ضارة، لتمنحك إشراقة شبابية ونضارة طبيعية.
             </p>
           </div>
 
-          <div style="background: #FFF; padding: 32px; border: 1px solid var(--color-border);">
-            <div style="font-size: 2rem; margin-bottom: 12px;">🇲🇦</div>
-            <h3 style="font-size: 1.2rem; margin-bottom: 8px;">CONFECTION LOCALE CASABLANCA</h3>
-            <p style="font-size: 0.9rem;">
-              Chaque série est coupée, cousue et contrôlée à la main dans nos ateliers partenaires à Casablanca dans le respect strict des artisans.
+          <!-- Pillar 3 -->
+          <div style="background: #FFFFFF; padding: 36px 28px; border-radius: 8px; border: 1px solid var(--color-border); box-shadow: var(--shadow-subtle);">
+            <h3 id="about-p3-title" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; color: #B45309;">🚚 خدمة وتوصيل سريع بالمغرب</h3>
+            <p id="about-p3-desc" style="line-height: 1.7; color: var(--color-text-secondary); font-size: 0.95rem; margin: 0;">
+              شحن سريع خلال 24 إلى 48 ساعة لجميع مدن المغرب، خدمة الدفع عند الاستلام مع إمكانية فحص المنتج، وخدمة عملاء متخصصة عبر واتساب للإجابة عن كافة استفساراتك.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="section-spacing text-center">
-      <div class="container-narrow">
-        <h2 style="margin-bottom: 16px;">PRÊT À DÉCOUVRIR LA DIFFÉRENCE ?</h2>
-        <p style="margin-bottom: 28px;">Rejoignez la communauté de passionnés qui ont adopté nos essentiels.</p>
-        <a href="shop.html" class="btn btn-primary btn-lg">EXPLORER LES T-SHIRTS</a>
+    <!-- Section 3: Call to Action -->
+    <section class="section-spacing" style="text-align: center;">
+      <div class="container-narrow" style="display: contents;">
+        <h2 id="about-cta-title" style="font-size: 2rem; font-weight: 800; margin-bottom: 16px;">ابدأ رحلتك نحو صحة وجمال طبيعيين اليوم</h2>
+        <div style="margin-top: 24px;">
+          <a href="shop.html" id="about-cta-btn" class="btn btn-primary btn-lg" style="font-weight: 700; padding: 14px 32px;">
+            تصفح منتجاتنا في المتجر
+          </a>
+        </div>
       </div>
     </section>
 
@@ -103,25 +116,20 @@
   <div id="site-footer-container"></div>
 
   <!-- Core Scripts -->
-  <script src="assets/js/config.js?v=6"></script>
-  <script src="assets/js/i18n.js?v=6"></script>
-  <script src="assets/js/data/categories.js?v=6"></script>
-  <script src="assets/js/data/collections.js?v=6"></script>
-  <script src="assets/js/data/products.js?v=6"></script>
-  <script src="assets/js/core/storage.js?v=6"></script>
-  <script src="assets/js/core/utils.js?v=6"></script>
-  <script src="assets/js/core/cart.js?v=6"></script>
-  <script src="assets/js/core/wishlist.js?v=6"></script>
-  <script src="assets/js/core/search.js?v=6"></script>
-  <script src="assets/js/components/toast.js?v=6"></script>
-  <script src="assets/js/components/header.js?v=6"></script>
-  <script src="assets/js/components/footer.js?v=6"></script>
-  <script src="assets/js/components/cartDrawer.js?v=6"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      if (window.HeaderComponent) window.HeaderComponent.mount();
-      if (window.FooterComponent) window.FooterComponent.mount();
-    });
-  </script>
+  <script src="assets/js/config.js?v=41"></script>
+  <script src="assets/js/i18n.js?v=41"></script>
+  <script src="assets/js/data/categories.js?v=32"></script>
+  <script src="assets/js/data/collections.js?v=32"></script>
+  <script src="assets/js/data/products.js?v=32"></script>
+  <script src="assets/js/core/storage.js?v=15"></script>
+  <script src="assets/js/core/utils.js?v=41"></script>
+  <script src="assets/js/core/cart.js?v=25"></script>
+  <script src="assets/js/core/wishlist.js?v=15"></script>
+  <script src="assets/js/core/search.js?v=15"></script>
+  <script src="assets/js/components/toast.js?v=15"></script>
+  <script src="assets/js/components/header.js?v=41"></script>
+  <script src="assets/js/components/footer.js?v=41"></script>
+  <script src="assets/js/components/cartDrawer.js?v=41"></script>
+  <script src="assets/js/pages/about.js?v=35"></script>
 </body>
 </html>

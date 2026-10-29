@@ -1,6 +1,7 @@
 /**
  * Footer Component
  * Newsletter signup handler, Moroccan market footer links, legal policies, and currency.
+ * Bilingual: Arabic (RTL) & French (LTR).
  */
 
 window.FooterComponent = {
@@ -9,6 +10,12 @@ window.FooterComponent = {
     if (!container) return;
 
     const config = window.STORE_CONFIG;
+    const isAr = window.I18N ? window.I18N.isRTL() : true;
+
+    const brandTitle = isAr ? "دي إكس إن وكالو" : "DXN & KALLOW";
+    const brandSub = isAr
+      ? "منتجات الصحة والجمال الطبيعي بالمغرب"
+      : "Santé, Bien-être & Beauté Naturelle au Maroc";
 
     container.innerHTML = `
       <footer class="site-footer">
@@ -16,15 +23,22 @@ window.FooterComponent = {
           <div class="footer-grid">
             <!-- Brand Column -->
             <div class="footer-col-brand">
-              <div class="brand-logo" style="color: #FFFFFF; margin-bottom: 12px;">
-                <span>${config.brandName}</span>
-                <span class="brand-logo-sub" style="color: #888888;">${config.brandSubtitle}</span>
+              <div class="brand-logo" style="color: #FFFFFF; margin-bottom: 12px; align-items: center; gap: 10px;">
+                <img src="assets/logo.png" alt="DXN & KALLOW" style="width: 40px; height: 40px; object-fit: contain; border-radius: 6px;">
+                <div class="brand-logo-text">
+                  <span class="brand-logo-main" style="color: #FFFFFF; font-size: 1.3rem;">${brandTitle}</span>
+                  <span class="brand-logo-sub" style="color: #888888; display: block; margin-top: 3px;">
+                    ${brandSub}
+                  </span>
+                </div>
               </div>
-              <p>
-                Marque de vêtements contemporaine basée à Casablanca. Nous confectionnons des silhouettes minimalistes et des pièces durables pensées pour le quotidien.
+              <p style="line-height: 1.7; font-size: 0.9rem;">
+                ${isAr 
+                  ? "متجرك المعتمد لمنتجات دي إكس إن (DXN) وكالو (Kallow) الطبيعية بالمغرب. نقدم تشكيلة راقية من المكملات العضوية، مستحضرات العناية الفائقة، والقهوة الصحية مع ضمان الجودة 100%."
+                  : "Votre boutique officielle pour les produits naturels DXN et Kallow au Maroc. Découvrez nos gammes de compléments alimentaires au Ganoderma, cafés bien-être et soins dermo-cosmétiques certifiés 100% originaux."}
               </p>
-              <div style="font-size: 0.84rem; color: #BBBBBB; display: flex; flex-direction: column; gap: 4px;">
-                <span>📍 ${config.contact.address}</span>
+              <div style="font-size: 0.84rem; color: #BBBBBB; display: flex; flex-direction: column; gap: 4px; margin-top: 10px;">
+                <span>📍 ${isAr ? "طنجة، المملكة المغربية" : "Tanger, Royaume du Maroc"}</span>
                 <span>📞 ${config.contact.phone}</span>
                 <span>✉️ ${config.contact.email}</span>
               </div>
@@ -32,39 +46,41 @@ window.FooterComponent = {
 
             <!-- Shop Categories -->
             <div>
-              <h4 class="footer-heading">Boutique</h4>
+              <h4 class="footer-heading">${isAr ? "أقسام المتجر" : "Catégories"}</h4>
               <div class="footer-links">
-                <a href="shop.html">Tous les Produits</a>
-                <a href="collections.html?c=packs-bundles">Offres Packs & Bundles</a>
-                <a href="collections.html?c=essential-collection">Collection Essentielle</a>
-                <a href="collections.html?c=heavyweight-300">Heavyweight 300 GSM</a>
-                <a href="shop.html?filter=sale">Sélection Soldes</a>
+                <a href="shop.html">${isAr ? "جميع المنتجات الطبيعية" : "Tous les Produits"}</a>
+                <a href="shop.html?category=kallow">${isAr ? "كالو (Kallow)" : "Gamme Kallow"}</a>
+                <a href="shop.html?category=skincare-beauty">${isAr ? "العناية بالبشرة والجمال" : "Soins de la Peau & Beauté"}</a>
+                <a href="shop.html?category=personal-care-hygiene">${isAr ? "العناية الشخصية والنظافة" : "Soins Personnels & Hygiène"}</a>
+                <a href="shop.html?category=health-supplements">${isAr ? "المكملات الغذائية" : "Compléments Alimentaires"}</a>
+                <a href="shop.html?category=beverages-drinks">${isAr ? "المشروبات الصحية والقهوة" : "Boissons Santé & Cafés"}</a>
+                <a href="shop.html?category=food-pantry">${isAr ? "الأغذية والمنتجات اليومية" : "Alimentation & Épicerie"}</a>
               </div>
             </div>
 
             <!-- Customer Service -->
             <div>
-              <h4 class="footer-heading">Service Client</h4>
+              <h4 class="footer-heading">${isAr ? "خدمة العملاء" : "Service Client"}</h4>
               <div class="footer-links">
-                <a href="shipping-returns.html">Livraison 24/48h au Maroc</a>
-                <a href="shipping-returns.html#returns">Échanges & Retours</a>
-                <a href="about.html#guide">Guide des Tailles</a>
-                <a href="contact.html">Nous Contacter</a>
-                <a href="https://wa.me/${config.contact.whatsapp.replace(/\+/g, '')}?text=${encodeURIComponent(config.contact.whatsappMessage)}" target="_blank">
-                  WhatsApp Support (Direct)
+                <a href="shipping-returns.html">${isAr ? "توصيل سريع 24/48h بالمغرب" : "Livraison Rapide 24/48h au Maroc"}</a>
+                <a href="shipping-returns.html#returns">${isAr ? "الدفع عند الاستلام (COD)" : "Paiement à la Livraison (COD)"}</a>
+                <a href="contact.html">${isAr ? "تواصل معنا" : "Contactez-nous"}</a>
+                <a href="https://wa.me/${config.contact.whatsapp.replace(/\+/g, '')}?text=${encodeURIComponent(config.contact.whatsappMessage)}" target="_blank" style="color: #25D366; font-weight: 600;">
+                  ${isAr ? "دعم واتساب المباشر 💬" : "Assistance WhatsApp Directe 💬"}
                 </a>
-                <a href="account.html">Suivi de Commande</a>
-                <a href="admin.html" style="color: #D4AF37; font-weight: 600;">⚡ Gestion des Stocks (Admin)</a>
+                <a href="admin.html" style="color: #D4AF37; font-weight: 600;">
+                  ${isAr ? "لوحة الإدارة وإدارة المخزون" : "Tableau de Bord Admin & Stocks"}
+                </a>
               </div>
             </div>
 
             <!-- Brand & Social -->
             <div>
-              <h4 class="footer-heading">Informations</h4>
+              <h4 class="footer-heading">${isAr ? "عن المتجر" : "À Propos"}</h4>
               <div class="footer-links">
-                <a href="about.html">Notre Histoire & Atelier</a>
-                <a href="about.html#craft">Matières & Éthique</a>
-                <a href="${config.social.instagram}" target="_blank">Instagram @atelier_ma</a>
+                <a href="about.html">${isAr ? "قصتنا ورؤيتنا الصحية" : "Notre Histoire & Vision Santé"}</a>
+                <a href="about.html#craft">${isAr ? "ضمان الأصالة والمصداقية" : "Garantie d'Authenticité 100%"}</a>
+                <a href="${config.social.instagram}" target="_blank">Instagram</a>
                 <a href="${config.social.tiktok}" target="_blank">TikTok</a>
                 <a href="${config.social.facebook}" target="_blank">Facebook</a>
               </div>
@@ -74,19 +90,19 @@ window.FooterComponent = {
           <!-- Bottom Row -->
           <div class="footer-bottom">
             <div>
-              &copy; ${new Date().getFullYear()} ${config.brandName}. Tous droits réservés.
+              &copy; ${new Date().getFullYear()} ${brandTitle}. ${isAr ? "جميع الحقوق محفوظة." : "Tous droits réservés."}
             </div>
 
             <div style="display: flex; gap: 16px;">
-              <a href="shipping-returns.html#privacy">Politique de Confidentialité</a>
+              <a href="shipping-returns.html#privacy">${isAr ? "سياسة الخصوصية" : "Politique de Confidentialité"}</a>
               <span>•</span>
-              <a href="shipping-returns.html#terms">Conditions Générales</a>
+              <a href="shipping-returns.html#terms">${isAr ? "الشروط والأحكام" : "Conditions Générales"}</a>
             </div>
 
             <div style="display: flex; align-items: center; gap: 8px; font-weight: 600; color: #CCCCCC;">
-              <span>🇲🇦 Maroc</span>
+              <span>${isAr ? "🇲🇦 المغرب" : "🇲🇦 Maroc"}</span>
               <span>|</span>
-              <span>MAD (Moroccan Dirham)</span>
+              <span>${isAr ? "الدرهم المغربي (درهم)" : "Dirham Marocain (MAD)"}</span>
             </div>
           </div>
         </div>
@@ -98,6 +114,8 @@ window.FooterComponent = {
 
   bindNewsletter() {
     const forms = document.querySelectorAll(".newsletter-form");
+    const isAr = window.I18N ? window.I18N.isRTL() : true;
+
     forms.forEach(form => {
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
@@ -112,10 +130,14 @@ window.FooterComponent = {
             }).catch(() => {});
           } catch (err) {}
 
+          const msg = isAr 
+            ? "شكراً لاشتراكك! تم تسجيل بريدك الإلكتروني بنجاح في نشرتنا البريدية."
+            : "Merci pour votre inscription ! Votre adresse email a bien été enregistrée à notre newsletter.";
+
           if (window.StoreUtils && typeof window.StoreUtils.showToast === "function") {
-            StoreUtils.showToast("Merci ! Vous bénéficiez désormais de 10% avec le code WELCOME10.", "success");
+            StoreUtils.showToast(msg, "success");
           } else {
-            alert("Merci ! Vous bénéficiez désormais de 10% avec le code WELCOME10.");
+            alert(msg);
           }
           input.value = "";
         }

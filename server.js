@@ -140,6 +140,498 @@ function sendWhatsAppMessageNode(toPhone, templateName = 'hello_world', language
   });
 }
 
+// ----------------------------------------------------------------------------
+// MYSQL DATABASE CONFIGURATION & PERSISTENCE ENGINE (u895506237_dxn)
+// ----------------------------------------------------------------------------
+let mysql = null;
+try {
+  mysql = require('mysql2/promise');
+} catch (e) {
+  console.warn('[DB] mysql2 not available:', e.message);
+}
+
+const DB_CONFIG = {
+  host: process.env.DB_HOST || 'srv898.hstgr.io',
+  user: process.env.DB_USER || 'u895506237_dxn',
+  password: process.env.DB_PASSWORD || 'j^TA3Y!X:I7',
+  database: process.env.DB_NAME || 'u895506237_dxn',
+  port: parseInt(process.env.DB_PORT || '3306', 10),
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
+  connectTimeout: 8000
+};
+
+let dbPool = null;
+function getDbPool() {
+  if (!mysql) return null;
+  if (!dbPool) {
+    try {
+      dbPool = mysql.createPool(DB_CONFIG);
+    } catch (e) {
+      console.error('[DB] Failed to create MySQL pool:', e.message);
+    }
+  }
+  return dbPool;
+}
+
+async function getProductsFromDb(includeDisabled = false) {
+  const pool = getDbPool();
+  if (!pool) return null;
+  try {
+    const query = includeDisabled 
+      ? 'SELECT raw_json, status FROM products ORDER BY brand, name'
+      : 'SELECT raw_json, status FROM products WHERE status != "disabled" ORDER BY brand, name';
+    const [rows] = await pool.query(query);
+    if (Array.isArray(rows) && rows.length > 0) {
+      return rows.map(r => {
+        try {
+          let p = typeof r.raw_json === 'string' ? JSON.parse(r.raw_json) : r.raw_json;
+          if (p) {
+            p.status = r.status || p.status || 'active';
+            p.isActive = p.status !== 'disabled';
+            p.disabled = p.status === 'disabled';
+            if (p.colors) {
+              p.colors.forEach(c => {
+                if (c.image && c.image.endsWith('.jpeg')) {
+                  c.image = c.image.replace(/\.jpeg$/i, '.png');
+                }
+              });
+            }
+            if (p.images) {
+              for (const k in p.images) {
+                if (Array.isArray(p.images[k])) {
+                  p.images[k] = p.images[k].map(img => typeof img === 'string' ? img.replace(/\.jpeg$/i, '.png') : img);
+                }
+              }
+            }
+          }
+          return p;
+        } catch (e) {
+          return null;
+        }
+      }).filter(Boolean);
+    }
+  } catch (err) {
+    console.error('[DB] Error querying products:', err.message);
+  }
+  return null;
+}
+
+async function saveProductToDb(p) {
+  const pool = getDbPool();
+  if (!pool || !p || !p.id) return false;
+  try {
+    const isProdActive = p.status !== 'disabled' && p.isActive !== false && p.disabled !== true;
+    p.status = isProdActive ? 'active' : 'disabled';
+    p.isActive = isProdActive;
+    p.disabled = !isProdActive;
+    const rawJson = JSON.stringify(p);
+    await pool.query(`
+      INSERT INTO products (
+        id, sku, name, nameAr, nameFr, titleAr, brand, price, compareAtPrice, costPrice,
+        category, categoryName, categoryNameFr, subcategory, categoryGroup, stock,
+        isNew, isFeatured, isSale, status, shortDescription, shortDescriptionAr, shortDescriptionFr,
+        description, descriptionAr, descriptionFr, attributes, colors, images, variants,
+        tags, collections, specs, seo, raw_json
+      )
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      ON DUPLICATE KEY UPDATE
+        sku = VALUES(sku),
+        name = VALUES(name),
+        nameAr = VALUES(nameAr),
+        nameFr = VALUES(nameFr),
+        titleAr = VALUES(titleAr),
+        brand = VALUES(brand),
+        price = VALUES(price),
+        compareAtPrice = VALUES(compareAtPrice),
+        costPrice = VALUES(costPrice),
+        category = VALUES(category),
+        categoryName = VALUES(categoryName),
+        categoryNameFr = VALUES(categoryNameFr),
+        subcategory = VALUES(subcategory),
+        categoryGroup = VALUES(categoryGroup),
+        stock = VALUES(stock),
+        isNew = VALUES(isNew),
+        isFeatured = VALUES(isFeatured),
+        isSale = VALUES(isSale),
+        status = VALUES(status),
+        shortDescription = VALUES(shortDescription),
+        shortDescriptionAr = VALUES(shortDescriptionAr),
+        shortDescriptionFr = VALUES(shortDescriptionFr),
+        description = VALUES(description),
+        descriptionAr = VALUES(descriptionAr),
+        descriptionFr = VALUES(descriptionFr),
+        attributes = VALUES(attributes),
+        colors = VALUES(colors),
+        images = VALUES(images),
+        variants = VALUES(variants),
+        tags = VALUES(tags),
+        collections = VALUES(collections),
+        specs = VALUES(specs),
+        seo = VALUES(seo),
+        raw_json = VALUES(raw_json)
+    `, [
+      p.id,
+      p.sku || '',
+      p.name,
+      p.nameAr || p.name,
+      p.nameFr || p.name,
+      p.titleAr || p.nameAr || p.name,
+      p.brand || 'DXN',
+      p.price || 0,
+      p.compareAtPrice || null,
+      p.costPrice || null,
+      p.category || '',
+      p.categoryName || '',
+      p.categoryNameFr || '',
+      p.subcategory || '',
+      p.categoryGroup || '',
+      p.stock || 0,
+      p.isNew ? 1 : 0,
+      p.isFeatured ? 1 : 0,
+      p.isSale ? 1 : 0,
+      p.status,
+      p.shortDescription || '',
+      p.shortDescriptionAr || '',
+      p.shortDescriptionFr || '',
+      p.description || '',
+      p.descriptionAr || '',
+      p.descriptionFr || '',
+      JSON.stringify(p.attributes || {}),
+      JSON.stringify(p.colors || []),
+      JSON.stringify(p.images || {}),
+      JSON.stringify(p.variants || []),
+      JSON.stringify(p.tags || []),
+      JSON.stringify(p.collections || []),
+      JSON.stringify(p.specs || {}),
+      JSON.stringify(p.seo || {}),
+      rawJson
+    ]);
+    return true;
+  } catch (err) {
+    console.error('[DB] Error saving product to MySQL:', err.message);
+    return false;
+  }
+}
+
+async function deleteProductFromDb(productId) {
+  const pool = getDbPool();
+  if (!pool || !productId) return false;
+  try {
+    await pool.query('DELETE FROM products WHERE id = ?', [productId]);
+    return true;
+  } catch (err) {
+    console.error('[DB] Error deleting product from MySQL:', err.message);
+    return false;
+  }
+}
+
+async function getCategoriesFromDb() {
+  const pool = getDbPool();
+  if (!pool) return null;
+  try {
+    const [rows] = await pool.query('SELECT raw_json FROM categories ORDER BY id');
+    if (Array.isArray(rows) && rows.length > 0) {
+      return rows.map(r => {
+        try {
+          return typeof r.raw_json === 'string' ? JSON.parse(r.raw_json) : r.raw_json;
+        } catch (e) {
+          return null;
+        }
+      }).filter(Boolean);
+    }
+  } catch (err) {
+    console.error('[DB] Error querying categories:', err.message);
+  }
+  return null;
+}
+
+async function saveCategoryToDb(cat) {
+  const pool = getDbPool();
+  if (!pool || !cat || !cat.id) return false;
+  try {
+    const rawJson = JSON.stringify(cat);
+    await pool.query(`
+      INSERT INTO categories (id, slug, name, nameAr, nameFr, categoryGroup, description, image, active, itemCount, raw_json)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      ON DUPLICATE KEY UPDATE
+        slug = VALUES(slug),
+        name = VALUES(name),
+        nameAr = VALUES(nameAr),
+        nameFr = VALUES(nameFr),
+        categoryGroup = VALUES(categoryGroup),
+        description = VALUES(description),
+        image = VALUES(image),
+        active = VALUES(active),
+        itemCount = VALUES(itemCount),
+        raw_json = VALUES(raw_json)
+    `, [
+      cat.id,
+      cat.slug || cat.id,
+      cat.name,
+      cat.nameAr || cat.name,
+      cat.nameFr || cat.name,
+      cat.categoryGroup || 'general',
+      cat.description || '',
+      cat.image || '',
+      cat.active ? 1 : 0,
+      cat.itemCount || 0,
+      rawJson
+    ]);
+    return true;
+  } catch (err) {
+    console.error('[DB] Error saving category to MySQL:', err.message);
+    return false;
+  }
+}
+
+function writeProductsFile(products) {
+  const productsFilePath = path.join(ROOT_DIR, 'assets', 'js', 'data', 'products.js');
+  const jsContent = `/**
+ * Products Master Database - DXN & Kallow Health, Wellness & Beauty Catalog
+ * Fully data-driven catalog with bilingual support (Arabic & French),
+ * pricing, attributes, high-resolution photography, and taxonomy.
+ */
+
+window.DEFAULT_STORE_PRODUCTS = ${JSON.stringify(products, null, 2)};
+
+// Runtime Fallback & Cache Sync
+if (typeof window !== 'undefined') {
+  const CURRENT_VERSION = "2026_10_25_catalog_v7_dxn_prices";
+  const storedVersion = localStorage.getItem("atelier_catalog_version");
+  
+  if (storedVersion !== CURRENT_VERSION) {
+    localStorage.removeItem("atelier_products_v2");
+    localStorage.setItem("atelier_catalog_version", CURRENT_VERSION);
+  }
+
+  const cached = localStorage.getItem("atelier_products_v2");
+  if (cached) {
+    try {
+      const parsed = JSON.parse(cached);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        window.STORE_PRODUCTS = parsed.filter(p => p && p.status !== 'disabled' && p.isActive !== false && p.disabled !== true);
+      } else {
+        window.STORE_PRODUCTS = (window.DEFAULT_STORE_PRODUCTS || []).filter(p => p && p.status !== 'disabled' && p.isActive !== false && p.disabled !== true);
+      }
+    } catch(e) {
+      window.STORE_PRODUCTS = (window.DEFAULT_STORE_PRODUCTS || []).filter(p => p && p.status !== 'disabled' && p.isActive !== false && p.disabled !== true);
+    }
+  } else {
+    window.STORE_PRODUCTS = (window.DEFAULT_STORE_PRODUCTS || []).filter(p => p && p.status !== 'disabled' && p.isActive !== false && p.disabled !== true);
+  }
+
+  fetch('/api/products')
+    .then(res => res.json())
+    .then(data => {
+      if (data && data.success && Array.isArray(data.products)) {
+        window.STORE_PRODUCTS = data.products.filter(p => p && p.status !== 'disabled' && p.isActive !== false && p.disabled !== true);
+        try {
+          if (typeof localStorage !== 'undefined') {
+            localStorage.setItem("atelier_products_v2", JSON.stringify(data.products));
+          }
+        } catch (e) {}
+      }
+    })
+    .catch(() => {});
+}
+`;
+  fs.writeFileSync(productsFilePath, jsContent, 'utf8');
+}
+
+function writeCategoriesFile(categories) {
+  const categoriesFilePath = path.join(ROOT_DIR, 'assets', 'js', 'data', 'categories.js');
+  const mainCategories = [
+    {
+      id: "skincare-beauty",
+      slug: "skincare-beauty",
+      code: "A",
+      name: "العناية بالبشرة والجمال (Skincare & Beauty)",
+      nameAr: "العناية بالبشرة والجمال",
+      nameFr: "Soins de la Peau & Beauté",
+      icon: "✨",
+      image: "assets/Categories/A.png",
+      descriptionAr: "كريمات الوجه والسيرومات، الحماية من الشمس، الغسول وأقنعة العناية الطبيعية الفاخرة من كالو.",
+      descriptionFr: "Crèmes visage régénérantes, sérums tenseurs, émulsions solaires SPF 30 & SPF 50, nettoyants et masques.",
+      subcategories: [
+        "face-creams-serums",
+        "cleansers-toners",
+        "sunscreens-tanning",
+        "face-masks-lip-care"
+      ]
+    },
+    {
+      id: "personal-care-hygiene",
+      slug: "personal-care-hygiene",
+      code: "B",
+      name: "العناية الشخصية والنظافة (Personal Care & Hygiene)",
+      nameAr: "العناية الشخصية والنظافة",
+      nameFr: "Soins Personnels & Hygiène",
+      icon: "🌿",
+      image: "assets/Categories/B.png",
+      descriptionAr: "لوشن الجسم، زيوت التدليك الطبيعية بالجانوديرما، العناية بالشعر والأطفال، ومعجون الأسنان الطبيعي.",
+      descriptionFr: "Lotions corps, huiles de massage Gano apaisantes, shampoings fortifiants, dentifrice naturel Ganozhi et savons.",
+      subcategories: [
+        "body-care-lotions",
+        "hair-baby-care",
+        "oral-care",
+        "soaps"
+      ]
+    },
+    {
+      id: "health-supplements",
+      slug: "health-supplements",
+      code: "C",
+      name: "المكملات الغذائية (Health Supplements)",
+      nameAr: "المكملات الغذائية",
+      nameFr: "Compléments Alimentaires & Nutrition",
+      icon: "🍄",
+      image: "assets/Categories/C.png",
+      descriptionAr: "فطر الريشي الأحمر النقي (RG & GL)، السبيرولينا العضوية، فطر الكورديسيبس وعرف الأسد لتعزيز المناعة والنشاط.",
+      descriptionFr: "Extraits thérapeutiques de Reishi Ganoderma (RG & GL), Spiruline pure en comprimés, Cordyceps et Crinière de Lion.",
+      subcategories: [
+        "mushroom-extracts",
+        "tablets-capsules"
+      ]
+    },
+    {
+      id: "beverages-drinks",
+      slug: "beverages-drinks",
+      code: "D",
+      name: "المشروبات الصحية (Beverages & Drinks)",
+      nameAr: "المشروبات الصحية",
+      nameFr: "Boissons Santé & Ganoderma",
+      icon: "☕",
+      image: "assets/Categories/D.png",
+      descriptionAr: "القهوة السوداء بالغانوديرما، شاي الأعشاب الفاخر، مشروبات الكاكاو الغنية، وعصائر الفواكه النباتية المنعشة.",
+      descriptionFr: "Café Lingzhi au Ganoderma, thés botaniques Oozhi & Zhitea, cacao gourmand Cocozhi et jus fermentés Morinzhi.",
+      subcategories: [
+        "coffee",
+        "tea-cocoa",
+        "juices-botanical-drinks"
+      ]
+    },
+    {
+      id: "food-pantry",
+      slug: "food-pantry",
+      code: "E",
+      name: "الأغذية والمنتجات اليومية (Food & Pantry)",
+      nameAr: "الأغذية والمنتجات اليومية",
+      nameFr: "Alimentation & Épicerie Saine",
+      icon: "🍯",
+      image: "assets/Categories/E.png",
+      descriptionAr: "نودلز صحية بالسبيرولينا، توابل وبهارات عضوية، عسل طبيعي ووجبات خفيفة متوازنة لنمط حياة صحي.",
+      descriptionFr: "Nouilles diététiques Spirudle à la spiruline, Ganoodle au Ganoderma, sel de l'Himalaya et encas sains.",
+      subcategories: [
+        "pantry-condiments",
+        "treats-snacks"
+      ]
+    },
+    {
+      id: "kallow",
+      slug: "kallow",
+      code: "K",
+      name: "كالو (Kallow)",
+      nameAr: "كالو (Kallow)",
+      nameFr: "Kallow",
+      icon: "✨",
+      image: "assets/kallow.jpg",
+      descriptionAr: "مستحضرات التجميل والعناية الفاخرة بالبشرة والجسم من علامة كالو المغربية، تركيبات طبيعية متطورة.",
+      descriptionFr: "Gamme prestige de soins cosmétiques naturels et dermo-soins Kallow : crèmes raffermissantes, sérums précieux et rituels bien-être.",
+      subPreviewAr: "كريمات وسيرومات • واقي شمس • روتين الجسم والشعر",
+      subPreviewFr: "Crèmes & Sérums • Solaires SPF • Soins Corps & Bain",
+      subcategories: []
+    }
+  ];
+
+  const jsContent = `/**
+ * Categories Master Data - DXN & KALLOW Hierarchical Taxonomy
+ * Recommended Website Categories & Subcategories
+ * Bilingual Arabic & French
+ */
+
+window.STORE_MAIN_CATEGORIES = ${JSON.stringify(mainCategories, null, 2)};
+
+window.DEFAULT_STORE_CATEGORIES = ${JSON.stringify(categories, null, 2)};
+
+window.CategoryManager = {
+  getMainCategories() {
+    return window.STORE_MAIN_CATEGORIES || [];
+  },
+  getMainCategoryBySlug(slug) {
+    if (!slug) return null;
+    return (window.STORE_MAIN_CATEGORIES || []).find(m => m.slug === slug || m.id === slug) || null;
+  },
+  getSubcategoriesForMain(mainSlug) {
+    const main = this.getMainCategoryBySlug(mainSlug);
+    if (!main) return [];
+    const subs = new Set(main.subcategories);
+    return (window.STORE_CATEGORIES || window.DEFAULT_STORE_CATEGORIES || []).filter(c =>
+      subs.has(c.slug || c.id) || c.parentCategory === mainSlug || c.categoryGroup === mainSlug
+    );
+  },
+  getParentForSubcategory(subSlug) {
+    if (!subSlug) return null;
+    const cat = (window.STORE_CATEGORIES || window.DEFAULT_STORE_CATEGORIES || []).find(c => c.slug === subSlug || c.id === subSlug);
+    const parentSlug = cat ? (cat.parentCategory || cat.categoryGroup) : null;
+    if (parentSlug) {
+      const parent = this.getMainCategoryBySlug(parentSlug);
+      if (parent) return parent;
+    }
+    return (window.STORE_MAIN_CATEGORIES || []).find(m => Array.isArray(m.subcategories) && m.subcategories.includes(subSlug)) || null;
+  },
+  matchesCategoryFilter(productCategory, selectedFilter, product) {
+    if (!selectedFilter || selectedFilter === 'all') return true;
+    if (productCategory === selectedFilter) return true;
+    if (selectedFilter === 'kallow') {
+      if (product && (product.brand === 'Kallow' || (product.id && product.id.startsWith('kallow')) || (Array.isArray(product.collections) && product.collections.includes('kallow')))) {
+        return true;
+      }
+      if (typeof productCategory === 'string' && (productCategory === 'kallow' || productCategory.startsWith('kallow'))) {
+        return true;
+      }
+      return false;
+    }
+    if (product) {
+      if (product.categoryGroup === selectedFilter || product.mainCategory === selectedFilter) return true;
+      if (Array.isArray(product.collections) && product.collections.includes(selectedFilter)) return true;
+    }
+    const main = this.getMainCategoryBySlug(selectedFilter);
+    if (main && Array.isArray(main.subcategories)) {
+      return main.subcategories.includes(productCategory);
+    }
+    return false;
+  }
+};
+
+(function() {
+  const CURRENT_CAT_VERSION = "2026_10_23_taxonomy_v2";
+  try {
+    if (typeof localStorage !== 'undefined') {
+      const storedVer = localStorage.getItem("atelier_categories_version");
+      if (storedVer !== CURRENT_CAT_VERSION) {
+        localStorage.removeItem("atelier_categories_v2");
+        localStorage.setItem("atelier_categories_version", CURRENT_CAT_VERSION);
+      }
+      const saved = localStorage.getItem("atelier_categories_v2");
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length >= 15) {
+          window.STORE_CATEGORIES = parsed;
+          return;
+        }
+      }
+    }
+  } catch (e) {
+    console.warn("Categories initialization error:", e);
+  }
+  window.STORE_CATEGORIES = window.DEFAULT_STORE_CATEGORIES;
+})();
+`;
+  fs.writeFileSync(categoriesFilePath, jsContent, 'utf8');
+}
+
 const server = http.createServer((req, res) => {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -225,7 +717,12 @@ const server = http.createServer((req, res) => {
   // --------------------------------------------------------------------------
   if (req.method === 'GET' && pathname === '/api/images') {
     try {
-      const imagesDir = path.join(ROOT_DIR, 'assets', 'images');
+      const dirsToScan = [
+        path.join(ROOT_DIR, 'assets', 'Header'),
+        path.join(ROOT_DIR, 'assets', 'ecom'),
+        path.join(ROOT_DIR, 'assets', 'ecom2'),
+        path.join(ROOT_DIR, 'assets', 'images')
+      ];
       const results = [];
 
       function scanDir(dir) {
@@ -237,24 +734,28 @@ const server = http.createServer((req, res) => {
             scanDir(fullPath);
           } else if (/\.(png|jpe?g|webp|svg)$/i.test(entry.name) && !entry.name.startsWith('.')) {
             const relPath = path.relative(ROOT_DIR, fullPath).replace(/\\/g, '/');
-            const cleanLabel = entry.name
-              .replace(/\.[^/.]+$/, '')
-              .replace(/[-_]+/g, ' ')
-              .replace(/firefly|gemini|flash|create|realistic|lifestyle|ecommerce|mockup|using|the|uploaded|reference|images|as|th/gi, '')
-              .trim() || entry.name;
+            let cleanLabel = entry.name.replace(/\.[^/.]+$/, '').trim();
 
-            let colTag = 'default';
-            if (/pink|rose/i.test(relPath)) colTag = 'pink';
-            else if (/white|blanc/i.test(relPath)) colTag = 'white';
-            else if (/black|noir/i.test(relPath)) colTag = 'black';
-            else if (/navy|blue|marine/i.test(relPath)) colTag = 'navy';
-            else if (/beige|sand/i.test(relPath)) colTag = 'beige';
-            else if (/olive|green/i.test(relPath)) colTag = 'olive';
-            else if (/charcoal|gris/i.test(relPath)) colTag = 'charcoal';
-            else if (/terracotta/i.test(relPath)) colTag = 'terracotta';
+            let colTag = 'all';
+            if (relPath.includes('Header')) {
+              colTag = 'header';
+              cleanLabel = `Bannière: ${entry.name.replace(/\.[^/.]+$/, '')}`;
+            } else if (relPath.includes('ecom/')) {
+              const num = parseInt(entry.name);
+              if (num >= 13 && num <= 30) {
+                colTag = 'kallow';
+              } else {
+                colTag = 'dxn';
+              }
+              cleanLabel = `Produit #${num} (${colTag.toUpperCase()})`;
+            } else if (relPath.includes('ecom2/')) {
+              colTag = 'dxn';
+              const num = parseInt(entry.name);
+              cleanLabel = `DXN Produit #${num}`;
+            }
 
             results.push({
-              label: cleanLabel.length > 32 ? cleanLabel.slice(0, 32) + '...' : cleanLabel,
+              label: cleanLabel,
               filename: entry.name,
               url: relPath,
               color: colTag
@@ -263,7 +764,10 @@ const server = http.createServer((req, res) => {
         }
       }
 
-      scanDir(imagesDir);
+      for (const d of dirsToScan) {
+        scanDir(d);
+      }
+
       res.writeHead(200, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ success: true, count: results.length, images: results }));
     } catch (err) {
@@ -275,13 +779,179 @@ const server = http.createServer((req, res) => {
   }
 
   // --------------------------------------------------------------------------
+  // API ENDPOINT: GET /api/health-db
+  // Checks MySQL connection status and row counts
+  // --------------------------------------------------------------------------
+  if (req.method === 'GET' && pathname === '/api/health-db') {
+    (async () => {
+      try {
+        const pool = getDbPool();
+        if (!pool) {
+          res.writeHead(200, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ connected: false, message: 'MySQL pool not initialized' }));
+          return;
+        }
+        const [pRows] = await pool.query('SELECT COUNT(*) as cnt FROM products');
+        const [cRows] = await pool.query('SELECT COUNT(*) as cnt FROM categories');
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({
+          connected: true,
+          database: DB_CONFIG.database,
+          host: DB_CONFIG.host,
+          productsCount: pRows[0].cnt,
+          categoriesCount: cRows[0].cnt
+        }));
+      } catch (err) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ connected: false, error: err.message }));
+      }
+    })();
+    return;
+  }
+
+  // --------------------------------------------------------------------------
+  // API ENDPOINT: GET /api/products
+  // Returns products from MySQL database (fallback to disk)
+  // By default, filters out disabled products for storefront.
+  // Query param ?all=1 or ?includeDisabled=1 returns all products for admin.
+  // --------------------------------------------------------------------------
+  if (req.method === 'GET' && pathname === '/api/products') {
+    (async () => {
+      try {
+        const includeAll = parsedUrl.query && (parsedUrl.query.all === '1' || parsedUrl.query.includeDisabled === '1' || parsedUrl.query.admin === '1');
+        let products = await getProductsFromDb(includeAll);
+        if (!products || products.length === 0) {
+          const productsFilePath = path.join(ROOT_DIR, 'assets', 'js', 'data', 'products.js');
+          if (fs.existsSync(productsFilePath)) {
+            const code = fs.readFileSync(productsFilePath, 'utf8');
+            const m = code.match(/window\.DEFAULT_STORE_PRODUCTS\s*=\s*(\[[\s\S]*?\]);\s*\n/);
+            if (m) {
+              const allFromDisk = JSON.parse(m[1]);
+              products = includeAll 
+                ? allFromDisk 
+                : allFromDisk.filter(p => p && p.status !== 'disabled' && p.isActive !== false && p.disabled !== true);
+            }
+          }
+        }
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ success: true, count: (products || []).length, products: products || [] }));
+      } catch (e) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ success: false, error: e.message }));
+      }
+    })();
+    return;
+  }
+
+  // --------------------------------------------------------------------------
+  // API ENDPOINT: POST /api/delete-product
+  // Permanently removes product from MySQL database and updates products.js
+  // --------------------------------------------------------------------------
+  if (req.method === 'POST' && pathname === '/api/delete-product') {
+    let body = '';
+    req.on('data', chunk => { body += chunk; });
+    req.on('end', async () => {
+      try {
+        const { id } = JSON.parse(body || '{}');
+        if (!id) {
+          res.writeHead(400, { 'Content-Type': 'application/json' });
+          return res.end(JSON.stringify({ success: false, error: 'Product ID required' }));
+        }
+        await deleteProductFromDb(id);
+        
+        // Remove from disk products.js
+        const allProds = await getProductsFromDb(true);
+        if (allProds) {
+          writeProductsFile(allProds.filter(p => p.id !== id));
+        }
+
+        console.log(`[API Delete-Product] Product ${id} permanently removed from MySQL & disk.`);
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ success: true, message: `Product ${id} permanently deleted`, id }));
+      } catch (err) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ success: false, error: err.message }));
+      }
+    });
+    return;
+  }
+
+  // --------------------------------------------------------------------------
+  // API ENDPOINT: POST /api/toggle-product-status
+  // Disables or enables product in MySQL database and updates products.js
+  // --------------------------------------------------------------------------
+  if (req.method === 'POST' && pathname === '/api/toggle-product-status') {
+    let body = '';
+    req.on('data', chunk => { body += chunk; });
+    req.on('end', async () => {
+      try {
+        const { id, status } = JSON.parse(body || '{}');
+        if (!id) {
+          res.writeHead(400, { 'Content-Type': 'application/json' });
+          return res.end(JSON.stringify({ success: false, error: 'Product ID required' }));
+        }
+        const pool = getDbPool();
+        const targetStatus = status === 'disabled' ? 'disabled' : 'active';
+        const isActive = targetStatus === 'active';
+
+        if (pool) {
+          await pool.query(
+            'UPDATE products SET status = ?, raw_json = JSON_SET(raw_json, "$.status", ?, "$.isActive", ?, "$.disabled", ?) WHERE id = ?',
+            [targetStatus, targetStatus, isActive, !isActive, id]
+          );
+        }
+
+        // Update disk products.js
+        const allProds = await getProductsFromDb(true);
+        if (allProds) {
+          writeProductsFile(allProds);
+        }
+
+        console.log(`[API Toggle-Status] Product ${id} status set to "${targetStatus}".`);
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ success: true, id, status: targetStatus, isActive }));
+      } catch (err) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ success: false, error: err.message }));
+      }
+    });
+    return;
+  }
+
+  // --------------------------------------------------------------------------
+  // API ENDPOINT: GET /api/categories
+  // Returns categories from MySQL database (fallback to disk)
+  // --------------------------------------------------------------------------
+  if (req.method === 'GET' && pathname === '/api/categories') {
+    (async () => {
+      try {
+        let categories = await getCategoriesFromDb();
+        if (!categories || categories.length === 0) {
+          const catFilePath = path.join(ROOT_DIR, 'assets', 'js', 'data', 'categories.js');
+          if (fs.existsSync(catFilePath)) {
+            const code = fs.readFileSync(catFilePath, 'utf8');
+            const m = code.match(/window\.DEFAULT_STORE_CATEGORIES\s*=\s*(\[[\s\S]*?\]);\s*\n/);
+            if (m) categories = JSON.parse(m[1]);
+          }
+        }
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ success: true, count: (categories || []).length, categories: categories || [] }));
+      } catch (e) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ success: false, error: e.message }));
+      }
+    })();
+    return;
+  }
+
+  // --------------------------------------------------------------------------
   // API ENDPOINT: POST /api/save-products
-  // Writes master products array directly to assets/js/data/products.js on disk
+  // Writes master products array to MySQL database and updates products.js
   // --------------------------------------------------------------------------
   if (req.method === 'POST' && pathname === '/api/save-products') {
     let body = '';
     req.on('data', chunk => { body += chunk; });
-    req.on('end', () => {
+    req.on('end', async () => {
       try {
         const payload = JSON.parse(body);
         const { products } = payload;
@@ -292,148 +962,15 @@ const server = http.createServer((req, res) => {
           return;
         }
 
-        const jsContent = `/**
- * Products Master Database
- * Fully data-driven, expandable apparel catalog.
- * Supports multi-colorways, multi-sizes, variant-specific SKUs, inventory counts,
- * multi-view photography, materials, sizing advice, and Moroccan pricing (MAD).
- * 
- * Organized with dedicated image folders for each product under:
- * assets/images/products/t-shirts/<product-id>/
- * - front-main.png (Visuel Principal / Face)
- * - back-hover.png (Visuel au Survol / Dos Mockup)
- * - lookbook.jpg (Lookbook / Lifestyle)
- * - hero.jpg (Drop Banner)
- */
-
-window.DEFAULT_STORE_PRODUCTS = ${JSON.stringify(products, null, 2)};
-
-// Deprecated product IDs from previous versions that should be pruned
-window.DEPRECATED_PRODUCT_IDS = new Set([
-  "heavyweight-boxy-tee-300", 
-  "oversized-tee-big-white", 
-  "vintage-washed-charcoal-tee", 
-  "graphic-tee-colored-blue-dark", 
-  "essential-tee-rose",
-  "essential-tee-indigo",
-  "essential-tee-blue-m",
-  "atelier-studio-drop-tee",
-  "relaxed-earth-tone-tee",
-  "classic-relaxed-tank-top"
-]);
-
-// Product alias mapping for legacy bookmarks and query links
-window.PRODUCT_ALIASES = {
-  "vintage-washed-charcoal-tee": { targetId: "graphic-tee-colored", defaultColor: "black" },
-  "graphic-tee-colored-blue-dark": { targetId: "graphic-tee-colored", defaultColor: "dark-blue" },
-  "essential-tee-rose": { targetId: "graphic-tee-colored", defaultColor: "rose" },
-  "essential-tee-indigo": { targetId: "graphic-tee-colored", defaultColor: "indigo" },
-  "heavyweight-boxy-tee-300": { targetId: "essential-oversized-tee", defaultColor: "navy" },
-  "oversized-tee-big-white": { targetId: "essential-oversized-tee", defaultColor: "white" },
-  "essential-tee-blue-m": { targetId: "minimal-embroidered-logo-tee", defaultColor: "blue-m" },
-  "atelier-studio-drop-tee": { targetId: "minimal-embroidered-logo-tee", defaultColor: "white" },
-  "relaxed-earth-tone-tee": { targetId: "minimal-embroidered-logo-tee", defaultColor: "beige" },
-  "classic-relaxed-tank-top": { targetId: "relaxed-tank-top-180gsm", defaultColor: "black" },
-  "tshirt-boxy-inverted-label-grey": { targetId: "tshirt-boxy-inverted-label-navy", defaultColor: "grey" },
-  "tshirt-boxy-inverted-label-pink": { targetId: "tshirt-boxy-inverted-label-navy", defaultColor: "pink" },
-  "tshirt-boxy-inverted-label-black": { targetId: "tshirt-boxy-inverted-label-navy", defaultColor: "black" },
-  "tshirt-boxy-inverted-label": { targetId: "tshirt-boxy-inverted-label-navy", defaultColor: "navy" }
-};
-
-// Initialize and reconcile STORE_PRODUCTS with localStorage and default master catalog
-(function() {
-  const defaults = window.DEFAULT_STORE_PRODUCTS || [];
-  const deprecatedSet = window.DEPRECATED_PRODUCT_IDS || new Set();
-
-  try {
-    if (typeof localStorage !== 'undefined') {
-      const saved = localStorage.getItem("atelier_products_v1");
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          const cleaned = parsed.filter(p => p && p.id && !deprecatedSet.has(p.id));
-          const finalProducts = [];
-          const processedIds = new Set();
-
-          // 1. Reconcile stored items with master defaults
-          cleaned.forEach(item => {
-            if (!item || !item.id) return;
-            processedIds.add(item.id);
-
-            const def = defaults.find(d => d.id === item.id);
-            if (!def) {
-              finalProducts.push(item);
-              return;
-            }
-
-            const merged = { ...def, ...item };
-
-            // Merge colors
-            const existingCodes = new Set((item.colors || []).map(c => c.code));
-            const mergedColors = [...(item.colors || [])];
-            (def.colors || []).forEach(defColor => {
-              if (!existingCodes.has(defColor.code)) {
-                mergedColors.push(defColor);
-                existingCodes.add(defColor.code);
-              }
-            });
-            merged.colors = mergedColors;
-
-            // Merge images
-            merged.images = { ...(def.images || {}), ...(item.images || {}) };
-            (def.colors || []).forEach(defColor => {
-              if (!merged.images[defColor.code] || merged.images[defColor.code].length === 0) {
-                if (def.images && def.images[defColor.code]) {
-                  merged.images[defColor.code] = def.images[defColor.code];
-                }
-              }
-            });
-
-            // Merge variants
-            const existingVarKeys = new Set((item.variants || []).map(v => (v.color + '-' + v.size)));
-            const mergedVariants = [...(item.variants || [])];
-            (def.variants || []).forEach(defVar => {
-              const key = defVar.color + '-' + defVar.size;
-              if (!existingVarKeys.has(key)) {
-                mergedVariants.push(defVar);
-                existingVarKeys.add(key);
-              }
-            });
-            merged.variants = mergedVariants;
-
-            finalProducts.push(merged);
-          });
-
-          // 2. Append any default products not yet in localStorage
-          defaults.forEach(def => {
-            if (def && def.id && !processedIds.has(def.id) && !deprecatedSet.has(def.id)) {
-              finalProducts.push(def);
-              processedIds.add(def.id);
-            }
-          });
-
-          localStorage.setItem("atelier_products_v1", JSON.stringify(finalProducts));
-          window.STORE_PRODUCTS = finalProducts;
-          return;
+        for (const p of products) {
+          await saveProductToDb(p);
         }
-      }
-    }
-  } catch (e) {
-    console.warn("Could not synchronize products with localStorage:", e);
-  }
 
-  window.STORE_PRODUCTS = defaults;
-})();
-`;
-
-        const productsFilePath = path.join(ROOT_DIR, 'assets', 'js', 'data', 'products.js');
-        fs.writeFileSync(productsFilePath, jsContent, 'utf8');
-        console.log(`[API Sync] Successfully updated products.js with ${products.length} products`);
+        writeProductsFile(products);
 
         res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ success: true, count: products.length }));
+        res.end(JSON.stringify({ success: true, message: `Successfully persisted ${products.length} products to MySQL database & disk`, count: products.length }));
       } catch (err) {
-        console.error('[API Sync Error]:', err);
         res.writeHead(500, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ success: false, error: err.message }));
       }
@@ -443,232 +980,60 @@ window.PRODUCT_ALIASES = {
 
   // --------------------------------------------------------------------------
   // API ENDPOINT: POST /api/sync-all
-  // Synchronizes full catalog (products, categories, colors) to disk files
+  // Synchronizes full catalog (products, categories, colors) to MySQL and disk
   // --------------------------------------------------------------------------
   if (req.method === 'POST' && pathname === '/api/sync-all') {
     let body = '';
     req.on('data', chunk => { body += chunk; });
-    req.on('end', () => {
+    req.on('end', async () => {
       try {
         const payload = JSON.parse(body);
-        const { products, categories, colors } = payload;
+        const { products, categories, colors, deletedProductId } = payload;
         const synced = [];
 
-        // 1. Sync Products
+        // 1. Delete product if specified
+        if (deletedProductId) {
+          await deleteProductFromDb(deletedProductId);
+        }
+
+        // 2. Sync Products to MySQL and disk
         if (products && Array.isArray(products)) {
-          let mergedProducts = [...products];
-          const productsFilePath = path.join(ROOT_DIR, 'assets', 'js', 'data', 'products.js');
-          
-          if (fs.existsSync(productsFilePath)) {
-            try {
-              const existingCode = fs.readFileSync(productsFilePath, 'utf8');
-              const m = existingCode.match(/window\.DEFAULT_STORE_PRODUCTS\s*=\s*(\[[\s\S]*?\]);\s*\n/);
-              if (m) {
-                const diskProds = JSON.parse(m[1]);
-                if (Array.isArray(diskProds) && diskProds.length > 0) {
-                  const incById = new Map(products.map(p => [p.id, p]));
-                  const result = [];
-                  const seen = new Set();
-                  const deletedId = payload.deletedProductId;
+          const productsToPersist = deletedProductId 
+            ? products.filter(p => p.id !== deletedProductId)
+            : products;
 
-                  diskProds.forEach(dp => {
-                    if (dp.id === deletedId) return;
-                    if (incById.has(dp.id)) {
-                      result.push(incById.get(dp.id));
-                    } else {
-                      result.push(dp);
-                    }
-                    seen.add(dp.id);
-                  });
-
-                  products.forEach(p => {
-                    if (p.id && !seen.has(p.id) && p.id !== deletedId) {
-                      result.push(p);
-                      seen.add(p.id);
-                    }
-                  });
-
-                  mergedProducts = result;
-                }
-              }
-            } catch (err) {
-              console.warn('[SyncAll] Error reading disk products for merge:', err.message);
-            }
+          for (const p of productsToPersist) {
+            await saveProductToDb(p);
           }
-
-          const jsContent = `/**
- * Products Master Database
- * Fully data-driven, expandable apparel catalog.
- * Supports multi-colorways, multi-sizes, variant-specific SKUs, inventory counts,
- * multi-view photography, materials, sizing advice, and Moroccan pricing (MAD).
- */
-
-window.DEFAULT_STORE_PRODUCTS = ${JSON.stringify(mergedProducts, null, 2)};
-
-// Deprecated product IDs from previous versions that should be pruned
-window.DEPRECATED_PRODUCT_IDS = new Set([
-  "heavyweight-boxy-tee-300", 
-  "oversized-tee-big-white", 
-  "vintage-washed-charcoal-tee", 
-  "graphic-tee-colored-blue-dark", 
-  "essential-tee-rose",
-  "essential-tee-indigo",
-  "essential-tee-blue-m",
-  "atelier-studio-drop-tee",
-  "relaxed-earth-tone-tee",
-  "classic-relaxed-tank-top"
-]);
-
-// Product alias mapping for legacy bookmarks and query links
-window.PRODUCT_ALIASES = {
-  "vintage-washed-charcoal-tee": { targetId: "graphic-tee-colored", defaultColor: "black" },
-  "graphic-tee-colored-blue-dark": { targetId: "graphic-tee-colored", defaultColor: "dark-blue" },
-  "essential-tee-rose": { targetId: "graphic-tee-colored", defaultColor: "rose" },
-  "essential-tee-indigo": { targetId: "graphic-tee-colored", defaultColor: "indigo" },
-  "heavyweight-boxy-tee-300": { targetId: "essential-oversized-tee", defaultColor: "navy" },
-  "oversized-tee-big-white": { targetId: "essential-oversized-tee", defaultColor: "white" },
-  "essential-tee-blue-m": { targetId: "minimal-embroidered-logo-tee", defaultColor: "blue-m" },
-  "atelier-studio-drop-tee": { targetId: "minimal-embroidered-logo-tee", defaultColor: "white" },
-  "relaxed-earth-tone-tee": { targetId: "minimal-embroidered-logo-tee", defaultColor: "beige" },
-  "classic-relaxed-tank-top": { targetId: "relaxed-tank-top-180gsm", defaultColor: "black" },
-  "tshirt-boxy-inverted-label-grey": { targetId: "tshirt-boxy-inverted-label-navy", defaultColor: "grey" },
-  "tshirt-boxy-inverted-label-pink": { targetId: "tshirt-boxy-inverted-label-navy", defaultColor: "pink" },
-  "tshirt-boxy-inverted-label-black": { targetId: "tshirt-boxy-inverted-label-navy", defaultColor: "black" },
-  "tshirt-boxy-inverted-label": { targetId: "tshirt-boxy-inverted-label-navy", defaultColor: "navy" }
-};
-
-// Initialize and reconcile STORE_PRODUCTS with localStorage and default master catalog
-(function() {
-  const defaults = window.DEFAULT_STORE_PRODUCTS || [];
-  const deprecatedSet = window.DEPRECATED_PRODUCT_IDS || new Set();
-
-  try {
-    if (typeof localStorage !== 'undefined') {
-      const saved = localStorage.getItem("atelier_products_v1");
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          const cleaned = parsed.filter(p => p && p.id && !deprecatedSet.has(p.id));
-          const finalProducts = [];
-          const processedIds = new Set();
-
-          // 1. Reconcile stored items with master defaults
-          cleaned.forEach(item => {
-            if (!item || !item.id) return;
-            processedIds.add(item.id);
-
-            const def = defaults.find(d => d.id === item.id);
-            if (!def) {
-              finalProducts.push(item);
-              return;
-            }
-
-            const merged = { ...def, ...item };
-
-            // Merge colors
-            const existingCodes = new Set((item.colors || []).map(c => c.code));
-            const mergedColors = [...(item.colors || [])];
-            (def.colors || []).forEach(defColor => {
-              if (!existingCodes.has(defColor.code)) {
-                mergedColors.push(defColor);
-                existingCodes.add(defColor.code);
-              }
-            });
-            merged.colors = mergedColors;
-
-            // Merge images
-            merged.images = { ...(def.images || {}), ...(item.images || {}) };
-            (def.colors || []).forEach(defColor => {
-              if (!merged.images[defColor.code] || merged.images[defColor.code].length === 0) {
-                if (def.images && def.images[defColor.code]) {
-                  merged.images[defColor.code] = def.images[defColor.code];
-                }
-              }
-            });
-
-            // Merge variants
-            const existingVarKeys = new Set((item.variants || []).map(v => (v.color + '-' + v.size)));
-            const mergedVariants = [...(item.variants || [])];
-            (def.variants || []).forEach(defVar => {
-              const key = defVar.color + '-' + defVar.size;
-              if (!existingVarKeys.has(key)) {
-                mergedVariants.push(defVar);
-                existingVarKeys.add(key);
-              }
-            });
-            merged.variants = mergedVariants;
-
-            finalProducts.push(merged);
-          });
-
-          // 2. Append any default products not yet in localStorage
-          defaults.forEach(def => {
-            if (def && def.id && !processedIds.has(def.id) && !deprecatedSet.has(def.id)) {
-              finalProducts.push(def);
-              processedIds.add(def.id);
-            }
-          });
-
-          localStorage.setItem("atelier_products_v1", JSON.stringify(finalProducts));
-          window.STORE_PRODUCTS = finalProducts;
-          return;
-        }
-      }
-    }
-  } catch (e) {
-    console.warn("Could not synchronize products with localStorage:", e);
-  }
-
-  window.STORE_PRODUCTS = defaults;
-})();
-`;
-          fs.writeFileSync(productsFilePath, jsContent, 'utf8');
-          synced.push(`products (${products.length})`);
+          writeProductsFile(productsToPersist);
+          synced.push(`products (${productsToPersist.length})`);
         }
 
-        // 2. Sync Categories
+        // 3. Sync Categories to MySQL and disk
         if (categories && Array.isArray(categories)) {
-          const catContent = `/**
- * Categories Master Data
- * Scalable architecture: easily add Hoodies, Sweatshirts, Pants, etc.
- * Categories with active: false will automatically display with "Coming Soon" badges.
- */
-
-window.DEFAULT_STORE_CATEGORIES = ${JSON.stringify(categories, null, 2)};
-
-// Initialize STORE_CATEGORIES from localStorage if modified by Admin Dashboard
-(function() {
-  try {
-    const saved = localStorage.getItem("atelier_categories_v1");
-    if (saved) {
-      window.STORE_CATEGORIES = JSON.parse(saved);
-      return;
-    }
-  } catch (e) {
-    console.warn("Could not load categories from localStorage:", e);
-  }
-  window.STORE_CATEGORIES = window.DEFAULT_STORE_CATEGORIES;
-})();
-`;
-          const catFilePath = path.join(ROOT_DIR, 'assets', 'js', 'data', 'categories.js');
-          fs.writeFileSync(catFilePath, catContent, 'utf8');
+          for (const cat of categories) {
+            await saveCategoryToDb(cat);
+          }
+          writeCategoriesFile(categories);
           synced.push(`categories (${categories.length})`);
         }
 
-        // 3. Sync Colors in storeData.js
+        // 4. Sync Colors
         if (colors && Array.isArray(colors)) {
           const storeDataPath = path.join(ROOT_DIR, 'assets', 'js', 'core', 'storeData.js');
-          let storeDataCode = fs.readFileSync(storeDataPath, 'utf8');
-          const colorsStr = JSON.stringify(colors, null, 4).replace(/\n/g, '\n  ');
-          const newDefaultColorsBlock = `DEFAULT_COLORS: ${colorsStr},`;
-          storeDataCode = storeDataCode.replace(/DEFAULT_COLORS:\s*\[[\s\S]*?\],/m, newDefaultColorsBlock);
-          fs.writeFileSync(storeDataPath, storeDataCode, 'utf8');
-          synced.push(`colors (${colors.length})`);
+          if (fs.existsSync(storeDataPath)) {
+            let storeDataCode = fs.readFileSync(storeDataPath, 'utf8');
+            const colorsStr = JSON.stringify(colors, null, 4).replace(/\n/g, '\n  ');
+            const newDefaultColorsBlock = `DEFAULT_COLORS: ${colorsStr},`;
+            storeDataCode = storeDataCode.replace(/DEFAULT_COLORS:\s*\[[\s\S]*?\],/m, newDefaultColorsBlock);
+            fs.writeFileSync(storeDataPath, storeDataCode, 'utf8');
+            synced.push(`colors (${colors.length})`);
+          }
         }
 
-        console.log(`[API Sync-All] Successfully updated on disk: ${synced.join(', ')}`);
+        console.log(`[API Sync-All] Successfully updated in MySQL & on disk: ${synced.join(', ')}`);
         res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ success: true, synced }));
+        res.end(JSON.stringify({ success: true, synced, message: 'Successfully synced to MySQL database & disk' }));
       } catch (err) {
         console.error('[API Sync-All Error]:', err);
         res.writeHead(500, { 'Content-Type': 'application/json' });
@@ -911,13 +1276,22 @@ window.DEFAULT_STORE_CATEGORIES = ${JSON.stringify(categories, null, 2)};
 
 function serveStaticFile(filePath, res, req) {
   const ext = path.extname(filePath).toLowerCase();
-  const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+  let contentType = MIME_TYPES[ext] || 'application/octet-stream';
 
   fs.readFile(filePath, (err, data) => {
     if (err) {
       res.writeHead(500, { 'Content-Type': 'text/plain' });
       res.end('500 Internal Server Error');
       return;
+    }
+
+    // Sniff image signatures for optimal Content-Type
+    if (data && data.length > 3) {
+      if (data[0] === 0xFF && data[1] === 0xD8 && data[2] === 0xFF) {
+        contentType = 'image/jpeg';
+      } else if (data[0] === 0x89 && data[1] === 0x50 && data[2] === 0x4E && data[3] === 0x47) {
+        contentType = 'image/png';
+      }
     }
 
     res.writeHead(200, {
@@ -939,6 +1313,28 @@ function send404(res) {
   res.end('<!DOCTYPE html><html><head><title>404 Not Found</title></head><body style="font-family:sans-serif;padding:40px;text-align:center;"><h1>404 - Page Non Trouvée</h1><p><a href="/">Retour à l\'accueil</a></p></body></html>');
 }
 
+async function syncMasterProductsOnStartup() {
+  const pool = getDbPool();
+  if (!pool) return;
+  try {
+    const productsFilePath = path.join(ROOT_DIR, 'assets', 'js', 'data', 'products.js');
+    if (fs.existsSync(productsFilePath)) {
+      const code = fs.readFileSync(productsFilePath, 'utf8');
+      const m = code.match(/window\.DEFAULT_STORE_PRODUCTS\s*=\s*(\[[\s\S]*?\]);\s*\n/);
+      if (m) {
+        const masterProducts = JSON.parse(m[1]);
+        for (const p of masterProducts) {
+          await saveProductToDb(p);
+        }
+        console.log(`[DB] Successfully synchronized ${masterProducts.length} master products to MySQL database.`);
+      }
+    }
+  } catch (err) {
+    console.error('[DB] Error during startup products sync:', err.message);
+  }
+}
+
 server.listen(PORT, () => {
   console.log(`ATELIER High-Performance Local Dev Server running at: http://localhost:${PORT}`);
+  syncMasterProductsOnStartup().catch(() => {});
 });

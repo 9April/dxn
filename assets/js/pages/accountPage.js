@@ -38,7 +38,7 @@ window.AccountPageController = {
                 <div style="font-size: 0.78rem; color: var(--color-text-muted);">Passée le ${new Date(order.date).toLocaleDateString('fr-FR')}</div>
               </div>
               <div style="text-align: right;">
-                <span class="badge" style="background: #E8F5E9; color: #2E7D32;">En cours de préparation (Casablanca)</span>
+                <span class="badge" style="background: #E8F5E9; color: #2E7D32;">En cours de préparation (Tanger)</span>
                 <div class="font-heading" style="font-weight: 700; margin-top: 4px;">${StoreUtils.formatMoney(order.total)}</div>
               </div>
             </div>

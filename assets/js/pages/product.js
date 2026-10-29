@@ -16,8 +16,8 @@ window.ProductPageController = {
   activeSlotTab: 1, // 1 | 2 | 3
   activeFilterModel: 'all', // 'all' | 'graphic-tee-colored' | 'essential-oversized-tee' | 'minimal-embroidered-logo-tee'
   bundleViewMode: 'live', // 'live' | 'box'
-  bundlePlaceholderImage: 'assets/images/products/tshirt-white-front.jpg',
-  
+  bundlePlaceholderImage: 'assets/ecom/1.png',
+
   // Slots start empty until the customer chooses each t-shirt
   bundleSlots: [
     { slot: 1, productId: null, colorCode: null, size: "M" },
@@ -36,379 +36,101 @@ window.ProductPageController = {
     targetSlot: 1
   },
 
-  // Complete list of default t-shirt variant cards with official front and back photos
+  // Default product variants for pack builder
   DEFAULT_TSHIRT_VARIANTS: [
-    // 1. Graphic Colored Edition (4 colors)
     {
-      productId: "graphic-tee-colored",
-      modelName: "T-Shirt Graphic Colored Edition",
-      modelShort: "Graphic Colored",
-      gsm: "260 GSM",
-      fit: "Coupe Boxy Contemporaine",
-      colorCode: "black",
-      colorName: "Noir Onyx",
-      colorHex: "#121212",
-      image: "assets/images/products/t-shirts/vintage-washed-charcoal-tee/front-main.png",
-      backImage: "assets/images/products/t-shirts/vintage-washed-charcoal-tee/back-hover.png",
-      gallery: [
-        "assets/images/products/t-shirts/vintage-washed-charcoal-tee/front-main.png",
-        "assets/images/products/t-shirts/vintage-washed-charcoal-tee/back-hover.png"
-      ],
-      description: "Coupe boxy contemporaine en jersey lourd 260 GSM. Sérigraphie haute densité signature Atelier, col rond indéformable.",
-      sku: "T-S-BLA",
-      category: "graphic"
+        "productId": "dxn-aloe-v-gel",
+        "modelName": "DXN ALOE.V Gel Aqueux Hydratant",
+        "modelShort": "Gel Aqueux ALOE.V",
+        "gsm": "Soin Naturel",
+        "fit": "Tous types de peaux",
+        "colorCode": "green",
+        "colorName": "Vert Naturel",
+        "colorHex": "#2D6A4F",
+        "image": "assets/ecom/1.png",
+        "backImage": "assets/ecom/1.png",
+        "gallery": [
+            "assets/ecom/1.png"
+        ],
+        "description": "Soin hydratant apaisant à l'extrait pur d'aloès vera barbadensis.",
+        "sku": "DXN-ALOE-1",
+        "category": "personal-care"
     },
     {
-      productId: "graphic-tee-colored",
-      modelName: "T-Shirt Graphic Colored Edition",
-      modelShort: "Graphic Colored",
-      gsm: "260 GSM",
-      fit: "Coupe Boxy Contemporaine",
-      colorCode: "dark-blue",
-      colorName: "Bleu Foncé",
-      colorHex: "#192231",
-      image: "assets/images/products/t-shirts/graphic-tee-colored-blue-dark/front-main.png",
-      backImage: "assets/images/products/t-shirts/graphic-tee-colored-blue-dark/back-hover.png",
-      gallery: [
-        "assets/images/products/t-shirts/graphic-tee-colored-blue-dark/front-main.png",
-        "assets/images/products/t-shirts/graphic-tee-colored-blue-dark/back-hover.png"
-      ],
-      description: "Teinte bleu profond sur jersey peigné 260 GSM. Finitions premium et lettrage graphique subtil.",
-      sku: "T-S-DAR",
-      category: "graphic"
+        "productId": "dxn-reishilium-powder",
+        "modelName": "DXN Poudre Reishilium Pure de Reishi",
+        "modelShort": "Poudre Reishilium",
+        "gsm": "Super-aliment",
+        "fit": "Poudre soluble",
+        "colorCode": "gold",
+        "colorName": "Or Reishi",
+        "colorHex": "#D4A373",
+        "image": "assets/ecom/7.png",
+        "backImage": "assets/ecom/7.png",
+        "gallery": [
+            "assets/ecom/7.png"
+        ],
+        "description": "Poudre pure de mycélium de Ganoderma lucidum pour l'immunité.",
+        "sku": "DXN-REISH-7",
+        "category": "dietary-supplements"
     },
     {
-      productId: "graphic-tee-colored",
-      modelName: "T-Shirt Graphic Colored Edition",
-      modelShort: "Graphic Colored",
-      gsm: "260 GSM",
-      fit: "Coupe Boxy Contemporaine",
-      colorCode: "indigo",
-      colorName: "Indigo",
-      colorHex: "#EADACB",
-      image: "assets/images/products/t-shirts/essential-tee-indigo/front-main.png",
-      backImage: "assets/images/products/t-shirts/essential-tee-indigo/back-hover.png",
-      gallery: [
-        "assets/images/products/t-shirts/essential-tee-indigo/front-main.png",
-        "assets/images/products/t-shirts/essential-tee-indigo/back-hover.png"
-      ],
-      description: "Nuance minérale chaleureuse sur coton 260 GSM haute tenue. Coupe boxy équilibrée.",
-      sku: "T-S-IND",
-      category: "graphic"
+        "productId": "dxn-black-cumin-plus",
+        "modelName": "DXN Black Cumin Plus Nigelle Pure",
+        "modelShort": "Black Cumin Plus",
+        "gsm": "Gélules 100% végétales",
+        "fit": "Bien-être quotidien",
+        "colorCode": "black",
+        "colorName": "Noir Graine Noire",
+        "colorHex": "#1F1D1D",
+        "image": "assets/ecom/3.png",
+        "backImage": "assets/ecom/3.png",
+        "gallery": [
+            "assets/ecom/3.png"
+        ],
+        "description": "Huile et graines de nigelle sélectionnées pour l'équilibre immunitaire.",
+        "sku": "DXN-CUMIN-3",
+        "category": "dietary-supplements"
     },
     {
-      productId: "graphic-tee-colored",
-      modelName: "T-Shirt Graphic Colored Edition",
-      modelShort: "Graphic Colored",
-      gsm: "260 GSM",
-      fit: "Coupe Boxy Contemporaine",
-      colorCode: "rose",
-      colorName: "Baby Pink",
-      colorHex: "#F6D9DC",
-      image: "assets/images/products/t-shirts/essential-tee-rose/tshirt-pink-front.png",
-      backImage: "assets/images/products/t-shirts/essential-tee-rose/tshirt-pink-back.png",
-      gallery: [
-        "assets/images/products/t-shirts/essential-tee-rose/tshirt-pink-front.png",
-        "assets/images/products/t-shirts/essential-tee-rose/tshirt-pink-back.png"
-      ],
-      description: "Rose pastel poudré sophistiqué en jersey 260 GSM. Toucher ultra doux et tombé parfait.",
-      sku: "T-S-ROS",
-      category: "graphic"
-    },
-
-    // 2. Oversized Monogramme Big (3 colors)
-    {
-      productId: "essential-oversized-tee",
-      modelName: "T-Shirt Oversized Monogramme Big",
-      modelShort: "Oversized Monogramme",
-      gsm: "240 GSM",
-      fit: "Coupe Oversize Tombante",
-      colorCode: "black",
-      colorName: "Noir Onyx",
-      colorHex: "#121212",
-      image: "assets/images/products/t-shirts/essential-oversized-tee/front-main.png",
-      backImage: "assets/images/products/t-shirts/essential-oversized-tee/back-hover.png",
-      gallery: [
-        "assets/images/products/t-shirts/essential-oversized-tee/front-main.png",
-        "assets/images/products/t-shirts/essential-oversized-tee/back-hover.png"
-      ],
-      description: "Coupe streetwear oversize avec épaules tombantes et monogramme signature au dos.",
-      sku: "T-S-BLA",
-      category: "oversized"
+        "productId": "dxn-cafe-noir-lingzhi",
+        "modelName": "DXN Café Noir Lingzhi 2-en-1",
+        "modelShort": "Café Noir Lingzhi",
+        "gsm": "Café Santé",
+        "fit": "Sans sucre ajouté",
+        "colorCode": "black",
+        "colorName": "Noir Café",
+        "colorHex": "#1F1D1D",
+        "image": "assets/ecom2/2.png",
+        "backImage": "assets/ecom2/2.png",
+        "gallery": [
+            "assets/ecom2/2.png"
+        ],
+        "description": "Café pur arabica enrichi au Ganoderma de haute qualité.",
+        "sku": "DXN-COF-2",
+        "category": "beverages-drinks"
     },
     {
-      productId: "essential-oversized-tee",
-      modelName: "T-Shirt Oversized Monogramme Big",
-      modelShort: "Oversized Monogramme",
-      gsm: "240 GSM",
-      fit: "Coupe Oversize Tombante",
-      colorCode: "navy",
-      colorName: "Bleu Marine",
-      colorHex: "#1D2E4E",
-      image: "assets/images/products/t-shirts/heavyweight-boxy-tee-300/front-main.png",
-      backImage: "assets/images/products/t-shirts/heavyweight-boxy-tee-300/back-hover.png",
-      gallery: [
-        "assets/images/products/t-shirts/heavyweight-boxy-tee-300/front-main.png",
-        "assets/images/products/t-shirts/heavyweight-boxy-tee-300/back-hover.png"
-      ],
-      description: "Bleu marine profond sur jersey peigné 240 GSM. Silhouette moderne ample et décontractée.",
-      sku: "T-S-NAV",
-      category: "oversized"
-    },
-    {
-      productId: "essential-oversized-tee",
-      modelName: "T-Shirt Oversized Monogramme Big",
-      modelShort: "Oversized Monogramme",
-      gsm: "240 GSM",
-      fit: "Coupe Oversize Tombante",
-      colorCode: "white",
-      colorName: "Blanc Craie",
-      colorHex: "#F4F4F0",
-      image: "assets/images/products/t-shirts/oversized-tee-big-white/front-main.png",
-      backImage: "assets/images/products/t-shirts/oversized-tee-big-white/back-hover.png",
-      gallery: [
-        "assets/images/products/t-shirts/oversized-tee-big-white/front-main.png",
-        "assets/images/products/t-shirts/oversized-tee-big-white/back-hover.png"
-      ],
-      description: "Blanc naturel mat et lumineux. Coton peigné 240 GSM avec grand monogramme contrasté au dos.",
-      sku: "T-S-WHI",
-      category: "oversized"
-    },
-
-    // 3. Minimal Essential (4 colors)
-    {
-      productId: "minimal-embroidered-logo-tee",
-      modelName: "T-Shirt Minimal Essential",
-      modelShort: "Minimal Essential",
-      gsm: "250 GSM",
-      fit: "Coupe Semi-Oversize Épurée",
-      colorCode: "black",
-      colorName: "Noir Onyx",
-      colorHex: "#121212",
-      image: "assets/images/products/t-shirts/minimal-embroidered-logo-tee/front-main.png",
-      backImage: "assets/images/products/t-shirts/minimal-embroidered-logo-tee/back-hover.png",
-      gallery: [
-        "assets/images/products/t-shirts/minimal-embroidered-logo-tee/front-main.png",
-        "assets/images/products/t-shirts/minimal-embroidered-logo-tee/back-hover.png"
-      ],
-      description: "Logo minimaliste brodé au cœur sur jersey lourd 250 GSM. Élégance intemporelle et coupe droite nette.",
-      sku: "T-S-BLA",
-      category: "minimal"
-    },
-    {
-      productId: "minimal-embroidered-logo-tee",
-      modelName: "T-Shirt Minimal Essential",
-      modelShort: "Minimal Essential",
-      gsm: "250 GSM",
-      fit: "Coupe Semi-Oversize Épurée",
-      colorCode: "blue-m",
-      colorName: "Bleu Royal",
-      colorHex: "#254E70",
-      image: "assets/images/products/t-shirts/essential-tee-blue-m/front-main.png",
-      backImage: "assets/images/products/t-shirts/essential-tee-blue-m/back-hover.png",
-      gallery: [
-        "assets/images/products/t-shirts/essential-tee-blue-m/front-main.png",
-        "assets/images/products/t-shirts/essential-tee-blue-m/back-hover.png"
-      ],
-      description: "Teinte bleu royal vibrante et raffinée. Broderie fine signature Atelier sur poitrine.",
-      sku: "T-S-BLU",
-      category: "minimal"
-    },
-    {
-      productId: "minimal-embroidered-logo-tee",
-      modelName: "T-Shirt Minimal Essential",
-      modelShort: "Minimal Essential",
-      gsm: "250 GSM",
-      fit: "Coupe Semi-Oversize Épurée",
-      colorCode: "white",
-      colorName: "Blanc Craie",
-      colorHex: "#F4F4F0",
-      image: "assets/images/products/t-shirts/atelier-studio-drop-tee/front-main.png",
-      backImage: "assets/images/products/t-shirts/atelier-studio-drop-tee/back-hover.png",
-      gallery: [
-        "assets/images/products/t-shirts/atelier-studio-drop-tee/front-main.png",
-        "assets/images/products/t-shirts/atelier-studio-drop-tee/back-hover.png"
-      ],
-      description: "La pièce indispensable du vestiaire masculin. Blanc craie naturel, col doublé et broderie ton-sur-ton.",
-      sku: "T-S-WHI",
-      category: "minimal"
-    },
-    {
-      productId: "minimal-embroidered-logo-tee",
-      modelName: "T-Shirt Minimal Essential",
-      modelShort: "Minimal Essential",
-      gsm: "250 GSM",
-      fit: "Coupe Semi-Oversize Épurée",
-      colorCode: "beige",
-      colorName: "Beige Sable",
-      colorHex: "#D9CEB2",
-      image: "assets/images/products/t-shirts/relaxed-earth-tone-tee/front-main.png",
-      backImage: "assets/images/products/t-shirts/relaxed-earth-tone-tee/back-hover.png",
-      gallery: [
-        "assets/images/products/t-shirts/relaxed-earth-tone-tee/front-main.png",
-        "assets/images/products/t-shirts/relaxed-earth-tone-tee/back-hover.png"
-      ],
-      description: "Teinte sable naturelle d'inspiration terre cuite. Toucher peigné soyeux et silhouette décontractée.",
-      sku: "T-S-BEI",
-      category: "minimal"
-    },
-
-    // 4. Heritage Regular (8 colors)
-    {
-      productId: "heritage-regular-tshirt-heather-grey",
-      modelName: "T-Shirt Regular Heritage - Gris Chiné",
-      modelShort: "Heritage Regular",
-      gsm: "180 GSM",
-      fit: "Coupe Regular Classique",
-      colorCode: "Gris",
-      colorName: "Empty Grey",
-      colorHex: "#A8A9AD",
-      image: "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/grey-front.png",
-      backImage: "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/grey-back.png",
-      gallery: [
-        "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/grey-front.png",
-        "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/grey-back.png"
-      ],
-      description: "T-shirt essentiel à la coupe regular intemporelle en jersey doux et respirant 180 GSM.",
-      sku: "T-S-GRI",
-      category: "heritage"
-    },
-    {
-      productId: "heritage-regular-tshirt-heather-grey",
-      modelName: "T-Shirt Regular Heritage",
-      modelShort: "Heritage Regular",
-      gsm: "180 GSM",
-      fit: "Coupe Regular Classique",
-      colorCode: "taupe",
-      colorName: "Brun Taupe",
-      colorHex: "#7B6252",
-      image: "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Brown _ Taupe.png",
-      backImage: "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Brown _ Taupe b.png",
-      gallery: [
-        "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Brown _ Taupe.png",
-        "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Brown _ Taupe b.png"
-      ],
-      description: "Nuance taupe minérale sur jersey 180 GSM doux et respirant.",
-      sku: "T-S-TAU",
-      category: "heritage"
-    },
-    {
-      productId: "heritage-regular-tshirt-heather-grey",
-      modelName: "T-Shirt Regular Heritage",
-      modelShort: "Heritage Regular",
-      gsm: "180 GSM",
-      fit: "Coupe Regular Classique",
-      colorCode: "cream",
-      colorName: "Crème",
-      colorHex: "#EFEAD8",
-      image: "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Cream.png",
-      backImage: "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Cream b.png",
-      gallery: [
-        "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Cream.png",
-        "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Cream b.png"
-      ],
-      description: "Teinte crème lumineuse sur coton respirant 180 GSM.",
-      sku: "T-S-CRE",
-      category: "heritage"
-    },
-    {
-      productId: "heritage-regular-tshirt-heather-grey",
-      modelName: "T-Shirt Regular Heritage",
-      modelShort: "Heritage Regular",
-      gsm: "180 GSM",
-      fit: "Coupe Regular Classique",
-      colorCode: "dusty-rose",
-      colorName: "Rose Poudré",
-      colorHex: "#D6A5A3",
-      image: "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Dusty Rose _ Pink.png",
-      backImage: "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Dusty Rose _ Pink b.png",
-      gallery: [
-        "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Dusty Rose _ Pink.png",
-        "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Dusty Rose _ Pink b.png"
-      ],
-      description: "Rose poudré délicat sur jersey premium 180 GSM.",
-      sku: "T-S-DUS",
-      category: "heritage"
-    },
-    {
-      productId: "heritage-regular-tshirt-heather-grey",
-      modelName: "T-Shirt Regular Heritage",
-      modelShort: "Heritage Regular",
-      gsm: "180 GSM",
-      fit: "Coupe Regular Classique",
-      colorCode: "light-blue",
-      colorName: "Bleu Ciel",
-      colorHex: "#9EBCD4",
-      image: "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Light Blue.png",
-      backImage: "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Light Blue b.png",
-      gallery: [
-        "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Light Blue.png",
-        "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Light Blue b.png"
-      ],
-      description: "Bleu ciel frais et épuré sur coupe regular.",
-      sku: "T-S-LIG",
-      category: "heritage"
-    },
-    {
-      productId: "heritage-regular-tshirt-heather-grey",
-      modelName: "T-Shirt Regular Heritage",
-      modelShort: "Heritage Regular",
-      gsm: "180 GSM",
-      fit: "Coupe Regular Classique",
-      colorCode: "medium-grey",
-      colorName: "Gris Moyen",
-      colorHex: "#8A8D90",
-      image: "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Medium Grey.png",
-      backImage: "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Medium Grey b.png",
-      gallery: [
-        "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Medium Grey.png",
-        "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Medium Grey b.png"
-      ],
-      description: "Gris moyen intemporel pour toutes les silhouettes urbaines.",
-      sku: "T-S-MED",
-      category: "heritage"
-    },
-    {
-      productId: "heritage-regular-tshirt-heather-grey",
-      modelName: "T-Shirt Regular Heritage",
-      modelShort: "Heritage Regular",
-      gsm: "180 GSM",
-      fit: "Coupe Regular Classique",
-      colorCode: "strong-blue",
-      colorName: "Bleu Intense",
-      colorHex: "#1E4870",
-      image: "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Strong Blue.png",
-      backImage: "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Strong Blue b.png",
-      gallery: [
-        "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Strong Blue.png",
-        "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Strong Blue b.png"
-      ],
-      description: "Bleu intense profond et vibrant sur jersey respirant.",
-      sku: "T-S-STR",
-      category: "heritage"
-    },
-    {
-      productId: "heritage-regular-tshirt-heather-grey",
-      modelName: "T-Shirt Regular Heritage",
-      modelShort: "Heritage Regular",
-      gsm: "180 GSM",
-      fit: "Coupe Regular Classique",
-      colorCode: "teal",
-      colorName: "Bleu Canard",
-      colorHex: "#276063",
-      image: "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Teal _ Blue-Green.png",
-      backImage: "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Teal _ Blue-Green b.png",
-      gallery: [
-        "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Teal _ Blue-Green.png",
-        "assets/images/products/t-shirts/heritage-regular-tshirt-heather-grey/Variantes/Teal _ Blue-Green b.png"
-      ],
-      description: "Nuance canard canopée contemporaine.",
-      sku: "T-S-TEA",
-      category: "heritage"
+        "productId": "kallow-creme-visage",
+        "modelName": "Kallow Divine Touch Crème Liftante",
+        "modelShort": "Crème Divine Touch",
+        "gsm": "Cosmétique Bio",
+        "fit": "Anti-âge haute performance",
+        "colorCode": "white",
+        "colorName": "Blanc Pur",
+        "colorHex": "#F8F9FA",
+        "image": "assets/ecom/16.png",
+        "backImage": "assets/ecom/16.png",
+        "gallery": [
+            "assets/ecom/16.png"
+        ],
+        "description": "Soin visage raffermissant aux actifs botaniques précieux.",
+        "sku": "KAL-FACE-16",
+        "category": "personal-care"
     }
-  ],
+],
 
-  allTshirtVariants: [],
+    allTshirtVariants: [],
 
   buildBundleAvailableVariants() {
     if (!this.product || (!this.product.isBundle && this.product.id !== 'pack-trio-tshirts')) {
@@ -435,7 +157,7 @@ window.ProductPageController = {
       if (defaultMatches.some(v => v.productId === prodId)) return;
       const found = storeProducts.find(p => p.id === prodId);
       if (found && !found.isBundle && found.id !== 'pack-trio-tshirts') {
-        const colors = (found.colors && found.colors.length > 0) ? found.colors : [{ name: 'Standard', code: 'default', hex: '#121212', image: 'assets/images/hero/hero-banner.jpg' }];
+        const colors = (found.colors && found.colors.length > 0) ? found.colors : [{ name: 'Standard', code: 'default', hex: '#121212', image: 'assets/Header/Header Ar.png' }];
         colors.forEach(col => {
           const possibleCodes = [col.code];
           if (col.code === 'rose') possibleCodes.push('pink');
@@ -453,7 +175,7 @@ window.ProductPageController = {
             }
           }
           if (images.length === 0 && col.image) images = [col.image];
-          const frontImg = images[0] || col.image || 'assets/images/products/tshirt-white-front.jpg';
+          const frontImg = images[0] || col.image || 'assets/ecom/1.png';
           const backImg = images[1] || null;
 
           variants.push({
@@ -514,25 +236,55 @@ window.ProductPageController = {
       StoreUtils.updateUrlParam("id", rawId);
     }
 
+    let deletedIds = [];
+    try {
+      const rawDeleted = localStorage.getItem("atelier_deleted_product_ids_v2");
+      if (rawDeleted) deletedIds = JSON.parse(rawDeleted);
+    } catch(e) {}
+    const deletedSet = new Set(Array.isArray(deletedIds) ? deletedIds : []);
+
+    if (rawId && deletedSet.has(rawId)) {
+      this.renderNotFound();
+      return;
+    }
+
     const allProducts = (window.STORE_PRODUCTS && window.STORE_PRODUCTS.length > 0)
       ? window.STORE_PRODUCTS
       : (window.DEFAULT_STORE_PRODUCTS || []);
 
     if (!rawId && allProducts.length > 0) {
-      rawId = allProducts[0].id;
+      const firstActive = allProducts.find(p => p && !deletedSet.has(p.id) && p.status !== 'disabled' && p.isActive !== false && p.disabled !== true);
+      if (firstActive) rawId = firstActive.id;
     }
 
-    this.product = allProducts.find(p => p.id === rawId || p.slug === rawId);
+    const cleanId = (rawId || '').trim().toLowerCase();
+    this.product = allProducts.find(p => p && !deletedSet.has(p.id) && (
+      p.id === rawId || 
+      p.slug === rawId ||
+      (p.id && p.id.toLowerCase() === cleanId) ||
+      (p.slug && p.slug.toLowerCase() === cleanId)
+    ));
 
     if (!this.product && window.DEFAULT_STORE_PRODUCTS) {
-      this.product = window.DEFAULT_STORE_PRODUCTS.find(p => p.id === rawId || p.slug === rawId);
-      if (this.product && window.STORE_PRODUCTS) {
-        window.STORE_PRODUCTS.push(this.product);
+      const fallbackDef = window.DEFAULT_STORE_PRODUCTS.find(p => p && !deletedSet.has(p.id) && (
+        p.id === rawId || 
+        p.slug === rawId ||
+        (p.id && p.id.toLowerCase() === cleanId) ||
+        (p.slug && p.slug.toLowerCase() === cleanId)
+      ));
+      if (fallbackDef) {
+        this.product = fallbackDef;
       }
     }
 
-    if (!this.product) {
+    if (!this.product || deletedSet.has(this.product.id)) {
       this.renderNotFound();
+      return;
+    }
+
+    // Check if the product has been disabled by the admin
+    if (this.product.status === 'disabled' || this.product.isActive === false || this.product.disabled === true) {
+      this.renderDisabledProduct();
       return;
     }
 
@@ -576,7 +328,10 @@ window.ProductPageController = {
     }
 
     // Set document title for SEO
-    document.title = `${this.product.name} | ${window.STORE_CONFIG.brandName}`;
+    const isArTitle = window.I18N ? window.I18N.isRTL() : true;
+    const prodTitle = isArTitle ? (this.product.nameAr || this.product.name) : (this.product.nameFr || this.product.name);
+    const brandTitle = isArTitle ? "دي إكس إن وكالو المغرب" : "DXN & KALLOW Maroc";
+    document.title = `${prodTitle} | ${brandTitle}`;
 
     // Resolve initial color
     let colorParam = initialColor || params.color;
@@ -585,17 +340,17 @@ window.ProductPageController = {
       StoreUtils.updateUrlParam("color", 'beige');
     }
     const colorExists = (this.product.colors || []).some(c => c.code === colorParam);
-    this.selectedColor = colorExists ? colorParam : (this.product.colors && this.product.colors[0] ? this.product.colors[0].code : 'black');
+    this.selectedColor = colorExists ? colorParam : (this.product.colors && this.product.colors[0] ? this.product.colors[0].code : 'standard');
 
-    // Resolve initial size
-    this.selectedSize = (this.product.sizes && this.product.sizes[0]) || "M";
+    // Resolve initial size / format
+    this.selectedSize = (this.product.sizes && this.product.sizes[0]) || (this.product.variants && this.product.variants[0] && this.product.variants[0].size) || this.product.weight || "Standard";
 
     // Setup dynamic slots and variants if bundle
     if (this.product.isBundle || this.product.id === 'pack-trio-tshirts') {
       const slotsCount = (this.product.bundleSlotsCount && parseInt(this.product.bundleSlotsCount, 10) > 0)
         ? parseInt(this.product.bundleSlotsCount, 10)
         : 3;
-      
+
       this.bundleSlots = [];
       for (let i = 1; i <= slotsCount; i++) {
         this.bundleSlots.push({ slot: i, productId: null, colorCode: null, size: (this.product.sizes && this.product.sizes[0]) || "M" });
@@ -615,12 +370,31 @@ window.ProductPageController = {
   renderNotFound() {
     const main = document.getElementById("pdp-main-content");
     if (!main) return;
+    const isAr = window.I18N ? window.I18N.isRTL() : true;
 
     main.innerHTML = `
-      <div class="container section-spacing text-center">
-        <h2>Pièce introuvable</h2>
-        <p style="margin: 16px 0 24px;">Le produit demandé n'existe pas ou n'est plus disponible.</p>
-        <a href="shop.html" class="btn btn-primary">Retour à la boutique</a>
+      <div class="container section-spacing text-center" style="max-width: 600px; margin: 60px auto; padding: 40px 20px;">
+        <div style="font-size: 3rem; margin-bottom: 16px;">🔍</div>
+        <h2 style="margin-bottom: 12px;">${isAr ? "المنتج غير متوفر" : "Produit Introuvable"}</h2>
+        <p style="margin: 0 0 24px; color: var(--text-muted);">${isAr ? "المنتج المطلوب غير موجود أو تمت إزالته نهائياً." : "Le produit demandé n'existe pas ou n'est plus disponible."}</p>
+        <a href="shop.html" class="btn btn-primary">${isAr ? "العودة إلى المتجر" : "Retour à la boutique"}</a>
+      </div>
+    `;
+  },
+
+  renderDisabledProduct() {
+    const main = document.getElementById("pdp-main-content");
+    if (!main) return;
+    const isAr = window.I18N ? window.I18N.isRTL() : true;
+
+    main.innerHTML = `
+      <div class="container section-spacing text-center" style="max-width: 600px; margin: 60px auto; padding: 40px 20px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px;">
+        <div style="font-size: 3rem; margin-bottom: 16px;">🛑</div>
+        <h2 style="font-size: 1.6rem; margin-bottom: 12px;">${isAr ? "المنتج غير متوفر حالياً" : "Produit Actuellement Indisponible"}</h2>
+        <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 0.95rem; line-height: 1.6;">
+          ${isAr ? "هذا المنتج غير متاح للشراء في الوقت الحالي. تفضل بزيارة مجموعتنا للاطلاع على البدائل المتاحة." : "Ce produit est temporairement retiré du catalogue ou indisponible à la vente."}
+        </p>
+        <a href="shop.html" class="btn btn-primary">${isAr ? "تصفح بقية المنتجات" : "Découvrir nos autres produits"}</a>
       </div>
     `;
   },
@@ -632,8 +406,10 @@ window.ProductPageController = {
     }
 
     const p = this.product;
-    const activeColorObj = p.colors.find(c => c.code === this.selectedColor) || p.colors[0];
-    
+    if (!p) return;
+    const isAr = window.I18N ? window.I18N.isRTL() : true;
+    const activeColorObj = (p.colors && p.colors.find(c => c.code === this.selectedColor)) || (p.colors && p.colors[0]) || { name: 'Standard', code: 'standard', hex: '#2F5233', image: p.image || 'assets/Header/Header Ar.png' };
+
     // Resolve gallery images with color alias support
     const possibleCodes = [this.selectedColor];
     if (this.selectedColor === 'rose') possibleCodes.push('pink');
@@ -642,20 +418,22 @@ window.ProductPageController = {
     if (this.selectedColor === 'navy') possibleCodes.push('dark-blue');
 
     let images = [];
-    if (p.images) {
+    if (p.images && typeof p.images === 'object') {
       for (const code of possibleCodes) {
-        if (p.images[code] && p.images[code].length > 0) {
+        if (Array.isArray(p.images[code]) && p.images[code].length > 0) {
           images = p.images[code];
           break;
         }
       }
     }
     if (images.length === 0) {
-      images = [activeColorObj.image || 'assets/images/hero/hero-banner.jpg'];
+      const fallbackImg = (activeColorObj && activeColorObj.image) || p.image || 'assets/Header/Header Ar.png';
+      images = [fallbackImg];
     }
     const activeImage = images[this.activeImageIndex] || images[0];
 
-    const currentVariant = p.variants.find(v => v.color === this.selectedColor && v.size === this.selectedSize) || p.variants[0];
+    const currentVariant = (p.variants && p.variants.find(v => v.color === this.selectedColor && v.size === this.selectedSize)) || (p.variants && p.variants[0]) || { stock: p.stock || 50, color: 'standard', size: p.weight || 'Standard' };
+    const maxStock = (currentVariant && currentVariant.stock > 0) ? currentVariant.stock : (p.stock > 0 ? p.stock : 99);
     const inStock = currentVariant && currentVariant.stock > 0;
     const discountPercent = StoreUtils.getDiscountPercentage(p.price, p.compareAtPrice);
 
@@ -670,9 +448,9 @@ window.ProductPageController = {
           </div>
           <section style="margin-top: clamp(60px, 8vw, 100px); padding-top: 48px; border-top: 1px solid var(--color-border);">
             <div class="section-header text-center">
-              <span class="badge" style="background: var(--color-bg-secondary); color: var(--color-dark); margin-bottom: 8px;">COMPLÉTEZ VOTRE VESTIAIRE</span>
-              <h2>VOUS AIMEREZ AUSSI</h2>
-              <p class="section-subtitle">D'autres pièces conçues avec la même exigence de confection.</p>
+              <span class="badge" style="background: var(--color-bg-secondary); color: var(--color-dark); margin-bottom: 8px;">${isAr ? 'تشكيلة راقية للصحة والجمال' : 'Sélection Santé & Beauté Naturelle'}</span>
+              <h2>${isAr ? 'منتجات موصى بها' : 'Produits Recommandés'}</h2>
+              <p class="section-subtitle">${isAr ? 'اكتشف منتجات طبيعية أصلية لإكمال روتينك الصحي واليومي.' : 'Découvrez d\'autres soins et compléments certifiés pour parfaire votre routine.'}</p>
             </div>
             <div class="product-grid-4col" id="pdp-related-grid"></div>
           </section>
@@ -687,12 +465,12 @@ window.ProductPageController = {
         <div class="pdp-thumbnails">
           ${images.map((img, idx) => `
             <div class="pdp-thumb ${idx === this.activeImageIndex ? 'active' : ''}" onclick="window.ProductPageController.setImageIndex(${idx})">
-              <img src="${img}" alt="${p.name} vue ${idx + 1}">
+              <img src="${img}" alt="${p.nameAr || p.name} صورة ${idx + 1}">
             </div>
           `).join('')}
         </div>
         <div class="pdp-main-image-viewport" id="pdp-main-viewport">
-          <img src="${activeImage}" alt="${p.name}" class="pdp-main-img" id="pdp-zoom-img">
+          <img src="${activeImage}" alt="${p.nameAr || p.name}" class="pdp-main-img" id="pdp-zoom-img">
         </div>
       `;
 
@@ -702,184 +480,258 @@ window.ProductPageController = {
     // 2. Render Details & Selectors
     const infoContainer = document.getElementById("pdp-info-container");
     if (infoContainer) {
+      const hasMultipleColors = p.colors && p.colors.length > 1;
+      const detailsList = isAr
+        ? (Array.isArray(p.details) ? p.details : [])
+        : (Array.isArray(p.detailsFr) && p.detailsFr.length > 0 ? p.detailsFr : (Array.isArray(p.details) ? p.details : []));
+      const activeDesc = isAr
+        ? (p.description || p.shortDescription || '')
+        : (p.descriptionFr || p.shortDescriptionFr || p.description || p.shortDescription || '');
+      const activeShortDesc = isAr
+        ? (p.shortDescription || '')
+        : (p.shortDescriptionFr || p.shortDescription || '');
+      const activeHowToUse = isAr
+        ? (p.howToUse || '')
+        : (p.howToUseFr || p.howToUse || '');
+
+      const primaryTitle = isAr ? (p.nameAr || p.name) : (p.nameFr || p.name);
+      const secondaryTitle = isAr 
+        ? (p.subtitleAr || p.shortDescription || '') 
+        : (p.subtitleFr || p.shortDescriptionFr || '');
+      const parentDept = window.CategoryManager ? window.CategoryManager.getParentForSubcategory(p.category) : null;
+      const parentDeptTitle = parentDept ? (isAr ? parentDept.nameAr : parentDept.nameFr) : '';
+      const categoryLabel = isAr ? (p.categoryName || p.categoryAr || p.category) : (p.categoryNameFr || p.category);
+
       infoContainer.innerHTML = `
         <div class="pdp-breadcrumbs">
-          <a href="index.html">Accueil</a>
+          <a href="index.html">${isAr ? 'الرئيسية' : 'Accueil'}</a>
           <span>/</span>
-          <a href="shop.html">Boutique</a>
+          <a href="shop.html">${isAr ? 'المتجر' : 'Boutique'}</a>
+          ${parentDept ? `
+            <span>/</span>
+            <a href="shop.html?category=${parentDept.slug}">${parentDeptTitle}</a>
+          ` : ''}
           <span>/</span>
-          <a href="shop.html?category=${p.category}">${p.category}</a>
+          <a href="shop.html?category=${p.category}">${categoryLabel}</a>
         </div>
 
-        <h1 class="pdp-title">${p.name}</h1>
-
-        <div class="pdp-price-row">
-          <span style="color: var(--color-dark);">${StoreUtils.formatMoney(p.price)}</span>
-          ${p.compareAtPrice ? `<span class="pdp-compare-price">${StoreUtils.formatMoney(p.compareAtPrice)}</span>` : ''}
-          ${discountPercent ? `<span class="badge badge-sale">ÉCONOMISEZ ${discountPercent}%</span>` : ''}
-          ${p.isNew ? `<span class="badge badge-new">NOUVEAU</span>` : ''}
+        <!-- Badges Brand & Category -->
+        <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 10px; flex-wrap: wrap;">
+          <span class="badge" style="background: ${p.brand === 'DXN' ? '#2F5233' : '#1D3557'}; color: #fff; font-weight: 700; letter-spacing: 0.5px; padding: 4px 10px;">${p.brand || 'DXN'}</span>
+          <span class="badge" style="background: var(--color-bg-secondary); color: var(--color-text-secondary); border: 1px solid var(--color-border); padding: 4px 10px;">${categoryLabel}</span>
+          ${p.sku ? `<span style="font-size: 0.78rem; color: var(--color-text-muted); font-family: monospace;">SKU: ${p.sku}</span>` : ''}
         </div>
 
-        <!-- Rating overview -->
-        <div style="display: flex; align-items: center; gap: 8px; font-size: 0.86rem;">
-          <div style="color: #F59E0B; letter-spacing: 2px;">★★★★★</div>
-          <span style="font-weight: 600;">${p.rating}</span>
-          <span style="color: var(--color-text-muted);">(${p.reviewCount} avis vérifiés)</span>
-        </div>
+        <h1 class="pdp-title" style="margin-bottom: 8px; line-height: 1.35; font-weight: 800;">${primaryTitle}</h1>
+        ${secondaryTitle ? `<div class="pdp-subtitle" style="font-size: 1.05rem; font-weight: 500; color: var(--color-text-muted); margin-bottom: 14px; line-height: 1.6;">${secondaryTitle}</div>` : ''}
 
-        <p class="pdp-short-desc">${p.shortDescription}</p>
-
-        <!-- Color Selector -->
-        <div class="variant-block">
-          <div class="variant-label-row">
-            <span>Couleur : <strong>${activeColorObj.name}</strong></span>
+        <!-- Aligned Meta Strip: Quantity, Stock, Rating -->
+        <div class="pdp-meta-strip" style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+          <div class="pdp-quantity-tag" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: var(--color-bg-secondary); border: 1.5px solid var(--color-dark); border-radius: 6px; font-weight: 700; font-size: 0.92rem; color: var(--color-dark);">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            <span>${isAr ? `الكمية / العبوة :` : `Format :`} <strong>${p.weight || (isAr ? 'عبوة أصلية' : 'Unité standard')}</strong></span>
           </div>
-          <div class="pdp-color-swatches">
-            ${(p.colors || []).map(item => {
-              const isCurrent = (item.code === this.selectedColor);
-              return `
-                <button type="button"
-                        class="pdp-swatch-btn ${isCurrent ? 'active' : ''}" 
-                        style="background-color: ${item.hex};" 
-                        title="${item.name}"
-                        onclick="window.ProductPageController.setColor('${item.code}')">
-                </button>
-              `;
-            }).join('')}
+
+          <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.86rem; padding: 6px 12px; border-radius: 6px; background: ${inStock ? 'rgba(46,125,50,0.08)' : 'rgba(211,47,47,0.08)'}; color: ${inStock ? 'var(--color-success)' : 'var(--color-sale)'}; font-weight: 600; border: 1px solid ${inStock ? 'rgba(46,125,50,0.2)' : 'rgba(211,47,47,0.2)'};">
+            <span style="width: 8px; height: 8px; background: currentColor; border-radius: 50%;"></span>
+            <span>${inStock ? (isAr ? `متوفر بالمخزون (${currentVariant ? currentVariant.stock : (p.stock || 50)} قطعة)` : `En stock (${currentVariant ? currentVariant.stock : (p.stock || 50)} unités)`) : (isAr ? 'نفذت الكمية' : 'Épuisé')}</span>
+          </div>
+
+          <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.86rem; padding: 6px 12px; border-radius: 6px; background: var(--color-bg-secondary); border: 1px solid var(--color-border);">
+            <span style="color: #F59E0B; letter-spacing: 1px;">★★★★★</span>
+            <span style="font-weight: 700;">${p.rating}</span>
+            <span style="color: var(--color-text-muted); font-size: 0.8rem;">(${p.reviewCount} ${isAr ? 'تقييم' : 'avis'})</span>
           </div>
         </div>
 
-        <!-- Size Selector -->
-        <div class="variant-block">
-          <div class="variant-label-row">
-            <span>Taille : <strong>${this.selectedSize}</strong></span>
-            <button type="button" style="text-decoration: underline; font-size: 0.78rem; text-transform: uppercase;" onclick="window.SizeGuideModalComponent.open()">
-              📐 Guide des tailles
-            </button>
-          </div>
-          <div class="pdp-size-grid">
-            ${p.sizes.map(size => {
-              const variant = p.variants.find(v => v.color === this.selectedColor && v.size === size);
-              const available = variant && variant.stock > 0;
-              return `
-                <button type="button" 
-                        class="pdp-size-btn ${size === this.selectedSize ? 'active' : ''} ${!available ? 'disabled' : ''}"
-                        ${!available ? 'disabled' : ''}
-                        onclick="window.ProductPageController.setSize('${size}')">
-                  ${size}
-                </button>
-              `;
-            }).join('')}
-          </div>
+        <!-- Aligned Pricing Card -->
+        <div class="pdp-price-box" style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 18px; padding: 14px 20px; background: var(--color-bg-secondary); border-radius: 8px; border: 1px solid var(--color-border); flex-wrap: wrap;">
+          <span style="color: var(--color-dark); font-weight: 800; font-size: 1.85rem; font-family: var(--font-heading);">${StoreUtils.formatMoney(p.price)}</span>
+          ${p.compareAtPrice ? `<span class="pdp-compare-price" style="font-size: 1.15rem; color: var(--color-text-muted); text-decoration: line-through; font-weight: 500;">${StoreUtils.formatMoney(p.compareAtPrice)}</span>` : ''}
+          ${discountPercent ? `<span class="badge badge-sale" style="font-size: 0.84rem; font-weight: 700; padding: 4px 10px;">${isAr ? `توفير ${discountPercent}%` : `-${discountPercent}%`}</span>` : ''}
+          ${p.isNew ? `<span class="badge badge-new" style="font-size: 0.84rem; font-weight: 700; padding: 4px 10px;">${isAr ? 'جديد' : 'NOUVEAU'}</span>` : ''}
         </div>
+
+        <p class="pdp-short-desc" style="line-height: 1.75; font-size: 0.98rem; margin-bottom: 18px;">${activeShortDesc}</p>
+
+        <!-- Optional Color Selector (if multi-color) -->
+        ${hasMultipleColors ? `
+          <div class="variant-block">
+            <div class="variant-label-row">
+              <span>${isAr ? 'الخيار :' : 'Option :'} <strong>${activeColorObj.name}</strong></span>
+            </div>
+            <div class="pdp-color-swatches">
+              ${(p.colors || []).map(item => {
+        const isCurrent = (item.code === this.selectedColor);
+        return `
+                  <button type="button"
+                          class="pdp-swatch-btn ${isCurrent ? 'active' : ''}" 
+                          style="background-color: ${item.hex};" 
+                          title="${item.name}"
+                          onclick="window.ProductPageController.setColor('${item.code}')">
+                  </button>
+                `;
+      }).join('')}
+            </div>
+          </div>
+        ` : ''}
 
         <!-- Inventory / Stock Status Badge -->
-        <div style="font-size: 0.84rem; display: flex; align-items: center; gap: 8px; margin-top: -4px;">
+        <div style="font-size: 0.84rem; display: flex; align-items: center; gap: 8px; margin: 12px 0 16px;">
           ${inStock ? `
             <span style="width: 8px; height: 8px; background-color: var(--color-success); border-radius: 50%;"></span>
-            <span>En stock dans notre atelier de Casablanca ${currentVariant.stock <= 5 ? `<strong style="color: var(--color-warning);">(${currentVariant.stock} restants)</strong>` : ''}</span>
+            <span style="color: var(--color-success); font-weight: 600;">${isAr ? `متوفر في المخزون (${currentVariant ? currentVariant.stock : (p.stock || 50)} قطعة متوفرة)` : `En stock (${currentVariant ? currentVariant.stock : (p.stock || 50)} unités disponibles)`}</span>
           ` : `
             <span style="width: 8px; height: 8px; background-color: var(--color-sale); border-radius: 50%;"></span>
-            <span style="color: var(--color-sale); font-weight: 600;">Rupture de stock pour cette combinaison</span>
+            <span style="color: var(--color-sale); font-weight: 600;">${isAr ? 'نفذت الكمية مؤقتاً' : 'Rupture de stock temporaire'}</span>
           `}
         </div>
 
         <!-- Actions -->
         <div class="pdp-actions-row">
           <div class="pdp-qty-selector">
-            <button class="pdp-qty-btn" onclick="window.ProductPageController.updateQty(-1)">-</button>
-            <input type="text" class="pdp-qty-input" value="${this.selectedQuantity}" readonly>
-            <button class="pdp-qty-btn" onclick="window.ProductPageController.updateQty(1)">+</button>
+            <button type="button" class="pdp-qty-btn" onclick="window.ProductPageController.updateQty(-1)" aria-label="${isAr ? 'تقليل الكمية' : 'Diminuer la quantité'}">-</button>
+            <input type="number" class="pdp-qty-input" min="1" max="${maxStock}" value="${this.selectedQuantity}" onchange="window.ProductPageController.setQty(this.value)" oninput="window.ProductPageController.setQty(this.value)" aria-label="${isAr ? 'الكمية' : 'Quantité'}">
+            <button type="button" class="pdp-qty-btn" onclick="window.ProductPageController.updateQty(1)" aria-label="${isAr ? 'زيادة الكمية' : 'Augmenter la quantité'}">+</button>
           </div>
           <button class="btn btn-primary pdp-add-btn" id="pdp-add-to-cart-btn" ${!inStock ? 'disabled' : ''} onclick="window.ProductPageController.addToCart(false)">
-            ${inStock ? 'AJOUTER AU PANIER' : 'ÉPUISÉ'}
+            ${inStock ? (isAr ? 'إضافة إلى السلة ⚡' : 'Ajouter au Panier ⚡') : (isAr ? 'نفذت الكمية' : 'Épuisé')}
           </button>
         </div>
 
         <button class="btn pdp-buy-now-btn" ${!inStock ? 'disabled' : ''} onclick="window.ProductPageController.addToCart(true)">
-          ACHETER MAINTENANT (EXPRESS)
+          ${isAr ? 'اطلب الآن (الدفع عند الاستلام بالمغرب) 📦' : 'Commander Express (Paiement à la Livraison) 📦'}
         </button>
 
         <!-- Guarantee pills -->
-        <div style="background-color: var(--color-bg-secondary); padding: 14px 18px; border: 1px solid var(--color-border); font-size: 0.82rem; display: flex; flex-direction: column; gap: 8px;">
+        <div style="background-color: var(--color-bg-secondary); padding: 14px 18px; border: 1px solid var(--color-border); font-size: 0.84rem; display: flex; flex-direction: column; gap: 8px; margin-top: 18px;">
           <div style="display: flex; align-items: center; gap: 8px;">
             <span>🚚</span>
-            <span><strong>Livraison Express au Maroc :</strong> Expédition en 24/48h. Offerte dès 500 MAD.</span>
+            <span>${isAr ? '<strong>شحن سريع بالمغرب :</strong> توصيل مضمون خلال 24/48 ساعة مع خدمة التتبع.' : '<strong>Livraison Express au Maroc :</strong> Expédition garantie sous 24/48h avec suivi.'}</span>
           </div>
           <div style="display: flex; align-items: center; gap: 8px;">
             <span>💵</span>
-            <span><strong>Paiement à la livraison (Cash on Delivery) :</strong> Réglez en espèces à réception.</span>
+            <span>${isAr ? '<strong>الدفع عند الاستلام (Cash on Delivery) :</strong> ادفع نقداً بكل أمان بعد استلام طلبيتك وفحصها.' : '<strong>Paiement à la Livraison :</strong> Réglez en espèces en toute sécurité à la réception de votre colis.'}</span>
           </div>
           <div style="display: flex; align-items: center; gap: 8px;">
-            <span>🔄</span>
-            <span><strong>Échanges faciles :</strong> 7 jours pour échanger votre taille gratuitement.</span>
+            <span>🌿</span>
+            <span>${isAr ? '<strong>ضمان الأصالة 100% :</strong> منتجات طبيعية معتمدة وأصلية مباشرة من المصدر.' : '<strong>100% Authentique & Certifié :</strong> Produits naturels certifiés directement de la source.'}</span>
           </div>
         </div>
 
         <!-- Collapsible Accordions -->
-        <div class="pdp-accordions">
+        <div class="pdp-accordions" style="margin-top: 24px;">
+
+          <!-- Accordion 1: Overview & Key Benefits -->
           <div class="accordion-item open">
             <button class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
-              <span>Détails & Coupe</span>
+              <span>🌿 ${isAr ? 'نظرة عامة والفوائد الصحية (Aperçu & Bienfaits)' : 'Aperçu & Bienfaits Principaux'}</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             <div class="accordion-content">
-              <p style="margin-bottom: 12px;">${p.description}</p>
-              <ul style="list-style: disc; padding-left: 20px; font-size: 0.88rem; color: var(--color-text-secondary); display: flex; flex-direction: column; gap: 6px;">
-                ${p.details.map(d => `<li>${d}</li>`).join('')}
-              </ul>
+              <p style="margin-bottom: 14px; line-height: 1.7; font-size: 0.95rem;">${activeDesc}</p>
+              ${detailsList.length > 0 ? `
+                <div style="margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--color-border);">
+                  <h4 style="margin: 0 0 10px; font-size: 0.95rem; font-weight: 700; color: var(--color-dark);">${isAr ? 'المميزات والفوائد الرئيسية :' : 'Caractéristiques & Bienfaits :'}</h4>
+                  <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem;">
+                    ${detailsList.map(d => `
+                      <li style="display: flex; align-items: flex-start; gap: 10px; line-height: 1.5;">
+                        <span style="color: #10B981; font-weight: bold; flex-shrink: 0; margin-top: 2px;">✓</span>
+                        <span>${d}</span>
+                      </li>
+                    `).join('')}
+                  </ul>
+                </div>
+              ` : ''}
             </div>
           </div>
 
+          <!-- Accordion 2: How to Use -->
+          ${activeHowToUse ? `
+            <div class="accordion-item open">
+              <button class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
+                <span>✨ ${isAr ? "طريقة الاستخدام (Conseils d'utilisation & Préparation)" : "Conseils d'Utilisation & Posologie"}</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+              <div class="accordion-content">
+                <div style="background: rgba(47, 82, 51, 0.05); padding: 16px; border-radius: 6px; ${isAr ? 'border-right: 4px solid #2F5233;' : 'border-left: 4px solid #2F5233;'}">
+                  <p style="margin: 0; font-size: 0.93rem; line-height: 1.8; color: var(--color-text-primary);">
+                    ${activeHowToUse}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ` : ''}
+
+          <!-- Accordion 3: Product Specs & Format -->
           <div class="accordion-item">
             <button class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
-              <span>Matières & Entretien</span>
+              <span>📋 ${isAr ? 'المواصفات والعبوة (Fiche Technique & Format)' : 'Fiche Technique & Format'}</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             <div class="accordion-content">
-              <p style="margin-bottom: 8px;"><strong>Matière :</strong> ${p.materials}</p>
-              <p style="margin-bottom: 8px;"><strong>Conseil d'entretien :</strong> ${p.careInstructions}</p>
-              <p><strong>Conseil taille :</strong> ${p.fit}</p>
+              <div style="display: grid; grid-template-columns: 1fr; gap: 10px; font-size: 0.88rem;">
+                <p style="margin: 0;"><strong>${isAr ? 'العلامة التجارية (Marque) :' : 'Marque :'}</strong> <span class="badge" style="background:${p.brand === 'DXN' ? '#2F5233' : '#1A365D'}; color:#fff; font-weight:700;">${p.brand || 'DXN'}</span></p>
+                ${p.weight ? `<p style="margin: 0;"><strong>${isAr ? 'الوزن / الحجم (Contenance) :' : 'Contenance / Format :'}</strong> ${p.weight}</p>` : ''}
+                <p style="margin: 0;"><strong>${isAr ? 'التصنيف (Catégorie) :' : 'Catégorie :'}</strong> ${categoryLabel}</p>
+                ${p.sku ? `<p style="margin: 0;"><strong>${isAr ? 'رمز المنتج (SKU) :' : 'Référence (SKU) :'}</strong> <code style="background:var(--color-bg-secondary); padding:2px 6px; border-radius:3px;">${p.sku}</code></p>` : ''}
+                ${p.barcode ? `<p style="margin: 0;"><strong>${isAr ? 'الباركود (Code-barres) :' : 'Code-barres :'}</strong> ${p.barcode}</p>` : ''}
+                ${p.tags && p.tags.length ? `
+                  <div style="margin-top: 8px;">
+                    <strong style="display:block; margin-bottom: 6px;">${isAr ? 'الوسوم (Mots-clés) :' : 'Mots-clés :'}</strong>
+                    <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                      ${p.tags.map(t => `<span style="font-size: 0.76rem; background: var(--color-bg-secondary); padding: 3px 8px; border-radius: 4px; border: 1px solid var(--color-border); color: var(--color-text-secondary);">${t}</span>`).join('')}
+                    </div>
+                  </div>
+                ` : ''}
+              </div>
             </div>
           </div>
 
+          <!-- Accordion 4: Delivery & Shipping -->
           <div class="accordion-item">
             <button class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
-              <span>Livraison & Retours au Maroc</span>
+              <span>🚚 ${isAr ? 'التوصيل والدفع (Livraison & Expédition)' : 'Livraison & Expédition au Maroc'}</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             <div class="accordion-content">
-              <p style="margin-bottom: 8px;">Toutes nos commandes sont préparées et expédiées depuis nos ateliers à Casablanca.</p>
-              <p style="margin-bottom: 6px;">• <strong>Casablanca, Rabat :</strong> 24 heures ouvrables.</p>
-              <p style="margin-bottom: 6px;">• <strong>Marrakech, Tanger, Agadir, Fès, etc. :</strong> 24 à 48 heures ouvrables.</p>
-              <p>• <strong>Frais de livraison :</strong> 35 MAD (Gratuit pour les commandes de 500 MAD ou plus).</p>
+              <p style="margin-bottom: 8px;">• <strong>${isAr ? 'التوصيل السريع :' : 'Livraison Express :'}</strong> ${isAr ? 'يتم التوصيل خلال 24 إلى 48 ساعة بجميع المدن المغربية.' : 'Expédition en 24 à 48h ouvrées dans toutes les villes du Maroc.'}</p>
+              <p style="margin-bottom: 8px;">• <strong>${isAr ? 'الدفع عند الاستلام :' : 'Paiement à la livraison :'}</strong> ${isAr ? 'عاين طلبيتك وادفع نقداً بكل أمان لمندوب التوصيل.' : 'Payez en espèces en toute sérénité lors de la réception de votre colis.'}</p>
+              <p style="margin-bottom: 8px;">• <strong>${isAr ? 'ضمان الجودة :' : 'Garantie Authenticité :'}</strong> ${isAr ? 'منتجات أصلية 100% مستخلصة من مصادر طبيعية معتمدة.' : 'Produits certifiés 100% originaux de la marque officielle.'}</p>
+              <p style="margin: 0;">• <strong>${isAr ? 'خدمة العملاء :' : 'Service Client :'}</strong> ${isAr ? 'تواصل معنا عبر واتساب لأي استفسار أو نصيحة حول طريقة الاستخدام.' : 'Contactez notre équipe via WhatsApp pour toute question ou conseil bien-être.'}</p>
             </div>
           </div>
 
+          <!-- Accordion 5: Customer Reviews -->
           <div class="accordion-item">
             <button class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
-              <span>Avis Clients (${p.reviewCount})</span>
+              <span>⭐ ${isAr ? `تقييمات العملاء (Avis Clients - ${p.reviewCount})` : `Avis Clients (${p.reviewCount})`}</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             <div class="accordion-content">
               <div style="display: flex; flex-direction: column; gap: 14px;">
                 <div style="border-bottom: 1px solid var(--color-border); padding-bottom: 10px;">
                   <div style="display: flex; justify-content: space-between; font-size: 0.84rem; margin-bottom: 4px;">
-                    <strong>Yassine K. (Casablanca)</strong>
+                    <strong>${isAr ? 'فاطمة الزهراء (الدار البيضاء)' : 'Fatima-Zahra (Casablanca)'}</strong>
                     <span style="color: #F59E0B;">★★★★★</span>
                   </div>
-                  <p style="font-size: 0.84rem;">La qualité du coton est impressionnante, bien lourd comme promis. Le col ne bouge pas après 3 lavages.</p>
+                  <p style="font-size: 0.86rem; line-height: 1.5; ${isAr ? 'direction: rtl; text-align: right;' : 'direction: ltr; text-align: left;'}">
+                    ${isAr ? 'منتج ممتاز وأصلي 100%، نتائج ملحوظة من أول أسبوع والتوصيل كان سريعاً في أقل من 24 ساعة.' : 'Produit authentique et d’une efficacité remarquable dès les premiers jours. Livraison rapide et soignée sous 24h.'}
+                  </p>
                 </div>
                 <div>
                   <div style="display: flex; justify-content: space-between; font-size: 0.84rem; margin-bottom: 4px;">
-                    <strong>Mehdi B. (Rabat)</strong>
+                    <strong>${isAr ? 'رشيد ب. (الرباط)' : 'Rachid B. (Rabat)'}</strong>
                     <span style="color: #F59E0B;">★★★★★</span>
                   </div>
-                  <p style="font-size: 0.84rem;">Livraison super rapide en 24h à Rabat. La coupe oversize est parfaitement équilibrée.</p>
+                  <p style="font-size: 0.86rem; line-height: 1.5; ${isAr ? 'direction: rtl; text-align: right;' : 'direction: ltr; text-align: left;'}">
+                    ${isAr ? 'الجودة عالية جداً والتغليف محكم. أنصح بالتعامل مع المتجر لثقتهم وخدمتهم الممتازة.' : 'Qualité irréprochable et emballage très sécurisé. Je recommande vivement pour le sérieux et la rapidité du service.'}
+                  </p>
                 </div>
               </div>
             </div>
           </div>
+
         </div>
       `;
     }
@@ -918,15 +770,15 @@ window.ProductPageController = {
             colorCode: null,
             colorName: "Non choisi",
             colorHex: "#D4D4D0",
-            image: "assets/images/products/tshirt-white-front.jpg",
+            image: "assets/ecom/1.png",
             sku: ""
           }
         };
       }
 
-      const variant = this.allTshirtVariants.find(t => t.productId === slot.productId && t.colorCode === slot.colorCode) 
-                   || this.allTshirtVariants.find(t => t.productId === slot.productId) 
-                   || this.allTshirtVariants[0];
+      const variant = this.allTshirtVariants.find(t => t.productId === slot.productId && t.colorCode === slot.colorCode)
+        || this.allTshirtVariants.find(t => t.productId === slot.productId)
+        || this.allTshirtVariants[0];
       return {
         ...slot,
         isSelected: true,
@@ -948,6 +800,8 @@ window.ProductPageController = {
     const totalSelectedCount = resolvedSlots.filter(s => s.isSelected).length;
     const uniqueModelIds = [...new Set(this.allTshirtVariants.map(v => v.productId))];
 
+    const isAr = window.StoreI18n ? window.StoreI18n.currentLang === 'ar' : document.documentElement.lang === 'ar';
+
     main.innerHTML = `
       <div class="bundle-studio-wrapper">
         <div class="container section-spacing bundle-studio-container">
@@ -955,35 +809,35 @@ window.ProductPageController = {
           <!-- Studio Header -->
           <div class="bundle-studio-header">
             <div class="pdp-breadcrumbs" style="margin-bottom: 12px;">
-              <a href="index.html">Accueil</a>
+              <a href="index.html">${isAr ? 'الرئيسية' : 'Accueil'}</a>
               <span>/</span>
-              <a href="collections.html">Collections</a>
+              <a href="collections.html">${isAr ? 'المجموعات' : 'Collections'}</a>
               <span>/</span>
-              <a href="collections.html?c=packs-bundles">Offres Packs & Bundles</a>
+              <a href="collections.html?c=packs-bundles">${isAr ? 'الباقات والعروض' : 'Offres Packs & Bundles'}</a>
               <span>/</span>
-              <span style="color: var(--color-dark); font-weight: 700;">${p.name}</span>
+              <span style="color: var(--color-dark); font-weight: 700;">${isAr ? (p.nameAr || p.name) : (p.nameFr || p.name)}</span>
             </div>
 
             <div class="bundle-header-row">
               <div class="bundle-header-left">
                 <div class="bundle-header-badges">
-                  <span class="badge" style="background: var(--color-dark); color: #fff; font-weight: 700;">OFFRE PACK ${slotsCount} PIÈCES</span>
-                  ${savings > 0 ? `<span class="badge badge-sale">ÉCONOMISEZ ${savings} MAD (-${savingsPct}%)</span>` : ''}
-                  <span class="badge" style="background: #EBF8F2; color: #047857; font-weight: 700;">🚚 LIVRAISON GRATUITE</span>
+                  <span class="badge" style="background: var(--color-dark); color: #fff; font-weight: 700;">${isAr ? `عرض باقة ${slotsCount} قطع` : `OFFRE PACK ${slotsCount} PIÈCES`}</span>
+                  ${savings > 0 ? `<span class="badge badge-sale">${isAr ? `وفر ${savings} درهم (-${savingsPct}%)` : `ÉCONOMISEZ ${savings} MAD (-${savingsPct}%)`}</span>` : ''}
+                  <span class="badge" style="background: #EBF8F2; color: #047857; font-weight: 700;">🚚 ${isAr ? 'توصيل مجاني بالمغرب' : 'LIVRAISON GRATUITE'}</span>
                 </div>
-                <h1 class="bundle-page-title">${p.name}</h1>
+                <h1 class="bundle-page-title">${isAr ? (p.nameAr || p.name) : (p.nameFr || p.name)}</h1>
                 <p class="bundle-page-subtitle">
-                  Composez votre pack sur-mesure en choisissant vos ${slotsCount} t-shirts préférés parmi les modèles et coloris ci-dessous.
+                  ${isAr ? 'اختر تشكيلة منتجات باقتك المخصصة حسب رغبتك.' : `Composez votre pack sur-mesure en choisissant vos ${slotsCount} produits ci-dessous.`}
                 </p>
               </div>
 
               <div class="bundle-header-price-card">
-                <div class="bundle-price-card-label">PRIX TOTAL (${slotsCount} T-SHIRTS)</div>
+                <div class="bundle-price-card-label">${isAr ? `السعر الإجمالي (${slotsCount} قطع)` : `PRIX TOTAL (${slotsCount} PIÈCES)`}</div>
                 <div class="bundle-price-card-figures">
                   <span class="bundle-price-val">${StoreUtils.formatMoney(price)}</span>
                   ${comparePrice ? `<span class="bundle-compare-val">${StoreUtils.formatMoney(comparePrice)}</span>` : ''}
                 </div>
-                <div class="bundle-price-card-sub">Soit ${perPiecePrice} MAD / Pièce • Coffret Inclus</div>
+                <div class="bundle-price-card-sub">${isAr ? `أي ${perPiecePrice} درهم / قطعة • العلبة مشمولة` : `Soit ${perPiecePrice} MAD / Pièce • Coffret Inclus`}</div>
               </div>
             </div>
           </div>
@@ -1072,14 +926,14 @@ window.ProductPageController = {
                     ✨ Tous les T-Shirts (${this.allTshirtVariants.length})
                   </button>
                   ${uniqueModelIds.map(modelId => {
-                    const varsForModel = this.allTshirtVariants.filter(v => v.productId === modelId);
-                    const modelShort = (varsForModel[0] && varsForModel[0].modelShort) || modelId;
-                    return `
+      const varsForModel = this.allTshirtVariants.filter(v => v.productId === modelId);
+      const modelShort = (varsForModel[0] && varsForModel[0].modelShort) || modelId;
+      return `
                       <button type="button" class="bundle-filter-pill ${this.activeFilterModel === modelId ? 'active' : ''}" onclick="window.ProductPageController.setFilterModel('${modelId}')">
                         ${modelShort} (${varsForModel.length} coloris)
                       </button>
                     `;
-                  }).join('')}
+    }).join('')}
                 </div>
               </div>
 
@@ -1091,8 +945,8 @@ window.ProductPageController = {
 
                 <div class="bundle-visual-tshirts-grid">
                   ${visibleVariants.map(variant => {
-                    const isSelected = (variant.productId === currentActiveSlot.productId && variant.colorCode === currentActiveSlot.colorCode);
-                    return `
+      const isSelected = (variant.productId === currentActiveSlot.productId && variant.colorCode === currentActiveSlot.colorCode);
+      return `
                       <div class="bundle-visual-card ${isSelected ? 'selected' : ''}" 
                            onclick="window.ProductPageController.selectTshirtForActiveSlot('${variant.productId}', '${variant.colorCode}')">
                         
@@ -1151,8 +1005,8 @@ window.ProductPageController = {
                             <div class="bundle-card-sizes-label">Choisir en 1 clic :</div>
                             <div class="bundle-card-sizes-grid">
                               ${availableSizes.map(sz => {
-                                const isThisSizeActive = isSelected && currentActiveSlot.size === sz;
-                                return `
+        const isThisSizeActive = isSelected && currentActiveSlot.size === sz;
+        return `
                                   <button type="button" 
                                           class="bundle-card-size-pill ${isThisSizeActive ? 'active' : ''}" 
                                           onclick="event.stopPropagation(); window.ProductPageController.selectTshirtAndSize('${variant.productId}', '${variant.colorCode}', '${sz}')"
@@ -1160,7 +1014,7 @@ window.ProductPageController = {
                                     ${sz}
                                   </button>
                                 `;
-                              }).join('')}
+      }).join('')}
                             </div>
                           </div>
                         </div>
@@ -1171,7 +1025,7 @@ window.ProductPageController = {
                         </button>
                       </div>
                     `;
-                  }).join('')}
+    }).join('')}
                 </div>
               </div>
 
@@ -1219,21 +1073,21 @@ window.ProductPageController = {
             <div class="bundle-purchase-card bundle-checkout-summary-bar">
               <div class="bundle-purchase-row">
                 <div>
-                  <div class="bundle-purchase-label">RÉCAPITULATIF DU PACK (${slotsCount} PIÈCES SUR-MESURE)</div>
+                  <div class="bundle-purchase-label">${isAr ? `ملخص الباقة (${slotsCount} قطع مخصصة)` : `RÉCAPITULATIF DU PACK (${slotsCount} PIÈCES SUR-MESURE)`}</div>
                   <div class="bundle-purchase-price">${StoreUtils.formatMoney(price)} ${comparePrice ? `<span class="bundle-purchase-compare">${StoreUtils.formatMoney(comparePrice)}</span>` : ''}</div>
                 </div>
                 <div style="text-align: right;">
-                  ${savings > 0 ? `<span class="badge badge-sale" style="font-size: 0.82rem; padding: 4px 10px;">ÉCONOMIE ${savings} MAD (-${savingsPct}%)</span>` : ''}
-                  <div style="font-size: 0.76rem; color: var(--color-success); font-weight: 700; margin-top: 4px;">🚚 LIVRAISON EXPRESS OFFERTE</div>
+                  ${savings > 0 ? `<span class="badge badge-sale" style="font-size: 0.82rem; padding: 4px 10px;">${isAr ? `توفير ${savings} درهم (-${savingsPct}%)` : `ÉCONOMIE ${savings} MAD (-${savingsPct}%)`}</span>` : ''}
+                  <div style="font-size: 0.76rem; color: var(--color-success); font-weight: 700; margin-top: 4px;">🚚 ${isAr ? 'توصيل سريع مجاني' : 'LIVRAISON EXPRESS OFFERTE'}</div>
                 </div>
               </div>
 
               <div class="bundle-checkout-actions-row">
                 <button type="button" class="btn btn-primary pdp-add-btn bundle-main-add-btn" onclick="window.ProductPageController.addBundleToCart(false)">
-                  ⚡ AJOUTER MON PACK AU PANIER • ${StoreUtils.formatMoney(price)}
+                  ⚡ ${isAr ? 'أضف باقتي إلى السلة' : 'AJOUTER MON PACK AU PANIER'} • ${StoreUtils.formatMoney(price)}
                 </button>
                 <button type="button" class="btn pdp-buy-now-btn bundle-main-buy-btn" onclick="window.ProductPageController.addBundleToCart(true)">
-                  COMMANDER MAINTENANT (CASH ON DELIVERY)
+                  ${isAr ? 'اطلب الآن (الدفع عند الاستلام)' : 'COMMANDER MAINTENANT (CASH ON DELIVERY)'}
                 </button>
               </div>
 
@@ -1284,8 +1138,8 @@ window.ProductPageController = {
                 </button>
                 <div class="accordion-content">
                   <p style="margin-bottom: 8px;">• <strong>Frais de port :</strong> <strong style="color: var(--color-success);">OFFERTS</strong> sur les packs.</p>
-                  <p style="margin-bottom: 6px;">• <strong>Casablanca, Mohammedia, Rabat, Salé :</strong> 24h ouvrables.</p>
-                  <p style="margin-bottom: 6px;">• <strong>Marrakech, Tanger, Fès, Meknès, Agadir, etc. :</strong> 24 à 48h ouvrables.</p>
+                  <p style="margin-bottom: 6px;">• <strong>Tanger, Tétouan, Asilah :</strong> 24h ouvrables.</p>
+                  <p style="margin-bottom: 6px;">• <strong>Casablanca, Rabat, Marrakech, Fès, Meknès, Agadir, etc. :</strong> 24 à 48h ouvrables.</p>
                   <p>• <strong>Paiement :</strong> Espèces au livreur après vérification du colis.</p>
                 </div>
               </div>
@@ -1404,9 +1258,9 @@ window.ProductPageController = {
 
   openQuickLook(productId, colorCode) {
     const variant = this.allTshirtVariants.find(t => t.productId === productId && t.colorCode === colorCode)
-                 || this.DEFAULT_TSHIRT_VARIANTS.find(t => t.productId === productId && t.colorCode === colorCode)
-                 || this.allTshirtVariants.find(t => t.productId === productId)
-                 || this.allTshirtVariants[0];
+      || this.DEFAULT_TSHIRT_VARIANTS.find(t => t.productId === productId && t.colorCode === colorCode)
+      || this.allTshirtVariants.find(t => t.productId === productId)
+      || this.allTshirtVariants[0];
     if (!variant) return;
 
     const currentSlot = this.bundleSlots.find(s => s.slot === this.activeSlotTab) || this.bundleSlots[0];
@@ -1639,8 +1493,8 @@ window.ProductPageController = {
 
     const bundleItems = this.bundleSlots.map(slot => {
       const variant = this.allTshirtVariants.find(t => t.productId === slot.productId && t.colorCode === slot.colorCode)
-                   || this.allTshirtVariants.find(t => t.productId === slot.productId)
-                   || this.allTshirtVariants[0];
+        || this.allTshirtVariants.find(t => t.productId === slot.productId)
+        || this.allTshirtVariants[0];
 
       return {
         slot: slot.slot,
@@ -1660,7 +1514,7 @@ window.ProductPageController = {
       bundleName: this.product.name,
       price: this.product.price || 599,
       compareAtPrice: this.product.compareAtPrice || (slotsCount * 260),
-      image: (this.product.colors && this.product.colors[0] ? this.product.colors[0].image : 'assets/images/products/t-shirts/tshirt-Pack-3.jpg'),
+      image: (this.product.colors && this.product.colors[0] ? this.product.colors[0].image : 'assets/Header/Header Ar.png'),
       bundleItems: bundleItems,
       quantity: 1,
       openDrawer: !isBuyNow
@@ -1694,7 +1548,10 @@ window.ProductPageController = {
       StoreUtils.updateUrlParam("color", null);
     }
 
-    document.title = `${this.product.name} | ${window.STORE_CONFIG.brandName}`;
+    const isArSwitch = window.I18N ? window.I18N.isRTL() : true;
+    const switchProdTitle = isArSwitch ? (this.product.nameAr || this.product.name) : (this.product.nameFr || this.product.name);
+    const switchBrandTitle = isArSwitch ? "دي إكس إن وكالو المغرب" : "DXN & KALLOW Maroc";
+    document.title = `${switchProdTitle} | ${switchBrandTitle}`;
     this.render();
     this.renderRelatedProducts();
   },
@@ -1716,16 +1573,28 @@ window.ProductPageController = {
     this.render();
   },
 
-  updateQty(delta) {
-    const currentVariant = this.product.variants.find(v => v.color === this.selectedColor && v.size === this.selectedSize);
-    const maxStock = (currentVariant && currentVariant.stock) || 10;
-    const newQty = this.selectedQuantity + delta;
-
-    if (newQty >= 1 && newQty <= maxStock) {
-      this.selectedQuantity = newQty;
-      const input = document.querySelector(".pdp-qty-input");
-      if (input) input.value = this.selectedQuantity;
+  setQty(val) {
+    let q = parseInt(val, 10);
+    const currentVariant = (this.product && this.product.variants && this.product.variants.find(v => v.color === this.selectedColor && v.size === this.selectedSize)) || (this.product && this.product.variants && this.product.variants[0]);
+    const maxStock = Math.max((currentVariant && currentVariant.stock > 0 ? currentVariant.stock : 0) || (this.product && this.product.stock > 0 ? this.product.stock : 0) || 99, 10);
+    if (isNaN(q) || q < 1) q = 1;
+    if (q > maxStock) {
+      if (window.StoreUtils) {
+        const isAr = window.StoreI18n ? window.StoreI18n.currentLang === 'ar' : document.documentElement.lang === 'ar';
+        StoreUtils.showToast(isAr ? `عذراً، تتوفر ${maxStock} قطع فقط في المخزون.` : `Désolé, seulement ${maxStock} pièces disponibles.`, "warning");
+      }
+      q = maxStock;
     }
+    this.selectedQuantity = q;
+    const input = document.querySelector(".pdp-qty-input");
+    if (input && parseInt(input.value, 10) !== q) {
+      input.value = q;
+    }
+  },
+
+  updateQty(delta) {
+    const currentQty = parseInt(this.selectedQuantity, 10) || 1;
+    this.setQty(currentQty + delta);
   },
 
   addToCart(isBuyNow = false) {
@@ -1748,7 +1617,18 @@ window.ProductPageController = {
   },
 
   bindEvents() {
-    // Accordion headers
+    window.addEventListener("language:changed", () => {
+      if (this.product) {
+        const isAr = window.I18N ? window.I18N.isRTL() : true;
+        const pTitle = isAr ? (this.product.nameAr || this.product.name) : (this.product.nameFr || this.product.name);
+        const bTitle = isAr ? "دي إكس إن وكالو المغرب" : "DXN & KALLOW Maroc";
+        document.title = `${pTitle} | ${bTitle}`;
+        this.render();
+        if (!this.product.isBundle) {
+          this.renderRelatedProducts();
+        }
+      }
+    });
   },
 
   bindImageZoom() {
@@ -1774,8 +1654,15 @@ window.ProductPageController = {
     const grid = document.getElementById("pdp-related-grid");
     if (!grid) return;
 
+    let deletedIds = [];
+    try {
+      const rawDeleted = localStorage.getItem("atelier_deleted_product_ids_v2");
+      if (rawDeleted) deletedIds = JSON.parse(rawDeleted);
+    } catch(e) {}
+    const deletedSet = new Set(Array.isArray(deletedIds) ? deletedIds : []);
+
     const related = (window.STORE_PRODUCTS || [])
-      .filter(p => p.id !== this.product.id && !p.isBundle && p.id !== 'pack-trio-tshirts')
+      .filter(p => p && !deletedSet.has(p.id) && p.status !== 'disabled' && p.isActive !== false && p.disabled !== true && p.id !== (this.product ? this.product.id : '') && !p.isBundle && p.id !== 'pack-trio-tshirts')
       .slice(0, 4);
     grid.innerHTML = related.map(p => window.ProductCardComponent.render(p)).join('');
   }

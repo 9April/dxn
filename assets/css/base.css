@@ -3,7 +3,7 @@
  * High-end Streetwear & Editorial Fashion Aesthetics
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 :root {
   /* Color Palette - Curated High Fashion Neutrals */
@@ -29,9 +29,9 @@
   --color-warning: #A16207;
   --color-warning-bg: #FEF9C3;
 
-  /* Typography */
-  --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Typography - Cairo for Arabic & Bilingual Elegance */
+  --font-heading: 'Cairo', 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Cairo', 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'SF Mono', Consolas, Monaco, monospace;
 
   /* Layout & Spacing */
@@ -91,6 +91,21 @@ body {
   max-width: 100%;
 }
 
+/* RTL Global Support */
+html[dir="rtl"], [dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] body, [dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+  font-family: var(--font-body);
+}
+
+[dir="rtl"] .text-left { text-align: right !important; }
+[dir="rtl"] .text-right { text-align: left !important; }
+
 /* Prevent body scroll when drawer/modal is active */
 body.overflow-locked {
   overflow: hidden;
@@ -148,13 +163,18 @@ ul, ol {
 }
 
 /* Layout Containers */
-.container {
+.container,
+.container-narrow,
+.container-wide {
   width: 100%;
-  max-width: var(--container-max-width);
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--container-padding);
   padding-right: var(--container-padding);
+}
+
+.container {
+  max-width: var(--container-max-width);
 }
 
 .container-narrow {
@@ -374,3 +394,31 @@ ul, ol {
   white-space: nowrap;
   border-width: 0;
 }
+
+/* Mobile Base Responsive Refinement */
+@media (max-width: 640px) {
+  :root {
+    --container-padding: 14px;
+    --header-height: 64px;
+  }
+
+  .section-spacing {
+    padding-top: clamp(28px, 6vw, 48px);
+    padding-bottom: clamp(28px, 6vw, 48px);
+  }
+
+  .section-header {
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    font-size: clamp(1.5rem, 5.5vw, 2.1rem) !important;
+    line-height: 1.3 !important;
+  }
+
+  h2 {
+    font-size: clamp(1.3rem, 4.8vw, 1.7rem) !important;
+    line-height: 1.35 !important;
+  }
+}
+

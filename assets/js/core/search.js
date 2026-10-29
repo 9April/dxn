@@ -10,14 +10,30 @@ window.StoreSearch = {
     const cleanQuery = query.trim().toLowerCase();
     if (cleanQuery.length === 0) return [];
 
-    const products = options.products || window.STORE_PRODUCTS || [];
+    let deletedIds = [];
+    try {
+      const rawDeleted = localStorage.getItem("atelier_deleted_product_ids_v2");
+      if (rawDeleted) deletedIds = JSON.parse(rawDeleted);
+    } catch(e) {}
+    const deletedSet = new Set(Array.isArray(deletedIds) ? deletedIds : []);
+
+    const rawList = options.products || window.STORE_PRODUCTS || [];
+    const products = rawList.filter(p => 
+      p && 
+      !deletedSet.has(p.id) && 
+      (options.includeDisabled || (p.status !== 'disabled' && p.isActive !== false && p.disabled !== true))
+    );
 
     return products.filter(product => {
-      // 1. Name match (Highest weight)
-      if (product.name.toLowerCase().includes(cleanQuery)) return true;
+      // 1. Name match (Arabic, French, or default)
+      if (product.name && product.name.toLowerCase().includes(cleanQuery)) return true;
+      if (product.nameAr && product.nameAr.toLowerCase().includes(cleanQuery)) return true;
+      if (product.nameFr && product.nameFr.toLowerCase().includes(cleanQuery)) return true;
 
       // 2. Category match
-      if (product.category.toLowerCase().includes(cleanQuery)) return true;
+      if (product.category && product.category.toLowerCase().includes(cleanQuery)) return true;
+      if (product.categoryName && product.categoryName.toLowerCase().includes(cleanQuery)) return true;
+      if (product.categoryNameFr && product.categoryNameFr.toLowerCase().includes(cleanQuery)) return true;
 
       // 3. Tags match
       if (product.tags && product.tags.some(tag => tag.toLowerCase().includes(cleanQuery))) {

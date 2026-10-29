@@ -1,14 +1,64 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ATELIER | Admin & Inventory Control Center</title>
-  <meta name="description" content="Tableau de bord de gestion des catégories, coloris, matrice de stock et catalogue produits.">
+
+  <!-- Google Fonts: Cairo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>لوحة التحكم وإدارة المخزون | دي إكس إن وكالو</title>
+  <meta name="description" content="لوحة التحكم لإدارة المخزون، المنتجات، والطلبات لمتجر دي إكس إن وكالو المغرب.">
 
   <!-- Core & Admin CSS -->
-  <link rel="stylesheet" href="assets/css/base.css?v=10">
-  <link rel="stylesheet" href="assets/css/admin.css?v=10">
+  <link rel="stylesheet" href="assets/css/base.css?v=41">
+  <link rel="stylesheet" href="assets/css/components.css?v=41">
+  <link rel="stylesheet" href="assets/css/admin.css?v=22">
+
+  <!-- Core I18N Script in Head for instantaneous localization engine readiness -->
+  <script src="assets/js/i18n.js?v=41"></script>
+
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem("atelier_lang") || "ar";
+        var isAr = saved === "ar";
+        document.documentElement.lang = isAr ? "ar" : "fr";
+        document.documentElement.dir = isAr ? "rtl" : "ltr";
+        document.documentElement.classList.toggle("lang-ar", isAr);
+        document.documentElement.classList.toggle("lang-fr", !isAr);
+      } catch(e) {}
+    })();
+
+    function setAdminLang(lang) {
+      if (lang !== "ar" && lang !== "fr") return;
+      try {
+        localStorage.setItem("atelier_lang", lang);
+      } catch(e) {}
+
+      // Immediately toggle active state on switcher buttons
+      var btnAr = document.getElementById("header-lang-btn-ar") || document.getElementById("admin-lang-btn-ar");
+      var btnFr = document.getElementById("header-lang-btn-fr") || document.getElementById("admin-lang-btn-fr");
+      if (btnAr) btnAr.classList.toggle("active", lang === "ar");
+      if (btnFr) btnFr.classList.toggle("active", lang === "fr");
+
+      // Keep active tab in URL so reload preserves it
+      try {
+        var currentUrl = new URL(window.location.href);
+        if (window.AdminDashboard && window.AdminDashboard.activeTab) {
+          currentUrl.searchParams.set("tab", window.AdminDashboard.activeTab);
+          window.history.replaceState({}, "", currentUrl.toString());
+        }
+      } catch(e) {}
+
+      if (window.I18N && typeof window.I18N.setLang === "function") {
+        window.I18N.setLang(lang, true);
+      } else {
+        window.location.reload();
+      }
+    }
+  </script>
 </head>
 <body class="admin-body">
 
@@ -18,8 +68,8 @@
     <aside class="admin-sidebar">
       <div class="admin-sidebar-header">
         <a href="admin.html" class="admin-brand">
-          <span class="admin-brand-title">ATELIER</span>
-          <span class="admin-brand-subtitle">CONTROL CENTER</span>
+          <span class="admin-brand-title">دي إكس إن وكالو</span>
+          <span class="admin-brand-subtitle">لوحة التحكم المركزية</span>
         </a>
       </div>
 
@@ -44,14 +94,6 @@
           <span class="admin-nav-badge" id="badge-categories-count">0</span>
         </button>
 
-        <button class="admin-nav-btn" data-tab="colors">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M12 2a10 10 0 0 0 0 20v-2a8 8 0 0 1 0-16V2z"></path>
-          </svg>
-          <span>Couleurs & Swatches</span>
-          <span class="admin-nav-badge" id="badge-colors-count">0</span>
-        </button>
 
         <button class="admin-nav-btn" data-tab="stock">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -114,18 +156,38 @@
           </button>
           <h1 class="admin-page-title" id="admin-current-page-title">Vue d'Ensemble & Métriques</h1>
         </div>
-
         <div class="admin-topbar-right">
+          <!-- Language Switcher Pill (Identical to Home Page index.html) -->
+          <div class="header-lang-switch" id="header-lang-switch" title="Changer de langue / تغيير اللغة">
+            <button type="button" class="header-lang-btn" id="header-lang-btn-ar" onclick="window.I18N ? window.I18N.setLang('ar') : (localStorage.setItem('atelier_lang','ar'), location.reload())" aria-label="العربية">عربي</button>
+            <span class="header-lang-divider">|</span>
+            <button type="button" class="header-lang-btn" id="header-lang-btn-fr" onclick="window.I18N ? window.I18N.setLang('fr') : (localStorage.setItem('atelier_lang','fr'), location.reload())" aria-label="Français">FR</button>
+          </div>
+          <script>
+            (function() {
+              try {
+                var lang = (window.I18N && window.I18N.getLang()) || localStorage.getItem("atelier_lang") || "ar";
+                var isAr = lang === "ar";
+                var btnAr = document.getElementById("header-lang-btn-ar");
+                var btnFr = document.getElementById("header-lang-btn-fr");
+                if (btnAr) btnAr.classList.toggle("active", isAr);
+                if (btnFr) btnFr.classList.toggle("active", !isAr);
+                var sw = document.getElementById("header-lang-switch");
+                if (sw) sw.setAttribute("title", isAr ? "تغيير اللغة" : "Changer de langue");
+              } catch(e) {}
+            })();
+          </script>
+
           <div class="admin-sync-pill" title="Synchronisation active avec le stockage local">
             <span class="admin-sync-dot"></span>
-            <span>Sync Live LocalStorage</span>
+            <span id="admin-sync-pill-text">Sync Live LocalStorage</span>
           </div>
 
           <button class="admin-btn admin-btn-primary admin-btn-sm" id="btn-sync-to-disk" onclick="AdminDashboard.syncToDisk()" title="Synchroniser l'état actuel de LocalStorage directement dans les fichiers sources JS sur le disque">
             ⚡ Sync vers Code Source
           </button>
 
-          <a href="shop.html" target="_blank" class="admin-btn admin-btn-secondary admin-btn-sm">
+          <a href="shop.html" target="_blank" class="admin-btn admin-btn-secondary admin-btn-sm" id="admin-view-store-btn">
             Boutique ↗
           </a>
         </div>
@@ -152,11 +214,11 @@
 
             <div class="admin-metric-card">
               <div class="metric-header">
-                <span class="metric-title">Total Variantes (SKUs)</span>
+                <span class="metric-title">Total Références</span>
                 <div class="metric-icon-box">📦</div>
               </div>
               <div class="metric-value" id="stat-total-variants">0</div>
-              <div class="metric-subtitle">Combinaisons couleur × taille</div>
+              <div class="metric-subtitle">Articles & déclinaisons actifs</div>
             </div>
 
             <div class="admin-metric-card">
@@ -183,7 +245,7 @@
                 <div class="metric-icon-box">⚠️</div>
               </div>
               <div class="metric-value" id="stat-low-stock" style="color: var(--admin-warning);">0</div>
-              <div class="metric-subtitle">Variantes à réapprovisionner</div>
+              <div class="metric-subtitle">Articles à réapprovisionner</div>
             </div>
 
             <div class="admin-metric-card">
@@ -211,8 +273,7 @@
                   <thead>
                     <tr>
                       <th>Produit & SKU</th>
-                      <th>Coloris</th>
-                      <th>Taille</th>
+                      <th>Catégorie</th>
                       <th>État Stock</th>
                       <th>Prix</th>
                       <th>Action</th>
@@ -263,44 +324,6 @@
           </div>
         </div>
 
-        <!-- ================================================================ -->
-        <!-- TAB 3: COLORS & SWATCHES -->
-        <!-- ================================================================ -->
-        <div class="admin-tab-pane" id="tab-colors">
-          <div class="admin-card">
-            <div class="admin-card-header" style="flex-wrap: wrap; gap: 14px;">
-              <div>
-                <h2 class="admin-card-title">Palette de Teintures & Coloris</h2>
-                <p style="font-size: 0.8rem; color: var(--admin-text-muted); margin-top: 4px;">
-                  Gérez vos pastilles de nuances, codes HEX et mockups de référence synchronisés avec la boutique.
-                </p>
-              </div>
-              <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-                <span class="admin-badge badge-active" id="colors-total-count">0 coloris</span>
-                <span class="admin-badge badge-instock" id="colors-mockups-count">0 avec mockup</span>
-                <span class="admin-badge badge-gold" id="colors-variants-count">0 variantes</span>
-                <button class="admin-btn admin-btn-primary" onclick="AdminDashboard.openAddColorModal()">
-                  + Nouveau Coloris
-                </button>
-              </div>
-            </div>
-
-            <!-- Toolbar: Search & Quick Filter -->
-            <div class="admin-card-body" style="padding-bottom: 0;">
-              <div class="admin-search-bar" style="margin-bottom: 0;">
-                <input type="text" class="admin-search-input" id="colors-search-input" 
-                       placeholder="🔍 Filtrer les coloris par nom, code ou hex (ex: #121212, rose, black)..." 
-                       oninput="AdminDashboard.filterColors(this.value)">
-              </div>
-            </div>
-
-            <div class="admin-card-body">
-              <div class="color-cards-grid" id="colors-cards-container">
-                <!-- Dynamic High-End Color Cards rendered by admin.js -->
-              </div>
-            </div>
-          </div>
-        </div>
 
         <!-- ================================================================ -->
         <!-- TAB 4: STOCK MATRIX -->
@@ -309,17 +332,17 @@
           <div class="admin-card">
             <div class="admin-card-header">
               <div>
-                <h2 class="admin-card-title">Matrice d'Inventaire & Niveaux de Stock</h2>
+                <h2 class="admin-card-title">Gestion de l'Inventaire & Niveaux de Stock</h2>
                 <p style="font-size: 0.8rem; color: var(--admin-text-muted); margin-top: 4px;">
-                  Ajustez les quantités par SKU, taille (S–XL) et coloris en temps réel.
+                  Ajustez les quantités et niveaux de stock de vos produits en temps réel.
                 </p>
               </div>
-              <span class="admin-badge badge-active" id="stock-filtered-count">0 variantes</span>
+              <span class="admin-badge badge-active" id="stock-filtered-count">0 produits</span>
             </div>
 
             <div class="admin-card-body" style="padding-bottom: 0;">
               <div class="admin-search-bar">
-                <input type="text" class="admin-search-input" id="stock-search-input" placeholder="🔍 Rechercher par modèle, SKU, coloris ou taille...">
+                <input type="text" class="admin-search-input" id="stock-search-input" placeholder="🔍 Rechercher par produit, catégorie ou SKU...">
                 
                 <select class="admin-form-select" id="stock-filter-status" style="width: auto; min-width: 170px;">
                   <option value="all">Tous les États</option>
@@ -339,12 +362,12 @@
                 <thead>
                   <tr>
                     <th>Produit & SKU</th>
-                    <th>Coloris</th>
-                    <th>Taille</th>
+                    <th>Catégorie</th>
                     <th>Prix</th>
                     <th>Statut</th>
                     <th>Quantité (Ajustement Rapide)</th>
                     <th>Réappro</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody id="stock-matrix-tbody">
@@ -362,15 +385,12 @@
           <div class="admin-card">
             <div class="admin-card-header">
               <div>
-                <h2 class="admin-card-title">Catalogue des Modèles & Fiches Produits</h2>
+                <h2 class="admin-card-title">Catalogue des Produits DXN & Kallow</h2>
                 <p style="font-size: 0.8rem; color: var(--admin-text-muted); margin-top: 4px;">
-                  Créez des pièces, modifiez les tarifs en Dirhams (MAD), les grammages (GSM) et générez les variantes.
+                  Gérez votre catalogue de santé, bien-être et beauté, tarifs et niveaux de stock.
                 </p>
               </div>
               <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                <button class="admin-btn admin-btn-secondary" onclick="AdminDashboard.restoreFullCatalogMaster()" style="border-color: #3b82f6; color: #60a5fa; font-weight: 600;" title="Vérifier et restaurer l'intégralité du catalogue des 11 produits d'origine">
-                  🔄 Restaurer 11 Produits
-                </button>
                 <button class="admin-btn admin-btn-secondary" onclick="AdminDashboard.openAddBundleModal()" style="border-color: var(--admin-gold); color: var(--admin-gold); font-weight: 700;">
                   📦 + Nouveau Pack Bundle
                 </button>
@@ -382,22 +402,19 @@
 
             <div class="admin-card-body" style="padding-bottom: 0;">
               <div class="admin-search-bar" style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
-                <input type="text" class="admin-search-input" id="products-search-input" placeholder="🔍 Rechercher par titre, ID, coloris ou mot-clé..." style="flex: 1; min-width: 220px;">
+                <input type="text" class="admin-search-input" id="products-search-input" placeholder="🔍 Rechercher par titre, ID ou mot-clé..." style="flex: 1; min-width: 220px;">
                 
+                <select class="admin-form-select" id="products-filter-status" style="width: auto; min-width: 160px;">
+                  <option value="all">Tous les Statuts</option>
+                  <option value="active">🟢 Actifs (Visibles)</option>
+                  <option value="disabled">🔴 Désactivés (Masqués)</option>
+                </select>
+
                 <select class="admin-form-select" id="products-filter-category" style="width: auto; min-width: 170px;">
                   <option value="all">Toutes les Catégories</option>
                 </select>
 
-                <div class="admin-filter-pills" id="products-view-mode-group">
-                  <button type="button" class="admin-filter-pill active" id="btn-view-mode-separated" onclick="AdminDashboard.setProductViewMode('separated')">
-                    🎨 Vue par Modèle / Déclinaison (Séparée)
-                  </button>
-                  <button type="button" class="admin-filter-pill" id="btn-view-mode-grouped" onclick="AdminDashboard.setProductViewMode('grouped')">
-                    📦 Vue par Fiche Produit Parent
-                  </button>
-                </div>
-
-                <span class="admin-badge badge-active" id="products-filtered-count">0 modèles</span>
+                <span class="admin-badge badge-active" id="products-filtered-count">0 produits</span>
               </div>
             </div>
 
@@ -407,9 +424,9 @@
                   <tr>
                     <th>Modèle & Visuels (Face / Survol)</th>
                     <th>Catégorie</th>
-                    <th>Coloris</th>
                     <th>Tarif</th>
-                    <th>SKUs & Stock</th>
+                    <th>Stock Disponible</th>
+                    <th>Statut (Visibilité)</th>
                     <th>Badges</th>
                     <th>Actions</th>
                   </tr>
@@ -563,7 +580,7 @@
               </div>
               <div class="admin-card-body">
                 <p style="font-size: 0.85rem; color: var(--admin-text-muted); margin-bottom: 16px;">
-                  Transfère instantanément l'ensemble des coloris, catégories, stocks et modèles modifiés dans votre navigateur vers les fichiers <code>products.js</code>, <code>categories.js</code> et <code>storeData.js</code> sur le disque.
+                  Transfère instantanément l'ensemble des catégories, stocks et modèles modifiés dans votre navigateur vers les fichiers <code>products.js</code>, <code>categories.js</code> et <code>storeData.js</code> sur le disque.
                 </p>
                 <button class="admin-btn admin-btn-primary" onclick="AdminDashboard.syncToDisk()">
                   ⚡ Synchroniser vers les fichiers du Code
@@ -577,7 +594,7 @@
               </div>
               <div class="admin-card-body">
                 <p style="font-size: 0.85rem; color: var(--admin-text-muted); margin-bottom: 16px;">
-                  Téléchargez l'intégralité de vos catégories, coloris, niveaux de stock et fiches produits au format JSON pour les conserver en lieu sûr.
+                  Téléchargez l'intégralité de vos catégories, niveaux de stock et fiches produits au format JSON pour les conserver en lieu sûr.
                 </p>
                 <button class="admin-btn admin-btn-secondary" onclick="AdminDashboard.exportData()">
                   ⬇️ Télécharger le Fichier JSON
@@ -608,7 +625,7 @@
               </div>
               <div class="admin-card-body">
                 <p style="font-size: 0.85rem; color: var(--admin-text-muted); margin-bottom: 16px;">
-                  Restaure les 10 modèles permanents et catégories par défaut de la marque ATELIER en effaçant les modifications locales de ce navigateur.
+                  Restaure le catalogue et les catégories par défaut en effaçant le cache local de ce navigateur.
                 </p>
                 <div style="display: flex; gap: 12px; flex-wrap: wrap;">
                   <button class="admin-btn admin-btn-secondary" onclick="AdminDashboard.clearBrowserCacheAndReload()">
@@ -663,7 +680,7 @@
           <div class="admin-form-group">
             <label class="admin-form-label">Image de Couverture</label>
             <div style="display: flex; gap: 8px;">
-              <input type="text" class="admin-form-input" id="cat-form-image" placeholder="assets/images/categories/...">
+              <input type="text" class="admin-form-input" id="cat-form-image" placeholder="assets/ecom/1.png">
               <button type="button" class="admin-btn admin-btn-secondary" onclick="AdminDashboard.openImagePicker('cat-form-image')">
                 Choisir Image
               </button>
@@ -685,75 +702,6 @@
     </div>
   </div>
 
-  <!-- ==================================================================== -->
-  <!-- MODAL: ADD / EDIT COLOR -->
-  <!-- ==================================================================== -->
-  <div class="admin-modal-backdrop" id="modal-color">
-    <div class="admin-modal-box admin-modal-box-md">
-      <div class="admin-modal-header">
-        <h3 class="admin-modal-title" id="color-modal-title">Ajouter un Coloris</h3>
-        <button class="admin-modal-close" data-modal-close>✕</button>
-      </div>
-      <form onsubmit="AdminDashboard.saveColorFromForm(event)">
-        <div class="admin-modal-body">
-
-          <!-- Live Swatch Preview Showcase Banner -->
-          <div class="admin-color-live-preview-box" id="color-form-live-box">
-            <div class="admin-color-live-swatch" id="color-live-swatch-circle" style="background-color: #121212;"></div>
-            <div class="admin-color-live-mockup-wrap" id="color-live-mockup-wrap">
-              <img id="color-form-preview-img" src="" alt="Mockup Preview" style="display: none;">
-              <span id="color-form-preview-empty" style="font-size: 1.2rem; color: var(--admin-text-muted);">📷</span>
-            </div>
-            <div class="admin-color-live-info">
-              <div class="admin-color-live-name" id="color-live-name-text">Noir Onyx</div>
-              <div class="admin-color-live-hex" id="color-live-hex-text">#121212 • slug: black</div>
-              <div style="font-size: 0.72rem; color: var(--admin-gold); margin-top: 3px;">Aperçu instantané de la pastille & du mockup</div>
-            </div>
-          </div>
-
-          <div class="admin-form-row-2">
-            <div class="admin-form-group">
-              <label class="admin-form-label">Nom du Coloris *</label>
-              <input type="text" class="admin-form-input" id="color-form-name" placeholder="ex: Vert Sauge, Noir Onyx" required oninput="AdminDashboard.syncColorLivePreview()">
-            </div>
-            <div class="admin-form-group">
-              <label class="admin-form-label">Code / Slug Identifiant *</label>
-              <input type="text" class="admin-form-input" id="color-form-code" placeholder="ex: sage-green, black" required oninput="AdminDashboard.syncColorLivePreview()">
-            </div>
-          </div>
-
-          <div class="admin-form-group">
-            <label class="admin-form-label">Code Couleur Hexadécimal (Pastille) *</label>
-            <div style="display: flex; gap: 10px; align-items: center;">
-              <input type="color" id="color-form-hex-picker" value="#121212" style="width: 48px; height: 44px; border: none; background: transparent; cursor: pointer; border-radius: 6px;" oninput="AdminDashboard.syncColorPickerToInput(this.value)">
-              <input type="text" class="admin-form-input" id="color-form-hex" value="#121212" placeholder="#121212" required style="font-family: var(--font-mono); font-weight: 700; letter-spacing: 0.05em;" oninput="AdminDashboard.syncColorInputToPicker(this.value)">
-            </div>
-          </div>
-
-          <div class="admin-form-group">
-            <label class="admin-form-label">Mockup par défaut pour cette couleur</label>
-            <div style="display: flex; gap: 10px; align-items: center;">
-              <input type="text" class="admin-form-input" id="color-form-image" placeholder="assets/images/products/..." style="flex: 1;" oninput="AdminDashboard.updateColorMockupPreview(this.value)">
-              <button type="button" class="admin-btn admin-btn-secondary" onclick="AdminDashboard.openImagePicker('color-form-image')">
-                🖼️ Choisir Mockup
-              </button>
-              <button type="button" class="admin-btn admin-btn-secondary" onclick="document.getElementById('color-form-file-upload').click()" title="Téléverser un nouveau fichier image">
-                📁 Téléverser
-              </button>
-              <input type="file" id="color-form-file-upload" accept="image/*" style="display: none;" onchange="AdminDashboard.handleColorImageUpload(event)">
-            </div>
-            <p style="font-size: 0.72rem; color: var(--admin-text-muted); margin-top: 5px;">
-              Ex: <code>assets/images/products/tshirt-pink-front.png</code> — Ce visuel servira de modèle de base pour cette teinte.
-            </p>
-          </div>
-        </div>
-        <div class="admin-modal-footer">
-          <button type="button" class="admin-btn admin-btn-secondary" data-modal-close>Annuler</button>
-          <button type="submit" class="admin-btn admin-btn-primary">Enregistrer le Coloris</button>
-        </div>
-      </form>
-    </div>
-  </div>
 
   <!-- ==================================================================== -->
   <!-- MODAL: ADD / EDIT PRODUCT -->
@@ -790,6 +738,10 @@
                   </p>
                 </div>
                 <div style="display: flex; gap: 12px; align-items: center;">
+                  <label style="display: flex; align-items: center; gap: 6px; font-size: 0.82rem; cursor: pointer; font-weight: 700; color: #10B981;">
+                    <input type="checkbox" id="bundle-form-isactive" checked>
+                    <span>🟢 Pack Actif</span>
+                  </label>
                   <label style="display: flex; align-items: center; gap: 6px; font-size: 0.82rem; cursor: pointer;">
                     <input type="checkbox" id="bundle-form-isnew" checked>
                     <span class="admin-badge badge-instock">Badge NOUVEAU</span>
@@ -828,12 +780,12 @@
                   <label class="admin-form-label">Image d'Aperçu / Mockup Coffret Pack</label>
                   <div style="display: flex; gap: 10px; align-items: center;">
                     <div class="admin-bundle-preview-wrap" style="width: 50px; height: 50px; border-radius: 6px; background: #0A0A0A; border: 1.5px solid var(--admin-gold); display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 2px; box-sizing: border-box;">
-                      <img id="bundle-form-image-preview" src="assets/images/products/t-shirts/tshirt-Pack-3.jpg" 
+                      <img id="bundle-form-image-preview" src="assets/Header/Header Ar.png" 
                            alt="Pack Preview" 
                            style="width: 100%; height: 100%; object-fit: contain; border-radius: 4px;"
-                           onerror="this.src='assets/images/products/tshirt-white-front.jpg'">
+                           onerror="this.src='assets/ecom/1.png'">
                     </div>
-                    <input type="text" class="admin-form-input" id="bundle-form-image" value="assets/images/products/t-shirts/tshirt-Pack-3.jpg" placeholder="assets/images/..." style="flex: 1; min-width: 0;" oninput="AdminDashboard.updateBundleMockupPreview(this.value)">
+                    <input type="text" class="admin-form-input" id="bundle-form-image" value="assets/Header/Header Ar.png" placeholder="assets/Header/Header Ar.png" style="flex: 1; min-width: 0;" oninput="AdminDashboard.updateBundleMockupPreview(this.value)">
                     <button type="button" class="admin-btn admin-btn-secondary" onclick="AdminDashboard.openImagePicker('bundle-form-image')">
                       🖼️ Choisir
                     </button>
@@ -841,7 +793,7 @@
                 </div>
                 <div class="admin-form-group">
                   <label class="admin-form-label">Description Courte de l'Offre</label>
-                  <input type="text" class="admin-form-input" id="bundle-form-shortdesc" placeholder="Composez votre vestiaire idéal avec 3 t-shirts d'exception au choix.">
+                  <input type="text" class="admin-form-input" id="bundle-form-shortdesc" placeholder="Composez votre pack bien-être avec vos produits DXN préférés.">
                 </div>
               </div>
 
@@ -859,7 +811,7 @@
                     <span>👕</span> Modèles de T-Shirts Inclus dans le Pack
                   </h4>
                   <p style="margin: 4px 0 0; font-size: 0.78rem; color: var(--admin-text-muted);">
-                    Sélectionnez les t-shirts à inclure. Leurs visuels, coloris et tailles sont <b>automatiquement synchronisés</b>.
+                    Sélectionnez les t-shirts à inclure dans ce pack.
                   </p>
                 </div>
                 <div style="display: flex; gap: 8px;">
@@ -913,14 +865,14 @@
               </div>
               <div class="admin-form-group" id="prod-form-group-wrapper">
                 <label class="admin-form-label">
-                  Famille de Style / Groupe de Variantes
-                  <span style="font-size: 0.72rem; color: var(--admin-gold); font-weight: normal;">(Lie les couleurs entre elles)</span>
+                  Famille de Style / Groupe de Modèles
+                  <span style="font-size: 0.72rem; color: var(--admin-gold); font-weight: normal;">(Optionnel — regroupe les pièces similaires)</span>
                 </label>
                 <input type="text" class="admin-form-input" id="prod-form-group" list="style-groups-datalist" placeholder="ex: minimal-essential, oversized-monogram, etc.">
                 <datalist id="style-groups-datalist">
-                  <option value="minimal-essential">T-Shirt Minimal Essential (5 coloris)</option>
-                  <option value="oversized-monogram">T-Shirt Oversized Monogramme Big (3 coloris)</option>
-                  <option value="graphic-colored">T-Shirt Graphic Colored Edition (2 coloris)</option>
+                  <option value="minimal-essential">T-Shirt Minimal Essential</option>
+                  <option value="oversized-monogram">T-Shirt Oversized Monogramme Big</option>
+                  <option value="graphic-colored">T-Shirt Graphic Colored Edition</option>
                 </datalist>
               </div>
             </div>
@@ -938,6 +890,10 @@
 
             <!-- Section: Status Badges -->
             <div class="admin-form-group" style="background: var(--admin-surface-2); padding: 14px 18px; border-radius: 8px; border: 1px solid var(--admin-border); display: flex; gap: 20px; flex-wrap: wrap; align-items: center;">
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.84rem; font-weight: 700; color: #10B981;">
+                <input type="checkbox" id="prod-form-isactive" checked>
+                <span>🟢 Actif (Visible en boutique)</span>
+              </label>
               <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.84rem;">
                 <input type="checkbox" id="prod-form-isnew">
                 <span class="admin-badge badge-instock">Nouveau (Badge NEW)</span>
@@ -952,48 +908,16 @@
               </label>
             </div>
 
-            <!-- Section: Colorways & Linked Product Pages -->
-            <div class="admin-form-group" style="background: var(--admin-surface-2); padding: 18px; border-radius: 8px; border: 1px solid var(--admin-border); width: 100%; box-sizing: border-box;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
-                <div>
-                  <label class="admin-form-label" style="margin-bottom: 2px; font-weight: 700;">
-                    🎨 Coloris Disponibles & Liaison vers les Pages Dédiées
-                  </label>
-                  <p style="font-size: 0.78rem; color: var(--admin-text-muted); margin: 0;">
-                    Cochez les couleurs à proposer sur cette pièce. Pour chaque couleur, associez la fiche correspondante si applicable.
-                  </p>
-                </div>
+            <!-- Section: Stock & SKU -->
+            <div class="admin-form-row-2">
+              <div class="admin-form-group">
+                <label class="admin-form-label">Stock Disponible (Unités) *</label>
+                <input type="number" class="admin-form-input" id="prod-form-stock" min="0" value="10" placeholder="ex: 25" required>
               </div>
-
-              <div id="prod-form-color-checkboxes" class="admin-color-link-grid"></div>
-            </div>
-
-            <!-- Section: Available Sizes Selector (Multi-select) -->
-            <div class="admin-form-group" style="background: var(--admin-surface-2); padding: 18px; border-radius: 8px; border: 1px solid var(--admin-border); width: 100%; box-sizing: border-box;">
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
-                <div>
-                  <label class="admin-form-label" style="margin-bottom: 2px; font-weight: 700;">
-                    📏 Tailles Disponibles pour cette Pièce *
-                  </label>
-                  <p style="font-size: 0.78rem; color: var(--admin-text-muted); margin: 0;">
-                    Choisissez les tailles à produire. Les stocks et sélecteurs de taille client seront générés sur mesure.
-                  </p>
-                </div>
-                <!-- Presets -->
-                <div class="admin-size-presets-row" style="display: flex; gap: 6px; flex-wrap: wrap;">
-                  <button type="button" class="admin-btn admin-btn-secondary admin-btn-sm" onclick="AdminDashboard.setSizePreset(['S', 'M', 'L', 'XL'])">S à XL (T-Shirts)</button>
-                  <button type="button" class="admin-btn admin-btn-secondary admin-btn-sm" onclick="AdminDashboard.setSizePreset(['XS', 'S', 'M', 'L', 'XL', 'XXL'])">XS à XXL</button>
-                  <button type="button" class="admin-btn admin-btn-secondary admin-btn-sm" onclick="AdminDashboard.setSizePreset(['S', 'M', 'L', 'XL', 'XXL', '3XL'])">S à 3XL</button>
-                  <button type="button" class="admin-btn admin-btn-secondary admin-btn-sm" onclick="AdminDashboard.setSizePreset(['Unique'])">Taille Unique</button>
-                  <button type="button" class="admin-btn admin-btn-secondary admin-btn-sm" onclick="AdminDashboard.toggleAllSizes(true)">Tout cocher</button>
-                  <button type="button" class="admin-btn admin-btn-secondary admin-btn-sm" onclick="AdminDashboard.toggleAllSizes(false)">Décocher</button>
-                </div>
+              <div class="admin-form-group">
+                <label class="admin-form-label">Référence SKU / Code Produit</label>
+                <input type="text" class="admin-form-input" id="prod-form-sku" placeholder="ex: TSH-MIN-001">
               </div>
-
-              <!-- Sizes Interactive Grid -->
-              <div id="prod-form-sizes-container" class="admin-sizes-selector-grid"></div>
-
-              <div id="prod-form-sizes-summary" style="font-size: 0.82rem; color: var(--admin-gold); margin-top: 10px; font-weight: 600;"></div>
             </div>
 
             <!-- Section: Visual Gallery & Multi-Image Management Suite -->
@@ -1006,9 +930,6 @@
                   🥇 <b>Image 1</b> = Visuel Principal (Face) • 🥈 <b>Image 2</b> = Visuel au Survol (Hover) • 🥉 <b>Images 3+</b> = Galerie
                 </div>
               </div>
-
-              <!-- Color Tab Switcher for Gallery Images -->
-              <div id="product-gallery-color-tabs" class="gallery-color-tabs" style="display: none;"></div>
 
               <!-- Upload & Add Toolbar -->
               <div class="gallery-toolbar" style="width: 100%; box-sizing: border-box;">
@@ -1031,7 +952,7 @@
                 </button>
 
                 <div style="display: flex; gap: 6px; flex: 1; min-width: 200px;">
-                  <input type="text" class="admin-form-input" id="prod-custom-img-url" placeholder="Coller une URL ou chemin (ex: assets/images/...)" style="padding: 6px 10px; font-size: 0.8rem; flex: 1; min-width: 0;">
+                  <input type="text" class="admin-form-input" id="prod-custom-img-url" placeholder="Coller une URL ou chemin (ex: assets/ecom/1.png)" style="padding: 6px 10px; font-size: 0.8rem; flex: 1; min-width: 0;">
                   <button type="button" class="admin-btn admin-btn-secondary admin-btn-sm" onclick="AdminDashboard.addImageUrlToGallery()">
                     + Ajouter
                   </button>
@@ -1102,14 +1023,13 @@
           <input type="text" class="admin-form-input" id="image-preset-search" placeholder="🔍 Rechercher un visuel (ex: pink, rose, white, face, back)..." style="flex: 1; min-width: 220px;" oninput="AdminDashboard.filterImagePresets(this.value)">
           <div class="admin-filter-pills" id="image-preset-color-filters">
             <button type="button" class="admin-filter-pill active" onclick="AdminDashboard.filterImagePresetsByColor('all', this)">Tous</button>
-            <button type="button" class="admin-filter-pill" onclick="AdminDashboard.filterImagePresetsByColor('pink', this)">🌸 Rose / Pink</button>
-            <button type="button" class="admin-filter-pill" onclick="AdminDashboard.filterImagePresetsByColor('white', this)">⚪ Blanc</button>
-            <button type="button" class="admin-filter-pill" onclick="AdminDashboard.filterImagePresetsByColor('black', this)">⚫ Noir</button>
-            <button type="button" class="admin-filter-pill" onclick="AdminDashboard.filterImagePresetsByColor('navy', this)">🔵 Marine</button>
+            <button type="button" class="admin-filter-pill" onclick="AdminDashboard.filterImagePresetsByColor('dxn', this)">🌿 DXN</button>
+            <button type="button" class="admin-filter-pill" onclick="AdminDashboard.filterImagePresetsByColor('kallow', this)">✨ Kallow</button>
+            <button type="button" class="admin-filter-pill" onclick="AdminDashboard.filterImagePresetsByColor('header', this)">🖼️ Bannières</button>
           </div>
         </div>
         <p style="font-size: 0.8rem; color: var(--admin-text-muted); margin-bottom: 14px;">
-          Cliquez sur un mockup pour l'associer directement au champ sélectionné. Tous les fichiers de <code>assets/images/</code> sont synchronisés.
+          Cliquez sur un visuel pour l'associer directement au champ sélectionné. Tous les fichiers de <code>assets/ecom/</code>, <code>assets/ecom2/</code> et <code>assets/Header/</code> sont synchronisés.
         </p>
         <div class="preset-grid" id="image-preset-picker-grid">
           <!-- Dynamic -->
@@ -1131,20 +1051,11 @@
         <button class="admin-modal-close" data-modal-close>✕</button>
       </div>
       <div class="admin-modal-body">
-        <div style="display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; align-items: center;">
-          <input type="text" class="admin-form-input" id="bundle-picker-search" placeholder="🔍 Rechercher par modèle, coloris, coupe..." style="flex: 1; min-width: 220px;" oninput="AdminDashboard.filterBundlePickerModal(this.value)">
-          <div class="admin-filter-pills" id="bundle-picker-color-filters">
-            <button type="button" class="admin-filter-pill active" onclick="AdminDashboard.filterBundlePickerByColor('all', this)">Tous</button>
-            <button type="button" class="admin-filter-pill" onclick="AdminDashboard.filterBundlePickerByColor('black', this)">⚫ Noir</button>
-            <button type="button" class="admin-filter-pill" onclick="AdminDashboard.filterBundlePickerByColor('white', this)">⚪ Blanc</button>
-            <button type="button" class="admin-filter-pill" onclick="AdminDashboard.filterBundlePickerByColor('pink', this)">🌸 Rose</button>
-            <button type="button" class="admin-filter-pill" onclick="AdminDashboard.filterBundlePickerByColor('navy', this)">🔵 Marine</button>
-            <button type="button" class="admin-filter-pill" onclick="AdminDashboard.filterBundlePickerByColor('sage', this)">🌿 Vert Sauge</button>
-            <button type="button" class="admin-filter-pill" onclick="AdminDashboard.filterBundlePickerByColor('camel', this)">🟤 Camel</button>
-          </div>
+        <div style="margin-bottom: 12px;">
+          <input type="text" class="admin-form-input" id="bundle-picker-search" placeholder="🔍 Rechercher par modèle ou catégorie..." style="width: 100%; box-sizing: border-box;" oninput="AdminDashboard.filterBundlePickerModal(this.value)">
         </div>
         <p style="font-size: 0.8rem; color: var(--admin-text-muted); margin-bottom: 14px;">
-          Cliquez sur une déclinaison pour l'assigner directement au pack. Le visuel correspondant et les options de taille seront synchronisés.
+          Cliquez sur un modèle pour l'ajouter directement à votre pack.
         </p>
         <div class="preset-grid" id="bundle-modal-product-grid" style="grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));">
           <!-- Dynamic -->
@@ -1157,14 +1068,14 @@
   </div>
 
   <!-- Core Scripts -->
-  <script src="assets/js/config.js?v=12"></script>
-  <script src="assets/js/i18n.js?v=12"></script>
-  <script src="assets/js/data/categories.js?v=12"></script>
-  <script src="assets/js/data/collections.js?v=12"></script>
-  <script src="assets/js/data/products.js?v=12"></script>
-  <script src="assets/js/core/storeData.js?v=12"></script>
-  <script src="assets/js/core/storage.js?v=12"></script>
-  <script src="assets/js/core/utils.js?v=12"></script>
-  <script src="assets/js/pages/admin.js?v=12"></script>
+  <script src="assets/js/config.js?v=41"></script>
+  <script src="assets/js/i18n.js?v=41"></script>
+  <script src="assets/js/data/categories.js?v=32"></script>
+  <script src="assets/js/data/collections.js?v=32"></script>
+  <script src="assets/js/data/products.js?v=32"></script>
+  <script src="assets/js/core/storeData.js?v=30"></script>
+  <script src="assets/js/core/storage.js?v=22"></script>
+  <script src="assets/js/core/utils.js?v=41"></script>
+  <script src="assets/js/pages/admin.js?v=22"></script>
 </body>
 </html>

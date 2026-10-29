@@ -5,14 +5,32 @@
 
 window.StoreUtils = {
   /**
-   * Format numbers to Moroccan Dirhams (MAD)
+   * Format numbers to Moroccan Dirhams (MAD in French, درهم in Arabic)
    */
   formatMoney(amount) {
-    if (amount === null || amount === undefined || isNaN(amount)) return "0 MAD";
+    let isAr = true;
+    if (typeof window !== "undefined") {
+      if (window.I18N && typeof window.I18N.isRTL === "function") {
+        isAr = window.I18N.isRTL();
+      } else if (window.I18N && window.I18N.currentLang) {
+        isAr = window.I18N.currentLang === "ar";
+      } else if (window.StoreI18n && typeof window.StoreI18n.getLang === "function") {
+        isAr = window.StoreI18n.getLang() === "ar";
+      } else if (typeof document !== "undefined" && document.documentElement) {
+        isAr = document.documentElement.lang === "ar" || document.documentElement.dir === "rtl";
+      } else {
+        try {
+          const saved = localStorage.getItem("atelier_lang") || localStorage.getItem("dxn_kallow_lang");
+          if (saved === "fr") isAr = false;
+        } catch (e) {}
+      }
+    }
+    const currency = isAr ? "درهم" : "MAD";
+    if (amount === null || amount === undefined || isNaN(amount)) return `0 ${currency}`;
     const num = Math.round(Number(amount));
     // Format with thousands separator if needed
     const formatted = num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-    return `${formatted} MAD`;
+    return `${formatted} ${currency}`;
   },
 
   /**

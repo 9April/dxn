@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Collections Drops | ATELIER</title>
-  <meta name="description" content="Découvrez nos séries et collections exclusives de t-shirts haut de gamme. Conçu à Casablanca, livré partout au Maroc.">
+
+  <!-- Google Fonts: Cairo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>المجموعات والتصنيفات | دي إكس إن وكالو المغرب</title>
+  <meta name="description" content="تصفح مجموعات وتصنيفات منتجات دي إكس إن وكالو: فطر الريشي، القهوة الصحية، مستحضرات التجميل الطبيعية والمكملات الغذائية.">
   
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/components.css">
-  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/base.css?v=41">
+  <link rel="stylesheet" href="assets/css/components.css?v=41">
+  <link rel="stylesheet" href="assets/css/pages.css?v=41">
   <link rel="stylesheet" href="assets/css/animations.css">
 </head>
 <body>
@@ -23,13 +28,13 @@
       <!-- Dynamic Collections Header -->
       <div id="collection-header-area" style="margin-bottom: 40px;">
         <div class="pdp-breadcrumbs" style="margin-bottom: 12px;">
-          <a href="index.html">Accueil</a>
+          <a href="index.html" id="col-crumb-home">الرئيسية</a>
           <span>/</span>
-          <span>Collections</span>
+          <span id="col-crumb-current">المجموعات</span>
         </div>
-        <h1 id="collection-main-title" style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 700;">COLLECTIONS & SÉRIES</h1>
-        <p id="collection-main-subtitle" style="margin-top: 6px; max-width: 650px;">
-          Chaque série explore une approche spécifique de la matière, du grammage et de la silhouette.
+        <h1 id="collection-main-title" style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;">المجموعات والتصنيفات</h1>
+        <p id="collection-main-subtitle" style="margin-top: 6px; max-width: 650px; font-size: 1.05rem; line-height: 1.7; color: var(--color-text-secondary);">
+          اكتشف روتينك الصحي والجمالي عبر باقاتنا المتكاملة من مكملات الغانوديرما ومستحضرات كالو الطبيعية.
         </p>
       </div>
 
@@ -45,29 +50,26 @@
   <div id="site-footer-container"></div>
 
   <!-- Core Scripts -->
-  <script src="assets/js/config.js?v=12"></script>
-  <script src="assets/js/i18n.js?v=12"></script>
-  <script src="assets/js/data/categories.js?v=12"></script>
-  <script src="assets/js/data/collections.js?v=12"></script>
-  <script src="assets/js/data/products.js?v=12"></script>
-  <script src="assets/js/core/storage.js?v=12"></script>
-  <script src="assets/js/core/utils.js?v=12"></script>
-  <script src="assets/js/core/cart.js?v=12"></script>
-  <script src="assets/js/core/wishlist.js?v=12"></script>
-  <script src="assets/js/core/search.js?v=12"></script>
-  <script src="assets/js/components/toast.js?v=12"></script>
-  <script src="assets/js/components/header.js?v=12"></script>
-  <script src="assets/js/components/footer.js?v=12"></script>
-  <script src="assets/js/components/productCard.js?v=12"></script>
-  <script src="assets/js/components/cartDrawer.js?v=12"></script>
-  <script src="assets/js/components/quickAddModal.js?v=12"></script>
-  <script src="assets/js/components/sizeGuideModal.js?v=12"></script>
+  <script src="assets/js/config.js?v=41"></script>
+  <script src="assets/js/i18n.js?v=41"></script>
+  <script src="assets/js/data/categories.js?v=32"></script>
+  <script src="assets/js/data/collections.js?v=32"></script>
+  <script src="assets/js/data/products.js?v=32"></script>
+  <script src="assets/js/core/storage.js?v=19"></script>
+  <script src="assets/js/core/utils.js?v=41"></script>
+  <script src="assets/js/core/cart.js?v=25"></script>
+  <script src="assets/js/core/wishlist.js?v=19"></script>
+  <script src="assets/js/core/search.js?v=19"></script>
+  <script src="assets/js/components/toast.js?v=19"></script>
+  <script src="assets/js/components/header.js?v=41"></script>
+  <script src="assets/js/components/footer.js?v=41"></script>
+  <script src="assets/js/components/productCard.js?v=41"></script>
+  <script src="assets/js/components/cartDrawer.js?v=41"></script>
+  <script src="assets/js/components/quickAddModal.js?v=41"></script>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      if (window.HeaderComponent) window.HeaderComponent.mount();
-      if (window.FooterComponent) window.FooterComponent.mount();
-
+    function renderCollectionsPage() {
+      const isAr = window.I18N ? window.I18N.isRTL() : true;
       const params = StoreUtils.getUrlParams();
       const collectionSlug = params.c || params.collection;
       const container = document.getElementById("collection-view-container");
@@ -75,36 +77,54 @@
       const subEl = document.getElementById("collection-main-subtitle");
       const breadcrumbsEl = document.querySelector(".pdp-breadcrumbs");
 
+      // Update base texts
+      document.title = isAr ? 'المجموعات والتصنيفات | دي إكس إن وكالو المغرب' : 'Collections & Catégories | DXN & KALLOW Maroc';
+      titleEl.textContent = isAr ? 'المجموعات والتصنيفات' : 'Collections & Catégories';
+      subEl.textContent = isAr
+        ? 'اكتشف روتينك الصحي والجمالي عبر باقاتنا المتكاملة من مكملات الغانوديرما ومستحضرات كالو الطبيعية.'
+        : 'Découvrez notre catalogue complet structuré selon nos 6 grandes catégories bien-être et beauté.';
+
       if (collectionSlug) {
         // Single Collection View
-        const collection = window.STORE_COLLECTIONS.find(c => c.slug === collectionSlug);
-        const products = window.STORE_PRODUCTS.filter(p => {
-          if (collectionSlug === 'packs-bundles') {
-            return (p.collections && p.collections.includes('packs-bundles')) || p.isBundle || p.id === 'pack-trio-tshirts';
-          }
-          return p.collections && p.collections.includes(collectionSlug);
+        const collections = window.STORE_COLLECTIONS || [];
+        const collection = collections.find(c => c.slug === collectionSlug || c.id === collectionSlug);
+        const allProducts = (window.STORE_PRODUCTS || []).filter(p => p && p.status !== 'disabled' && p.isActive !== false && p.disabled !== true);
+
+        const products = allProducts.filter(p => {
+          const g = p.categoryGroup || p.mainCategory;
+          return g === collectionSlug || 
+                 (Array.isArray(p.collections) && p.collections.includes(collectionSlug)) ||
+                 (collectionSlug === 'kallow' && (p.brand === 'Kallow' || (p.id && p.id.startsWith('kallow'))));
         });
 
         if (collection) {
-          titleEl.textContent = collection.title.toUpperCase();
-          subEl.textContent = collection.subtitle;
-          document.title = `${collection.title} | ${window.STORE_CONFIG.brandName}`;
+          const colTitle = isAr ? (collection.titleAr || collection.title) : (collection.titleFr || collection.title);
+          const colSub = isAr ? (collection.subtitleAr || collection.subtitle) : (collection.subtitleFr || collection.subtitle);
+
+          titleEl.textContent = colTitle;
+          subEl.textContent = colSub;
+          document.title = `${colTitle} | ${isAr ? 'دي إكس إن وكالو المغرب' : 'DXN & KALLOW Maroc'}`;
+
           if (breadcrumbsEl) {
             breadcrumbsEl.innerHTML = `
-              <a href="index.html">Accueil</a>
+              <a href="index.html">${isAr ? 'الرئيسية' : 'Accueil'}</a>
               <span>/</span>
-              <a href="collections.html">Collections</a>
+              <a href="collections.html">${isAr ? 'المجموعات' : 'Collections'}</a>
               <span>/</span>
-              <span>${collection.title}</span>
+              <span>${colTitle}</span>
             `;
           }
         }
 
         if (products.length === 0) {
           container.innerHTML = `
-            <div style="padding: 48px 20px; text-align: center; background: var(--color-bg-secondary); border-radius: 4px;">
-              <p style="font-size: 1.05rem; color: var(--color-text-secondary); margin-bottom: 16px;">Aucun produit dans cette collection pour le moment.</p>
-              <a href="shop.html" class="btn btn-primary btn-sm">Voir toute la boutique</a>
+            <div style="padding: 48px 20px; text-align: center; background: var(--color-bg-secondary); border-radius: 8px;">
+              <p style="font-size: 1.05rem; color: var(--color-text-secondary); margin-bottom: 16px;">
+                ${isAr ? 'لا توجد منتجات في هذه المجموعة حالياً.' : 'Aucun produit dans cette collection pour le moment.'}
+              </p>
+              <a href="shop.html" class="btn btn-primary btn-sm">
+                ${isAr ? 'تصفح كامل المتجر' : 'Voir toute la boutique'}
+              </a>
             </div>
           `;
         } else {
@@ -116,27 +136,34 @@
         }
       } else {
         // All Collections Overview Grid
+        const collections = window.STORE_COLLECTIONS || [];
+        const allProducts = (window.STORE_PRODUCTS || []).filter(p => p && p.status !== 'disabled' && p.isActive !== false && p.disabled !== true);
+
         container.innerHTML = `
           <div class="lookbook-split-grid">
-            ${window.STORE_COLLECTIONS.map(col => {
-              const count = window.STORE_PRODUCTS.filter(p => {
-                if (col.slug === 'packs-bundles') {
-                  return (p.collections && p.collections.includes('packs-bundles')) || p.isBundle || p.id === 'pack-trio-tshirts';
-                }
-                return p.collections && p.collections.includes(col.slug);
+            ${collections.map(col => {
+              const count = allProducts.filter(p => {
+                const g = p.categoryGroup || p.mainCategory;
+                return g === col.slug || 
+                       (Array.isArray(p.collections) && p.collections.includes(col.slug)) ||
+                       (col.slug === 'kallow' && (p.brand === 'Kallow' || (p.id && p.id.startsWith('kallow'))));
               }).length;
-              const isPack = col.slug === 'packs-bundles';
-              const countLabel = isPack ? `${count} ${count > 1 ? 'OFFRES' : 'OFFRE'}` : `${count} ${count > 1 ? 'PIÈCES' : 'PIÈCE'}`;
+
+              const colTitle = isAr ? (col.titleAr || col.title) : (col.titleFr || col.title);
+              const colSub = isAr ? (col.subtitleAr || col.subtitle) : (col.subtitleFr || col.subtitle);
+              const countLabel = isAr ? `${count} منتج متوفر` : `${count} produits disponibles`;
+              const btnLabel = isAr ? `تصفح المجموعة ←` : `Découvrir la collection →`;
+
               return `
-                <a href="collections.html?c=${col.slug}" class="lookbook-split-card" style="aspect-ratio: 16 / 9; border-radius: 4px;">
-                  <img src="${col.banner}" alt="${col.title}">
+                <a href="collections.html?c=${col.slug}" class="lookbook-split-card" style="aspect-ratio: 16 / 9; border-radius: 8px;">
+                  <img src="${col.banner}" alt="${colTitle}">
                   <div class="lookbook-split-overlay"></div>
                   <div class="lookbook-split-content">
-                    <span class="badge" style="background: rgba(255,255,255,0.25); backdrop-filter: blur(4px); color: #FFF; margin-bottom: 8px;">${countLabel}</span>
-                    <h3 style="font-size: 1.6rem; color: #FFF; margin-bottom: 6px;">${col.title}</h3>
-                    <p style="color: #E0E0E0; font-size: 0.88rem; margin-bottom: 12px; max-width: 500px;">${col.subtitle}</p>
-                    <span style="font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #FFF; display: inline-flex; align-items: center; gap: 6px;">
-                      Découvrir la collection <span style="transition: transform 0.2s;">→</span>
+                    <span class="badge" style="background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); color: #FFF; margin-bottom: 8px; border: 1px solid rgba(255,255,255,0.3);">${countLabel}</span>
+                    <h3 style="font-size: 1.6rem; color: #FFF; margin-bottom: 6px; font-weight: 800;">${colTitle}</h3>
+                    <p style="color: #F3F4F6; font-size: 0.9rem; margin-bottom: 12px; max-width: 500px; line-height: 1.5;">${colSub}</p>
+                    <span style="font-size: 0.85rem; font-weight: 700; color: #FDE047; display: inline-flex; align-items: center; gap: 6px;">
+                      ${btnLabel}
                     </span>
                   </div>
                 </a>
@@ -145,6 +172,15 @@
           </div>
         `;
       }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      if (window.HeaderComponent) window.HeaderComponent.mount();
+      if (window.FooterComponent) window.FooterComponent.mount();
+      renderCollectionsPage();
+      window.addEventListener('language:changed', () => {
+        renderCollectionsPage();
+      });
     });
   </script>
 </body>

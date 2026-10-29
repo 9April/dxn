@@ -947,6 +947,10 @@ body.admin-body {
   gap: 20px;
 }
 
+.admin-category-dept-header {
+  grid-column: 1 / -1;
+}
+
 .category-admin-card {
   background-color: var(--admin-surface-2);
   border: 1px solid var(--admin-border);
@@ -1744,6 +1748,108 @@ body.admin-body {
   flex-shrink: 0;
   border-radius: 6px;
   cursor: pointer;
+}
+
+/* ==========================================================================
+   LANGUAGE SWITCHER STYLES (ARABIC & FRENCH) - IDENTICAL TO HOME PAGE (index.html)
+   ========================================================================== */
+.header-lang-switch,
+.admin-lang-switch {
+  display: inline-flex !important;
+  align-items: center !important;
+  direction: ltr !important;
+  background-color: var(--color-bg-secondary, #F8F8F6) !important;
+  border: 1px solid var(--color-border, #E5E5E0) !important;
+  border-radius: 9999px !important;
+  padding: 2px 4px !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  gap: 2px !important;
+  margin: 0 6px !important;
+  user-select: none !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+}
+
+.header-lang-btn,
+.admin-lang-btn {
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+  padding: 4px 10px !important;
+  border-radius: 9999px !important;
+  color: var(--color-text-secondary, #666666) !important;
+  font-family: inherit !important;
+  font-weight: 700 !important;
+  font-size: 0.76rem !important;
+  letter-spacing: 0.3px !important;
+  transition: all 0.15s ease !important;
+  line-height: 1.2 !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.header-lang-btn:hover,
+.admin-lang-btn:hover {
+  color: var(--color-dark, #121212) !important;
+}
+
+.header-lang-btn.active,
+.admin-lang-btn.active {
+  background-color: var(--color-dark, #121212) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12) !important;
+}
+
+.header-lang-divider,
+.admin-lang-divider {
+  color: var(--color-border, #E5E5E0) !important;
+  font-size: 0.72rem !important;
+  padding: 0 1px !important;
+  user-select: none !important;
+}
+
+/* Bi-directional layout adaptations */
+html[dir="rtl"] .admin-sidebar,
+html[dir="ltr"] .admin-sidebar {
+  border-right: 1px solid var(--admin-border) !important;
+}
+
+html[dir="rtl"] .admin-topbar-left {
+  text-align: right;
+}
+
+html[dir="rtl"] .admin-nav-btn {
+  text-align: right;
+}
+
+html[dir="rtl"] .admin-nav-btn svg {
+  margin-left: 10px;
+  margin-right: 0;
+}
+
+html[dir="rtl"] .admin-nav-badge {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+html[dir="ltr"] .admin-topbar-left {
+  text-align: left;
+}
+
+html[dir="ltr"] .admin-nav-btn {
+  text-align: left;
+}
+
+html[dir="ltr"] .admin-nav-btn svg {
+  margin-right: 10px;
+  margin-left: 0;
+}
+
+html[dir="ltr"] .admin-nav-badge {
+  margin-left: auto;
+  margin-right: 0;
 }
 
 

@@ -5,12 +5,12 @@
 
 window.STORE_CONFIG = {
   // Brand Identity (easily swappable)
-  brandName: "ATELIER",
-  brandSubtitle: "STUDIO ÉDITION",
-  brandLogoText: "ATELIER",
+  brandName: "DXN & KALLOW",
+  brandSubtitle: "منتجات الصحة والجمال الطبيعي بالمغرب",
+  brandLogoText: "DXN & KALLOW",
   
-  // Promotional Announcement Bar (editable from this one line)
-  announcementText: "LIVRAISON EXPRESS GRATUITE AU MAROC DÈS 500 MAD — EXPÉDITION 24/48H",
+  // Promotional Announcement Bar
+  announcementText: "🚚 توصيل سريع لجميع المدن المغربية خلال 24/48 ساعة • الدفع نقداً عند الاستلام",
   announcementLink: "shop.html",
   showAnnouncement: true,
 
@@ -34,57 +34,40 @@ window.STORE_CONFIG = {
 
   // Moroccan Cities for Checkout
   moroccanCities: [
-    "Casablanca",
-    "Rabat",
-    "Marrakech",
-    "Tanger",
-    "Agadir",
-    "Fès",
-    "Meknès",
-    "Oujda",
-    "Kénitra",
-    "Tétouan",
-    "Mohammedia",
-    "Salé",
-    "El Jadida",
-    "Nador",
-    "Béni Mellal",
-    "Témara",
-    "Safi",
-    "Khouribga",
-    "Settat",
-    "Laâyoune",
-    "Dakhla",
-    "Autre ville (Maroc)"
+    "الدار البيضاء (Casablanca)",
+    "الرباط (Rabat)",
+    "مراكش (Marrakech)",
+    "طنجة (Tanger)",
+    "أكادير (Agadir)",
+    "فاس (Fès)",
+    "مكناس (Meknès)",
+    "وجدة (Oujda)",
+    "القنيطرة (Kénitra)",
+    "تطوان (Tétouan)",
+    "المحمدية (Mohammedia)",
+    "سلا (Salé)",
+    "الجديدة (El Jadida)",
+    "الناظور (Nador)",
+    "بني ملال (Béni Mellal)",
+    "تمارة (Témara)",
+    "آسفي (Safi)",
+    "خريبكة (Khouribga)",
+    "سطات (Settat)",
+    "العيون (Laâyoune)",
+    "الداخلة (Dakhla)",
+    "مدينة أخرى بالمغرب (Autre ville)"
   ],
 
   // Promotional Coupons
-  coupons: {
-    "WELCOME10": {
-      type: "percentage",
-      value: 10,
-      description: "10% de réduction sur votre première commande"
-    },
-    "FREESHIP": {
-      type: "shipping",
-      value: 100,
-      description: "Livraison gratuite offerte"
-    },
-    "ATELIER20": {
-      type: "percentage",
-      value: 20,
-      minSpend: 600,
-      description: "20% de réduction dès 600 MAD"
-    }
-  },
+  coupons: {},
 
   // Contact & Social Links
   contact: {
-    email: "contact@atelier-brand.ma",
-    phone: "+212 6 12 34 56 78",
-    whatsapp: "+212612345678",
-    whatsappMessage: "Bonjour Atelier, j'aimerais avoir plus d'informations sur vos articles.",
-    address: "Boulevard d'Anfa, Casablanca, Maroc",
+    email: "contact@dxn-kallow.ma",
+    phone: "+212 708-873060",
+    whatsapp: "+212708873060",
+    whatsappMessage: "Bonjour DXN & Kallow Maroc, j'aimerais avoir plus d'informations sur vos produits naturels.",
+    address: "Tanger, Maroc",
     supportHours: "Lun - Sam : 09h00 - 19h00"
   },
 

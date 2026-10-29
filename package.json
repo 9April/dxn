@@ -7,7 +7,15 @@
     "start": "node server.js",
     "dev": "node server.js"
   },
-  "keywords": ["ecommerce", "streetwear", "apparel", "catalog"],
+  "keywords": [
+    "ecommerce",
+    "streetwear",
+    "apparel",
+    "catalog"
+  ],
   "author": "ATELIER",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "mysql2": "^3.24.6"
+  }
 }

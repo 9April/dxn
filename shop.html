@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Boutique & Catalogue | ATELIER</title>
-  <meta name="description" content="Explorez toute notre collection de T-shirts streetwear haut de gamme. Filtrez par taille, couleur, grammage et prix. Livraison 24/48h au Maroc.">
+
+  <!-- Google Fonts: Cairo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>متجر المنتجات الطبيعية | دي إكس إن وكالو المغرب</title>
+  <meta name="description" content="تسوق أفضل المكملات الغذائية، فطر الريشي، القهوة الصحية ومستحضرات التجميل الطبيعية بالمغرب. توصيل سريع 24/48 ساعة والدفع عند الاستلام.">
   
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/components.css">
-  <link rel="stylesheet" href="assets/css/pages.css">
-  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/base.css?v=41">
+  <link rel="stylesheet" href="assets/css/components.css?v=41">
+  <link rel="stylesheet" href="assets/css/pages.css?v=41">
+  <link rel="stylesheet" href="assets/css/animations.css?v=17">
 </head>
 <body>
 
@@ -23,20 +28,23 @@
       <!-- Page Header -->
       <div style="margin-bottom: 36px;">
         <div class="pdp-breadcrumbs" style="margin-bottom: 12px;">
-          <a href="index.html">Accueil</a>
+          <a href="index.html" id="shop-crumb-home">الرئيسية</a>
           <span>/</span>
-          <span>Boutique</span>
+          <span id="shop-crumb-current">المتجر</span>
         </div>
-        <h1 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 700;">CATALOGUE ATELIER</h1>
-        <p style="margin-top: 6px; max-width: 600px;">
-          Des silhouettes minimalistes en coton lourd peigné 240 à 300 GSM, confectionnées avec une exigence de longévité absolue.
+        <h1 id="shop-page-title" style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;">متجر الصحة والجمال الطبيعي</h1>
+        <p id="shop-page-subtitle" style="margin-top: 6px; max-width: 650px; font-size: 1rem; line-height: 1.6;">
+          اكتشف مجموعتنا المتكاملة من منتجات دي إكس إن (DXN) وكالو (Kallow) الطبيعية للعناية الفائقة، المكملات الغذائية المعززة للصحة، والقهوة الصحية الفاخرة.
         </p>
       </div>
+
+      <!-- Backdrop overlay for mobile filter drawer -->
+      <div class="filter-drawer-backdrop" id="filter-drawer-backdrop"></div>
 
       <!-- Shop Layout: Sidebar + Product Grid -->
       <div class="shop-layout">
         
-        <!-- Sidebar Filters -->
+        <!-- Sidebar Filters (Side Drawer on Mobile) -->
         <aside class="filter-sidebar" id="shop-filter-sidebar">
           <!-- Rendered dynamically by shop.js -->
         </aside>
@@ -44,20 +52,43 @@
         <!-- Right Content Area -->
         <section class="shop-content-area">
           
+          <!-- Horizontal Swipeable Category Chips Bar -->
+          <div class="shop-category-chips" id="shop-category-chips"></div>
+
           <!-- Shop Toolbar -->
           <div class="shop-toolbar">
-            <div style="font-family: var(--font-heading); font-size: 0.95rem; font-weight: 600;" id="shop-products-count">
-              Chargement des pièces...
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <!-- Mobile Filter Trigger Button -->
+              <button type="button" class="btn btn-secondary btn-sm shop-filter-mobile-btn" id="shop-filter-mobile-btn" aria-label="Filtrer">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="4" y1="21" x2="4" y2="14"></line>
+                  <line x1="4" y1="10" x2="4" y2="3"></line>
+                  <line x1="12" y1="21" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12" y2="3"></line>
+                  <line x1="20" y1="21" x2="20" y2="16"></line>
+                  <line x1="20" y1="12" x2="20" y2="3"></line>
+                  <line x1="1" y1="14" x2="7" y2="14"></line>
+                  <line x1="9" y1="8" x2="15" y2="8"></line>
+                  <line x1="17" y1="16" x2="23" y2="16"></line>
+                </svg>
+                <span id="shop-filter-mobile-label">تصفية</span>
+                <span class="badge-filter-count" id="shop-filter-active-count" style="display: none;"></span>
+              </button>
+
+              <div style="font-family: var(--font-heading); font-size: 0.88rem; font-weight: 700; color: var(--color-text-secondary);" id="shop-products-count">
+                جاري تحميل المنتجات...
+              </div>
             </div>
 
             <!-- Sort Dropdown -->
-            <div style="display: flex; align-items: center; gap: 10px;">
-              <label for="shop-sort-select" style="font-size: 0.84rem; font-weight: 600; text-transform: uppercase;">Trier :</label>
-              <select id="shop-sort-select" class="form-select" style="padding: 8px 36px 8px 12px; font-size: 0.85rem; width: auto; min-width: 200px;">
-                <option value="featured">Sélection Atelier</option>
-                <option value="newest">Nouveautés Drops</option>
-                <option value="price-asc">Prix : Croissant</option>
-                <option value="price-desc">Prix : Décroissant</option>
+            <div class="shop-sort-wrapper" style="display: flex; align-items: center; gap: 8px;">
+              <label for="shop-sort-select" style="font-size: 0.82rem; font-weight: 700; white-space: nowrap;">الترتيب :</label>
+              <select id="shop-sort-select" class="form-select" style="padding: 6px 30px 6px 10px; font-size: 0.82rem; width: auto; max-width: 200px;">
+                <option value="featured">الترتيب الموصى به</option>
+                <option value="newest">أحدث المنتجات</option>
+                <option value="price-asc">السعر : من الأقل إلى الأعلى</option>
+                <option value="price-desc">السعر : من الأعلى إلى الأقل</option>
+                <option value="alpha">الاسم : أ - ي</option>
               </select>
             </div>
           </div>
@@ -80,23 +111,23 @@
   <div id="site-footer-container"></div>
 
   <!-- Core Scripts -->
-  <script src="assets/js/config.js?v=12"></script>
-  <script src="assets/js/i18n.js?v=12"></script>
-  <script src="assets/js/data/categories.js?v=12"></script>
-  <script src="assets/js/data/collections.js?v=12"></script>
-  <script src="assets/js/data/products.js?v=12"></script>
-  <script src="assets/js/core/storage.js?v=12"></script>
-  <script src="assets/js/core/utils.js?v=12"></script>
-  <script src="assets/js/core/cart.js?v=12"></script>
-  <script src="assets/js/core/wishlist.js?v=12"></script>
-  <script src="assets/js/core/search.js?v=12"></script>
-  <script src="assets/js/components/toast.js?v=12"></script>
-  <script src="assets/js/components/header.js?v=12"></script>
-  <script src="assets/js/components/footer.js?v=12"></script>
-  <script src="assets/js/components/productCard.js?v=12"></script>
-  <script src="assets/js/components/cartDrawer.js?v=12"></script>
-  <script src="assets/js/components/quickAddModal.js?v=12"></script>
-  <script src="assets/js/components/sizeGuideModal.js?v=12"></script>
-  <script src="assets/js/pages/shop.js?v=12"></script>
+  <script src="assets/js/config.js?v=41"></script>
+  <script src="assets/js/i18n.js?v=41"></script>
+  <script src="assets/js/data/categories.js?v=32"></script>
+  <script src="assets/js/data/collections.js?v=32"></script>
+  <script src="assets/js/data/products.js?v=32"></script>
+  <script src="assets/js/core/storage.js?v=19"></script>
+  <script src="assets/js/core/utils.js?v=41"></script>
+  <script src="assets/js/core/cart.js?v=25"></script>
+  <script src="assets/js/core/wishlist.js?v=19"></script>
+  <script src="assets/js/core/search.js?v=19"></script>
+  <script src="assets/js/components/toast.js?v=19"></script>
+  <script src="assets/js/components/header.js?v=41"></script>
+  <script src="assets/js/components/footer.js?v=41"></script>
+  <script src="assets/js/components/productCard.js?v=41"></script>
+  <script src="assets/js/components/cartDrawer.js?v=41"></script>
+  <script src="assets/js/components/quickAddModal.js?v=41"></script>
+  <script src="assets/js/components/sizeGuideModal.js?v=19"></script>
+  <script src="assets/js/pages/shop.js?v=41"></script>
 </body>
 </html>

@@ -1,147 +1,929 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Commande Confirmée | ATELIER</title>
-  
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/components.css">
-  <link rel="stylesheet" href="assets/css/pages.css">
-  <link rel="stylesheet" href="assets/css/animations.css">
+  <title>فاتورة الطلب | دي إكس إن وكالو المغرب</title>
+
+  <!-- Google Fonts: Cairo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/base.css?v=41">
+  <link rel="stylesheet" href="assets/css/components.css?v=41">
+  <link rel="stylesheet" href="assets/css/pages.css?v=41">
+
+  <style>
+    body {
+      background-color: #F8F9FA;
+      color: #1F2937;
+      font-family: 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Minimal Screen Topbar */
+    .invoice-screen-bar {
+      background: #FFFFFF;
+      border-bottom: 1px solid #E5E7EB;
+      padding: 14px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .invoice-screen-bar-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .invoice-brand-badge {
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: #111827;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .invoice-brand-badge span.sub {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #D4AF37;
+    }
+    .invoice-top-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Main Invoice Wrapper */
+    .invoice-wrapper {
+      max-width: 860px;
+      margin: 32px auto 60px;
+      padding: 0 16px;
+    }
+
+    /* Invoice Card Document */
+    .invoice-card {
+      background: #FFFFFF;
+      border: 1px solid #E5E7EB;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      padding: 40px;
+      position: relative;
+    }
+
+    /* Header block */
+    .invoice-doc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      padding-bottom: 24px;
+      border-bottom: 2px solid #F3F4F6;
+      flex-wrap: wrap;
+    }
+    .invoice-store-info h2 {
+      margin: 0 0 4px;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #111827;
+      letter-spacing: 0.5px;
+    }
+    .invoice-store-info .tagline {
+      font-size: 0.85rem;
+      color: #4B5563;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .invoice-store-info .contact-lines {
+      font-size: 0.8rem;
+      color: #6B7280;
+      line-height: 1.6;
+    }
+
+    .invoice-meta-box {
+      text-align: left;
+    }
+    [dir="rtl"] .invoice-meta-box {
+      text-align: right;
+    }
+    .invoice-title-pill {
+      display: inline-block;
+      background: #111827;
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 6px 14px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+    .invoice-ref-number {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: #2F5233;
+      margin-bottom: 4px;
+      direction: ltr !important;
+      unicode-bidi: isolate !important;
+      display: inline-block;
+      text-align: left;
+    }
+    [dir="rtl"] .invoice-ref-number {
+      direction: ltr !important;
+      unicode-bidi: isolate !important;
+      display: inline-block;
+      text-align: left;
+    }
+    .phone-isolate,
+    #val-client-phone {
+      direction: ltr !important;
+      unicode-bidi: isolate !important;
+      display: inline-block;
+      text-align: left;
+    }
+    [dir="rtl"] .phone-isolate,
+    [dir="rtl"] #val-client-phone {
+      direction: ltr !important;
+      unicode-bidi: isolate !important;
+      display: inline-block;
+      text-align: left;
+    }
+    .invoice-meta-date {
+      font-size: 0.82rem;
+      color: #6B7280;
+      margin-bottom: 6px;
+    }
+    .invoice-status-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ECFDF5;
+      color: #065F46;
+      border: 1px solid #A7F3D0;
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+
+    /* Success notice banner */
+    .invoice-notice-banner {
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 24px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .invoice-notice-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      color: #16A34A;
+      margin-top: 2px;
+    }
+    .invoice-notice-content h4 {
+      margin: 0 0 4px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #14532D;
+    }
+    .invoice-notice-content p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: #166534;
+      line-height: 1.5;
+    }
+
+    /* Client & Shipping 2-col info */
+    .invoice-details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+    @media (max-width: 640px) {
+      .invoice-details-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .invoice-info-panel {
+      background: #F9FAFB;
+      border: 1px solid #E5E7EB;
+      border-radius: 8px;
+      padding: 18px 20px;
+    }
+    .invoice-info-panel h5 {
+      margin: 0 0 10px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #6B7280;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .invoice-info-row {
+      display: flex;
+      font-size: 0.86rem;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .invoice-info-row:last-child {
+      margin-bottom: 0;
+    }
+    .invoice-info-row span.label {
+      color: #6B7280;
+      width: 85px;
+      flex-shrink: 0;
+      font-weight: 600;
+    }
+    .invoice-info-row span.value {
+      color: #111827;
+      font-weight: 600;
+    }
+
+    /* Table */
+    .invoice-table-wrap {
+      overflow-x: auto;
+      margin-bottom: 24px;
+      border: 1px solid #E5E7EB;
+      border-radius: 8px;
+    }
+    .invoice-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: right;
+      font-size: 0.88rem;
+    }
+    [dir="ltr"] .invoice-table {
+      text-align: left;
+    }
+    .invoice-table th {
+      background: #F9FAFB;
+      color: #374151;
+      font-weight: 700;
+      padding: 12px 16px;
+      border-bottom: 1px solid #E5E7EB;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .invoice-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #F3F4F6;
+      vertical-align: middle;
+      color: #1F2937;
+    }
+    .invoice-table tr:last-child td {
+      border-bottom: none;
+    }
+    .invoice-prod-cell {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .invoice-prod-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 6px;
+      object-fit: cover;
+      background: #F3F4F6;
+      border: 1px solid #E5E7EB;
+      flex-shrink: 0;
+    }
+    .invoice-prod-title {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #111827;
+      margin-bottom: 2px;
+    }
+    .invoice-prod-meta {
+      font-size: 0.76rem;
+      color: #6B7280;
+    }
+
+    /* Totals Box */
+    .invoice-totals-container {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+    }
+    .invoice-totals-box {
+      width: 100%;
+      max-width: 340px;
+      background: #F9FAFB;
+      border: 1px solid #E5E7EB;
+      border-radius: 8px;
+      padding: 16px 20px;
+    }
+    .invoice-total-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+      color: #4B5563;
+    }
+    .invoice-total-line.grand-total {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 2px solid #E5E7EB;
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #111827;
+    }
+    .invoice-total-line.grand-total .amount {
+      color: #2F5233;
+      font-size: 1.25rem;
+    }
+
+    /* Invoice Footer note */
+    .invoice-doc-footer {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px dashed #E5E7EB;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #6B7280;
+      line-height: 1.6;
+    }
+
+    /* Actions Bar */
+    .invoice-actions-bar {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* Print Styles */
+    @page {
+      size: A4 portrait;
+      margin: 12mm 15mm;
+    }
+
+    @media print {
+      html, body {
+        background: #FFFFFF !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 10pt !important;
+        width: 100% !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .no-print,
+      .invoice-screen-bar,
+      .invoice-actions-bar {
+        display: none !important;
+      }
+      .invoice-wrapper {
+        margin: 0 auto !important;
+        padding: 0 !important;
+        max-width: 180mm !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .invoice-card {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        margin: 0 auto !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      .invoice-doc-header,
+      .invoice-notice-banner,
+      .invoice-details-grid,
+      .invoice-table-wrap,
+      .invoice-totals-container,
+      .invoice-doc-footer {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      .invoice-notice-banner {
+        border: 1px solid #D1D5DB !important;
+        background: #F9FAFB !important;
+        color: #111827 !important;
+        padding: 10px 14px !important;
+        margin: 14px 0 !important;
+      }
+      .invoice-notice-content h4 {
+        color: #111827 !important;
+      }
+      .invoice-notice-content p {
+        color: #374151 !important;
+      }
+      .invoice-details-grid {
+        gap: 14px !important;
+        margin-bottom: 16px !important;
+      }
+      .invoice-info-panel {
+        padding: 12px 14px !important;
+        background: #F9FAFB !important;
+        border: 1px solid #E5E7EB !important;
+      }
+      .invoice-prod-img {
+        display: none !important;
+      }
+      .invoice-table-wrap {
+        margin-bottom: 16px !important;
+        border: 1px solid #E5E7EB !important;
+        overflow: visible !important;
+      }
+      .invoice-table th, .invoice-table td {
+        padding: 7px 10px !important;
+      }
+      .invoice-totals-box {
+        padding: 10px 14px !important;
+        background: #F9FAFB !important;
+        border: 1px solid #E5E7EB !important;
+      }
+      .invoice-doc-footer {
+        margin-top: 20px !important;
+        padding-top: 14px !important;
+      }
+      a {
+        text-decoration: none !important;
+        color: #000 !important;
+      }
+    }
+  </style>
 </head>
-<body style="background-color: var(--color-bg-secondary);">
+<body>
 
-  <!-- Dynamic Header Container -->
-  <div id="site-header-container"></div>
+  <!-- Screen Top Navigation (Clean Minimal Bar, No Bulky Menus) -->
+  <header class="invoice-screen-bar no-print">
+    <div class="invoice-screen-bar-inner">
+      <a href="shop.html" class="invoice-brand-badge">
+        <img src="assets/logo.png" alt="DXN & KALLOW" style="width: 32px; height: 32px; object-fit: contain; border-radius: 4px;">
+        <span>DXN & KALLOW MAROC</span>
+      </a>
 
-  <!-- Order Receipt Main -->
-  <main class="container-narrow section-spacing" style="padding-top: 40px;">
-    
-    <div style="background-color: #FFFFFF; border: 1px solid var(--color-border); padding: clamp(24px, 5vw, 48px); box-shadow: var(--shadow-subtle);">
-      
-      <!-- Success Icon & Header -->
-      <div class="text-center" style="margin-bottom: 36px;">
-        <div style="width: 64px; height: 64px; background-color: var(--color-success-bg); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2.5">
-            <polyline points="20 6 9 17 4 12"></polyline>
-          </svg>
+      <div class="invoice-top-actions">
+        <!-- Language Switch -->
+        <div class="header-lang-switch" style="display: inline-flex;">
+          <button type="button" class="header-lang-btn active" id="lang-btn-ar" onclick="switchLanguage('ar')">عربي</button>
+          <span class="header-lang-divider">|</span>
+          <button type="button" class="header-lang-btn" id="lang-btn-fr" onclick="switchLanguage('fr')">FR</button>
         </div>
-        <span class="badge badge-new" style="margin-bottom: 8px;">COMMANDE VALIDÉE</span>
-        <h1 style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 700;">MERCI POUR VOTRE COMMANDE !</h1>
-        <p style="margin-top: 8px; font-size: 1rem;">
-          Votre commande <strong id="receipt-order-id">#MA-...</strong> a bien été enregistrée et est en cours de préparation dans notre atelier de Casablanca.
-        </p>
-      </div>
 
-      <!-- Order Status Timeline -->
-      <div style="background-color: var(--color-bg-secondary); padding: 20px; margin-bottom: 32px; border-left: 3px solid var(--color-dark);">
-        <h4 style="margin-bottom: 6px; font-size: 0.92rem;">📦 DÉLAI D'EXPÉDITION EXPRESS MAROC</h4>
-        <p style="font-size: 0.88rem; color: var(--color-text-secondary); line-height: 1.5;">
-          Notre équipe vous contactera sous peu par téléphone / WhatsApp pour confirmer l'horaire de livraison. Votre colis sera livré dans un délai de <strong>24 à 48 heures ouvrables</strong>. Vous règlerez directement en espèces auprès du livreur.
-        </p>
-      </div>
-
-      <!-- Receipt Content Box -->
-      <div id="receipt-details-content">
-        <!-- Rendered dynamically -->
-      </div>
-
-      <!-- Actions -->
-      <div style="margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
-        <a href="shop.html" class="btn btn-primary">
-          CONTINUER MES ACHATS
-        </a>
-        <button class="btn btn-secondary" onclick="window.print()">
-          🖨️ IMPRIMER LE REÇU
+        <!-- Quick Print -->
+        <button type="button" class="btn btn-secondary btn-sm" onclick="window.print()" style="padding: 6px 14px; font-weight: 700;">
+          🖨️ <span id="topbar-print-label">طباعة</span>
         </button>
-        <a id="whatsapp-order-link" href="#" target="_blank" class="btn btn-secondary" style="background: #25D366; color: #FFF; border-color: #25D366;">
-          💬 SUIVRE SUR WHATSAPP
+
+        <!-- Back to Store -->
+        <a href="shop.html" class="btn btn-primary btn-sm" style="padding: 6px 14px; font-weight: 700;">
+          🛍️ <span id="topbar-shop-label">المتجر</span>
         </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Invoice -->
+  <main class="invoice-wrapper">
+    <div class="invoice-card">
+      
+      <!-- Invoice Document Header -->
+      <div class="invoice-doc-header">
+        <div class="invoice-store-info">
+          <h2>DXN & KALLOW MAROC</h2>
+          <div class="tagline" id="store-tagline">منتجات الصحة والجمال الطبيعي بالمغرب</div>
+          <div class="contact-lines">
+            📍 Tanger, Royaume du Maroc<br>
+            📞 <bdi dir="ltr" class="phone-isolate">+212 708-873060</bdi><br>
+            ✉️ contact@dxn-kallow.ma
+          </div>
+        </div>
+
+        <div class="invoice-meta-box">
+          <div class="invoice-title-pill" id="doc-type-title">وصل تأكيد الطلبية (Facture)</div>
+          <div class="invoice-ref-number" id="invoice-order-num" dir="ltr"><bdi dir="ltr">#MA-100001</bdi></div>
+          <div class="invoice-meta-date" id="invoice-order-date">التاريخ : --/--/----</div>
+          <div>
+            <span class="invoice-status-tag">
+              <span>●</span>
+              <span id="invoice-status-text">مؤكدة • قيد التجهيز الفوري</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Success Notification Banner -->
+      <div class="invoice-notice-banner">
+        <svg class="invoice-notice-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        <div class="invoice-notice-content">
+          <h4 id="banner-title">تم تسجيل وتأكيد طلبيتك بنجاح !</h4>
+          <p id="banner-desc">
+            سيتصل بكم مندوب التوصيل هاتفياً لتأكيد العنوان والتسليم خلال 24 إلى 48 ساعة عمل. الدفع نقداً عند استلام الشحنة بكل أمان.
+          </p>
+        </div>
+      </div>
+
+      <!-- Client & Shipping Details Grid -->
+      <div class="invoice-details-grid">
+        <!-- Customer Info -->
+        <div class="invoice-info-panel">
+          <h5 id="client-box-title">👤 معلومات العميل والتوصيل</h5>
+          <div class="invoice-info-row">
+            <span class="label" id="label-name">الاسم :</span>
+            <span class="value" id="val-client-name">--</span>
+          </div>
+          <div class="invoice-info-row">
+            <span class="label" id="label-phone">الهاتف :</span>
+            <span class="value phone-isolate" id="val-client-phone" dir="ltr"><bdi dir="ltr">--</bdi></span>
+          </div>
+          <div class="invoice-info-row">
+            <span class="label" id="label-city">المدينة :</span>
+            <span class="value" id="val-client-city">--</span>
+          </div>
+          <div class="invoice-info-row">
+            <span class="label" id="label-address">العنوان :</span>
+            <span class="value" id="val-client-address">--</span>
+          </div>
+        </div>
+
+        <!-- Payment & Delivery Info -->
+        <div class="invoice-info-panel">
+          <h5 id="delivery-box-title">Modalités d'Expédition</h5>
+          <div class="invoice-info-row">
+            <span class="label" id="label-payment">الدفع :</span>
+            <span class="value" id="val-payment-method">الدفع نقداً عند الاستلام (COD)</span>
+          </div>
+          <div class="invoice-info-row">
+            <span class="label" id="label-shipping">الشحن :</span>
+            <span class="value" id="val-shipping-type" style="color: #16A34A;">Livraison Express (24/48h)</span>
+          </div>
+          <div class="invoice-info-row">
+            <span class="label" id="label-zone">الوجهة :</span>
+            <span class="value" id="val-shipping-dest">Maroc</span>
+          </div>
+          <div class="invoice-info-row">
+            <span class="label" id="label-email">البريد :</span>
+            <span class="value" id="val-client-email">--</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Items Table -->
+      <div class="invoice-table-wrap">
+        <table class="invoice-table">
+          <thead>
+            <tr>
+              <th id="th-product" style="width: 45%;">المنتج</th>
+              <th id="th-price" style="text-align: center;">سعر الوحدة</th>
+              <th id="th-qty" style="text-align: center;">الكمية</th>
+              <th id="th-total" style="text-align: left;">المجموع</th>
+            </tr>
+          </thead>
+          <tbody id="invoice-items-body">
+            <!-- Populated dynamically -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Calculation Summary -->
+      <div class="invoice-totals-container">
+        <div class="invoice-totals-box">
+          <div class="invoice-total-line">
+            <span id="sum-subtotal-label">المجموع الفرعي :</span>
+            <span id="sum-subtotal-val" style="font-weight: 700;">0 MAD</span>
+          </div>
+          <div class="invoice-total-line">
+            <span id="sum-shipping-label">الشحن والتوصيل :</span>
+            <span id="sum-shipping-val" style="font-weight: 700;">35 Dh</span>
+          </div>
+          <div class="invoice-total-line" id="discount-row" style="display: none;">
+            <span id="sum-discount-label">الخصم :</span>
+            <span id="sum-discount-val" style="color: #DC2626; font-weight: 700;">-0 MAD</span>
+          </div>
+          <div class="invoice-total-line grand-total">
+            <span id="sum-total-label">المجموع الصافي (TTC) :</span>
+            <span class="amount" id="sum-total-val">0 MAD</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Note -->
+      <div class="invoice-doc-footer">
+        <p style="margin: 0 0 4px; font-weight: 700;" id="invoice-footer-thanks">
+          شكراً جزيلاً لثقتكم بمنتجات DXN & KALLOW الطبيعية في المغرب.
+        </p>
+        <p style="margin: 0;" id="invoice-footer-support">
+          لأي استفسار أو تعديل على طلبيتكم، يرجى التواصل مباشرة عبر واتساب : <strong dir="ltr" style="direction: ltr; unicode-bidi: isolate; display: inline-block;"><bdi dir="ltr">+212 708-873060</bdi></strong>
+        </p>
       </div>
 
     </div>
 
+    <!-- Screen Action Buttons (Hidden on Print) -->
+    <div class="invoice-actions-bar no-print">
+      <button type="button" class="btn btn-primary" onclick="window.print()" style="font-weight: 800; padding: 12px 24px; font-size: 1rem;">
+        🖨️ <span id="action-print-label">طباعة الفاتورة أو حفظ كـ PDF</span>
+      </button>
+
+      <a id="action-whatsapp-link" href="#" target="_blank" class="btn btn-secondary" style="background: #25D366; color: #FFFFFF; border-color: #25D366; font-weight: 800; padding: 12px 24px; font-size: 1rem; display: inline-flex; align-items: center; gap: 8px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.35C9.32 7.35 8.97 7.43 8.69 7.73C8.4 8.04 7.6 8.79 7.6 10.33C7.6 11.87 8.72 13.36 8.88 13.57C9.04 13.78 11.08 16.93 14.2 18.28C14.94 18.6 15.52 18.79 15.97 18.93C16.71 19.17 17.39 19.13 17.92 19.05C18.52 18.96 19.75 18.31 20.01 17.58C20.27 16.85 20.27 16.22 20.19 16.09C20.11 15.96 19.9 15.89 19.59 15.73C19.28 15.57 17.76 14.82 17.48 14.72C17.2 14.62 17 14.57 16.8 14.87C16.6 15.18 16.03 15.89 15.85 16.09C15.68 16.29 15.5 16.32 15.19 16.16C14.88 16.01 13.88 15.68 12.7 14.62C11.78 13.8 11.16 12.79 10.98 12.48C10.8 12.18 10.96 12.01 11.12 11.86C11.26 11.72 11.43 11.49 11.59 11.31C11.74 11.13 11.8 11 11.9 10.79C12 10.59 11.95 10.41 11.87 10.25C11.8 10.1 11.19 8.59 10.93 7.97C10.68 7.37 10.43 7.45 10.24 7.44C10.07 7.44 9.86 7.35 9.53 7.35Z"/>
+        </svg>
+        <span id="action-whatsapp-label">متابعة الطلبية عبر واتساب</span>
+      </a>
+
+      <a href="shop.html" class="btn btn-secondary" style="font-weight: 700; padding: 12px 24px; font-size: 1rem;">
+        🛍️ <span id="action-shop-label">العودة للتسوق</span>
+      </a>
+    </div>
   </main>
 
-  <!-- Dynamic Footer Container -->
-  <div id="site-footer-container"></div>
-
-  <!-- Core Scripts -->
+  <!-- Essential Scripts Only -->
   <script src="assets/js/config.js"></script>
   <script src="assets/js/i18n.js"></script>
-  <script src="assets/js/data/categories.js"></script>
-  <script src="assets/js/data/collections.js"></script>
-  <script src="assets/js/data/products.js"></script>
   <script src="assets/js/core/storage.js"></script>
   <script src="assets/js/core/utils.js"></script>
-  <script src="assets/js/core/cart.js"></script>
-  <script src="assets/js/core/wishlist.js"></script>
-  <script src="assets/js/core/search.js"></script>
-  <script src="assets/js/components/toast.js"></script>
-  <script src="assets/js/components/header.js"></script>
-  <script src="assets/js/components/footer.js"></script>
-  <script src="assets/js/components/cartDrawer.js"></script>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      if (window.HeaderComponent) window.HeaderComponent.mount();
-      if (window.FooterComponent) window.FooterComponent.mount();
+    let currentLang = (window.I18N && window.I18N.getLang) ? window.I18N.getLang() : "ar";
 
-      const params = StoreUtils.getUrlParams();
-      const orderNum = params.order || "MA-100001";
-      const idEl = document.getElementById("receipt-order-id");
-      if (idEl) idEl.textContent = `#${orderNum}`;
+    function getActiveOrder() {
+      const params = window.StoreUtils ? window.StoreUtils.getUrlParams() : {};
+      const orderParam = params.order || "";
 
-      // Retrieve saved order from session or history
-      const rawOrder = sessionStorage.getItem("atelier_latest_order");
-      const order = rawOrder ? JSON.parse(rawOrder) : null;
-      const contentEl = document.getElementById("receipt-details-content");
-
-      if (order && contentEl) {
-        contentEl.innerHTML = `
-          <div style="border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 24px 0; margin-bottom: 24px;">
-            <h3 style="font-size: 1.1rem; margin-bottom: 16px; text-transform: uppercase;">Détails des articles commandés</h3>
-            <div style="display: flex; flex-direction: column; gap: 14px;">
-              ${order.items.map(item => `
-                <div style="display: grid; grid-template-columns: 56px 1fr auto; gap: 14px; align-items: center;">
-                  <img src="${item.image}" alt="${item.name}" style="width: 56px; height: 72px; object-fit: cover; background: #f5f5f5;">
-                  <div>
-                    <div class="font-heading" style="font-weight: 600;">${item.name}</div>
-                    <div style="font-size: 0.8rem; color: var(--color-text-secondary);">${item.colorName} • Taille: ${item.size} • Qté: ${item.quantity}</div>
-                  </div>
-                  <div class="font-heading" style="font-weight: 600;">${StoreUtils.formatMoney(item.price * item.quantity)}</div>
-                </div>
-              `).join('')}
-            </div>
-          </div>
-
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; font-size: 0.9rem;">
-            <div>
-              <h4 style="font-size: 0.82rem; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 6px;">Adresse de livraison :</h4>
-              <p><strong>${order.customer.firstName} ${order.customer.lastName}</strong></p>
-              <p>${order.shippingAddress.address} ${order.shippingAddress.apartment ? `(${order.shippingAddress.apartment})` : ''}</p>
-              <p>${order.shippingAddress.city}, Maroc</p>
-              <p>📞 ${order.customer.phone}</p>
-            </div>
-            <div>
-              <h4 style="font-size: 0.82rem; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 6px;">Paiement & Total :</h4>
-              <p><strong>Mode :</strong> ${order.paymentMethod}</p>
-              <p><strong>Sous-total :</strong> ${StoreUtils.formatMoney(order.subtotal)}</p>
-              ${order.discount > 0 ? `<p style="color: var(--color-sale)"><strong>Réduction :</strong> -${StoreUtils.formatMoney(order.discount)}</p>` : ''}
-              <p><strong>Livraison :</strong> ${order.shipping === 0 ? 'Gratuite' : StoreUtils.formatMoney(order.shipping)}</p>
-              <p style="font-size: 1.15rem; font-family: var(--font-heading); font-weight: 700; margin-top: 6px;">Total : ${StoreUtils.formatMoney(order.total)}</p>
-            </div>
-          </div>
-        `;
-
-        // WhatsApp direct link
-        const waLink = document.getElementById("whatsapp-order-link");
-        if (waLink) {
-          const text = encodeURIComponent(`Bonjour Atelier, j'ai passé la commande #${order.orderNumber} pour un montant de ${StoreUtils.formatMoney(order.total)}.`);
-          waLink.href = `https://wa.me/${window.STORE_CONFIG.contact.whatsapp.replace(/\+/g, '')}?text=${text}`;
+      // 1. Try sessionStorage active order
+      try {
+        const raw = sessionStorage.getItem("atelier_latest_order");
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (parsed && (!orderParam || parsed.orderNumber === orderParam)) {
+            return parsed;
+          }
         }
+      } catch (e) {}
+
+      // 2. Try localStorage history
+      try {
+        const history = window.StoreStorage ? window.StoreStorage.get(window.StoreStorage.KEYS.ORDERS, []) : [];
+        if (orderParam) {
+          const found = history.find(o => o.orderNumber === orderParam);
+          if (found) return found;
+        }
+        if (history.length > 0) return history[0];
+      } catch (e) {}
+
+      // 3. Fallback clean mock order
+      return {
+        orderNumber: orderParam || "MA-108942",
+        date: new Date().toISOString(),
+        customer: {
+          fullName: "Client DXN & Kallow",
+          name: "Client DXN & Kallow",
+          phone: "+212 708-873060",
+          email: "contact@dxn-kallow.ma"
+        },
+        shippingAddress: {
+          address: "Centre Ville, Boulevard Principal",
+          city: "Tanger",
+          country: "Maroc"
+        },
+        items: [
+          {
+            id: "dxn-lingzhi-coffee-2in1",
+            name: "Café Noir Lingzhi 2-en-1 DXN",
+            nameAr: "قهوة لينغزي السوداء 2 في 1 بالجانوديرما",
+            nameFr: "Café Noir Lingzhi 2-en-1 DXN",
+            price: 155,
+            quantity: 2,
+            weight: "20 sachets",
+            image: "assets/images/products/dxn-lingzhi-black-coffee.jpg"
+          },
+          {
+            id: "kallow-divine-touch-cream",
+            name: "Crème Contour des Yeux Effet Liftant Kallow",
+            nameAr: "كريم العين كالو ديفاين تاتش - تأثير الشد الفوري",
+            nameFr: "Crème Contour des Yeux Effet Liftant Kallow",
+            price: 360,
+            quantity: 1,
+            weight: "15 ml",
+            image: "assets/kallow.jpg"
+          }
+        ],
+        paymentMethod: "Paiement Cash à la livraison (COD)",
+        subtotal: 670,
+        discount: 0,
+        shipping: 0,
+        total: 670
+      };
+    }
+
+    function renderInvoice() {
+      const isAr = currentLang === "ar";
+      const order = getActiveOrder();
+
+      document.documentElement.lang = currentLang;
+      document.documentElement.dir = isAr ? "rtl" : "ltr";
+      document.title = isAr ? `فاتورة الطلب \u200E#${order.orderNumber}\u200E | دي إكس إن وكالو المغرب` : `Facture Commande #${order.orderNumber} | DXN & KALLOW Maroc`;
+
+      // Language Switch Buttons
+      const btnAr = document.getElementById("lang-btn-ar");
+      const btnFr = document.getElementById("lang-btn-fr");
+      if (btnAr && btnFr) {
+        btnAr.className = `header-lang-btn ${isAr ? 'active' : ''}`;
+        btnFr.className = `header-lang-btn ${!isAr ? 'active' : ''}`;
       }
+
+      // Top bar labels
+      const printTop = document.getElementById("topbar-print-label");
+      if (printTop) printTop.textContent = isAr ? "طباعة" : "Imprimer";
+      const shopTop = document.getElementById("topbar-shop-label");
+      if (shopTop) shopTop.textContent = isAr ? "المتجر" : "Boutique";
+
+      // Meta Header
+      const tagline = document.getElementById("store-tagline");
+      if (tagline) tagline.textContent = isAr ? "منتجات الصحة والجمال الطبيعي بالمغرب" : "Santé, Bien-être & Beauté Naturelle au Maroc";
+
+      const docTitle = document.getElementById("doc-type-title");
+      if (docTitle) docTitle.textContent = isAr ? "وصل تأكيد الطلبية (Facture)" : "Facture & Bon de Commande";
+
+      const orderNumEl = document.getElementById("invoice-order-num");
+      if (orderNumEl) orderNumEl.innerHTML = `<bdi dir="ltr">#${order.orderNumber}</bdi>`;
+
+      const dateObj = order.date ? new Date(order.date) : new Date();
+      const formattedDate = dateObj.toLocaleDateString(isAr ? 'ar-MA' : 'fr-FR', {
+        year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+      });
+      const dateEl = document.getElementById("invoice-order-date");
+      if (dateEl) dateEl.textContent = (isAr ? "التاريخ : " : "Date : ") + formattedDate;
+
+      const statusEl = document.getElementById("invoice-status-text");
+      if (statusEl) statusEl.textContent = isAr ? "مؤكدة • قيد التجهيز الفوري" : "Confirmée • En cours de préparation";
+
+      // Notice Banner
+      const bannerTitle = document.getElementById("banner-title");
+      if (bannerTitle) bannerTitle.textContent = isAr ? "تم تسجيل وتأكيد طلبيتك بنجاح !" : "Votre commande a été confirmée avec succès !";
+
+      const bannerDesc = document.getElementById("banner-desc");
+      if (bannerDesc) {
+        bannerDesc.textContent = isAr
+          ? "سيتصل بكم مندوب التوصيل هاتفياً لتأكيد العنوان والتسليم خلال 24 إلى 48 ساعة عمل. الدفع نقداً عند استلام الشحنة بكل أمان."
+          : "Notre transporteur express vous contactera par téléphone pour convenir de l'heure de livraison. Votre colis vous parviendra sous 24 à 48 heures avec paiement en espèces à la livraison.";
+      }
+
+      // Client Panel
+      const clientBox = document.getElementById("client-box-title");
+      if (clientBox) clientBox.textContent = isAr ? "👤 معلومات العميل والتوصيل" : "👤 Coordonnées du Destinataire";
+
+      document.getElementById("label-name").textContent = isAr ? "الاسم :" : "Nom :";
+      document.getElementById("label-phone").textContent = isAr ? "الهاتف :" : "Tél :";
+      document.getElementById("label-city").textContent = isAr ? "المدينة :" : "Ville :";
+      document.getElementById("label-address").textContent = isAr ? "العنوان :" : "Adresse :";
+
+      const clientName = order.customer ? (order.customer.fullName || order.customer.name || `${order.customer.firstName || ''} ${order.customer.lastName || ''}`.trim()) : "";
+      const rawPhone = (order.customer && order.customer.phone) || "+212 708-873060";
+      const clientPhoneEl = document.getElementById("val-client-phone");
+      if (clientPhoneEl) clientPhoneEl.innerHTML = `<bdi dir="ltr">${rawPhone}</bdi>`;
+      document.getElementById("val-client-city").textContent = (order.shippingAddress && order.shippingAddress.city) || (isAr ? "المغرب" : "Maroc");
+
+      const apt = order.shippingAddress && order.shippingAddress.apartment ? ` (${order.shippingAddress.apartment})` : "";
+      const addr = (order.shippingAddress && order.shippingAddress.address) || "";
+      document.getElementById("val-client-address").textContent = (addr + apt) || (isAr ? "التوصيل إلى المنزل" : "Livraison à domicile");
+
+      // Shipping Panel
+      const deliveryBox = document.getElementById("delivery-box-title");
+      if (deliveryBox) deliveryBox.textContent = isAr ? "تفاصيل الشحن والتوصيل" : "Modalités d'Expédition";
+
+      document.getElementById("label-payment").textContent = isAr ? "الدفع :" : "Paiement :";
+      document.getElementById("val-payment-method").textContent = isAr ? "الدفع نقداً عند الاستلام (COD)" : "Paiement Cash à la Livraison (COD)";
+
+      document.getElementById("label-shipping").textContent = isAr ? "الشحن :" : "Livraison :";
+      document.getElementById("val-shipping-type").textContent = isAr ? "شحن سريع (24/48h)" : "Livraison Express (24/48h)";
+
+      document.getElementById("label-zone").textContent = isAr ? "الوجهة :" : "Destination :";
+      document.getElementById("val-shipping-dest").textContent = isAr ? "المغرب" : "Maroc";
+
+      document.getElementById("label-email").textContent = isAr ? "البريد :" : "E-mail :";
+      document.getElementById("val-client-email").textContent = (order.customer && order.customer.email) || (isAr ? "غير محدد (اختياري)" : "Non renseigné (optionnel)");
+
+      // Table Headers
+      document.getElementById("th-product").textContent = isAr ? "المنتج" : "Article / Produit";
+      document.getElementById("th-price").textContent = isAr ? "سعر الوحدة" : "Prix Unit.";
+      document.getElementById("th-qty").textContent = isAr ? "الكمية" : "Qté";
+      const thTotal = document.getElementById("th-total");
+      if (thTotal) {
+        thTotal.textContent = isAr ? "المجموع" : "Total";
+        thTotal.style.textAlign = isAr ? "left" : "right";
+      }
+
+      // Table Items (No Image)
+      const tbody = document.getElementById("invoice-items-body");
+      if (tbody) {
+        tbody.innerHTML = (order.items || []).map(item => {
+          const title = isAr ? (item.nameAr || item.name || item.title || "") : (item.nameFr || item.name || item.title || "");
+          const sub = isAr ? (item.nameFr || "") : (item.nameAr || "");
+          const weightLabel = item.weight ? `• 📦 ${item.weight}` : "";
+          const unitPrice = window.StoreUtils ? window.StoreUtils.formatMoney(item.price) : `${item.price} MAD`;
+          const lineTotal = window.StoreUtils ? window.StoreUtils.formatMoney(item.price * item.quantity) : `${item.price * item.quantity} MAD`;
+
+          return `
+            <tr>
+              <td>
+                <div class="invoice-prod-cell">
+                  <div>
+                    <div class="invoice-prod-title">${title}</div>
+                    ${sub || weightLabel ? `<div class="invoice-prod-meta">${sub} ${weightLabel}</div>` : ''}
+                  </div>
+                </div>
+              </td>
+              <td style="text-align: center; font-weight: 600;">${unitPrice}</td>
+              <td style="text-align: center;">
+                <span style="display: inline-block; background: #F3F4F6; border: 1px solid #E5E7EB; border-radius: 4px; padding: 2px 8px; font-weight: 700; font-size: 0.82rem;">${item.quantity}</span>
+              </td>
+              <td style="text-align: ${isAr ? 'left' : 'right'}; font-weight: 800; color: #111827;">${lineTotal}</td>
+            </tr>
+          `;
+        }).join('');
+      }
+
+      // Calculation summary
+      document.getElementById("sum-subtotal-label").textContent = isAr ? "المجموع الفرعي :" : "Sous-total :";
+      document.getElementById("sum-subtotal-val").textContent = window.StoreUtils ? window.StoreUtils.formatMoney(order.subtotal) : `${order.subtotal} MAD`;
+
+      const shippingFee = (typeof order.shipping === 'number') ? order.shipping : ((order.subtotal >= 500) ? 0 : 35);
+      document.getElementById("sum-shipping-label").textContent = isAr ? "الشحن والتوصيل :" : "Frais de livraison :";
+      document.getElementById("sum-shipping-val").textContent = shippingFee === 0 
+        ? (isAr ? "مجاني 🚚" : "Gratuit 🚚") 
+        : (window.StoreUtils ? window.StoreUtils.formatMoney(shippingFee) : (isAr ? `${shippingFee} درهم` : `${shippingFee} MAD`));
+
+      if (order.discount && order.discount > 0) {
+        document.getElementById("discount-row").style.display = "flex";
+        document.getElementById("sum-discount-label").textContent = isAr ? "الخصم :" : "Remise :";
+        document.getElementById("sum-discount-val").textContent = `-${window.StoreUtils ? window.StoreUtils.formatMoney(order.discount) : order.discount + ' MAD'}`;
+      } else {
+        document.getElementById("discount-row").style.display = "none";
+      }
+
+      const finalTotal = (typeof order.total === 'number' && !isNaN(order.total)) 
+        ? order.total 
+        : Math.max(0, (order.subtotal || 0) + shippingFee - (order.discount || 0));
+      document.getElementById("sum-total-label").textContent = isAr ? "المجموع الإجمالي (TTC) :" : "Total Net à Payer (TTC) :";
+      document.getElementById("sum-total-val").textContent = window.StoreUtils ? window.StoreUtils.formatMoney(finalTotal) : `${finalTotal} MAD`;
+
+      // Footer text
+      document.getElementById("invoice-footer-thanks").textContent = isAr
+        ? "شكراً جزيلاً لثقتكم بمنتجات DXN & KALLOW الطبيعية في المغرب."
+        : "Merci beaucoup pour votre confiance en nos gammes naturelles DXN & KALLOW au Maroc.";
+
+      document.getElementById("invoice-footer-support").innerHTML = isAr
+        ? `لأي استفسار أو تعديل على طلبيتكم، يرجى التواصل مباشرة عبر واتساب : <strong dir="ltr" style="direction: ltr; unicode-bidi: isolate; display: inline-block;"><bdi dir="ltr">+212 708-873060</bdi></strong>`
+        : `Pour toute question ou modification de votre commande, contactez notre service client sur WhatsApp au : <strong dir="ltr" style="direction: ltr; unicode-bidi: isolate; display: inline-block;"><bdi dir="ltr">+212 708-873060</bdi></strong>`;
+
+      // Action labels
+      document.getElementById("action-print-label").textContent = isAr ? "طباعة الفاتورة أو حفظ كـ PDF" : "Imprimer la facture ou Sauvegarder en PDF";
+      document.getElementById("action-whatsapp-label").textContent = isAr ? "متابعة الطلبية عبر واتساب 💬" : "Suivre la commande sur WhatsApp 💬";
+      document.getElementById("action-shop-label").textContent = isAr ? "العودة للتسوق" : "Continuer mes achats";
+
+      // WhatsApp link configuration
+      const waBtn = document.getElementById("action-whatsapp-link");
+      if (waBtn) {
+        const msg = isAr
+          ? `السلام عليكم ورحمة الله، قمت بتأكيد الطلبية \u200E#${order.orderNumber}\u200E بمبلغ ${window.StoreUtils ? window.StoreUtils.formatMoney(finalTotal) : finalTotal + ' MAD'}. أود متابعة التوصيل مع مندوبكم.`
+          : `Bonjour DXN & Kallow Maroc, j'ai validé ma commande #${order.orderNumber} d'un montant de ${window.StoreUtils ? window.StoreUtils.formatMoney(finalTotal) : finalTotal + ' MAD'}. Je souhaite suivre la livraison.`;
+        const phone = (window.STORE_CONFIG && window.STORE_CONFIG.contact && window.STORE_CONFIG.contact.whatsapp) || "+212708873060";
+        waBtn.href = `https://wa.me/${phone.replace(/[^\d]/g, '')}?text=${encodeURIComponent(msg)}`;
+      }
+    }
+
+    function switchLanguage(lang) {
+      currentLang = lang;
+      if (window.I18N && window.I18N.setLang) {
+        window.I18N.setLang(lang, false);
+      }
+      renderInvoice();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderInvoice();
     });
   </script>
 </body>

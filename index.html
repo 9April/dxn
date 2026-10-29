@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ATELIER | Vêtements Essentiels & Streetwear Minimaliste</title>
-  <meta name="description" content="Découvrez notre collection de T-shirts oversized haut de gamme en coton lourd 240 à 300 GSM. Conçu pour le quotidien. Livraison express 24/48h au Maroc.">
-  <meta property="og:title" content="ATELIER | Vêtements Essentiels & Streetwear Minimaliste">
-  <meta property="og:description" content="T-shirts oversized en coton lourd 240-300 GSM. Livraison express partout au Maroc.">
-  <meta property="og:image" content="assets/images/hero/hero-banner.jpg">
+
+  <!-- Google Fonts: Cairo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>دي إكس إن وكالو المغرب | متجر الصحة والجمال الطبيعي 100%</title>
+  <meta name="description" content="متجرك المعتمد لمنتجات دي إكس إن (DXN) وكالو (Kallow) الطبيعية بالمغرب. فطر الريشي، السبيرولينا، القهوة الصحية ومستحضرات العناية الفاخرة. توصيل سريع 24-48 ساعة والدفع عند الاستلام.">
+  <meta property="og:title" content="دي إكس إن وكالو المغرب | متجر الصحة والجمال الطبيعي 100%">
+  <meta property="og:description" content="منتجات طبيعية 100% معتمدة مع شحن سريع لكافة المدن المغربية والدفع عند الاستلام.">
+  <meta property="og:image" content="assets/Header/Header Ar.png">
   <meta property="og:type" content="website">
 
   <!-- Core CSS -->
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/components.css">
-  <link rel="stylesheet" href="assets/css/pages.css">
-  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/base.css?v=41">
+  <link rel="stylesheet" href="assets/css/components.css?v=41">
+  <link rel="stylesheet" href="assets/css/pages.css?v=41">
+  <link rel="stylesheet" href="assets/css/animations.css?v=17">
 </head>
 <body>
 
@@ -25,74 +30,123 @@
   <main id="main-content">
     
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="hero-section" id="home-hero-section">
       <div class="hero-background">
-        <img src="assets/images/hero/hero-banner.jpg" alt="Collection Atelier T-Shirts" class="hero-bg-img">
-        <div class="hero-overlay"></div>
+        <img src="assets/Header/Header Ar.png" alt="DXN & Kallow Maroc" class="hero-bg-img" id="home-hero-bg-img">
+        <div class="hero-overlay" id="home-hero-overlay"></div>
       </div>
-      <div class="hero-content container">
-        <span class="hero-tagline">DROP 01 — COLLECTION PERMANENTE</span>
-        <h1 class="hero-title">ESSENTIAL T-SHIRTS</h1>
-        <p class="hero-description">
-          Silhouettes oversized contemporaines, cotons lourds peignés 240 à 300 GSM et confection artisanale d'exception.
-        </p>
-        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-          <a href="shop.html?category=t-shirts" class="btn btn-white btn-lg">
-            DÉCOUVRIR LES T-SHIRTS
-          </a>
-          <a href="collections.html" class="btn btn-secondary btn-lg" style="color: #FFFFFF; border-color: rgba(255,255,255,0.6);">
-            VOIR LES DROPS
-          </a>
+      <div class="container hero-inner-container">
+        <div class="hero-content" id="home-hero-content">
+          <div class="hero-badge-wrap">
+            <span class="hero-tagline" id="home-hero-tagline">🌿 DXN & KALLOW MAROC • الصحة والعافية الطبيعية</span>
+          </div>
+          <h1 class="hero-title" id="home-hero-title">منتجات طبيعية 100% لصحتك وجمالك</h1>
+          <p class="hero-description" id="home-hero-desc">
+            اكتشف أرقى مكملات فطر الريشي والسبيرولينا والقهوة الصحية من دي إكس إن (DXN)، ومستحضرات العناية بالبشرة الفاخرة من كالو (Kallow). منتجات أصلية مع توصيل سريع بالمغرب والدفع عند الاستلام.
+          </p>
+          <div class="hero-cta-group">
+            <a href="shop.html" class="btn btn-primary btn-lg hero-btn-primary" id="home-hero-cta1">
+              تسوق الآن
+            </a>
+            <a href="collections.html" class="btn btn-secondary btn-lg hero-btn-secondary" id="home-hero-cta2">
+              تصفح المجموعات
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Featured Drop Collection -->
-    <section class="section-spacing">
-      <div class="container">
+    <!-- Featured Drop Collection / Best Sellers Slider -->
+    <section class="section-spacing featured-slider-section" style="overflow: hidden;">
+      <div class="container-wide" style="max-width: 1440px; margin: 0 auto; padding: 0 20px;">
         <div class="section-header text-center">
-          <span class="badge badge-new" style="margin-bottom: 12px;">SÉLECTION EXCLUSIVE</span>
-          <h2>LA COLLECTION T-SHIRT</h2>
-          <p class="section-subtitle">
-            Les pièces maîtresses de notre vestiaire, pensées pour être portées sans compromis saison après saison.
+          <span class="badge badge-new" id="home-featured-badge" style="margin-bottom: 12px; font-weight: 700;">مختارات حصرية</span>
+          <h2 id="home-featured-title" style="font-weight: 800;">أفضل المنتجات وأكثرها طلباً</h2>
+          <p class="section-subtitle" id="home-featured-subtitle" style="font-size: 1rem;">
+            مجموعة مميزة من المنتجات الصحية ومستحضرات التجميل الطبيعية الأكثر مبيعاً وتقييماً من عملائنا في المغرب.
           </p>
         </div>
 
-        <div class="product-grid-4col" id="featured-products-grid">
-          <!-- Rendered dynamically by home.js -->
+        <!-- Slider Container with Focus Center & Faded Sides -->
+        <div class="featured-slider-container" id="featured-slider-container">
+          <button class="featured-slider-arrow featured-slider-prev" id="featured-slider-prev" aria-label="السابق" type="button">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <div class="featured-slider-viewport" id="featured-slider-viewport">
+            <div class="featured-slider-track" id="featured-products-grid">
+              <!-- Rendered dynamically by home.js -->
+            </div>
+          </div>
+
+          <button class="featured-slider-arrow featured-slider-next" id="featured-slider-next" aria-label="التالي" type="button">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
         </div>
 
-        <div style="text-align: center; margin-top: 48px;">
-          <a href="shop.html" class="btn btn-secondary btn-lg" id="home-view-all-btn">
-            VOIR TOUTE LA BOUTIQUE →
+        <!-- Slider Controls / Dots -->
+        <div class="featured-slider-controls">
+          <div class="featured-slider-dots" id="featured-slider-dots"></div>
+        </div>
+
+        <div style="text-align: center; margin-top: 36px;">
+          <a href="shop.html" class="btn btn-secondary btn-lg" id="home-view-all-btn" style="font-weight: 700;">
+            عرض جميع المنتجات ←
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Brand Statement Editorial Section -->
-    <section class="brand-statement-section">
-      <div class="statement-wrapper">
-        <div class="statement-tag">NOTRE MANIFESTE</div>
-        <h2 class="statement-title">BUILT FOR EVERYDAY WEAR.</h2>
-        <p class="statement-text">
-          Nous rejetons la fast-fashion et les coupes éphémères. Chaque pièce Atelier est conçue comme un objet de design : un grammage dense qui conserve son aplomb, un col renforcé anti-déformation et des coloris neutres intemporels. Confectionné avec fierté pour le vestiaire marocain contemporain.
-        </p>
-        <div style="margin-top: 32px;">
-          <a href="about.html" class="btn btn-primary btn-sm">
-            NOTRE ATELIER & MATIÈRES →
-          </a>
+    <!-- Brand Statement Editorial Section with Ambient Background Video -->
+    <section class="brand-statement-section has-video-bg" id="home-vision-section">
+      <div class="brand-statement-video-bg" aria-hidden="true">
+        <div class="brand-statement-video-wrap">
+          <iframe 
+            id="brand-statement-iframe"
+            src="https://www.youtube-nocookie.com/embed/psEsC2-x7XM?autoplay=1&mute=1&loop=1&playlist=psEsC2-x7XM&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&iv_load_policy=3&disablekb=1&fs=0" 
+            title="Notre Vision et Engagement DXN & Kallow" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            loading="eager"
+            tabindex="-1">
+          </iframe>
         </div>
+        <div class="brand-statement-overlay"></div>
+      </div>
+
+      <div class="container">
+        <div class="statement-wrapper">
+          <div class="statement-tag" id="home-vision-tag">رؤيتنا ورسالتنا</div>
+          <h2 class="statement-title" id="home-vision-title" style="font-weight: 800;">صحتك وجمالك يبدآن من الطبيعة النقية</h2>
+          <p class="statement-text" id="home-vision-text" style="font-size: 1.05rem; line-height: 1.8;">
+            نلتزم بتقديم أفضل ما جادت به الطبيعة من مستخلصات فطر الريشي والسبيرولينا والألوفيرا. جميع منتجاتنا معتمدة، أصلية 100%، وخالية من المكونات الكيميائية الضارة لضمان حيوية دائمة ونقاء لا مثيل له.
+          </p>
+          <div style="margin-top: 34px;">
+            <a href="about.html" class="btn btn-white btn-lg" id="home-vision-btn" style="font-weight: 700; box-shadow: 0 10px 30px rgba(0,0,0,0.35);">
+              تعرف على قصتنا ورؤيتنا ←
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Sound Control -->
+      <div class="brand-video-controls">
+        <button type="button" class="brand-video-sound-btn" id="brand-video-sound-btn" aria-label="الصوت" title="تشغيل / كتم الصوت">
+          <span id="brand-sound-icon">🔇</span>
+        </button>
       </div>
     </section>
 
-    <!-- Category Showcase Grid (Expandable Platform) -->
+    <!-- Category Showcase Grid -->
     <section class="section-spacing" style="background-color: #FFFFFF;">
       <div class="container">
         <div class="section-header text-center">
-          <h2>EXPLORER L'UNIVERS</h2>
-          <p class="section-subtitle">
-            Notre plateforme s'étend progressivement. Découvrez notre première ligne de T-shirts et préparez-vous pour les prochains lancements.
+          <h2 id="home-cats-title" style="font-weight: 800;">استكشف أقسام المتجر</h2>
+          <p class="section-subtitle" id="home-cats-subtitle" style="font-size: 1rem;">
+            تصفح تشكيلتنا الشاملة من القهوة الصحية، مستحضرات العناية بالبشرة، والمكملات العضوية لدعم مناعتك.
           </p>
         </div>
 
@@ -102,99 +156,261 @@
       </div>
     </section>
 
-    <!-- Upcoming Pack Bundles Editorial Slider -->
-    <section class="bundle-slider-section" id="bundle-slider-section">
-      <div class="bundle-slider-track" id="bundle-slider-track">
-        <!-- Slide 1: Pack 3 T-Shirts & Bundles -->
-        <div class="bundle-slide active" data-slide-index="0">
-          <img src="assets/images/products/t-shirts/tshirt-Pack-3.jpg" alt="Offres Packs & Bundles" class="bundle-slide-bg" loading="lazy">
-          <div class="bundle-slide-overlay"></div>
-          <div class="bundle-slide-content">
-            <div class="bundle-slide-tag">✨ SÉLECTION COFFRETS & ÉCONOMIES</div>
-            <h2 class="bundle-slide-title">OFFRES PACKS & BUNDLES</h2>
-            <p class="bundle-slide-text">
-              Composez votre vestiaire idéal avec nos coffrets signature sur-mesure. Choisissez librement vos coupes, coloris et tailles tout en bénéficiant de tarifs préférentiels exclusifs.
-            </p>
-            <div class="bundle-slide-actions">
-              <a href="collections.html?c=packs-bundles" class="btn btn-white btn-lg" style="letter-spacing: 0.05em; font-weight: 700;">
-                DÉCOUVRIR LES OFFRES PACKS →
-              </a>
-              <a href="product.html?id=pack-trio-tshirts" class="btn btn-secondary btn-lg" style="color: #FFFFFF; border-color: rgba(255,255,255,0.45); backdrop-filter: blur(4px);">
-                COMPOSER LE PACK 3 T-SHIRTS ⚡
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slider Navigation Controls (Pre-configured for future additional slides) -->
-      <button class="bundle-slider-nav-btn bundle-slider-prev" id="bundle-slider-prev" aria-label="Slide précédent" style="display: none;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <polyline points="15 18 9 12 15 6"></polyline>
-        </svg>
-      </button>
-      <button class="bundle-slider-nav-btn bundle-slider-next" id="bundle-slider-next" aria-label="Slide suivant" style="display: none;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <polyline points="9 18 15 12 9 6"></polyline>
-        </svg>
-      </button>
-
-      <!-- Pagination Dots -->
-      <div class="bundle-slider-dots" id="bundle-slider-dots" style="display: none;">
-        <button class="bundle-slider-dot active" data-slide="0" aria-label="Slide 1"></button>
-      </div>
-    </section>
-
-    <!-- Editorial Lookbook Split Banner -->
-    <section class="section-spacing" style="padding-top: 0;">
+    <!-- Wellness Routine & Bundles Banner -->
+    <section class="bundle-slider-section" id="bundle-slider-section" style="background: linear-gradient(135deg, #111827 0%, #1F2937 100%); padding: 60px 0; color: #FFFFFF;">
       <div class="container">
-        <div class="lookbook-split-grid">
-          <div class="lookbook-split-card">
-            <img src="assets/images/lookbook/lookbook-male.jpg" alt="Lookbook Homme Atelier" loading="lazy">
-            <div class="lookbook-split-overlay"></div>
-            <div class="lookbook-split-content">
-              <span class="badge" style="background: rgba(255,255,255,0.2); color: #FFF; margin-bottom: 8px;">COUPE BOXY</span>
-              <h3>HEAVYWEIGHT 300 GSM</h3>
-              <p style="color: #E0E0E0; font-size: 0.92rem; margin-bottom: 20px;">
-                Un tissu sculptural ultra-dense qui ne colle jamais au corps.
-              </p>
-              <a href="product.html?id=essential-oversized-tee&color=navy" class="btn btn-white btn-sm">
-                DÉCOUVRIR LE 300 GSM
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;" class="responsive-banner-grid">
+          <div>
+            <span class="badge" id="home-promo-tag" style="background: #D4AF37; color: #111; font-weight: 700; margin-bottom: 12px; padding: 6px 14px;">✨ باقات وعروض حصرية</span>
+            <h2 id="home-promo-title" style="font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; color: #FFFFFF; line-height: 1.3; margin-bottom: 14px;">عروض وباقات العناية المتكاملة</h2>
+            <p id="home-promo-text" style="color: #E5E7EB; font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">
+              اجمع بين التغذية الخلوية المتطورة من دي إكس إن (DXN) وروتين العناية بالبشرة الفاخر من كالو (Kallow) لتحصل على نتائج استثنائية وأسعار تفضيلية.
+            </p>
+            <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+              <a href="shop.html?filter=sale" class="btn btn-white btn-lg" id="home-promo-btn1" style="font-weight: 700;">
+                اكتشف العروض الحصرية →
+              </a>
+              <a href="shop.html" class="btn btn-secondary btn-lg" id="home-promo-btn2" style="color: #FFFFFF; border-color: rgba(255,255,255,0.4); font-weight: 600;">
+                تصفح الكتالوج الكامل
               </a>
             </div>
           </div>
+          <!-- Fading Products Showcase (Not a Slider, Smooth Cross-Fade) -->
+          <div class="bundle-fade-showcase-wrap">
+            <div class="bundle-fade-showcase" id="bundle-fade-showcase">
+              <!-- Group 1 (Active) -->
+              <div class="bundle-fade-group active" data-group="0">
+                <a href="product.html?id=dxn-1-dxn-aloev-aqua-gel" class="bundle-fade-card">
+                  <div class="bundle-fade-img-wrap">
+                    <img src="assets/ecom/1.png" alt="DXN & Kallow Routines" class="bundle-fade-img" loading="lazy">
+                    <span class="bundle-fade-tag">DXN ALOE.V</span>
+                  </div>
+                  <div class="bundle-fade-info">
+                    <span class="bundle-fade-name" data-ar="جل مائي مرطب" data-fr="Gel Aqueux Hydratant">جل مائي مرطب</span>
+                    <span class="bundle-fade-price">111 MAD</span>
+                  </div>
+                </a>
 
-          <div class="lookbook-split-card">
-            <img src="assets/images/lookbook/lookbook-female.jpg" alt="Lookbook Femme Atelier" loading="lazy">
-            <div class="lookbook-split-overlay"></div>
-            <div class="lookbook-split-content">
-              <span class="badge" style="background: rgba(255,255,255,0.2); color: #FFF; margin-bottom: 8px;">COUPE OVERSIZED</span>
-              <h3>ESSENTIAL SERIES</h3>
-              <p style="color: #E0E0E0; font-size: 0.92rem; margin-bottom: 20px;">
-                Coton peigné bio 240 GSM à la fluidité et au confort incomparables.
-              </p>
-              <a href="product.html?id=essential-oversized-tee" class="btn btn-white btn-sm">
-                DÉCOUVRIR L'ESSENTIEL
-              </a>
+                <a href="product.html?id=kallow-16-kallow-divine-touch-lifting-impact-" class="bundle-fade-card">
+                  <div class="bundle-fade-img-wrap">
+                    <img src="assets/ecom/16.png" alt="Kallow Divine Touch Liftant" class="bundle-fade-img" loading="lazy">
+                    <span class="bundle-fade-tag" style="background: rgba(212, 175, 55, 0.25); color: #FCD34D;">KALLOW</span>
+                  </div>
+                  <div class="bundle-fade-info">
+                    <span class="bundle-fade-name" data-ar="كريم شد الوجه" data-fr="Crème Visage Liftante">كريم شد الوجه</span>
+                    <span class="bundle-fade-price">400 MAD</span>
+                  </div>
+                </a>
+
+                <a href="product.html?id=dxn-7-dxn-reishilium-powder" class="bundle-fade-card">
+                  <div class="bundle-fade-img-wrap">
+                    <img src="assets/ecom/7.png" alt="DXN Poudre Reishilium Pure" class="bundle-fade-img" loading="lazy">
+                    <span class="bundle-fade-tag">DXN REISHI</span>
+                  </div>
+                  <div class="bundle-fade-info">
+                    <span class="bundle-fade-name" data-ar="مسحوق فطر الريشي" data-fr="Poudre Reishi Pure">مسحوق فطر الريشي</span>
+                    <span class="bundle-fade-price">286 MAD</span>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Group 2 -->
+              <div class="bundle-fade-group" data-group="1">
+                <a href="product.html?id=dxn-3-dxn-black-cumin-plus" class="bundle-fade-card">
+                  <div class="bundle-fade-img-wrap">
+                    <img src="assets/ecom/3.png" alt="DXN Black Cumin Plus Nigelle" class="bundle-fade-img" loading="lazy">
+                    <span class="bundle-fade-tag">DXN IMMUNITY</span>
+                  </div>
+                  <div class="bundle-fade-info">
+                    <span class="bundle-fade-name" data-ar="الحبة السوداء بلس" data-fr="Black Cumin Nigelle">الحبة السوداء بلس</span>
+                    <span class="bundle-fade-price">233 MAD</span>
+                  </div>
+                </a>
+
+                <a href="product.html?id=kallow-20-kallow-divine-touch-lifting-impact-" class="bundle-fade-card">
+                  <div class="bundle-fade-img-wrap">
+                    <img src="assets/ecom/20.png" alt="Kallow Sérum Visage Liftant" class="bundle-fade-img" loading="lazy">
+                    <span class="bundle-fade-tag" style="background: rgba(212, 175, 55, 0.25); color: #FCD34D;">KALLOW</span>
+                  </div>
+                  <div class="bundle-fade-info">
+                    <span class="bundle-fade-name" data-ar="سيروم الشد المركز" data-fr="Sérum Visage Liftant">سيروم الشد المركز</span>
+                    <span class="bundle-fade-price">366 MAD</span>
+                  </div>
+                </a>
+
+                <a href="product.html?id=dxn-10-dxn-gano-massage-oil" class="bundle-fade-card">
+                  <div class="bundle-fade-img-wrap">
+                    <img src="assets/ecom/10.png" alt="DXN Huile de Massage Gano" class="bundle-fade-img" loading="lazy">
+                    <span class="bundle-fade-tag">DXN GANO</span>
+                  </div>
+                  <div class="bundle-fade-info">
+                    <span class="bundle-fade-name" data-ar="زيت التدليك جانو" data-fr="Huile Massage Gano">زيت التدليك جانو</span>
+                    <span class="bundle-fade-price">150 MAD</span>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Group 3 -->
+              <div class="bundle-fade-group" data-group="2">
+                <a href="product.html?id=dxn-4-dxn-oozhi-tea" class="bundle-fade-card">
+                  <div class="bundle-fade-img-wrap">
+                    <img src="assets/ecom/4.png" alt="DXN Thé Oozhi Bien-Être" class="bundle-fade-img" loading="lazy">
+                    <span class="bundle-fade-tag">DXN DETOX</span>
+                  </div>
+                  <div class="bundle-fade-info">
+                    <span class="bundle-fade-name" data-ar="شاي أوزي الفاخر" data-fr="Thé Oozhi Bien-Être">شاي أوزي الفاخر</span>
+                    <span class="bundle-fade-price">138 MAD</span>
+                  </div>
+                </a>
+
+                <a href="product.html?id=kallow-18-kallow-essential-sunscreen-emulsion" class="bundle-fade-card">
+                  <div class="bundle-fade-img-wrap">
+                    <img src="assets/ecom/18.png" alt="Kallow Émulsion Solaire SPF 30" class="bundle-fade-img" loading="lazy">
+                    <span class="bundle-fade-tag" style="background: rgba(212, 175, 55, 0.25); color: #FCD34D;">KALLOW</span>
+                  </div>
+                  <div class="bundle-fade-info">
+                    <span class="bundle-fade-name" data-ar="واقي شمس SPF 30" data-fr="Émulsion Solaire SPF 30">واقي شمس SPF 30</span>
+                    <span class="bundle-fade-price">227 MAD</span>
+                  </div>
+                </a>
+
+                <a href="product.html?id=dxn-8-dxn-aloev-hand-body-lotion" class="bundle-fade-card">
+                  <div class="bundle-fade-img-wrap">
+                    <img src="assets/ecom/8.png" alt="DXN ALOE.V Lait Hydratant" class="bundle-fade-img" loading="lazy">
+                    <span class="bundle-fade-tag">DXN ALOE.V</span>
+                  </div>
+                  <div class="bundle-fade-info">
+                    <span class="bundle-fade-name" data-ar="لوشن اليدين والجسم" data-fr="Lait Corps ALOE.V">لوشن اليدين والجسم</span>
+                    <span class="bundle-fade-price">111 MAD</span>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Group 4 -->
+              <div class="bundle-fade-group" data-group="3">
+                <a href="product.html?id=dxn-6-dxn-spirulina-tablets-120" class="bundle-fade-card">
+                  <div class="bundle-fade-img-wrap">
+                    <img src="assets/ecom/6.png" alt="DXN Spiruline Pure Vitalité" class="bundle-fade-img" loading="lazy">
+                    <span class="bundle-fade-tag">DXN BIO</span>
+                  </div>
+                  <div class="bundle-fade-info">
+                    <span class="bundle-fade-name" data-ar="سبيرولينا نقية 120 قرص" data-fr="Spiruline Pure 120c">سبيرولينا نقية 120 قرص</span>
+                    <span class="bundle-fade-price">245 MAD</span>
+                  </div>
+                </a>
+
+                <a href="product.html?id=kallow-13-kallow-divine-touch-lifting-impact-" class="bundle-fade-card">
+                  <div class="bundle-fade-img-wrap">
+                    <img src="assets/ecom/13.png" alt="Kallow Divine Touch Yeux" class="bundle-fade-img" loading="lazy">
+                    <span class="bundle-fade-tag" style="background: rgba(212, 175, 55, 0.25); color: #FCD34D;">KALLOW</span>
+                  </div>
+                  <div class="bundle-fade-info">
+                    <span class="bundle-fade-name" data-ar="كريم محيط العينين" data-fr="Crème Contour Yeux">كريم محيط العينين</span>
+                    <span class="bundle-fade-price">360 MAD</span>
+                  </div>
+                </a>
+
+                <a href="product.html?id=dxn-2-dxn-apple-fruit-drink-base" class="bundle-fade-card">
+                  <div class="bundle-fade-img-wrap">
+                    <img src="assets/ecom/2.png" alt="DXN Boisson Pomme Santé" class="bundle-fade-img" loading="lazy">
+                    <span class="bundle-fade-tag">DXN VITAL</span>
+                  </div>
+                  <div class="bundle-fade-info">
+                    <span class="bundle-fade-name" data-ar="شراب التفاح الطبيعي" data-fr="Boisson Pomme Santé">شراب التفاح الطبيعي</span>
+                    <span class="bundle-fade-price">125 MAD</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Fade Indicators / Dots -->
+            <div class="bundle-fade-indicators" id="bundle-fade-indicators">
+              <button type="button" class="bundle-fade-dot active" data-index="0" aria-label="Routine 1"></button>
+              <button type="button" class="bundle-fade-dot" data-index="1" aria-label="Routine 2"></button>
+              <button type="button" class="bundle-fade-dot" data-index="2" aria-label="Routine 3"></button>
+              <button type="button" class="bundle-fade-dot" data-index="3" aria-label="Routine 4"></button>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- New Arrivals Section -->
-    <section class="section-spacing" style="background-color: var(--color-bg-secondary); border-top: 1px solid var(--color-border);">
+    <!-- 4-Pillar Trust Badges -->
+    <section class="section-spacing" style="background-color: var(--color-bg-secondary); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
+          <!-- Badge 1 -->
+          <div style="background: #FFFFFF; padding: 24px; border-radius: 8px; border: 1px solid var(--color-border); text-align: center;">
+            <div style="font-size: 2.2rem; margin-bottom: 10px;">🚚</div>
+            <h3 id="trust-badge-1-title" style="font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;">شحن سريع 24/48 ساعة</h3>
+            <p id="trust-badge-1-desc" style="font-size: 0.88rem; color: var(--color-text-secondary); margin: 0;">توصيل مضمون لكافة مدن المغرب</p>
+          </div>
+          <!-- Badge 2 -->
+          <div style="background: #FFFFFF; padding: 24px; border-radius: 8px; border: 1px solid var(--color-border); text-align: center;">
+            <div style="font-size: 2.2rem; margin-bottom: 10px;">💵</div>
+            <h3 id="trust-badge-2-title" style="font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;">الدفع عند الاستلام (COD)</h3>
+            <p id="trust-badge-2-desc" style="font-size: 0.88rem; color: var(--color-text-secondary); margin: 0;">ادفع نقداً بعد استلام وفحص طلبيتك</p>
+          </div>
+          <!-- Badge 3 -->
+          <div style="background: #FFFFFF; padding: 24px; border-radius: 8px; border: 1px solid var(--color-border); text-align: center;">
+            <div style="font-size: 2.2rem; margin-bottom: 10px;">🌿</div>
+            <h3 id="trust-badge-3-title" style="font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;">أصلي وطبيعي 100%</h3>
+            <p id="trust-badge-3-desc" style="font-size: 0.88rem; color: var(--color-text-secondary); margin: 0;">منتجات معتمدة ومضمونة الجودة</p>
+          </div>
+          <!-- Badge 4 -->
+          <div style="background: #FFFFFF; padding: 24px; border-radius: 8px; border: 1px solid var(--color-border); text-align: center;">
+            <div style="font-size: 2.2rem; margin-bottom: 10px;">💬</div>
+            <h3 id="trust-badge-4-title" style="font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;">خدمة عملاء واتساب</h3>
+            <p id="trust-badge-4-desc" style="font-size: 0.88rem; color: var(--color-text-secondary); margin: 0;">استشارات وإجابة سريعة 7 أيام</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- New Arrivals & Daily Selections Slider Section -->
+    <section class="section-spacing arrivals-slider-section" id="home-arrivals-section">
       <div class="container">
         <div class="section-header text-center">
-          <span class="badge badge-new" style="margin-bottom: 10px;">DERNIERS DROPS</span>
-          <h2>NOUVEAUTÉS & ÉDITIONS LIMITÉES</h2>
-          <p class="section-subtitle">
-            Pièces fraîchement sorties de nos ateliers de confection.
+          <div style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+            <span class="badge badge-new" id="home-arrivals-badge">وصل حديثاً</span>
+            <span class="badge" id="home-arrivals-daily-badge" style="background: rgba(47, 82, 51, 0.08); color: var(--color-primary, #2F5233); font-weight: 700; border: 1px solid rgba(47, 82, 51, 0.2);">✨ مختارات اليوم المتجددة</span>
+          </div>
+          <h2 id="home-arrivals-title" style="font-weight: 800;">أحدث المنتجات والمختارات اليومية</h2>
+          <p class="section-subtitle" id="home-arrivals-subtitle">
+            تشكيلة متجددة يومياً من أرقى منتجات دي إكس إن وكالو الطبيعية لروتينك الصحي.
           </p>
         </div>
 
-        <div class="product-grid-4col" id="new-arrivals-grid">
-          <!-- Rendered dynamically -->
+        <!-- Arrivals Slider Container -->
+        <div class="arrivals-slider-container" id="arrivals-slider-container">
+          <button class="arrivals-slider-arrow arrivals-slider-prev" id="arrivals-slider-prev" aria-label="السابق" type="button">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <div class="arrivals-slider-viewport" id="arrivals-slider-viewport">
+            <div class="arrivals-slider-track" id="new-arrivals-grid">
+              <!-- Rendered dynamically by home.js with daily random shuffle -->
+            </div>
+          </div>
+
+          <button class="arrivals-slider-arrow arrivals-slider-next" id="arrivals-slider-next" aria-label="التالي" type="button">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Slider Controls / Dots -->
+        <div class="arrivals-slider-controls">
+          <div class="arrivals-slider-dots" id="arrivals-slider-dots"></div>
+        </div>
+
+        <div style="text-align: center; margin-top: 36px;">
+          <a href="shop.html?filter=new" class="btn btn-secondary btn-lg" id="home-arrivals-view-all-btn" style="font-weight: 700;">
+            تصفح جميع الواصل حديثاً ←
+          </a>
         </div>
       </div>
     </section>
@@ -203,19 +419,19 @@
     <section class="newsletter-section">
       <div class="container">
         <div class="newsletter-box">
-          <span style="font-size: 0.8rem; letter-spacing: 0.2em; font-weight: 700; color: #888888; text-transform: uppercase;">NEWSLETTER PRIVÉE</span>
-          <h2 style="font-size: 2.2rem; margin-top: 8px;">REJOIGNEZ L'ATELIER</h2>
-          <p>
-            Inscrivez-vous pour recevoir en avant-première l'accès aux futurs drops (Hoodies, Cargos) et profitez de <strong>10% de réduction</strong> immédiate avec le code <strong>WELCOME10</strong>.
+          <span id="home-news-tag" style="font-size: 0.8rem; letter-spacing: 0.2em; font-weight: 700; color: #888888; text-transform: uppercase;">النشرة البريدية الحصرية</span>
+          <h2 id="home-news-title" style="font-size: 2.2rem; margin-top: 8px;">انضم إلى مجتمع دي إكس إن وكالو</h2>
+          <p id="home-news-text">
+            اشترك لتصلك أحدث النصائح الصحية، روتين العناية الطبيعي، والعروض الخاصة حصرياً في المغرب.
           </p>
 
           <form class="newsletter-form">
-            <input type="email" class="form-input" placeholder="Votre adresse email (ex: contact@domaine.ma)" required>
-            <button type="submit" class="btn btn-white">S'INSCRIRE</button>
+            <input type="email" id="home-news-input" class="form-input" placeholder="بريدك الإلكتروني (مثال: contact@domaine.ma)" required>
+            <button type="submit" id="home-news-btn" class="btn btn-white">اشتراك</button>
           </form>
 
-          <div style="font-size: 0.75rem; color: #777777; margin-top: 14px;">
-            🔒 Aucun spam. Désinscription possible en un clic.
+          <div id="home-news-note" style="font-size: 0.75rem; color: #777777; margin-top: 14px;">
+            🔒 لا نرسل رسائل مزعجة أبداً. يمكنك إلغاء الاشتراك في أي وقت.
           </div>
         </div>
       </div>
@@ -227,23 +443,23 @@
   <div id="site-footer-container"></div>
 
   <!-- Core Scripts -->
-  <script src="assets/js/config.js?v=12"></script>
-  <script src="assets/js/i18n.js?v=12"></script>
-  <script src="assets/js/data/categories.js?v=12"></script>
-  <script src="assets/js/data/collections.js?v=12"></script>
-  <script src="assets/js/data/products.js?v=12"></script>
-  <script src="assets/js/core/storage.js?v=12"></script>
-  <script src="assets/js/core/utils.js?v=12"></script>
-  <script src="assets/js/core/cart.js?v=12"></script>
-  <script src="assets/js/core/wishlist.js?v=12"></script>
-  <script src="assets/js/core/search.js?v=12"></script>
-  <script src="assets/js/components/toast.js?v=12"></script>
-  <script src="assets/js/components/header.js?v=12"></script>
-  <script src="assets/js/components/footer.js?v=12"></script>
-  <script src="assets/js/components/productCard.js?v=12"></script>
-  <script src="assets/js/components/cartDrawer.js?v=12"></script>
-  <script src="assets/js/components/quickAddModal.js?v=12"></script>
-  <script src="assets/js/components/sizeGuideModal.js?v=12"></script>
-  <script src="assets/js/pages/home.js?v=12"></script>
+  <script src="assets/js/config.js?v=41"></script>
+  <script src="assets/js/i18n.js?v=41"></script>
+  <script src="assets/js/data/categories.js?v=32"></script>
+  <script src="assets/js/data/collections.js?v=32"></script>
+  <script src="assets/js/data/products.js?v=32"></script>
+  <script src="assets/js/core/storage.js?v=19"></script>
+  <script src="assets/js/core/utils.js?v=41"></script>
+  <script src="assets/js/core/cart.js?v=25"></script>
+  <script src="assets/js/core/wishlist.js?v=19"></script>
+  <script src="assets/js/core/search.js?v=19"></script>
+  <script src="assets/js/components/toast.js?v=19"></script>
+  <script src="assets/js/components/header.js?v=41"></script>
+  <script src="assets/js/components/footer.js?v=41"></script>
+  <script src="assets/js/components/productCard.js?v=41"></script>
+  <script src="assets/js/components/cartDrawer.js?v=41"></script>
+  <script src="assets/js/components/quickAddModal.js?v=41"></script>
+  <script src="assets/js/components/sizeGuideModal.js?v=19"></script>
+  <script src="assets/js/pages/home.js?v=41"></script>
 </body>
 </html>

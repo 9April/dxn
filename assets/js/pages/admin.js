@@ -10,10 +10,9 @@ window.AdminDashboard = {
   stockCategory: "all",
   productSearch: "",
   productCategory: "all",
+  productStatusFilter: "all",
   productViewMode: "separated", // "separated" = each colorway separated, "grouped" = parent card
   activeImageTargetInput: null,
-  activeEditColor: null,
-  currentProductImages: {},
   currentGalleryImages: [],
   allAvailableImages: [],
   presetFilterColor: "all",
@@ -26,6 +25,7 @@ window.AdminDashboard = {
     }
 
     this.bindNavigation();
+    this.bindLanguageSwitcher();
     this.renderAll();
     this.bindModals();
     this.bindPresetPicker();
@@ -33,7 +33,7 @@ window.AdminDashboard = {
     // Check URL parameters for direct tab navigation (e.g., admin.html?tab=orders)
     const params = new URLSearchParams(window.location.search);
     const tabParam = params.get("tab");
-    if (tabParam && ["overview", "categories", "colors", "stock", "products", "orders", "settings"].includes(tabParam)) {
+    if (tabParam && ["overview", "categories", "stock", "products", "orders", "settings"].includes(tabParam)) {
       this.switchTab(tabParam);
     }
 
@@ -41,10 +41,235 @@ window.AdminDashboard = {
     this.loadOrders();
   },
 
+  setLanguage(newLang) {
+    if (newLang !== "ar" && newLang !== "fr") return;
+
+    try {
+      localStorage.setItem("atelier_lang", newLang);
+    } catch (e) {}
+
+    const isAr = newLang === "ar";
+    document.documentElement.lang = newLang;
+    document.documentElement.dir = isAr ? "rtl" : "ltr";
+    document.documentElement.classList.toggle("lang-ar", isAr);
+    document.documentElement.classList.toggle("lang-fr", !isAr);
+
+    if (window.I18N) {
+      window.I18N.currentLang = newLang;
+      if (typeof window.I18N.applyDomDirection === "function") {
+        window.I18N.applyDomDirection();
+      }
+      window.dispatchEvent(new CustomEvent("language:changed", { detail: { lang: newLang } }));
+    }
+
+    // Update active class on both buttons immediately
+    document.querySelectorAll(".header-lang-btn, .admin-lang-btn").forEach(btn => {
+      const isAr = btn.id.includes("ar") || btn.textContent.trim() === "عربي" || btn.getAttribute("data-admin-lang") === "ar";
+      const isFr = btn.id.includes("fr") || btn.textContent.trim() === "FR" || btn.getAttribute("data-admin-lang") === "fr";
+      if (isAr) btn.classList.toggle("active", newLang === "ar");
+      if (isFr) btn.classList.toggle("active", newLang === "fr");
+    });
+
+    // Update active tab parameter in URL
+    try {
+      const currentUrl = new URL(window.location.href);
+      if (this.activeTab) {
+        currentUrl.searchParams.set("tab", this.activeTab);
+        window.history.replaceState({}, "", currentUrl.toString());
+      }
+    } catch (e) {}
+
+    // Apply translations across all elements in the admin dashboard
+    this.applyTranslations();
+
+    // Re-render UI components so dynamic data reflects the new language
+    this.renderAll();
+  },
+
+  bindLanguageSwitcher() {
+    const currentLang = (window.I18N ? window.I18N.getLang() : localStorage.getItem("atelier_lang")) || "ar";
+    document.querySelectorAll(".header-lang-btn, .admin-lang-btn").forEach(btn => {
+      const isAr = btn.id.includes("ar") || btn.textContent.trim() === "عربي" || btn.getAttribute("data-admin-lang") === "ar";
+      const isFr = btn.id.includes("fr") || btn.textContent.trim() === "FR" || btn.getAttribute("data-admin-lang") === "fr";
+      if (isAr) btn.classList.toggle("active", currentLang === "ar");
+      if (isFr) btn.classList.toggle("active", currentLang === "fr");
+    });
+
+    this.applyTranslations();
+  },
+
+  applyTranslations() {
+    const isAr = window.I18N ? window.I18N.isRTL() : (localStorage.getItem("atelier_lang") !== "fr");
+
+    // 1. Sidebar section titles
+    const sectionTitles = document.querySelectorAll(".admin-nav-section-title");
+    if (sectionTitles[0]) sectionTitles[0].textContent = isAr ? "الكتالوج والمخزون" : "Catalogue & Stocks";
+    if (sectionTitles[1]) sectionTitles[1].textContent = isAr ? "الإعدادات والأدوات" : "Paramètres & Outils";
+
+    // 2. Sidebar nav buttons
+    const navMap = {
+      overview: isAr ? "نظرة عامة ومؤشرات" : "Vue d'ensemble",
+      categories: isAr ? "الأقسام والتصنيفات" : "Catégories",
+      stock: isAr ? "مصفوفة المخزون" : "Matrice des Stocks",
+      products: isAr ? "المنتجات والموديلات" : "Produits & Modèles",
+      orders: isAr ? "الطلبات (قاعدة البيانات)" : "Commandes (Live DB)",
+      settings: isAr ? "النسخ والمزامنة" : "Sauvegarde & Sync"
+    };
+
+    document.querySelectorAll(".admin-nav-btn").forEach(btn => {
+      const tab = btn.getAttribute("data-tab");
+      const span = btn.querySelector("span:not(.admin-nav-badge)");
+      if (span && navMap[tab]) {
+        span.textContent = navMap[tab];
+      }
+    });
+
+    // 3. Storefront link & Topbar buttons
+    const storeLink = document.querySelector(".btn-storefront-link span");
+    if (storeLink) storeLink.textContent = isAr ? "معاينة المتجر المباشر ↗" : "Voir la Boutique en direct ↗";
+
+    const syncPill = document.getElementById("admin-sync-pill-text");
+    if (syncPill) syncPill.textContent = isAr ? "مزامنة مباشرة LocalStorage" : "Sync Live LocalStorage";
+
+    const syncBtn = document.getElementById("btn-sync-to-disk");
+    if (syncBtn) syncBtn.innerHTML = isAr ? "⚡ مزامنة مع الكود المصدري" : "⚡ Sync vers Code Source";
+
+    const viewStoreBtn = document.getElementById("admin-view-store-btn");
+    if (viewStoreBtn) viewStoreBtn.textContent = isAr ? "المتجر ↗" : "Boutique ↗";
+
+    document.title = isAr ? "لوحة التحكم وإدارة المخزون | دي إكس إن وكالو" : "Tableau de Bord Admin & Stocks | DXN & KALLOW";
+
+    const brandTitle = document.querySelector(".admin-brand-title");
+    if (brandTitle) brandTitle.textContent = isAr ? "دي إكس إن وكالو" : "DXN & KALLOW";
+
+    const brandSub = document.querySelector(".admin-brand-subtitle");
+    if (brandSub) brandSub.textContent = isAr ? "لوحة التحكم المركزية" : "CONTROL CENTER";
+
+    // 4. Metric titles & subtitles (Overview Tab)
+    const metricCards = document.querySelectorAll(".admin-metric-card");
+    const metricDefs = [
+      {
+        titleAr: "موديلات المنتجات",
+        titleFr: "Modèles Produits",
+        subAr: "المنتجات المسجلة بالكتالوج",
+        subFr: "Modèles enregistrés au catalogue"
+      },
+      {
+        titleAr: "إجمالي المنتجات والخيارات",
+        titleFr: "Total Références",
+        subAr: "الأصناف والخيارات النشطة",
+        subFr: "Articles & déclinaisons actifs"
+      },
+      {
+        titleAr: "الوحدات في المخزون",
+        titleFr: "Unités en Stock",
+        subAr: "قطع جاهزة للشحن والتوصيل",
+        subFr: "Pièces prêtes pour expédition"
+      },
+      {
+        titleAr: "القيمة التقديرية للمخزون",
+        titleFr: "Valeur Marchande",
+        subAr: "القيمة التقديرية للمخزون",
+        subFr: "Valorisation de l'inventaire"
+      },
+      {
+        titleAr: "مخزون منخفض (<5)",
+        titleFr: "Stock Faible (<5)",
+        subAr: "منتجات بحاجة لإعادة التموين",
+        subFr: "Articles à réapprovisionner"
+      },
+      {
+        titleAr: "نفاد المخزون (0)",
+        titleFr: "Ruptures (0)",
+        subAr: "منتجات غير متوفرة حالياً",
+        subFr: "Articles épuisés"
+      }
+    ];
+
+    metricCards.forEach((card, idx) => {
+      const def = metricDefs[idx];
+      if (!def) return;
+      const t = card.querySelector(".metric-title");
+      if (t) t.textContent = isAr ? def.titleAr : def.titleFr;
+      const s = card.querySelector(".metric-subtitle");
+      if (s) s.textContent = isAr ? def.subAr : def.subFr;
+    });
+
+    // 5. Card headers & Action buttons in Tabs
+    // Overview tab table & distribution
+    const lowStockTitle = document.querySelector("#tab-overview .admin-card-title");
+    if (lowStockTitle) lowStockTitle.textContent = isAr ? "⚠️ تنبيهات إعادة التموين السريع" : "⚠️ Alertes de Réapprovisionnement Rapide";
+
+    const viewMatrixBtn = document.querySelector("#tab-overview .admin-card-header button");
+    if (viewMatrixBtn) viewMatrixBtn.textContent = isAr ? "عرض كامل المصفوفة ←" : "Voir toute la matrice →";
+
+    const overviewHeaders = document.querySelectorAll("#tab-overview .admin-card-title");
+    if (overviewHeaders[1]) overviewHeaders[1].textContent = isAr ? "📁 التوزيع حسب القسم" : "📁 Répartition par Catégorie";
+
+    // Overview lowstock table th
+    const overviewThs = document.querySelectorAll("#tab-overview .admin-table th");
+    const overviewThDefs = isAr 
+      ? ["المنتج ورمز SKU", "القسم", "حالة المخزون", "السعر", "إجراء"]
+      : ["Produit & SKU", "Catégorie", "État Stock", "Prix", "Action"];
+    overviewThs.forEach((th, i) => { if (overviewThDefs[i]) th.textContent = overviewThDefs[i]; });
+
+    // Categories tab
+    const catHeaderTitle = document.querySelector("#tab-categories .admin-card-title");
+    if (catHeaderTitle) catHeaderTitle.textContent = isAr ? "إدارة أقسام وتصنيفات المتجر" : "Gestion des Catégories DXN & Kallow";
+    const catHeaderSub = document.querySelector("#tab-categories .admin-card-header p");
+    if (catHeaderSub) catHeaderSub.textContent = isAr ? "تفعيل أقسام المتجر وتتبع المنتجات التابعة لكل قسم." : "Activez les rayons du magasin et suivez les produits rattachés.";
+    const newCatBtn = document.querySelector("#tab-categories .admin-card-header .admin-btn-primary");
+    if (newCatBtn) newCatBtn.textContent = isAr ? "+ قسم جديد" : "+ Nouvelle Catégorie";
+
+    // Stock tab
+    const stockHeaderTitle = document.querySelector("#tab-stock .admin-card-title");
+    if (stockHeaderTitle) stockHeaderTitle.textContent = isAr ? "إدارة المخزون ومستويات التوفر" : "Gestion de l'Inventaire & Niveaux de Stock";
+    const stockHeaderSub = document.querySelector("#tab-stock .admin-card-header p");
+    if (stockHeaderSub) stockHeaderSub.textContent = isAr ? "تعديل كميات المخزون لمنتجاتك في الوقت الفعلي." : "Ajustez les quantités et niveaux de stock de vos produits en temps réel.";
+    const stockSearch = document.getElementById("stock-search-input");
+    if (stockSearch) stockSearch.placeholder = isAr ? "🔍 بحث بالمنتج، القسم أو رمز SKU..." : "🔍 Rechercher par produit, catégorie ou SKU...";
+    
+    const stockThs = document.querySelectorAll("#tab-stock .admin-table th");
+    const stockThDefs = isAr
+      ? ["المنتج و SKU", "القسم", "السعر", "الحالة", "الكمية (تعديل سريع)", "إعادة التموين", "إجراء"]
+      : ["Produit & SKU", "Catégorie", "Prix", "Statut", "Quantité (Ajustement Rapide)", "Réappro", "Action"];
+    stockThs.forEach((th, i) => { if (stockThDefs[i]) th.textContent = stockThDefs[i]; });
+
+    // Products tab
+    const prodHeaderTitle = document.querySelector("#tab-products .admin-card-title");
+    if (prodHeaderTitle) prodHeaderTitle.textContent = isAr ? "كتالوج منتجات دي إكس إن وكالو" : "Catalogue des Produits DXN & Kallow";
+    const prodHeaderSub = document.querySelector("#tab-products .admin-card-header p");
+    if (prodHeaderSub) prodHeaderSub.textContent = isAr ? "إدارة منتجات الصحة، الجمال والعناية، الأسعار ومستويات المخزون." : "Gérez votre catalogue de santé, bien-être et beauté, tarifs et niveaux de stock.";
+    const prodSearch = document.getElementById("products-search-input");
+    if (prodSearch) prodSearch.placeholder = isAr ? "🔍 بحث بالاسم، الرمز أو الكلمات الدلالية..." : "🔍 Rechercher par titre, ID ou mot-clé...";
+
+    const prodBtns = document.querySelectorAll("#tab-products .admin-card-header button");
+    if (prodBtns[0]) prodBtns[0].textContent = isAr ? "📦 + باقة جديدة" : "📦 + Nouveau Pack Bundle";
+    if (prodBtns[1]) prodBtns[1].textContent = isAr ? "+ منتج جديد" : "+ Nouveau Produit";
+
+    const prodThs = document.querySelectorAll("#tab-products .admin-table th");
+    const prodThDefs = isAr
+      ? ["المنتج", "القسم", "السعر الحالي", "المخزون", "الحالة", "إجراءات"]
+      : ["Produit", "Catégorie", "Prix Actuel", "Stock", "Statut", "Actions"];
+    prodThs.forEach((th, i) => { if (prodThDefs[i]) th.textContent = prodThDefs[i]; });
+
+    // Orders tab
+    const ordersThs = document.querySelectorAll("#tab-orders .admin-table th");
+    const ordersThDefs = isAr
+      ? ["رقم الطلب", "العميل", "الهاتف والمدينة", "المنتجات", "المجموع", "طريقة الدفع", "الحالة", "التاريخ", "إجراء"]
+      : ["N° Commande", "Client", "Tél & Ville", "Articles", "Total", "Paiement", "Statut", "Date", "Action"];
+    ordersThs.forEach((th, i) => { if (ordersThDefs[i]) th.textContent = ordersThDefs[i]; });
+
+    const ordersRefreshBtn = document.querySelector("#tab-orders .admin-card-header .admin-btn-secondary");
+    if (ordersRefreshBtn) ordersRefreshBtn.textContent = isAr ? "🔄 تحديث الطلبات" : "🔄 Actualiser";
+
+    // 6. Current page title for active tab
+    this.switchTab(this.activeTab);
+  },
+
   renderAll() {
     this.renderOverview();
     this.renderCategories();
-    this.renderColors();
     this.renderStockMatrix();
     this.renderProducts();
     this.updateBadges();
@@ -72,6 +297,11 @@ window.AdminDashboard = {
 
   switchTab(tabName) {
     this.activeTab = tabName;
+    try {
+      const currentUrl = new URL(window.location.href);
+      currentUrl.searchParams.set("tab", tabName);
+      window.history.replaceState({}, "", currentUrl.toString());
+    } catch (e) {}
     
     // Update nav button states
     document.querySelectorAll(".admin-nav-btn").forEach(btn => {
@@ -84,10 +314,18 @@ window.AdminDashboard = {
     });
 
     // Update page title
-    const titles = {
+    const isAr = window.I18N ? window.I18N.isRTL() : true;
+    const titlesAr = {
+      overview: "لوحة التحكم والمؤشرات الرئيسية",
+      categories: "إدارة أقسام وتصنيفات المتجر",
+      stock: "مصفوفة وتتبع مخزون المنتجات",
+      products: "كتالوج المنتجات والأسعار",
+      orders: "طلبات الزبائن المسجلة (قاعدة البيانات)",
+      settings: "النسخ الاحتياطي والمزامنة"
+    };
+    const titlesFr = {
       overview: "Vue d'Ensemble & Métriques",
       categories: "Gestion des Catégories",
-      colors: "Palette de Couleurs & Swatches",
       stock: "Matrice des Stocks & Inventaire",
       products: "Catalogue des Produits",
       orders: "Commandes Clients (Base MySQL)",
@@ -95,12 +333,11 @@ window.AdminDashboard = {
     };
 
     const titleEl = document.getElementById("admin-current-page-title");
-    if (titleEl) titleEl.textContent = titles[tabName] || "Tableau de Bord";
+    if (titleEl) titleEl.textContent = (isAr ? titlesAr[tabName] : titlesFr[tabName]) || (isAr ? "لوحة الإدارة" : "Tableau de Bord");
 
     // Re-render the active tab
     if (tabName === "overview") this.renderOverview();
     if (tabName === "categories") this.renderCategories();
-    if (tabName === "colors") this.renderColors();
     if (tabName === "stock") this.renderStockMatrix();
     if (tabName === "products") this.renderProducts();
     if (tabName === "orders") this.loadOrders();
@@ -115,9 +352,6 @@ window.AdminDashboard = {
     
     const catBadge = document.getElementById("badge-categories-count");
     if (catBadge) catBadge.textContent = stats.totalCategories;
-
-    const colorBadge = document.getElementById("badge-colors-count");
-    if (colorBadge) colorBadge.textContent = window.StoreDataManager.getColors().length;
 
     const stockBadge = document.getElementById("badge-stock-alerts");
     if (stockBadge) {
@@ -146,44 +380,57 @@ window.AdminDashboard = {
     // Render Low Stock Alert Table
     const lowStockTable = document.getElementById("overview-lowstock-tbody");
     if (lowStockTable) {
-      const allVariants = window.StoreDataManager.getAllVariants();
-      const lowStockItems = allVariants.filter(v => v.stock < 5).slice(0, 8);
+      const products = window.StoreDataManager.getProducts();
+      const categories = window.StoreDataManager.getCategories();
+      const isAr = window.I18N ? window.I18N.isRTL() : (localStorage.getItem("atelier_lang") !== "fr");
+      const lowStockItems = products.map(p => {
+        const stock = p.stock !== undefined ? p.stock : (Array.isArray(p.variants) ? p.variants.reduce((sum, v) => sum + (v.stock || 0), 0) : 0);
+        const sku = (p.variants && p.variants[0] && p.variants[0].sku) || `DXN-${p.id.toUpperCase()}`;
+        const cat = categories.find(c => c.slug === p.category || c.id === p.category);
+        const pImages = (p.images && typeof p.images === 'object') ? (Array.isArray(p.images) ? p.images : Object.values(p.images).flat()) : [];
+        const img = pImages[0] || (p.colors && p.colors[0] && p.colors[0].image) || 'assets/Header/Header Ar.png';
+        const displayName = isAr ? (p.nameAr || p.name) : (p.nameFr || p.name);
+        const displayCat = cat ? ((isAr ? cat.nameAr : cat.nameFr) || cat.name) : p.category;
+        return {
+          productId: p.id,
+          name: displayName,
+          sku: sku,
+          categoryName: displayCat,
+          price: p.price,
+          stock: stock,
+          image: img
+        };
+      }).filter(p => p.stock < 5).slice(0, 8);
 
       if (lowStockItems.length === 0) {
         lowStockTable.innerHTML = `
           <tr>
-            <td colspan="6" style="text-align: center; color: var(--admin-success); padding: 24px;">
+            <td colspan="5" style="text-align: center; color: var(--admin-success); padding: 24px;">
               ✓ Tous les niveaux de stock sont optimaux (aucun article sous le seuil de 5 unités).
             </td>
           </tr>
         `;
       } else {
-        lowStockTable.innerHTML = lowStockItems.map(v => `
+        lowStockTable.innerHTML = lowStockItems.map(item => `
           <tr>
             <td>
               <div style="display: flex; align-items: center; gap: 10px;">
-                <img src="${v.productImage || 'assets/images/hero/hero-banner.jpg'}" style="width: 34px; height: 34px; object-fit: cover; border-radius: 4px; background: #000;">
+                <img src="${item.image}" style="width: 34px; height: 34px; object-fit: cover; border-radius: 4px; background: #000;">
                 <div>
-                  <div style="font-weight: 600; font-size: 0.84rem;">${v.productName}</div>
-                  <span style="font-size: 0.72rem; color: var(--admin-text-muted);">${v.sku}</span>
+                  <div style="font-weight: 600; font-size: 0.84rem;">${item.name}</div>
+                  <span style="font-size: 0.72rem; color: var(--admin-text-muted);">${item.sku}</span>
                 </div>
               </div>
             </td>
+            <td><span class="admin-badge badge-active">${item.categoryName}</span></td>
             <td>
-              <div style="display: flex; align-items: center; gap: 6px;">
-                <span style="width: 12px; height: 12px; border-radius: 50%; background-color: ${v.colorHex}; border: 1px solid #666; display: inline-block;"></span>
-                <span>${v.colorName}</span>
-              </div>
-            </td>
-            <td><span class="admin-badge badge-active">${v.size}</span></td>
-            <td>
-              <span class="admin-badge ${v.stock === 0 ? 'badge-outstock' : 'badge-lowstock'}">
-                ${v.stock === 0 ? 'Rupture (0)' : `Faible (${v.stock})`}
+              <span class="admin-badge ${item.stock === 0 ? 'badge-outstock' : 'badge-lowstock'}">
+                ${item.stock === 0 ? 'Rupture (0)' : `Faible (${item.stock})`}
               </span>
             </td>
-            <td>${v.price} MAD</td>
+            <td>${item.price} MAD</td>
             <td>
-              <button class="admin-btn admin-btn-primary admin-btn-sm" onclick="AdminDashboard.quickRestock('${v.productId}', '${v.variantId}', 10)">
+              <button class="admin-btn admin-btn-primary admin-btn-sm" onclick="AdminDashboard.quickRestockProduct('${item.productId}', 10)">
                 +10 Réappro
               </button>
             </td>
@@ -192,24 +439,31 @@ window.AdminDashboard = {
       }
     }
 
-    // Render Category Distribution
+    // Render Category Distribution (5 Main Departments)
     const catDistBox = document.getElementById("overview-category-distribution");
     if (catDistBox) {
-      const categories = window.StoreDataManager.getCategories();
+      const mainCategories = window.CategoryManager 
+        ? window.CategoryManager.getMainCategories() 
+        : (window.STORE_MAIN_CATEGORIES || []);
       const products = window.StoreDataManager.getProducts();
       const totalProds = products.length || 1;
 
-      catDistBox.innerHTML = categories.map(cat => {
-        const count = products.filter(p => p.category === cat.slug || p.category === cat.id).length;
+      catDistBox.innerHTML = mainCategories.map(main => {
+        const count = products.filter(p => {
+          if (main.slug === 'kallow') {
+            return p.brand === 'Kallow' || (p.id && p.id.startsWith('kallow')) || (Array.isArray(p.collections) && p.collections.includes('kallow'));
+          }
+          return (main.subcategories || []).includes(p.category) || p.categoryGroup === main.slug || p.category === main.slug;
+        }).length;
         const percentage = Math.round((count / totalProds) * 100);
         return `
           <div style="margin-bottom: 14px;">
             <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 5px;">
-              <span style="font-weight: 600; color: #FFFFFF;">${cat.name} ${cat.active ? '' : '<span style="font-size: 0.7rem; color: var(--admin-text-muted);">(Bientôt)</span>'}</span>
+              <span style="font-weight: 600; color: #FFFFFF;">${main.icon || '🌿'} ${main.code}. ${main.nameFr || main.name}</span>
               <span style="color: var(--admin-text-muted);">${count} articles (${percentage}%)</span>
             </div>
             <div style="height: 6px; background: var(--admin-surface-2); border-radius: 999px; overflow: hidden;">
-              <div style="width: ${percentage}%; height: 100%; background: ${cat.active ? '#FFFFFF' : 'var(--admin-gold)'}; border-radius: 999px;"></div>
+              <div style="width: ${percentage}%; height: 100%; background: var(--admin-gold); border-radius: 999px;"></div>
             </div>
           </div>
         `;
@@ -217,44 +471,92 @@ window.AdminDashboard = {
     }
   },
 
+  buildCategoryDropdownOptions(includeAll = false, allLabel = "Toutes les Catégories") {
+    const mainCategories = window.CategoryManager 
+      ? window.CategoryManager.getMainCategories() 
+      : (window.STORE_MAIN_CATEGORIES || []);
+    const categories = window.StoreDataManager.getCategories();
+
+    let html = includeAll ? `<option value="all">${allLabel}</option>` : '';
+
+    mainCategories.forEach(main => {
+      const subs = categories.filter(c => c.parentCategory === main.slug || c.categoryGroup === main.slug || (main.subcategories || []).includes(c.slug));
+      html += `<optgroup label="${main.icon || ''} ${main.code}. ${main.nameFr || main.name}">`;
+      if (includeAll) {
+        html += `<option value="${main.slug}">★ Tout le rayon : ${main.nameFr || main.name}</option>`;
+      }
+      subs.forEach(sub => {
+        html += `<option value="${sub.slug}">${sub.nameFr || sub.name}</option>`;
+      });
+      html += `</optgroup>`;
+    });
+
+    return html;
+  },
+
   // --------------------------------------------------------------------------
   // TAB 2: CATEGORIES MANAGEMENT
   // --------------------------------------------------------------------------
   renderCategories() {
     const categories = window.StoreDataManager.getCategories();
+    const mainCategories = window.CategoryManager 
+      ? window.CategoryManager.getMainCategories() 
+      : (window.STORE_MAIN_CATEGORIES || []);
     const container = document.getElementById("categories-grid-container");
     if (!container) return;
 
-    container.innerHTML = categories.map(cat => `
-      <div class="category-admin-card">
-        <img src="${cat.image || 'assets/images/hero/hero-banner.jpg'}" alt="${cat.name}" class="category-card-thumb">
-        <div class="category-card-content">
-          <div style="display: flex; align-items: center; justify-content: space-between;">
-            <h3 class="category-card-title">${cat.name}</h3>
-            <span class="admin-badge ${cat.active ? 'badge-instock' : 'badge-inactive'}">
-              ${cat.active ? 'Actif' : 'Bientôt disponible'}
-            </span>
-          </div>
-          <div style="font-size: 0.74rem; font-family: var(--font-mono); color: var(--admin-gold);">
-            Slug: ${cat.slug}
-          </div>
-          <p class="category-card-desc">${cat.description || 'Aucune description fournie.'}</p>
-          <div class="category-card-foot">
-            <span style="font-size: 0.78rem; font-weight: 600; color: var(--admin-text-muted);">
-              📦 ${cat.itemCount || 0} Articles
-            </span>
-            <div style="display: flex; gap: 6px;">
-              <button class="admin-btn admin-btn-secondary admin-btn-sm" onclick="AdminDashboard.openEditCategoryModal('${cat.id || cat.slug}')">
-                Modifier
-              </button>
-              <button class="admin-btn admin-btn-danger admin-btn-sm" onclick="AdminDashboard.deleteCategory('${cat.id || cat.slug}')">
-                ✕
-              </button>
+    container.innerHTML = mainCategories.map(main => {
+      const subs = categories.filter(c => c.parentCategory === main.slug || c.categoryGroup === main.slug || (main.subcategories || []).includes(c.slug));
+      const totalDeptItems = subs.reduce((sum, s) => sum + (s.itemCount || 0), 0);
+
+      return `
+        <div class="admin-category-dept-header" style="grid-column: 1 / -1; margin-top: 20px; margin-bottom: 8px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; background: rgba(255,255,255,0.04); border: 1px solid var(--admin-border); border-radius: 8px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 1.5rem;">${main.icon}</span>
+              <div>
+                <h4 style="margin: 0; font-size: 1.05rem; font-weight: 700; color: #FFFFFF;">${main.code}. ${main.nameFr} <span style="font-size: 0.85rem; color: var(--admin-text-muted); font-weight: 400;">(${main.nameAr})</span></h4>
+                <div style="font-size: 0.78rem; color: var(--admin-text-muted); margin-top: 3px;">${main.descriptionFr || ''}</div>
+              </div>
             </div>
+            <span class="admin-badge badge-instock" style="font-size: 0.76rem;">
+              ${subs.length} sous-catégories • ${totalDeptItems} articles
+            </span>
           </div>
         </div>
-      </div>
-    `).join("");
+        ${subs.map(cat => `
+          <div class="category-admin-card">
+            <img src="${cat.image || 'assets/Header/Header Ar.png'}" alt="${cat.name}" class="category-card-thumb">
+            <div class="category-card-content">
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <h3 class="category-card-title">${cat.nameFr || cat.name}</h3>
+                <span class="admin-badge ${cat.active ? 'badge-instock' : 'badge-inactive'}">
+                  ${cat.active ? 'Actif' : 'Bientôt disponible'}
+                </span>
+              </div>
+              <div style="font-size: 0.72rem; color: var(--admin-text-muted); margin-top: 2px;">${cat.nameAr || ''}</div>
+              <div style="font-size: 0.74rem; font-family: var(--font-mono); color: var(--admin-gold); margin-top: 4px;">
+                Slug: ${cat.slug}
+              </div>
+              <p class="category-card-desc">${cat.descriptionFr || cat.description || 'Aucune description fournie.'}</p>
+              <div class="category-card-foot">
+                <span style="font-size: 0.78rem; font-weight: 600; color: var(--admin-text-muted);">
+                  📦 ${cat.itemCount || 0} Articles
+                </span>
+                <div style="display: flex; gap: 6px;">
+                  <button class="admin-btn admin-btn-secondary admin-btn-sm" onclick="AdminDashboard.openEditCategoryModal('${cat.id || cat.slug}')">
+                    Modifier
+                  </button>
+                  <button class="admin-btn admin-btn-danger admin-btn-sm" onclick="AdminDashboard.deleteCategory('${cat.id || cat.slug}')">
+                    ✕
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `).join('')}
+      `;
+    }).join("");
   },
 
   openAddCategoryModal() {
@@ -263,7 +565,7 @@ window.AdminDashboard = {
     document.getElementById("cat-form-name").value = "";
     document.getElementById("cat-form-slug").value = "";
     document.getElementById("cat-form-desc").value = "";
-    document.getElementById("cat-form-image").value = "assets/images/hero/hero-banner.jpg";
+    document.getElementById("cat-form-image").value = "assets/Header/Header Ar.png";
     document.getElementById("cat-form-active").checked = true;
     this.openModal("modal-category");
   },
@@ -306,7 +608,7 @@ window.AdminDashboard = {
       name,
       slug,
       description,
-      image: image || "assets/images/hero/hero-banner.jpg",
+      image: image || "assets/Header/Header Ar.png",
       active,
       itemCount: 0
     };
@@ -339,336 +641,83 @@ window.AdminDashboard = {
   },
 
   // --------------------------------------------------------------------------
-  // TAB 3: COLORS & SWATCHES MANAGEMENT (HIGH-END & NON-CONDENSED)
-  // --------------------------------------------------------------------------
-  colorsSearch: "",
-
-  filterColors(query) {
-    this.colorsSearch = (query || "").trim().toLowerCase();
-    this.renderColors();
-  },
-
-  copyHexToClipboard(hex) {
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(hex).then(() => {
-        this.toast(`Code ${hex} copié dans le presse-papiers !`, "info");
-      }).catch(() => {});
-    } else {
-      this.toast(`Code : ${hex}`, "info");
-    }
-  },
-
-  syncColorPickerToInput(val) {
-    const input = document.getElementById("color-form-hex");
-    if (input) input.value = val.toUpperCase();
-    this.syncColorLivePreview();
-  },
-
-  syncColorInputToPicker(val) {
-    const picker = document.getElementById("color-form-hex-picker");
-    if (picker && val && val.startsWith("#") && (val.length === 4 || val.length === 7)) {
-      try { picker.value = val; } catch (e) {}
-    }
-    this.syncColorLivePreview();
-  },
-
-  syncColorLivePreview() {
-    const nameVal = document.getElementById("color-form-name")?.value.trim() || "Nouveau Coloris";
-    let codeVal = document.getElementById("color-form-code")?.value.trim();
-    if (!codeVal && nameVal) {
-      codeVal = nameVal.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-');
-    }
-    const hexVal = document.getElementById("color-form-hex")?.value.trim() || "#121212";
-
-    const swatchCircle = document.getElementById("color-live-swatch-circle");
-    if (swatchCircle) swatchCircle.style.backgroundColor = hexVal;
-
-    const nameText = document.getElementById("color-live-name-text");
-    if (nameText) nameText.textContent = nameVal;
-
-    const hexText = document.getElementById("color-live-hex-text");
-    if (hexText) hexText.textContent = `${hexVal} • slug: ${codeVal || 'auto'}`;
-  },
-
-  renderColors() {
-    const colors = window.StoreDataManager.getColors();
-    const container = document.getElementById("colors-cards-container");
-    if (!container) return;
-
-    const allVariants = window.StoreDataManager.getAllVariants();
-
-    // Update Statistics Badges
-    const totalCountEl = document.getElementById("colors-total-count");
-    if (totalCountEl) totalCountEl.textContent = `${colors.length} coloris`;
-
-    const mockupsCountEl = document.getElementById("colors-mockups-count");
-    if (mockupsCountEl) {
-      const withMockup = colors.filter(c => c.image && c.image.trim()).length;
-      mockupsCountEl.textContent = `${withMockup} avec mockup`;
-    }
-
-    const variantsCountEl = document.getElementById("colors-variants-count");
-    if (variantsCountEl) variantsCountEl.textContent = `${allVariants.length} variantes`;
-
-    // Filter by search query if present
-    let filteredColors = colors;
-    if (this.colorsSearch) {
-      const q = this.colorsSearch;
-      filteredColors = filteredColors.filter(c => 
-        c.name.toLowerCase().includes(q) ||
-        c.code.toLowerCase().includes(q) ||
-        c.hex.toLowerCase().includes(q)
-      );
-    }
-
-    if (filteredColors.length === 0) {
-      container.innerHTML = `
-        <div style="grid-column: 1 / -1; text-align: center; padding: 40px 20px; background: var(--admin-surface); border-radius: 8px; border: 1px dashed var(--admin-border);">
-          <div style="font-size: 2rem; margin-bottom: 8px;">🎨</div>
-          <p style="color: var(--admin-text-muted); font-size: 0.95rem;">Aucun coloris ne correspond à la recherche "${this.colorsSearch}".</p>
-        </div>
-      `;
-      return;
-    }
-
-    container.innerHTML = filteredColors.map(col => {
-      const matchingVariants = allVariants.filter(v => v.color === col.code);
-      const usageCount = matchingVariants.length;
-      const productsUsingThisColor = Array.from(new Set(matchingVariants.map(v => v.productName)));
-      const hasMockup = !!(col.image && col.image.trim());
-
-      return `
-        <div class="color-card">
-          <!-- Top Row: Big Swatch + Mockup Preview + Main Info -->
-          <div class="color-card-top-row">
-            <div class="color-swatch-combo-lg">
-              <div class="color-swatch-box-lg" style="background-color: ${col.hex};" title="Nuance : ${col.hex}">
-                <div class="color-swatch-inner-gloss"></div>
-              </div>
-              ${hasMockup ? `
-                <div class="color-mockup-thumb-wrap-lg" title="Mockup lié : ${col.name}">
-                  <img src="${col.image}" class="color-mockup-thumb-lg" alt="${col.name}">
-                </div>
-              ` : `
-                <div class="color-mockup-thumb-wrap-lg empty" title="Aucun mockup par défaut">
-                  <span style="font-size: 1.1rem; opacity: 0.5;">📷</span>
-                </div>
-              `}
-            </div>
-
-            <div class="color-card-info-main">
-              <div class="color-card-name-lg">${col.name}</div>
-              <div class="color-card-meta-row">
-                <button type="button" class="color-hex-tag" onclick="AdminDashboard.copyHexToClipboard('${col.hex}')" title="Cliquer pour copier ${col.hex}">
-                  <span class="color-hex-dot" style="background: ${col.hex};"></span>
-                  <span>${col.hex}</span>
-                  <span style="opacity: 0.6; font-size: 0.72rem;">📋</span>
-                </button>
-                <span class="color-slug-tag">slug: ${col.code}</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Middle Row: Usage counter & Mockup link status -->
-          <div class="color-card-stats-bar">
-            <div class="color-usage-badge ${usageCount > 0 ? 'active' : 'idle'}">
-              ${usageCount > 0 ? `🟢 <b>${usageCount}</b> variantes (${productsUsingThisColor.length} modèle${productsUsingThisColor.length > 1 ? 's' : ''})` : `⚪ Non rattaché`}
-            </div>
-            <div class="color-mockup-status-badge ${hasMockup ? 'has-mockup' : 'no-mockup'}">
-              ${hasMockup ? `✓ Mockup synchronisé` : `⚪ Sans mockup`}
-            </div>
-          </div>
-
-          <!-- Bottom Row: Clean Action Buttons -->
-          <div class="color-card-actions-row">
-            <button class="admin-btn admin-btn-secondary admin-btn-sm" style="flex: 1; justify-content: center;" onclick="AdminDashboard.openEditColorModal('${col.code}')">
-              ✏️ Modifier
-            </button>
-            <button class="admin-btn admin-btn-danger admin-btn-sm" style="padding: 6px 12px;" onclick="AdminDashboard.deleteColor('${col.code}')" title="Supprimer ce coloris">
-              🗑️
-            </button>
-          </div>
-        </div>
-      `;
-    }).join("");
-  },
-
-  updateColorMockupPreview(url) {
-    const previewImg = document.getElementById("color-form-preview-img");
-    const previewEmpty = document.getElementById("color-form-preview-empty");
-    if (!previewImg || !previewEmpty) return;
-
-    if (url && url.trim()) {
-      previewImg.src = url.trim();
-      previewImg.style.display = "block";
-      previewEmpty.style.display = "none";
-    } else {
-      previewImg.src = "";
-      previewImg.style.display = "none";
-      previewEmpty.style.display = "block";
-    }
-  },
-
-  async handleColorImageUpload(event) {
-    const file = event.target.files && event.target.files[0];
-    if (!file) return;
-
-    const nameVal = document.getElementById("color-form-name")?.value.trim() || "color";
-    const codeVal = document.getElementById("color-form-code")?.value.trim() || nameVal.toLowerCase().replace(/[^a-z0-9]/g, '-');
-
-    try {
-      this.toast(`Téléversement du mockup pour "${nameVal}"...`, "info");
-      const dataUrl = await this.readFileAsDataURL(file);
-
-      const res = await fetch("/api/upload-image", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          productId: "colors",
-          category: "products",
-          filename: `mockup-${codeVal}-${file.name}`,
-          dataUrl: dataUrl
-        })
-      });
-
-      const data = await res.json();
-      const finalPath = (data && data.success && data.path) ? data.path : dataUrl;
-      const input = document.getElementById("color-form-image");
-      if (input) input.value = finalPath;
-      this.updateColorMockupPreview(finalPath);
-      this.toast("Mockup téléversé avec succès !", "success");
-    } catch (err) {
-      console.warn("Upload error:", err);
-      const dataUrl = await this.readFileAsDataURL(file);
-      const input = document.getElementById("color-form-image");
-      if (input) input.value = dataUrl;
-      this.updateColorMockupPreview(dataUrl);
-      this.toast("Mockup chargé", "success");
-    }
-    event.target.value = "";
-  },
-
-  openAddColorModal() {
-    document.getElementById("color-modal-title").textContent = "Ajouter un Coloris / Swatch";
-    document.getElementById("color-form-code").value = "";
-    document.getElementById("color-form-code").removeAttribute("readonly");
-    document.getElementById("color-form-name").value = "";
-    document.getElementById("color-form-hex").value = "#121212";
-    document.getElementById("color-form-hex-picker").value = "#121212";
-    document.getElementById("color-form-image").value = "";
-    this.updateColorMockupPreview("");
-    this.syncColorLivePreview();
-    this.openModal("modal-color");
-  },
-
-  openEditColorModal(code) {
-    const colors = window.StoreDataManager.getColors();
-    const col = colors.find(c => c.code === code);
-    if (!col) return;
-
-    document.getElementById("color-modal-title").textContent = `Modifier: ${col.name}`;
-    document.getElementById("color-form-code").value = col.code;
-    document.getElementById("color-form-code").setAttribute("readonly", "true");
-    document.getElementById("color-form-name").value = col.name;
-    document.getElementById("color-form-hex").value = col.hex;
-    document.getElementById("color-form-hex-picker").value = col.hex.startsWith('#') ? col.hex : '#121212';
-    document.getElementById("color-form-image").value = col.image || "";
-    this.updateColorMockupPreview(col.image || "");
-    this.syncColorLivePreview();
-    this.openModal("modal-color");
-  },
-
-  saveColorFromForm(e) {
-    e.preventDefault();
-    const name = document.getElementById("color-form-name").value.trim();
-    let code = document.getElementById("color-form-code").value.trim();
-    const hex = document.getElementById("color-form-hex").value.trim();
-    const image = document.getElementById("color-form-image").value.trim();
-
-    if (!name || !hex) {
-      this.toast("Nom et code Hex sont obligatoires", "danger");
-      return;
-    }
-
-    if (!code) {
-      code = name.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-');
-    }
-
-    const colorData = { name, code, hex, image };
-    window.StoreDataManager.saveColor(colorData);
-    this.closeModal("modal-color");
-    this.renderColors();
-    this.updateBadges();
-    this.toast(`Coloris "${name}" enregistré !`, "success");
-  },
-
-  deleteColor(code) {
-    if (!confirm(`Supprimer le coloris "${code}" ?`)) return;
-    window.StoreDataManager.deleteColor(code);
-    this.renderColors();
-    this.renderProducts();
-    this.renderStockMatrix();
-    this.renderOverview();
-    this.updateBadges();
-    this.toast(`Coloris "${code}" supprimé avec succès`, "success");
-  },
-
-  // --------------------------------------------------------------------------
-  // TAB 4: STOCK & INVENTORY MATRIX
+  // TAB 4: STOCK & INVENTORY MANAGEMENT
   // --------------------------------------------------------------------------
   renderStockMatrix() {
     const tbody = document.getElementById("stock-matrix-tbody");
     if (!tbody) return;
 
-    const allVariants = window.StoreDataManager.getAllVariants();
+    const products = window.StoreDataManager.getProducts();
     const categories = window.StoreDataManager.getCategories();
 
     // Populate category dropdown filter if empty
     const catSelect = document.getElementById("stock-filter-category");
     if (catSelect && catSelect.options.length <= 1) {
-      catSelect.innerHTML = `<option value="all">Toutes les Catégories</option>` +
-        categories.map(c => `<option value="${c.slug}">${c.name}</option>`).join("");
+      catSelect.innerHTML = this.buildCategoryDropdownOptions(true, "Toutes les Catégories");
     }
 
-    // Filter variants
-    let filtered = allVariants;
+    const isAr = window.I18N ? window.I18N.isRTL() : (localStorage.getItem("atelier_lang") !== "fr");
+    let items = products.map(p => {
+      const stock = p.stock !== undefined ? p.stock : (Array.isArray(p.variants) ? p.variants.reduce((sum, v) => sum + (v.stock || 0), 0) : 0);
+      const sku = (p.variants && p.variants[0] && p.variants[0].sku) || `DXN-${p.id.toUpperCase()}`;
+      const cat = categories.find(c => c.slug === p.category || c.id === p.category);
+      const pImages = (p.images && typeof p.images === 'object') ? (Array.isArray(p.images) ? p.images : Object.values(p.images).flat()) : [];
+      const img = pImages[0] || (p.colors && p.colors[0] && p.colors[0].image) || 'assets/Header/Header Ar.png';
+      const displayName = isAr ? (p.nameAr || p.name) : (p.nameFr || p.name);
+      const displayCat = cat ? ((isAr ? cat.nameAr : cat.nameFr) || cat.name) : p.category;
+      return {
+        productId: p.id,
+        name: displayName,
+        sku: sku,
+        category: p.category,
+        categoryName: displayCat,
+        price: p.price,
+        stock: stock,
+        image: img
+      };
+    });
 
     if (this.stockFilter === "low") {
-      filtered = filtered.filter(v => v.stock > 0 && v.stock < 5);
+      items = items.filter(v => v.stock > 0 && v.stock < 5);
     } else if (this.stockFilter === "out") {
-      filtered = filtered.filter(v => v.stock === 0);
+      items = items.filter(v => v.stock === 0);
     } else if (this.stockFilter === "in") {
-      filtered = filtered.filter(v => v.stock >= 5);
+      items = items.filter(v => v.stock >= 5);
     }
 
     if (this.stockCategory !== "all") {
-      filtered = filtered.filter(v => v.productCategory === this.stockCategory);
+      items = items.filter(v => {
+        if (window.CategoryManager) {
+          return window.CategoryManager.matchesCategoryFilter(v.category, this.stockCategory);
+        }
+        return v.category === this.stockCategory;
+      });
     }
 
     if (this.stockSearch) {
       const q = this.stockSearch.toLowerCase();
-      filtered = filtered.filter(v => 
-        v.productName.toLowerCase().includes(q) ||
+      items = items.filter(v => 
+        v.name.toLowerCase().includes(q) ||
         v.sku.toLowerCase().includes(q) ||
-        v.colorName.toLowerCase().includes(q) ||
-        v.size.toLowerCase().includes(q)
+        v.categoryName.toLowerCase().includes(q)
       );
     }
 
-    document.getElementById("stock-filtered-count").textContent = `${filtered.length} / ${allVariants.length} variantes`;
+    const countEl = document.getElementById("stock-filtered-count");
+    if (countEl) countEl.textContent = `${items.length} / ${products.length} produits`;
 
-    if (filtered.length === 0) {
+    if (items.length === 0) {
       tbody.innerHTML = `
         <tr>
           <td colspan="7" style="text-align: center; padding: 32px; color: var(--admin-text-muted);">
-            Aucun variant ne correspond aux filtres actuels.
+            Aucun produit ne correspond aux filtres actuels.
           </td>
         </tr>
       `;
       return;
     }
 
-    tbody.innerHTML = filtered.map(v => {
+    tbody.innerHTML = items.map(v => {
       let badgeClass = "badge-instock";
       let badgeLabel = `En stock (${v.stock})`;
       if (v.stock === 0) {
@@ -683,73 +732,83 @@ window.AdminDashboard = {
         <tr>
           <td>
             <div style="display: flex; align-items: center; gap: 12px;">
-              <img src="${v.productImage || 'assets/images/hero/hero-banner.jpg'}" style="width: 40px; height: 40px; object-fit: cover; border-radius: 6px; background: #000;">
+              <img src="${v.image}" style="width: 40px; height: 40px; object-fit: cover; border-radius: 6px; background: #000;">
               <div>
                 <a href="product.html?id=${v.productId}" target="_blank" style="color: #FFFFFF; font-weight: 600; text-decoration: none;">
-                  ${v.productName} ↗
+                  ${v.name} ↗
                 </a>
                 <div style="font-size: 0.72rem; color: var(--admin-text-muted); font-family: var(--font-mono);">${v.sku}</div>
               </div>
             </div>
           </td>
-          <td>
-            <div style="display: flex; align-items: center; gap: 6px;">
-              <span style="width: 14px; height: 14px; border-radius: 50%; background-color: ${v.colorHex}; border: 1px solid rgba(255,255,255,0.2); display: inline-block;"></span>
-              <span style="font-size: 0.82rem;">${v.colorName}</span>
-            </div>
-          </td>
-          <td><span class="admin-badge badge-active">${v.size}</span></td>
+          <td><span class="admin-badge badge-active">${v.categoryName}</span></td>
           <td><span style="font-weight: 600;">${v.price} MAD</span></td>
           <td><span class="admin-badge ${badgeClass}">${badgeLabel}</span></td>
           <td>
             <div class="stock-stepper-wrap">
-              <button class="stock-stepper-btn" onclick="AdminDashboard.stepStock('${v.productId}', '${v.variantId}', -1)">−</button>
+              <button class="stock-stepper-btn" onclick="AdminDashboard.stepProductStock('${v.productId}', -1)">−</button>
               <input type="number" class="stock-stepper-input" value="${v.stock}" min="0" 
-                onchange="AdminDashboard.setStock('${v.productId}', '${v.variantId}', this.value)">
-              <button class="stock-stepper-btn" onclick="AdminDashboard.stepStock('${v.productId}', '${v.variantId}', 1)">+</button>
+                onchange="AdminDashboard.setProductStock('${v.productId}', this.value)">
+              <button class="stock-stepper-btn" onclick="AdminDashboard.stepProductStock('${v.productId}', 1)">+</button>
             </div>
           </td>
           <td>
             <div style="display: flex; gap: 6px;">
-              <button class="admin-btn admin-btn-secondary admin-btn-sm" onclick="AdminDashboard.quickRestock('${v.productId}', '${v.variantId}', 10)">
+              <button class="admin-btn admin-btn-secondary admin-btn-sm" onclick="AdminDashboard.quickRestockProduct('${v.productId}', 10)">
                 +10
               </button>
-              <button class="admin-btn admin-btn-secondary admin-btn-sm" onclick="AdminDashboard.quickRestock('${v.productId}', '${v.variantId}', 25)">
+              <button class="admin-btn admin-btn-secondary admin-btn-sm" onclick="AdminDashboard.quickRestockProduct('${v.productId}', 25)">
                 +25
               </button>
             </div>
+          </td>
+          <td>
+            <button class="admin-btn admin-btn-secondary admin-btn-sm" onclick="AdminDashboard.openEditProductModal('${v.productId}')">
+              Modifier
+            </button>
           </td>
         </tr>
       `;
     }).join("");
   },
 
-  stepStock(productId, variantId, delta) {
-    const allVariants = window.StoreDataManager.getAllVariants();
-    const item = allVariants.find(v => v.productId === productId && v.variantId === variantId);
-    if (!item) return;
-
-    const newStock = Math.max(0, item.stock + delta);
-    this.setStock(productId, variantId, newStock);
+  stepProductStock(productId, delta) {
+    const product = window.StoreDataManager.getProductById(productId);
+    if (!product) return;
+    const currentStock = product.stock !== undefined ? product.stock : (Array.isArray(product.variants) ? product.variants.reduce((sum, v) => sum + (v.stock || 0), 0) : 0);
+    const newStock = Math.max(0, currentStock + delta);
+    this.setProductStock(productId, newStock);
   },
 
-  setStock(productId, variantId, newStock) {
-    const updated = window.StoreDataManager.updateVariantStock(productId, variantId, newStock);
+  setProductStock(productId, newStock) {
+    const updated = window.StoreDataManager.updateProductStock(productId, newStock);
     if (updated) {
       this.renderStockMatrix();
       this.renderOverview();
+      this.renderProducts();
       this.updateBadges();
       this.toast(`Stock mis à jour (${newStock} unités)`, "success");
     }
   },
 
-  quickRestock(productId, variantId, amount) {
-    const allVariants = window.StoreDataManager.getAllVariants();
-    const item = allVariants.find(v => v.productId === productId && v.variantId === variantId);
-    if (!item) return;
+  quickRestockProduct(productId, amount) {
+    const product = window.StoreDataManager.getProductById(productId);
+    if (!product) return;
+    const currentStock = product.stock !== undefined ? product.stock : (Array.isArray(product.variants) ? product.variants.reduce((sum, v) => sum + (v.stock || 0), 0) : 0);
+    const newStock = currentStock + amount;
+    this.setProductStock(productId, newStock);
+  },
 
-    const newStock = item.stock + amount;
-    this.setStock(productId, variantId, newStock);
+  stepStock(productId, variantId, delta) {
+    this.stepProductStock(productId, delta);
+  },
+
+  setStock(productId, variantId, newStock) {
+    this.setProductStock(productId, newStock);
+  },
+
+  quickRestock(productId, variantId, amount) {
+    this.quickRestockProduct(productId, amount);
   },
 
   // --------------------------------------------------------------------------
@@ -765,7 +824,7 @@ window.AdminDashboard = {
   },
 
   renderProducts() {
-    const products = window.StoreDataManager.getProducts();
+    const products = window.StoreDataManager.getProducts(true);
     const tbody = document.getElementById("products-table-tbody");
     if (!tbody) return;
 
@@ -774,85 +833,42 @@ window.AdminDashboard = {
     // Populate category dropdown
     const catSelect = document.getElementById("products-filter-category");
     if (catSelect && catSelect.options.length <= 1) {
-      catSelect.innerHTML = `<option value="all">Toutes les Catégories</option>` +
-        categories.map(c => `<option value="${c.slug}">${c.name}</option>`).join("");
+      catSelect.innerHTML = this.buildCategoryDropdownOptions(true, "Toutes les Catégories");
     }
 
-    let itemsToRender = [];
-
-    if (this.productViewMode === "separated") {
-      // Flatten products by colorways so every model is separated with its own thumbnails, stock and direct controls
-      products.forEach(p => {
-        const colors = (p.colors && p.colors.length > 0) ? p.colors : [{ name: "Standard", code: "default", hex: "#121212" }];
-        colors.forEach(col => {
-          const colImages = (p.images && p.images[col.code] && p.images[col.code].length > 0) 
-            ? p.images[col.code] 
-            : (col.image ? [col.image] : (p.images ? Object.values(p.images)[0] || [] : []));
-          
-          itemsToRender.push({
-            parentProduct: p,
-            color: col,
-            id: p.id,
-            colorCode: col.code,
-            displayName: `${p.name} - ${col.name}`,
-            category: p.category,
-            group: p.group,
-            price: p.price,
-            compareAtPrice: p.compareAtPrice,
-            isNew: p.isNew,
-            isSale: p.isSale,
-            isFeatured: p.isFeatured,
-            tags: p.tags || [],
-            images: colImages.length > 0 ? colImages : ["assets/images/hero/hero-banner.jpg"],
-            variants: (p.variants || []).filter(v => v.color === col.code)
-          });
-        });
-      });
-    } else {
-      // Grouped view by parent product
-      itemsToRender = products.map(p => {
-        const firstColor = (p.colors && p.colors[0]) || { name: "Standard", code: "default", hex: "#121212" };
-        const pImages = (p.images && p.images[firstColor.code]) || (p.images && Object.values(p.images)[0]) || [firstColor.image || 'assets/images/hero/hero-banner.jpg'];
-        return {
-          parentProduct: p,
-          color: firstColor,
-          id: p.id,
-          colorCode: firstColor.code,
-          displayName: p.name,
-          category: p.category,
-          group: p.group,
-          price: p.price,
-          compareAtPrice: p.compareAtPrice,
-          isNew: p.isNew,
-          isSale: p.isSale,
-          isFeatured: p.isFeatured,
-          tags: p.tags || [],
-          images: pImages,
-          variants: p.variants || [],
-          allColors: p.colors || []
-        };
-      });
-    }
+    let itemsToRender = [...products];
 
     // Apply category filter
-    if (this.productCategory !== "all") {
-      itemsToRender = itemsToRender.filter(item => item.category === this.productCategory);
+    if (this.productCategory && this.productCategory !== "all") {
+      itemsToRender = itemsToRender.filter(item => {
+        if (window.CategoryManager) {
+          return window.CategoryManager.matchesCategoryFilter(item.category, this.productCategory);
+        }
+        return item.category === this.productCategory;
+      });
+    }
+
+    // Apply status filter
+    if (this.productStatusFilter && this.productStatusFilter !== "all") {
+      if (this.productStatusFilter === "active") {
+        itemsToRender = itemsToRender.filter(item => item.status !== "disabled" && item.isActive !== false && item.disabled !== true);
+      } else if (this.productStatusFilter === "disabled") {
+        itemsToRender = itemsToRender.filter(item => item.status === "disabled" || item.isActive === false || item.disabled === true);
+      }
     }
 
     // Apply search query
     if (this.productSearch) {
       const q = this.productSearch.toLowerCase();
       itemsToRender = itemsToRender.filter(item => 
-        item.displayName.toLowerCase().includes(q) ||
-        item.id.toLowerCase().includes(q) ||
-        (item.color && item.color.name.toLowerCase().includes(q)) ||
+        (item.name && item.name.toLowerCase().includes(q)) ||
+        (item.id && item.id.toLowerCase().includes(q)) ||
         (item.tags && item.tags.some(t => t.toLowerCase().includes(q)))
       );
     }
 
-    const countLabel = this.productViewMode === "separated" ? "modèles / déclinaisons" : "produits";
     const countEl = document.getElementById("products-filtered-count");
-    if (countEl) countEl.textContent = `${itemsToRender.length} ${countLabel}`;
+    if (countEl) countEl.textContent = `${itemsToRender.length} produits`;
 
     if (itemsToRender.length === 0) {
       tbody.innerHTML = `
@@ -865,89 +881,88 @@ window.AdminDashboard = {
       return;
     }
 
-    tbody.innerHTML = itemsToRender.map(item => {
-      const p = item.parentProduct;
-      const col = item.color;
-      const pImages = item.images || [];
-      const mainImg = pImages[0] || col.image || "assets/images/hero/hero-banner.jpg";
+    const isAr = window.I18N ? window.I18N.isRTL() : true;
+
+    tbody.innerHTML = itemsToRender.map(p => {
+      const pImages = (p.images && typeof p.images === 'object') ? (Array.isArray(p.images) ? p.images : Object.values(p.images).flat()) : [];
+      const mainImg = pImages[0] || (p.colors && p.colors[0] && p.colors[0].image) || "assets/Header/Header Ar.png";
       const hoverImg = pImages[1] || mainImg;
-      const totalStock = Array.isArray(item.variants) ? item.variants.reduce((sum, v) => sum + (v.stock || 0), 0) : 0;
-      const variantCount = Array.isArray(item.variants) ? item.variants.length : 0;
-      const categoryObj = categories.find(c => c.slug === item.category || c.id === item.category);
+      const totalStock = p.stock !== undefined ? p.stock : (Array.isArray(p.variants) ? p.variants.reduce((sum, v) => sum + (v.stock || 0), 0) : 0);
+      const categoryObj = categories.find(c => c.slug === p.category || c.id === p.category);
+      const primaryTitle = isAr ? (p.nameAr || p.name) : (p.nameFr || p.name);
+      const secondaryTitle = isAr ? (p.nameFr || '') : (p.nameAr || '');
+      const catDisplayName = categoryObj ? ((isAr ? categoryObj.nameAr : categoryObj.nameFr) || categoryObj.name) : p.category;
+      const isProductActive = (p.status !== "disabled" && p.isActive !== false && p.disabled !== true);
 
       return `
-        <tr>
+        <tr style="${isProductActive ? '' : 'opacity: 0.75; background: rgba(239,68,68,0.03);'}">
           <td>
             <div style="display: flex; align-items: center; gap: 12px;">
-              <!-- Dual Thumbnail with Hover Flip (Colorway specific) -->
-              <div class="product-dual-thumb-wrap" title="Survolez pour voir l'image au survol (hover) pour cette couleur">
-                <img src="${mainImg}" alt="${item.displayName} face" class="product-dual-thumb-img thumb-main">
-                <img src="${hoverImg}" alt="${item.displayName} dos/survol" class="product-dual-thumb-img thumb-hover">
+              <div class="product-dual-thumb-wrap" title="Survolez pour voir l'image au survol (hover)">
+                <img src="${mainImg}" alt="${p.name} face" class="product-dual-thumb-img thumb-main">
+                <img src="${hoverImg}" alt="${p.name} dos/survol" class="product-dual-thumb-img thumb-hover">
               </div>
               <div>
-                <a href="product.html?id=${p.id}&color=${col.code}" target="_blank" style="color: #FFFFFF; font-weight: 600; text-decoration: none;">
-                  ${item.displayName} ↗
+                <a href="product.html?id=${p.id}" target="_blank" style="color: #FFFFFF; font-weight: 600; text-decoration: none;">
+                  ${primaryTitle} ↗
                 </a>
+                ${secondaryTitle ? `<div style="font-size: 0.74rem; color: var(--admin-text-muted); margin-top: 2px;">${secondaryTitle}</div>` : ''}
                 <div class="product-dual-badge-box" style="margin-top: 2px;">
                   <span style="color: var(--admin-gold);">🥇 1. Face</span> • 
                   <span style="color: var(--admin-info);">🥈 2. Survol</span>
                   ${pImages.length > 2 ? ` • <span style="color: var(--admin-text); font-weight: 600;">+${pImages.length - 2} photos</span>` : ''}
                 </div>
                 <div style="font-size: 0.72rem; color: var(--admin-text-muted); font-family: var(--font-mono); margin-top: 2px;">
-                  ID: ${p.id} &bull; Color: <strong style="color: #FFF;">${col.code}</strong>
+                  ID: ${p.id}
                 </div>
               </div>
             </div>
           </td>
           <td>
-            <span class="admin-badge badge-active">${categoryObj ? categoryObj.name : item.category}</span>
-            ${item.group ? `<div style="font-size: 0.72rem; color: var(--admin-gold); font-family: var(--font-mono); margin-top: 3px;" title="Famille de Style">🏷️ ${item.group}</div>` : ''}
+            <span class="admin-badge badge-active">${catDisplayName}</span>
+            ${p.group ? `<div style="font-size: 0.72rem; color: var(--admin-gold); font-family: var(--font-mono); margin-top: 3px;" title="Famille de Style">🏷️ ${p.group}</div>` : ''}
           </td>
           <td>
-            ${this.productViewMode === "separated" ? `
-              <div style="display: flex; gap: 6px; align-items: center;">
-                <span title="${col.name}" style="width: 14px; height: 14px; border-radius: 50%; background-color: ${col.hex || '#111'}; border: 1px solid rgba(255,255,255,0.3); display: inline-block;"></span>
-                <span style="font-size: 0.82rem; font-weight: 600;">${col.name}</span>
-              </div>
-            ` : `
-              <div style="display: flex; gap: 4px; align-items: center;">
-                ${(item.allColors || []).map(c => `
-                  <span title="${c.name}" style="width: 14px; height: 14px; border-radius: 50%; background-color: ${c.hex || '#111'}; border: 1px solid rgba(255,255,255,0.3); display: inline-block;"></span>
-                `).join("")}
-              </div>
-            `}
+            <div style="font-weight: 600;">${p.price} MAD</div>
+            ${p.compareAtPrice ? `<div style="font-size: 0.72rem; color: var(--admin-text-muted); text-decoration: line-through;">${p.compareAtPrice} MAD</div>` : ''}
           </td>
           <td>
-            <div style="font-weight: 600;">${item.price} MAD</div>
-            ${item.compareAtPrice ? `<div style="font-size: 0.72rem; color: var(--admin-text-muted); text-decoration: line-through;">${item.compareAtPrice} MAD</div>` : ''}
-          </td>
-          <td>
-            <div>${variantCount} SKUs ${item.variants.length > 0 ? `(${item.variants.map(v => v.size).join(', ')})` : ''}</div>
-            <span class="admin-badge ${totalStock > 10 ? 'badge-instock' : totalStock > 0 ? 'badge-lowstock' : 'badge-outstock'}" style="margin-top: 4px;">
+            <span class="admin-badge ${totalStock > 10 ? 'badge-instock' : totalStock > 0 ? 'badge-lowstock' : 'badge-outstock'}">
               ${totalStock} en stock
             </span>
           </td>
           <td>
-            ${item.parentProduct.isBundle ? `
+            ${isProductActive ? `
+              <button type="button" class="admin-btn admin-btn-sm" style="background: rgba(16,185,129,0.15); border: 1px solid #10B981; color: #10B981; border-radius: 20px; font-weight: 700; padding: 4px 10px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;" onclick="AdminDashboard.toggleProductStatus('${p.id}')" title="Cliquer pour désactiver (masquer de la boutique)">
+                🟢 Actif
+              </button>
+            ` : `
+              <button type="button" class="admin-btn admin-btn-sm" style="background: rgba(239,68,68,0.15); border: 1px solid #EF4444; color: #EF4444; border-radius: 20px; font-weight: 700; padding: 4px 10px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;" onclick="AdminDashboard.toggleProductStatus('${p.id}')" title="Cliquer pour activer (afficher dans la boutique)">
+                🔴 Désactivé
+              </button>
+            `}
+          </td>
+          <td>
+            ${p.isBundle ? `
               <div style="display: flex; gap: 4px; flex-wrap: wrap;">
                 <span class="admin-badge badge-active" style="background: rgba(212, 175, 55, 0.2); border: 1px solid var(--admin-gold); color: #FFF; font-weight: 700;">
-                  📦 Pack (${item.parentProduct.bundleSlotsCount || 3} pcs)
+                  📦 Pack (${p.bundleSlotsCount || 3} pcs)
                 </span>
-                ${item.isNew ? '<span class="admin-badge badge-instock">Nouveau</span>' : ''}
-                ${item.isSale ? '<span class="admin-badge badge-outstock">Solde</span>' : ''}
+                ${p.isNew ? '<span class="admin-badge badge-instock">Nouveau</span>' : ''}
+                ${p.isSale ? '<span class="admin-badge badge-outstock">Solde</span>' : ''}
               </div>
             ` : `
               <div style="display: flex; gap: 4px; flex-wrap: wrap;">
-                ${item.isNew ? '<span class="admin-badge badge-instock">Nouveau</span>' : ''}
-                ${item.isSale ? '<span class="admin-badge badge-outstock">Solde</span>' : ''}
-                ${item.isFeatured ? '<span class="admin-badge badge-active">Vedette</span>' : ''}
+                ${p.isNew ? '<span class="admin-badge badge-instock">Nouveau</span>' : ''}
+                ${p.isSale ? '<span class="admin-badge badge-outstock">Solde</span>' : ''}
+                ${p.isFeatured ? '<span class="admin-badge badge-active">Vedette</span>' : ''}
               </div>
             `}
           </td>
           <td>
             <div style="display: flex; gap: 6px;">
-              <button class="admin-btn admin-btn-secondary admin-btn-sm" onclick="AdminDashboard.openEditProductModal('${p.id}', '${col.code}')" title="${item.parentProduct.isBundle ? 'Configurer ce Pack' : 'Modifier ce modèle / coloris'}">
-                ${item.parentProduct.isBundle ? '⚙️ Configurer Pack' : 'Modifier'}
+              <button class="admin-btn admin-btn-secondary admin-btn-sm" onclick="AdminDashboard.openEditProductModal('${p.id}')" title="${p.isBundle ? 'Configurer ce Pack' : 'Modifier ce produit'}">
+                ${p.isBundle ? '⚙️ Configurer Pack' : 'Modifier'}
               </button>
               <button class="admin-btn admin-btn-secondary admin-btn-sm" onclick="AdminDashboard.duplicateProduct('${p.id}')" title="Dupliquer le produit">
                 Dupliquer
@@ -978,31 +993,20 @@ window.AdminDashboard = {
     const tshirts = allProducts.filter(p => !p.isBundle && p.id !== 'pack-trio-tshirts');
     const list = [];
 
-    tshirts.forEach(p => {
-      const colors = (p.colors && p.colors.length > 0) ? p.colors : [{ name: "Noir Onyx", code: "black", hex: "#121212" }];
-      colors.forEach(col => {
-        const colImages = (p.images && p.images[col.code] && p.images[col.code].length > 0) 
-          ? p.images[col.code] 
-          : (col.image ? [col.image] : (p.images ? Object.values(p.images)[0] || [] : []));
-        const thumb = (colImages && colImages[0]) || col.image || "assets/images/products/tshirt-white-front.jpg";
-
-        list.push({
-          itemKey: `${p.id}::${col.code}`,
-          productId: p.id,
-          productName: p.name,
-          colorCode: col.code,
-          colorName: col.name,
-          colorHex: col.hex,
-          category: p.category || 'T-Shirt',
-          price: p.price || 249,
-          displayName: `${p.name} - ${col.name}`,
-          thumb: thumb,
-          parentProduct: p
-        });
-      });
+    return tshirts.map(p => {
+      const pImages = (p.images && typeof p.images === 'object') ? (Array.isArray(p.images) ? p.images : Object.values(p.images).flat()) : [];
+      const thumb = pImages[0] || (p.colors && p.colors[0] && p.colors[0].image) || "assets/ecom/1.png";
+      return {
+        itemKey: p.id,
+        productId: p.id,
+        productName: p.name,
+        category: p.category || 'T-Shirt',
+        price: p.price || 249,
+        displayName: p.name,
+        thumb: thumb,
+        parentProduct: p
+      };
     });
-
-    return list;
   },
 
   switchProductModalMode(isBundle) {
@@ -1043,12 +1047,12 @@ window.AdminDashboard = {
     document.getElementById("bundle-form-slots").value = "3";
     document.getElementById("bundle-form-price").value = "599";
     document.getElementById("bundle-form-compare").value = "747";
-    document.getElementById("bundle-form-shortdesc").value = "Composez votre coffret signature avec 3 t-shirts au choix parmi l'ensemble de nos modèles et coloris.";
-    document.getElementById("bundle-form-desc").value = "Le Pack Studio vous offre la liberté de composer votre vestiaire idéal à prix préférentiel. Choisissez vos t-shirts préférés avec sélection libre des coupes, coloris et tailles.";
+    document.getElementById("bundle-form-shortdesc").value = "Composez votre coffret signature avec 3 t-shirts au choix parmi l'ensemble de nos modèles.";
+    document.getElementById("bundle-form-desc").value = "Le Pack Studio vous offre la liberté de composer votre vestiaire idéal à prix préférentiel. Choisissez vos t-shirts préférés.";
     document.getElementById("bundle-form-isnew").checked = true;
     document.getElementById("bundle-form-isfeatured").checked = true;
 
-    const defaultBundleImg = "assets/images/products/t-shirts/tshirt-Pack-3.jpg";
+    const defaultBundleImg = "assets/Header/Header Ar.png";
     document.getElementById("bundle-form-image").value = defaultBundleImg;
     this.updateBundleMockupPreview(defaultBundleImg);
 
@@ -1062,7 +1066,7 @@ window.AdminDashboard = {
   updateBundleMockupPreview(url) {
     const preview = document.getElementById("bundle-form-image-preview");
     if (preview) {
-      preview.src = url || "assets/images/products/t-shirts/tshirt-Pack-3.jpg";
+      preview.src = url || "assets/Header/Header Ar.png";
     }
   },
 
@@ -1070,32 +1074,20 @@ window.AdminDashboard = {
     const allProducts = window.StoreDataManager.getProducts();
     const allVariations = this.getAllTshirtVariations();
     
-    // 1. Populate Dropdown with optgroups per product model and options for each variation
+    // 1. Populate Dropdown with options for each product
     const selectEl = document.getElementById("bundle-add-prod-select");
     if (selectEl) {
       const remainingVariations = allVariations.filter(v => !this.selectedBundleProductIds.includes(v.itemKey) && !this.selectedBundleProductIds.includes(v.productId));
-      
-      // Group by parent product
-      const groupedByProd = {};
-      remainingVariations.forEach(v => {
-        if (!groupedByProd[v.productName]) groupedByProd[v.productName] = [];
-        groupedByProd[v.productName].push(v);
-      });
-
       selectEl.innerHTML = `
-        <option value="">(ou sélection rapide dans la liste... ${remainingVariations.length} déclinaisons disponibles)</option>
-        ${Object.keys(groupedByProd).map(prodName => `
-          <optgroup label="👕 ${prodName}">
-            ${groupedByProd[prodName].map(v => `
-              <option value="${v.itemKey}">${v.displayName} — ${StoreUtils.formatMoney(v.price)}</option>
-            `).join('')}
-          </optgroup>
+        <option value="">(ou sélection rapide dans la liste... ${remainingVariations.length} modèles disponibles)</option>
+        ${remainingVariations.map(v => `
+          <option value="${v.itemKey}">${v.displayName} — ${StoreUtils.formatMoney(v.price)}</option>
         `).join('')}
       `;
       selectEl.value = "";
     }
 
-    // 2. Render Selected Items Container (Exact layout of Mockup Coffret Pack)
+    // 2. Render Selected Items Container
     const container = document.getElementById("prod-form-bundle-selected-container");
     if (!container) return;
 
@@ -1105,10 +1097,10 @@ window.AdminDashboard = {
           <div style="font-size: 2.2rem; margin-bottom: 8px;">👕</div>
           <div style="font-size: 0.95rem; font-weight: 700; color: #FFFFFF; margin-bottom: 4px;">Aucun t-shirt dans ce pack</div>
           <p style="font-size: 0.8rem; color: var(--admin-text-muted); max-width: 440px; margin: 0 auto 14px;">
-            Cliquez sur le bouton ci-dessous pour choisir vos modèles et déclinaisons de t-shirts avec aperçu visuel.
+            Cliquez sur le bouton ci-dessous pour choisir vos modèles de t-shirts avec aperçu visuel.
           </p>
           <button type="button" class="admin-btn admin-btn-primary" onclick="AdminDashboard.openBundleProductPickerModal()" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 700;">
-            <span>🖼️</span> Choisir un T-Shirt & Déclinaison
+            <span>🖼️</span> Choisir un T-Shirt
           </button>
         </div>
       `;
@@ -1116,44 +1108,34 @@ window.AdminDashboard = {
       container.innerHTML = `
         <div style="display: flex; flex-direction: column; gap: 12px;">
           ${this.selectedBundleProductIds.map((itemKey, idx) => {
-            const [prodId, colCode] = itemKey.split('::');
+            const prodId = itemKey.split('::')[0];
             const p = allProducts.find(x => x.id === prodId) || allProducts.find(x => x.id === itemKey);
             if (!p) return '';
 
-            const col = (colCode && p.colors) ? p.colors.find(c => c.code === colCode) : (p.colors && p.colors[0]);
-            const colImages = (col && p.images && p.images[col.code] && p.images[col.code].length > 0)
-              ? p.images[col.code]
-              : (col && col.image ? [col.image] : (p.images ? Object.values(p.images)[0] || [] : []));
-            const thumb = (colImages && colImages[0]) || (col && col.image) || "assets/images/products/tshirt-white-front.jpg";
-            const displayName = col ? `${p.name} - ${col.name}` : p.name;
-            const colorDotHex = col ? col.hex : "#111111";
-            const colorName = col ? col.name : "Teinte de base";
+            const pImages = (p.images && typeof p.images === 'object') ? (Array.isArray(p.images) ? p.images : Object.values(p.images).flat()) : [];
+            const thumb = (pImages && pImages[0]) || (p.colors && p.colors[0] && p.colors[0].image) || "assets/ecom/1.png";
+            const displayName = p.name;
 
             return `
               <div class="admin-form-group" style="margin-bottom: 0;">
                 <label class="admin-form-label" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
                   <span><b>T-Shirt #${idx + 1}</b> : ${displayName}</span>
-                  <span style="font-weight: normal; font-size: 0.74rem; color: var(--admin-gold);">${StoreUtils.formatMoney(p.price || 249)} • ${colorName}</span>
+                  <span style="font-weight: normal; font-size: 0.74rem; color: var(--admin-gold);">${StoreUtils.formatMoney(p.price || 249)}</span>
                 </label>
                 <div style="display: flex; gap: 10px; align-items: center;">
-                  <!-- Identical 50px Preview Box with gold border -->
                   <div class="admin-bundle-preview-wrap" style="width: 50px; height: 50px; border-radius: 6px; background: #0A0A0A; border: 1.5px solid var(--admin-gold); display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 2px; box-sizing: border-box; position: relative;">
                     <img src="${thumb}" 
                          alt="${displayName}" 
                          style="width: 100%; height: 100%; object-fit: contain; border-radius: 4px;"
-                         onerror="this.src='assets/images/products/tshirt-white-front.jpg'">
-                    <span style="position: absolute; bottom: 2px; right: 2px; width: 10px; height: 10px; border-radius: 50%; background-color: ${colorDotHex}; border: 1px solid rgba(255,255,255,0.8);" title="${colorName}"></span>
+                         onerror="this.src='assets/ecom/1.png'">
                   </div>
 
-                  <!-- Product Name & Variation Field -->
                   <input type="text" class="admin-form-input" value="${displayName} (${p.category || 'T-Shirt'})" readonly style="flex: 1; min-width: 0; background: var(--admin-surface); color: #FFFFFF; cursor: pointer;" onclick="AdminDashboard.openBundleProductPickerModal(${idx})">
 
-                  <!-- Choisir Button -->
-                  <button type="button" class="admin-btn admin-btn-secondary" onclick="AdminDashboard.openBundleProductPickerModal(${idx})" title="Remplacer cette déclinaison">
+                  <button type="button" class="admin-btn admin-btn-secondary" onclick="AdminDashboard.openBundleProductPickerModal(${idx})" title="Remplacer ce modèle">
                     🖼️ Choisir
                   </button>
 
-                  <!-- Remove Button -->
                   <button type="button" class="admin-btn admin-btn-danger admin-btn-sm" onclick="AdminDashboard.removeBundleSlot(${idx})" title="Retirer ce t-shirt" style="padding: 7px 11px;">
                     ✕
                   </button>
@@ -1178,14 +1160,11 @@ window.AdminDashboard = {
     if (titleEl) {
       titleEl.textContent = (slotIndex !== null && slotIndex >= 0)
         ? `Assigner un Modèle pour le T-Shirt #${slotIndex + 1}`
-        : "Choisir un Modèle & Déclinaison de T-Shirt pour le Pack";
+        : "Choisir un Modèle de T-Shirt pour le Pack";
     }
 
     const searchInput = document.getElementById("bundle-picker-search");
     if (searchInput) searchInput.value = '';
-
-    const filterPills = document.querySelectorAll("#bundle-picker-color-filters .admin-filter-pill");
-    filterPills.forEach((p, idx) => p.classList.toggle("active", idx === 0));
 
     this.renderBundlePickerModalGrid();
     this.openModal("modal-bundle-product-picker");
@@ -1198,10 +1177,6 @@ window.AdminDashboard = {
 
   filterBundlePickerByColor(colorCode, btnEl) {
     this.bundlePickerModalColor = colorCode;
-    if (btnEl && btnEl.parentElement) {
-      btnEl.parentElement.querySelectorAll(".admin-filter-pill").forEach(p => p.classList.remove("active"));
-      btnEl.classList.add("active");
-    }
     this.renderBundlePickerModalGrid();
   },
 
@@ -1211,29 +1186,20 @@ window.AdminDashboard = {
 
     const allVariations = this.getAllTshirtVariations();
     const query = this.bundlePickerModalQuery;
-    const colorFilter = this.bundlePickerModalColor;
 
     let filtered = allVariations;
-
-    if (colorFilter && colorFilter !== 'all') {
-      filtered = filtered.filter(v => 
-        (v.colorCode || '').toLowerCase().includes(colorFilter.toLowerCase()) || 
-        (v.colorName || '').toLowerCase().includes(colorFilter.toLowerCase())
-      );
-    }
 
     if (query) {
       filtered = filtered.filter(v => 
         v.displayName.toLowerCase().includes(query) || 
-        v.category.toLowerCase().includes(query) || 
-        v.colorName.toLowerCase().includes(query)
+        v.category.toLowerCase().includes(query)
       );
     }
 
     if (filtered.length === 0) {
       container.innerHTML = `
         <div style="grid-column: 1 / -1; text-align: center; padding: 28px; color: var(--admin-text-muted);">
-          Aucun modèle ou déclinaison trouvé pour cette recherche.
+          Aucun modèle trouvé pour cette recherche.
         </div>
       `;
       return;
@@ -1247,14 +1213,12 @@ window.AdminDashboard = {
              onclick="AdminDashboard.selectBundleProductFromModal('${v.itemKey}')" 
              title="${v.displayName} - ${StoreUtils.formatMoney(v.price)}">
           <div style="position: relative; width: 100%; height: 85px; background: #0E0E0E; display: flex; align-items: center; justify-content: center; padding: 4px; box-sizing: border-box;">
-            <img src="${v.thumb}" alt="${v.displayName}" class="preset-img" style="height: 100%; width: 100%; object-fit: contain;" onerror="this.src='assets/images/products/tshirt-white-front.jpg'">
-            <span style="position: absolute; bottom: 4px; right: 4px; width: 12px; height: 12px; border-radius: 50%; background-color: ${v.colorHex}; border: 1px solid rgba(255,255,255,0.6);" title="${v.colorName}"></span>
+            <img src="${v.thumb}" alt="${v.displayName}" class="preset-img" style="height: 100%; width: 100%; object-fit: contain;" onerror="this.src='assets/ecom/1.png'">
           </div>
           <div class="preset-label" style="font-weight: 700; color: #FFFFFF; font-size: 0.72rem; line-height: 1.25; padding: 5px 4px 2px;">
             ${v.productName}
           </div>
           <div style="font-size: 0.68rem; color: var(--admin-gold); text-align: center; padding: 1px 4px 4px; background: var(--admin-surface); display: flex; justify-content: space-around; align-items: center;">
-            <span style="color: var(--admin-text-muted); font-size: 0.65rem;">${v.colorName}</span>
             <span>${StoreUtils.formatMoney(v.price)}</span>
           </div>
         </div>
@@ -1370,8 +1334,10 @@ window.AdminDashboard = {
       document.getElementById("bundle-form-desc").value = product.description || "";
       document.getElementById("bundle-form-isnew").checked = !!product.isNew;
       document.getElementById("bundle-form-isfeatured").checked = !!product.isFeatured;
+      const bundleActiveCheck = document.getElementById("bundle-form-isactive");
+      if (bundleActiveCheck) bundleActiveCheck.checked = (product.status !== 'disabled' && product.isActive !== false && product.disabled !== true);
 
-      const bundleImg = (product.colors && product.colors[0] && product.colors[0].image) || (product.images && product.images.bundle && product.images.bundle[0]) || "assets/images/products/t-shirts/tshirt-Pack-3.jpg";
+      const bundleImg = (product.colors && product.colors[0] && product.colors[0].image) || (product.images && product.images.bundle && product.images.bundle[0]) || "assets/Header/Header Ar.png";
       document.getElementById("bundle-form-image").value = bundleImg;
       this.updateBundleMockupPreview(bundleImg);
 
@@ -1396,19 +1362,21 @@ window.AdminDashboard = {
     const categories = window.StoreDataManager.getCategories();
     const colors = window.StoreDataManager.getColors();
 
-    // Populate Category select
+    // Populate Category select (Grouped by Departments)
     const catSelect = document.getElementById("prod-form-category");
-    catSelect.innerHTML = categories.map(c => `<option value="${c.slug}">${c.name}</option>`).join("");
+    catSelect.innerHTML = this.buildCategoryDropdownOptions(false);
 
     document.getElementById("prod-form-name").value = "";
     document.getElementById("prod-form-group").value = "";
     document.getElementById("prod-form-slug").value = "";
     document.getElementById("prod-form-price").value = "249";
     document.getElementById("prod-form-compare").value = "";
-    document.getElementById("prod-form-shortdesc").value = "T-shirt à la coupe oversized contemporaine, taillé dans un jersey 100% coton lourd.";
-    document.getElementById("prod-form-desc").value = "Pièce fondamentale de notre collection permanente. Coupe boxy moderne aux épaules tombantes et col côtelé renforcé.";
+    document.getElementById("prod-form-stock").value = "25";
+    document.getElementById("prod-form-sku").value = "";
+    document.getElementById("prod-form-shortdesc").value = "T-shirt à la coupe contemporaine, taillé dans un jersey 100% coton lourd.";
+    document.getElementById("prod-form-desc").value = "Pièce fondamentale de notre collection permanente. Coupe soignée et finitions haut de gamme.";
     document.getElementById("prod-form-materials").value = "100% Coton peigné haut de gamme 240 GSM";
-    document.getElementById("prod-form-fit").value = "Coupe oversize prononcée. Prenez votre taille habituelle.";
+    document.getElementById("prod-form-fit").value = "Coupe oversize contemporaine. Prenez votre taille habituelle.";
     document.getElementById("prod-form-care").value = "Lavage en machine à 30°C sur l'envers. Séchage à plat.";
     document.getElementById("prod-form-details").value = "Coupe oversized décontractée\nJersey épais de qualité supérieure\nCol rond côtelé renforcé 3 cm\nCoutures renforcées double aiguille";
     document.getElementById("prod-form-tags").value = "oversized, coton lourd, streetwear, premium";
@@ -1416,244 +1384,17 @@ window.AdminDashboard = {
     document.getElementById("prod-form-isnew").checked = true;
     document.getElementById("prod-form-issale").checked = false;
     document.getElementById("prod-form-isfeatured").checked = true;
+    const prodActive = document.getElementById("prod-form-isactive");
+    if (prodActive) prodActive.checked = true;
+    const bundleActive = document.getElementById("bundle-form-isactive");
+    if (bundleActive) bundleActive.checked = true;
 
-    // Render Color rows with linked product page selector (start clean with no color pre-checked)
-    this.renderProductColorRows([], "");
-
-    // Render Size pills selector with defaults
-    this.renderProductSizePills(["S", "M", "L", "XL"]);
-
-    // Initial clean Gallery state (no color pre-selected)
-    this.activeEditColor = null;
-    this.currentProductImages = {};
+    // Initial clean Gallery state
     this.currentGalleryImages = [];
-    this.renderProductGalleryColorTabs([]);
     this.renderGalleryCards();
   },
 
-  // --------------------------------------------------------------------------
-  // PRODUCT SIZES SELECTOR MANAGEMENT
-  // --------------------------------------------------------------------------
-  STANDARD_SIZES: ["XS", "S", "M", "L", "XL", "XXL", "3XL", "Unique"],
-
-  renderProductSizePills(selectedSizes = ["S", "M", "L", "XL"]) {
-    const container = document.getElementById("prod-form-sizes-container");
-    if (!container) return;
-
-    const currentSelected = Array.isArray(selectedSizes) ? selectedSizes : ["S", "M", "L", "XL"];
-
-    container.innerHTML = this.STANDARD_SIZES.map(sz => {
-      const isChecked = currentSelected.includes(sz);
-      return `
-        <label class="admin-size-pill-card ${isChecked ? 'active' : ''}" id="size-pill-card-${sz}">
-          <input type="checkbox" name="prod_size" value="${sz}" ${isChecked ? 'checked' : ''} 
-                 onchange="AdminDashboard.handleSizeCheckboxChange(this)">
-          <span class="admin-size-pill-label">${sz}</span>
-        </label>
-      `;
-    }).join("");
-
-    this.updateSizeSelectionSummary();
-  },
-
-  handleSizeCheckboxChange(input) {
-    const card = document.getElementById(`size-pill-card-${input.value}`);
-    if (card) {
-      if (input.checked) {
-        card.classList.add("active");
-      } else {
-        card.classList.remove("active");
-      }
-    }
-    this.updateSizeSelectionSummary();
-  },
-
-  setSizePreset(presetSizes = []) {
-    document.querySelectorAll("input[name='prod_size']").forEach(input => {
-      const shouldCheck = presetSizes.includes(input.value);
-      input.checked = shouldCheck;
-      const card = document.getElementById(`size-pill-card-${input.value}`);
-      if (card) {
-        if (shouldCheck) card.classList.add("active");
-        else card.classList.remove("active");
-      }
-    });
-    this.updateSizeSelectionSummary();
-    this.toast(`Tailles sélectionnées : ${presetSizes.join(', ')}`, "info");
-  },
-
-  toggleAllSizes(checkAll = true) {
-    document.querySelectorAll("input[name='prod_size']").forEach(input => {
-      input.checked = checkAll;
-      const card = document.getElementById(`size-pill-card-${input.value}`);
-      if (card) {
-        if (checkAll) card.classList.add("active");
-        else card.classList.remove("active");
-      }
-    });
-    this.updateSizeSelectionSummary();
-  },
-
-  updateSizeSelectionSummary() {
-    const summary = document.getElementById("prod-form-sizes-summary");
-    if (!summary) return;
-
-    const checked = [];
-    document.querySelectorAll("input[name='prod_size']:checked").forEach(input => {
-      checked.push(input.value);
-    });
-
-    if (checked.length === 0) {
-      summary.innerHTML = `<span style="color: var(--admin-danger); font-weight: 700;">⚠️ Aucune taille cochée (veuillez sélectionner au moins une taille)</span>`;
-    } else {
-      summary.innerHTML = `✓ <b>${checked.length} taille${checked.length > 1 ? 's' : ''} active${checked.length > 1 ? 's' : ''} :</b> ${checked.join(' • ')}`;
-    }
-  },
-
-  getSelectedSizesFromForm() {
-    const checked = [];
-    document.querySelectorAll("input[name='prod_size']:checked").forEach(input => {
-      checked.push(input.value);
-    });
-    return checked.length > 0 ? checked : ["M"];
-  },
-
-  renderProductColorRows(existingColors = [], currentProductId = '') {
-    const colorContainer = document.getElementById("prod-form-color-checkboxes");
-    if (!colorContainer) return;
-
-    const colors = window.StoreDataManager.getColors();
-    const allProducts = window.StoreDataManager.getProducts();
-    const activeColors = Array.isArray(existingColors) ? existingColors : [];
-
-    colorContainer.innerHTML = colors.map(col => {
-      const existingMatch = activeColors.find(c => c.code === col.code);
-      const isChecked = !!existingMatch;
-      const linkedId = (existingMatch && existingMatch.productId) ? existingMatch.productId : "";
-
-      return `
-        <div class="admin-color-link-card ${isChecked ? 'is-selected' : ''}">
-          <!-- Checkbox + Swatch + Name -->
-          <label class="admin-color-link-label">
-            <input type="checkbox" name="prod_color" value="${col.code}" 
-                   data-name="${col.name}" data-hex="${col.hex}" data-image="${(existingMatch && existingMatch.image) ? existingMatch.image : (col.image || '')}"
-                   ${isChecked ? 'checked' : ''} onchange="AdminDashboard.handleColorCheckboxChange()">
-            <span class="admin-color-link-dot" style="background-color: ${col.hex};"></span>
-            <div class="admin-color-link-text">
-              <span class="admin-color-link-name">${col.name}</span>
-              <span class="admin-color-link-hex">${col.hex}</span>
-            </div>
-          </label>
-
-          <!-- Linked Product Page Selector -->
-          <div class="admin-color-link-select-wrap">
-            <span class="admin-color-link-select-hint">🔗 Fiche liée :</span>
-            <select class="admin-form-select admin-color-link-select" id="prod-color-link-${col.code}">
-              <option value="">(Cette même fiche produit)</option>
-              ${allProducts.map(p => `
-                <option value="${p.id}" ${linkedId === p.id ? 'selected' : ''}>
-                  ${p.name}
-                </option>
-              `).join('')}
-            </select>
-          </div>
-        </div>
-      `;
-    }).join("");
-  },
-
-  handleColorCheckboxChange() {
-    const selectedColors = [];
-    document.querySelectorAll("input[name='prod_color']:checked").forEach(input => {
-      selectedColors.push({
-        name: input.getAttribute("data-name") || input.value,
-        code: input.value,
-        hex: input.getAttribute("data-hex") || "#121212"
-      });
-    });
-
-    // Update parent card active class
-    document.querySelectorAll(".admin-color-link-card").forEach(card => {
-      const chk = card.querySelector("input[name='prod_color']");
-      if (chk) card.classList.toggle("is-selected", chk.checked);
-    });
-
-    if (selectedColors.length > 0) {
-      if (!selectedColors.some(c => c.code === this.activeEditColor)) {
-        this.switchEditGalleryColor(selectedColors[0].code);
-      } else {
-        this.renderProductGalleryColorTabs(selectedColors);
-      }
-    } else {
-      this.activeEditColor = null;
-      this.currentGalleryImages = [];
-      this.renderProductGalleryColorTabs([]);
-      this.renderGalleryCards();
-    }
-  },
-
-  renderProductGalleryColorTabs(selectedColors = []) {
-    const tabsContainer = document.getElementById("product-gallery-color-tabs");
-    if (!tabsContainer) return;
-
-    if (!selectedColors || selectedColors.length <= 1) {
-      tabsContainer.style.display = "none";
-      return;
-    }
-
-    tabsContainer.style.display = "flex";
-    tabsContainer.innerHTML = `
-      <span style="font-size: 0.75rem; color: var(--admin-text-muted); font-weight: 600; margin-right: 4px;">Galerie pour :</span>
-      ${selectedColors.map(c => {
-        const isActive = c.code === this.activeEditColor;
-        const imgCount = (this.currentProductImages[c.code] && this.currentProductImages[c.code].length) || 0;
-        return `
-          <button type="button" class="gallery-color-tab-btn ${isActive ? 'active' : ''}" 
-                  onclick="AdminDashboard.switchEditGalleryColor('${c.code}')">
-            <span class="gallery-color-tab-dot" style="background-color: ${c.hex};"></span>
-            <span>${c.name}</span>
-            <span style="font-size: 0.72rem; color: var(--admin-text-muted); background: var(--admin-surface-3); padding: 1px 6px; border-radius: 999px;">${imgCount}</span>
-          </button>
-        `;
-      }).join("")}
-    `;
-  },
-
-  switchEditGalleryColor(colorCode) {
-    if (!colorCode) return;
-
-    // Save current working images to the previous active color
-    if (this.activeEditColor) {
-      this.currentProductImages[this.activeEditColor] = [...this.currentGalleryImages];
-    }
-
-    this.activeEditColor = colorCode;
-
-    // Load or initialize images for the new active color
-    if (!this.currentProductImages[colorCode] || this.currentProductImages[colorCode].length === 0) {
-      const allColors = window.StoreDataManager.getColors();
-      const colObj = allColors.find(c => c.code === colorCode);
-      const fallbackImg = (colObj && colObj.image) ? colObj.image : "";
-      this.currentProductImages[colorCode] = fallbackImg ? [fallbackImg] : [];
-    }
-
-    this.currentGalleryImages = [...this.currentProductImages[colorCode]];
-
-    // Re-render tabs and gallery cards
-    const selectedColors = [];
-    document.querySelectorAll("input[name='prod_color']:checked").forEach(input => {
-      selectedColors.push({
-        name: input.getAttribute("data-name") || input.value,
-        code: input.value,
-        hex: input.getAttribute("data-hex") || "#121212"
-      });
-    });
-
-    this.renderProductGalleryColorTabs(selectedColors);
-    this.renderGalleryCards();
-  },
-
-  populateProductFormWithData(p, targetColorCode = null) {
+  populateProductFormWithData(p) {
     this.populateProductFormDefaults();
 
     document.getElementById("prod-form-id").value = p.id;
@@ -1663,6 +1404,12 @@ window.AdminDashboard = {
     document.getElementById("prod-form-category").value = p.category;
     document.getElementById("prod-form-price").value = p.price;
     document.getElementById("prod-form-compare").value = p.compareAtPrice || "";
+
+    const totalStock = p.stock !== undefined ? p.stock : (Array.isArray(p.variants) ? p.variants.reduce((sum, v) => sum + (v.stock || 0), 0) : 25);
+    const sku = (p.variants && p.variants[0] && p.variants[0].sku) || `DXN-${p.id.toUpperCase()}`;
+    document.getElementById("prod-form-stock").value = totalStock;
+    document.getElementById("prod-form-sku").value = sku;
+
     document.getElementById("prod-form-shortdesc").value = p.shortDescription || "";
     document.getElementById("prod-form-desc").value = p.description || "";
     document.getElementById("prod-form-materials").value = p.materials || "";
@@ -1674,37 +1421,24 @@ window.AdminDashboard = {
     document.getElementById("prod-form-isnew").checked = !!p.isNew;
     document.getElementById("prod-form-issale").checked = !!p.isSale;
     document.getElementById("prod-form-isfeatured").checked = !!p.isFeatured;
+    const prodActive = document.getElementById("prod-form-isactive");
+    if (prodActive) prodActive.checked = (p.status !== 'disabled' && p.isActive !== false && p.disabled !== true);
 
-    // Render Color rows populated with existing product color links
-    const colors = (p.colors && p.colors.length > 0) ? p.colors : [{ name: "Noir Onyx", code: "black", hex: "#121212" }];
-    this.renderProductColorRows(colors, p.id);
-
-    // Render Size pills selector populated with existing product sizes
-    this.renderProductSizePills(Array.isArray(p.sizes) && p.sizes.length > 0 ? p.sizes : ["S", "M", "L", "XL"]);
-
-    // Deep clone product images dictionary
-    this.currentProductImages = {};
+    // Load gallery images
+    let imgs = [];
     if (p.images && typeof p.images === "object") {
-      Object.keys(p.images).forEach(k => {
-        if (Array.isArray(p.images[k])) {
-          this.currentProductImages[k] = [...p.images[k]];
-        }
-      });
+      if (Array.isArray(p.images)) {
+        imgs = [...p.images];
+      } else {
+        Object.values(p.images).forEach(list => {
+          if (Array.isArray(list)) imgs.push(...list);
+        });
+      }
     }
-
-    // Set active color to targetColorCode if specified, or first color
-    const firstColorCode = (colors[0] && colors[0].code) || "black";
-    this.activeEditColor = (targetColorCode && colors.some(c => c.code === targetColorCode)) ? targetColorCode : firstColorCode;
-
-    // Ensure active color has image list
-    if (!this.currentProductImages[this.activeEditColor] || this.currentProductImages[this.activeEditColor].length === 0) {
-      const colObj = colors.find(c => c.code === this.activeEditColor);
-      this.currentProductImages[this.activeEditColor] = colObj && colObj.image ? [colObj.image] : ["assets/images/products/t-shirts/essential-oversized-tee/front-main.png"];
+    if (imgs.length === 0 && p.colors && p.colors[0] && p.colors[0].image) {
+      imgs.push(p.colors[0].image);
     }
-
-    this.currentGalleryImages = [...this.currentProductImages[this.activeEditColor]];
-
-    this.renderProductGalleryColorTabs(colors);
+    this.currentGalleryImages = [...new Set(imgs)];
     this.renderGalleryCards();
   },
 
@@ -1718,7 +1452,7 @@ window.AdminDashboard = {
     if (!this.currentGalleryImages || this.currentGalleryImages.length === 0) {
       container.innerHTML = `
         <div style="grid-column: 1 / -1; text-align: center; padding: 24px; color: var(--admin-text-muted); background: var(--admin-surface); border-radius: 6px; border: 1px dashed var(--admin-border);">
-          Aucun visuel dans la galerie pour ce coloris. Importez une image locale ou choisissez un mockup ci-dessus.
+          Aucun visuel dans la galerie. Importez une image locale ou choisissez un mockup ci-dessus.
         </div>
       `;
       return;
@@ -1789,9 +1523,6 @@ window.AdminDashboard = {
     if (index === 0 || index >= this.currentGalleryImages.length) return;
     const item = this.currentGalleryImages.splice(index, 1)[0];
     this.currentGalleryImages.unshift(item);
-    if (this.activeEditColor) {
-      this.currentProductImages[this.activeEditColor] = [...this.currentGalleryImages];
-    }
     this.renderGalleryCards();
     this.toast("Image définie comme Visuel Principal (1)", "success");
   },
@@ -1804,9 +1535,6 @@ window.AdminDashboard = {
     } else {
       this.currentGalleryImages.splice(1, 0, item);
     }
-    if (this.activeEditColor) {
-      this.currentProductImages[this.activeEditColor] = [...this.currentGalleryImages];
-    }
     this.renderGalleryCards();
     this.toast("Image définie comme Visuel au Survol (2)", "success");
   },
@@ -1817,18 +1545,12 @@ window.AdminDashboard = {
     const temp = this.currentGalleryImages[index];
     this.currentGalleryImages[index] = this.currentGalleryImages[targetIdx];
     this.currentGalleryImages[targetIdx] = temp;
-    if (this.activeEditColor) {
-      this.currentProductImages[this.activeEditColor] = [...this.currentGalleryImages];
-    }
     this.renderGalleryCards();
   },
 
   removeGalleryImage(index) {
     if (index < 0 || index >= this.currentGalleryImages.length) return;
     this.currentGalleryImages.splice(index, 1);
-    if (this.activeEditColor) {
-      this.currentProductImages[this.activeEditColor] = [...this.currentGalleryImages];
-    }
     this.renderGalleryCards();
     this.toast("Image retirée de la galerie", "success");
   },
@@ -1923,10 +1645,6 @@ window.AdminDashboard = {
       }
     }
 
-    if (this.activeEditColor) {
-      this.currentProductImages[this.activeEditColor] = [...this.currentGalleryImages];
-    }
-
     this.renderGalleryCards();
     event.target.value = "";
   },
@@ -1955,9 +1673,6 @@ window.AdminDashboard = {
     }
 
     this.currentGalleryImages.push(val);
-    if (this.activeEditColor) {
-      this.currentProductImages[this.activeEditColor] = [...this.currentGalleryImages];
-    }
     input.value = "";
     this.renderGalleryCards();
     this.toast("Image ajoutée à la galerie", "success");
@@ -1975,11 +1690,12 @@ window.AdminDashboard = {
       const price = parseInt(document.getElementById("bundle-form-price").value, 10) || 0;
       const compareAtPrice = parseInt(document.getElementById("bundle-form-compare").value, 10) || null;
       const bundleSlotsCount = parseInt(document.getElementById("bundle-form-slots").value, 10) || 3;
-      const bundleImage = document.getElementById("bundle-form-image").value.trim() || "assets/images/products/t-shirts/tshirt-Pack-3.jpg";
+      const bundleImage = document.getElementById("bundle-form-image").value.trim() || "assets/Header/Header Ar.png";
       const shortDescription = document.getElementById("bundle-form-shortdesc").value.trim();
       const description = document.getElementById("bundle-form-desc").value.trim();
       const isNew = document.getElementById("bundle-form-isnew").checked;
       const isFeatured = document.getElementById("bundle-form-isfeatured").checked;
+      const isActive = document.getElementById("bundle-form-isactive") ? document.getElementById("bundle-form-isactive").checked : true;
 
       if (!name) {
         this.toast("Le nom du pack est obligatoire", "danger");
@@ -2010,6 +1726,9 @@ window.AdminDashboard = {
         isNew,
         isSale: false,
         isFeatured,
+        status: isActive ? "active" : "disabled",
+        isActive: isActive,
+        disabled: !isActive,
         isBundle: true,
         bundleSlotsCount,
         bundleIncludedProductIds,
@@ -2074,6 +1793,8 @@ window.AdminDashboard = {
     const category = document.getElementById("prod-form-category").value;
     const price = parseInt(document.getElementById("prod-form-price").value, 10) || 0;
     const compareAtPrice = parseInt(document.getElementById("prod-form-compare").value, 10) || null;
+    const stock = parseInt(document.getElementById("prod-form-stock")?.value, 10) || 0;
+    const skuInput = document.getElementById("prod-form-sku")?.value.trim() || "";
     const shortDescription = document.getElementById("prod-form-shortdesc").value.trim();
     const description = document.getElementById("prod-form-desc").value.trim();
     const materials = document.getElementById("prod-form-materials").value.trim();
@@ -2085,6 +1806,7 @@ window.AdminDashboard = {
     const isNew = document.getElementById("prod-form-isnew").checked;
     const isSale = document.getElementById("prod-form-issale").checked;
     const isFeatured = document.getElementById("prod-form-isfeatured").checked;
+    const isActive = document.getElementById("prod-form-isactive") ? document.getElementById("prod-form-isactive").checked : true;
 
     if (!name) {
       this.toast("Le nom du produit est obligatoire", "danger");
@@ -2096,76 +1818,60 @@ window.AdminDashboard = {
     }
 
     const id = existingId || slug;
+    const sku = skuInput || `DXN-${category.substring(0, 3).toUpperCase()}-${id.substring(0, 6).toUpperCase()}`;
 
-    // Sync current gallery to active color
-    if (this.activeEditColor) {
-      this.currentProductImages[this.activeEditColor] = [...this.currentGalleryImages];
-    }
-
-    // Collect checked colors and their linked product pages
-    let selectedColors = [];
-    document.querySelectorAll("input[name='prod_color']:checked").forEach(input => {
-      const code = input.value;
-      const linkSelect = document.getElementById(`prod-color-link-${code}`);
-      const linkedProductId = linkSelect ? linkSelect.value.trim() : "";
-      const colImgList = this.currentProductImages[code] || [];
-      const colImage = colImgList[0] || input.getAttribute("data-image") || "assets/images/hero/hero-banner.jpg";
-
-      selectedColors.push({
-        name: input.getAttribute("data-name") || code,
-        code: code,
-        hex: input.getAttribute("data-hex") || "#121212",
-        image: colImage,
-        productId: linkedProductId || id,
-        linkUrl: linkedProductId ? `product.html?id=${linkedProductId}&color=${code}` : `product.html?id=${id}&color=${code}`
-      });
-    });
-
-    if (selectedColors.length === 0) {
-      this.toast("Veuillez cocher au moins un coloris pour ce produit", "danger");
-      return;
-    }
-
-    // Sizes (from interactive selector)
-    const sizes = this.getSelectedSizesFromForm();
-
-    // Retain existing variant stock if editing, or create new variants
-    let existingVariants = [];
+    let oldProd = null;
     if (existingId) {
-      const oldProd = window.StoreDataManager.getProductById(existingId);
-      if (oldProd && Array.isArray(oldProd.variants)) {
-        existingVariants = oldProd.variants;
-      }
+      oldProd = window.StoreDataManager.getProductById(existingId);
     }
 
-    let variants = [];
+    // Prepare gallery images
+    const galleryList = (this.currentGalleryImages && this.currentGalleryImages.length > 0)
+      ? [...this.currentGalleryImages]
+      : ["assets/Header/Header Ar.png"];
+
+    // Preserve or create backward-compatible color / size / variant metadata for storefront
+    const primaryColor = (oldProd && oldProd.colors && oldProd.colors[0]) || {
+      name: "Standard",
+      code: "default",
+      hex: "#121212",
+      image: galleryList[0],
+      productId: id
+    };
+
+    let colors = (oldProd && Array.isArray(oldProd.colors) && oldProd.colors.length > 0)
+      ? oldProd.colors
+      : [primaryColor];
+    if (colors[0]) colors[0].image = galleryList[0];
+
+    let sizes = (oldProd && Array.isArray(oldProd.sizes) && oldProd.sizes.length > 0)
+      ? oldProd.sizes
+      : ["Unique"];
+
     let images = {};
+    if (oldProd && oldProd.images && typeof oldProd.images === "object") {
+      images = { ...oldProd.images };
+    }
+    images[primaryColor.code || "default"] = [...galleryList];
 
-    selectedColors.forEach(col => {
-      if (this.currentProductImages[col.code] && this.currentProductImages[col.code].length > 0) {
-        images[col.code] = [...this.currentProductImages[col.code]];
-      } else if (this.currentGalleryImages && this.currentGalleryImages.length > 0) {
-        images[col.code] = [...this.currentGalleryImages];
-      } else {
-        images[col.code] = [col.image || "assets/images/hero/hero-banner.jpg"];
-      }
-
-      sizes.forEach(sz => {
-        const variantId = `${id.substring(0, 4)}-${col.code.substring(0, 3)}-${sz.toLowerCase()}`;
-        const existing = existingVariants.find(v => v.color === col.code && v.size === sz);
-        const stock = existing ? existing.stock : 10;
-        const sku = `${category.substring(0, 3)}-${col.code.substring(0, 3)}-${sz}`.toUpperCase();
-
-        variants.push({
-          id: variantId,
-          color: col.code,
-          size: sz,
-          sku,
-          stock,
-          price
-        });
-      });
-    });
+    // Maintain variants so product page / cart know the stock level
+    let variants = [];
+    if (oldProd && Array.isArray(oldProd.variants) && oldProd.variants.length > 0) {
+      variants = oldProd.variants.map(v => ({
+        ...v,
+        stock: stock,
+        price: price
+      }));
+    } else {
+      variants = [{
+        id: `${id.substring(0, 6)}-var`,
+        color: primaryColor.code || "default",
+        size: sizes[0] || "Unique",
+        sku: sku,
+        stock: stock,
+        price: price
+      }];
+    }
 
     const existingCollections = (oldProd && Array.isArray(oldProd.collections) && oldProd.collections.length > 0)
       ? oldProd.collections
@@ -2177,12 +1883,22 @@ window.AdminDashboard = {
       name,
       slug,
       category,
+      categoryGroup: (window.CategoryManager && window.CategoryManager.getParentForSubcategory(category))
+        ? window.CategoryManager.getParentForSubcategory(category).slug
+        : (oldProd ? oldProd.categoryGroup : undefined),
+      mainCategory: (window.CategoryManager && window.CategoryManager.getParentForSubcategory(category))
+        ? window.CategoryManager.getParentForSubcategory(category).slug
+        : (oldProd ? oldProd.mainCategory : undefined),
       collections: existingCollections,
       price,
       compareAtPrice,
+      stock,
       isNew,
       isSale,
       isFeatured,
+      status: isActive ? "active" : "disabled",
+      isActive: isActive,
+      disabled: !isActive,
       isBundle: (oldProd && typeof oldProd.isBundle === 'boolean') ? oldProd.isBundle : false,
       rating: (oldProd && oldProd.rating) || 5,
       reviewCount: (oldProd && oldProd.reviewCount) || 24,
@@ -2192,7 +1908,7 @@ window.AdminDashboard = {
       materials,
       fit,
       careInstructions,
-      colors: selectedColors,
+      colors,
       sizes,
       images,
       variants,
@@ -2245,6 +1961,23 @@ window.AdminDashboard = {
     this.renderOverview();
     this.updateBadges();
     this.toast("Produit supprimé", "success");
+  },
+
+  toggleProductStatus(id) {
+    const updated = window.StoreDataManager.toggleProductStatus(id);
+    if (!updated) {
+      this.toast(`Produit "${id}" introuvable`, "danger");
+      return;
+    }
+    this.renderProducts();
+    this.renderStockMatrix();
+    this.renderOverview();
+    this.updateBadges();
+    const isNowActive = (updated.status !== 'disabled' && updated.isActive !== false && updated.disabled !== true);
+    this.toast(
+      isNowActive ? `🟢 Produit activé (visible dans la boutique)` : `🔴 Produit désactivé (masqué de la boutique)`,
+      isNowActive ? "success" : "warning"
+    );
   },
 
   // --------------------------------------------------------------------------
@@ -2349,17 +2082,12 @@ window.AdminDashboard = {
   selectImagePreset(url) {
     if (this.activeImageTargetInput === "gallery") {
       this.currentGalleryImages.push(url);
-      if (this.activeEditColor) {
-        this.currentProductImages[this.activeEditColor] = [...this.currentGalleryImages];
-      }
       this.renderGalleryCards();
     } else if (this.activeImageTargetInput) {
       const input = document.getElementById(this.activeImageTargetInput);
       if (input) {
         input.value = url;
-        if (this.activeImageTargetInput === "color-form-image") {
-          this.updateColorMockupPreview(url);
-        } else if (this.activeImageTargetInput === "bundle-form-image" || this.activeImageTargetInput === "prod-form-bundle-image") {
+        if (this.activeImageTargetInput === "bundle-form-image" || this.activeImageTargetInput === "prod-form-bundle-image") {
           this.updateBundleMockupPreview(url);
         }
       }
@@ -2426,20 +2154,20 @@ window.AdminDashboard = {
   },
 
   async confirmResetDefaults() {
-    if (confirm("ATTENTION : Cette action va réinitialiser tout le catalogue (11 produits d'origine), les catégories et les stocks aux valeurs d'origine et synchroniser les fichiers. Continuer ?")) {
+    if (confirm("ATTENTION : Cette action va réinitialiser le catalogue, les catégories et les stocks aux valeurs initiales et synchroniser les fichiers. Continuer ?")) {
       window.StoreDataManager.resetToDefaults();
       await window.StoreDataManager.syncAllToDisk();
       this.renderAll();
-      this.toast("✓ Catalogue des 11 produits d'origine réinitialisé et synchronisé avec succès !", "success");
+      this.toast("✓ Catalogue réinitialisé et synchronisé avec succès !", "success");
     }
   },
 
   async restoreFullCatalogMaster() {
-    if (!confirm("Voulez-vous vérifier et restaurer l'intégralité des 11 modèles d'origine (T-Shirts, Hoodies, Sweatshirts, Débardeurs et Packs) ? Vos modifications récentes seront préservées et fusionnées.")) return;
+    if (!confirm("Voulez-vous réinitialiser le catalogue et recharger les produits par défaut ?")) return;
     window.StoreDataManager.resetToDefaults();
     await window.StoreDataManager.syncAllToDisk();
     this.renderAll();
-    this.toast("✓ Catalogue complet réinitialisé et synchronisé avec succès (11 produits) !", "success");
+    this.toast("✓ Catalogue synchronisé avec succès !", "success");
   },
 
   clearBrowserCacheAndReload() {
@@ -2537,6 +2265,14 @@ window.AdminDashboard = {
     if (prodCat) {
       prodCat.addEventListener("change", (e) => {
         this.productCategory = e.target.value;
+        this.renderProducts();
+      });
+    }
+
+    const prodStatus = document.getElementById("products-filter-status");
+    if (prodStatus) {
+      prodStatus.addEventListener("change", (e) => {
+        this.productStatusFilter = e.target.value;
         this.renderProducts();
       });
     }
@@ -2865,6 +2601,10 @@ window.AdminDashboard = {
   }
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => {
+    window.AdminDashboard.init();
+  });
+} else {
   window.AdminDashboard.init();
-});
+}

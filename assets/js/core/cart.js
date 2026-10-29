@@ -9,9 +9,28 @@ window.StoreCart = {
   discount: null,
   orderNote: "",
 
+  _isAr() {
+    return (window.StoreI18n && window.StoreI18n.currentLang === 'ar') || (typeof document !== 'undefined' && document.documentElement && document.documentElement.lang === 'ar');
+  },
+
   init() {
     this.items = StoreStorage.get(StoreStorage.KEYS.CART, []);
-    this.discount = StoreStorage.get(StoreStorage.KEYS.DISCOUNT, null);
+    // Sanitize any existing items from localStorage with missing or 'undefined' variantIds
+    if (Array.isArray(this.items)) {
+      this.items = this.items.map(item => {
+        if (!item.variantId || item.variantId === 'undefined' || item.variantId === 'null') {
+          item.variantId = item.sku || `${item.productId || 'item'}_${item.color || 'std'}_${item.size || 'std'}`;
+        }
+        if (!item.maxStock || item.maxStock <= 0) {
+          item.maxStock = 99;
+        }
+        item.quantity = parseInt(item.quantity, 10) || 1;
+        return item;
+      });
+      StoreStorage.set(StoreStorage.KEYS.CART, this.items);
+    }
+    this.discount = null;
+    StoreStorage.remove(StoreStorage.KEYS.DISCOUNT);
     this.orderNote = StoreStorage.get(StoreStorage.KEYS.ORDER_NOTE, "");
     this.emitChange();
   },
@@ -19,60 +38,93 @@ window.StoreCart = {
   /**
    * Add a product variant to cart
    */
-  addItem({ productId, colorCode, size, quantity = 1, openDrawer = true }) {
-    const product = window.STORE_PRODUCTS.find(p => p.id === productId);
+  addItem({ productId, colorCode = null, size = null, quantity = 1, openDrawer = true }) {
+    const product = (window.STORE_PRODUCTS || []).find(p => p.id === productId);
     if (!product) {
       StoreUtils.showToast("Produit introuvable.", "error");
       return false;
     }
 
-    // Find specific variant
-    const variant = product.variants.find(v => v.color === colorCode && v.size === size);
-    if (!variant) {
-      StoreUtils.showToast("Cette combinaison n'est pas disponible.", "error");
-      return false;
+    // Find specific variant with fallback
+    let variant = null;
+    if (product.variants && product.variants.length > 0) {
+      if (colorCode && size) {
+        variant = product.variants.find(v => v.color === colorCode && v.size === size);
+      }
+      if (!variant && colorCode) {
+        variant = product.variants.find(v => v.color === colorCode);
+      }
+      if (!variant && size) {
+        variant = product.variants.find(v => v.size === size);
+      }
+      if (!variant) {
+        variant = product.variants[0];
+      }
+    } else {
+      variant = {
+        color: colorCode || 'standard',
+        size: size || product.weight || 'Standard',
+        stock: product.stock || 99,
+        sku: product.sku || product.id,
+        price: product.price,
+        compareAtPrice: product.compareAtPrice
+      };
     }
 
-    if (variant.stock <= 0) {
+    const maxStock = (variant && variant.stock > 0) ? variant.stock : ((product.stock > 0) ? product.stock : 99);
+    if (variant.stock <= 0 && (!product.stock || product.stock <= 0)) {
       StoreUtils.showToast("Cet article est en rupture de stock.", "error");
       return false;
     }
 
     // Resolve color object
-    const colorObj = product.colors.find(c => c.code === colorCode) || product.colors[0];
-    const image = (product.images[colorCode] && product.images[colorCode][0]) || colorObj.image || product.images[Object.keys(product.images)[0]][0];
+    const colorObj = (product.colors && product.colors.find(c => c.code === colorCode)) || (product.colors && product.colors[0]) || { name: 'Standard', code: 'standard', hex: '#2F5233' };
+    const image = (product.images && product.images[colorCode] && product.images[colorCode][0]) 
+      || colorObj.image 
+      || (product.images && Object.keys(product.images).length > 0 && product.images[Object.keys(product.images)[0]][0])
+      || product.image
+      || 'assets/Header/Header Ar.png';
+
+    // Form unique, concrete variantId
+    const resolvedVariantId = variant.id || variant.sku || `${product.id}_${variant.color || colorCode || 'std'}_${variant.size || size || 'std'}`;
 
     // Check if variant is already in cart
-    const existingIndex = this.items.findIndex(item => item.variantId === variant.id);
+    const existingIndex = this.items.findIndex(item => String(item.variantId) === String(resolvedVariantId));
+
+    const addQty = parseInt(quantity, 10) || 1;
 
     if (existingIndex > -1) {
-      const newQty = this.items[existingIndex].quantity + quantity;
-      if (newQty > variant.stock) {
-        StoreUtils.showToast(`Stock maximum atteint (${variant.stock} articles disponibles).`, "warning");
-        this.items[existingIndex].quantity = variant.stock;
+      const newQty = this.items[existingIndex].quantity + addQty;
+      if (newQty > maxStock) {
+        StoreUtils.showToast(`Stock maximum atteint (${maxStock} articles disponibles).`, "warning");
+        this.items[existingIndex].quantity = maxStock;
       } else {
         this.items[existingIndex].quantity = newQty;
       }
     } else {
-      const initialQty = Math.min(quantity, variant.stock);
+      const initialQty = Math.min(addQty, maxStock);
       this.items.push({
-        variantId: variant.id,
+        variantId: resolvedVariantId,
         productId: product.id,
         name: product.name,
+        nameAr: product.nameAr,
         slug: product.slug,
-        color: colorCode,
+        color: colorCode || variant.color || 'standard',
         colorName: colorObj.name,
-        size: size,
-        sku: variant.sku,
+        size: size || variant.size || product.weight || 'Standard',
+        sku: variant.sku || product.sku || product.id,
         price: variant.price || product.price,
+        compareAtPrice: variant.compareAtPrice || product.compareAtPrice,
         image: image,
         quantity: initialQty,
-        maxStock: variant.stock
+        maxStock: maxStock
       });
     }
 
     this.save();
-    StoreUtils.showToast(`${product.name} (${colorObj.name} / ${size}) ajouté au panier !`, "success");
+    const isAr = this._isAr();
+    const prodName = isAr ? (product.nameAr || product.name) : product.name;
+    StoreUtils.showToast(isAr ? `تمت إضافة "${prodName}" إلى السلة !` : `"${prodName}" ajouté au panier !`, "success");
 
     if (openDrawer && window.CartDrawerComponent) {
       window.CartDrawerComponent.open();
@@ -101,7 +153,7 @@ window.StoreCart = {
       isBundle: true,
       price: price,
       compareAtPrice: compareAtPrice,
-      image: image || 'assets/images/products/t-shirts/tshirt-Pack-3.jpg',
+      image: image || 'assets/Header/Header Ar.png',
       quantity: quantity,
       maxStock: 50,
       bundleItems: bundleItems // Array of { slot, productId, productName, colorCode, colorName, colorHex, size, sku, image }
@@ -110,8 +162,10 @@ window.StoreCart = {
     this.items.push(bundleItem);
     this.save();
 
-    const savings = (compareAtPrice && compareAtPrice > price) ? ` (Économie : ${compareAtPrice - price} MAD)` : '';
-    StoreUtils.showToast(`${bundleItem.name} ajouté au panier !${savings}`, "success");
+    const isAr = this._isAr();
+    const savings = (compareAtPrice && compareAtPrice > price) ? (isAr ? ` (توفير : ${compareAtPrice - price} درهم)` : ` (Économie : ${compareAtPrice - price} MAD)`) : '';
+    const addedMsg = isAr ? `تمت إضافة ${bundleItem.name} إلى السلة !${savings}` : `${bundleItem.name} ajouté au panier !${savings}`;
+    StoreUtils.showToast(addedMsg, "success");
 
     if (openDrawer && window.CartDrawerComponent) {
       window.CartDrawerComponent.open();
@@ -124,18 +178,30 @@ window.StoreCart = {
    * Update quantity of a line item
    */
   updateQuantity(variantId, newQuantity) {
-    const itemIndex = this.items.findIndex(item => item.variantId === variantId);
+    const targetId = String(variantId);
+    let itemIndex = this.items.findIndex(item => String(item.variantId) === targetId);
+    if (itemIndex === -1) {
+      // Fallback matching in case of legacy / corrupted variantId
+      itemIndex = this.items.findIndex(item => 
+        String(item.sku) === targetId || 
+        String(item.productId) === targetId || 
+        (targetId === 'undefined' && (!item.variantId || item.variantId === 'undefined'))
+      );
+    }
     if (itemIndex === -1) return;
 
-    if (newQuantity <= 0) {
-      this.removeItem(variantId);
+    newQuantity = parseInt(newQuantity, 10);
+    if (isNaN(newQuantity) || newQuantity <= 0) {
+      this.removeItem(this.items[itemIndex].variantId);
       return;
     }
 
     const item = this.items[itemIndex];
-    if (newQuantity > item.maxStock) {
-      StoreUtils.showToast(`Désolé, seulement ${item.maxStock} pièces disponibles.`, "warning");
-      item.quantity = item.maxStock;
+    const maxStock = (item.maxStock && item.maxStock > 0) ? item.maxStock : 99;
+    if (newQuantity > maxStock) {
+      const isAr = this._isAr();
+      StoreUtils.showToast(isAr ? `عذراً، تتوفر ${maxStock} قطع فقط في المخزون.` : `Désolé, seulement ${maxStock} pièces disponibles.`, "warning");
+      item.quantity = maxStock;
     } else {
       item.quantity = newQuantity;
     }
@@ -147,11 +213,21 @@ window.StoreCart = {
    * Remove item from cart
    */
   removeItem(variantId) {
-    const item = this.items.find(i => i.variantId === variantId);
-    this.items = this.items.filter(i => i.variantId !== variantId);
-    this.save();
+    const targetId = String(variantId);
+    let item = this.items.find(i => String(i.variantId) === targetId);
+    if (!item) {
+      item = this.items.find(i => 
+        String(i.sku) === targetId || 
+        String(i.productId) === targetId || 
+        (targetId === 'undefined' && (!i.variantId || i.variantId === 'undefined'))
+      );
+    }
     if (item) {
-      StoreUtils.showToast(`"${item.name}" retiré du panier.`, "info");
+      const removedName = item.name;
+      this.items = this.items.filter(i => i !== item);
+      this.save();
+      const isAr = this._isAr();
+      StoreUtils.showToast(isAr ? `تم حذف "${removedName}" من السلة.` : `"${removedName}" retiré du panier.`, "info");
     }
   },
 
@@ -159,13 +235,17 @@ window.StoreCart = {
    * Change variant (e.g. Size or Color) from inside the cart
    */
   updateItemVariant(oldVariantId, newColorCode, newSize) {
-    const oldItem = this.items.find(i => i.variantId === oldVariantId);
+    const targetId = String(oldVariantId);
+    let oldItem = this.items.find(i => String(i.variantId) === targetId);
+    if (!oldItem) {
+      oldItem = this.items.find(i => String(i.sku) === targetId || String(i.productId) === targetId);
+    }
     if (!oldItem) return false;
 
-    const product = window.STORE_PRODUCTS.find(p => p.id === oldItem.productId);
+    const product = (window.STORE_PRODUCTS || []).find(p => p.id === oldItem.productId);
     if (!product) return false;
 
-    const newVariant = product.variants.find(v => v.color === newColorCode && v.size === newSize);
+    const newVariant = (product.variants || []).find(v => v.color === newColorCode && v.size === newSize);
     if (!newVariant || newVariant.stock <= 0) {
       StoreUtils.showToast("Cette variante n'est pas disponible en stock.", "error");
       return false;
